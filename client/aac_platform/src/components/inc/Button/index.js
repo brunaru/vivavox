@@ -1,24 +1,10 @@
-import styled from "styled-components";
-
-const ButtonContainer = styled.button`
-  width: 5vw;
-  height: 50%;
-  background-color: ${({$color}) => ($color ? $color : "#EAEAEA")};
-  border: none;
-  border-radius: 8px;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2vw;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
+import {
+  ButtonContainer
+} from "./styled";
 
 function Button(props) {
   return (
-    <ButtonContainer $color={props.color}>
+    <ButtonContainer $color={props.color} $height={props.height} $width={props.width}>
       {props.text}
     </ButtonContainer>
   );
