@@ -4,7 +4,7 @@ export const SideBarContainer = styled.aside`
   background-color: white;
   height: 100%;
   width: 15vw;
-  filter: drop-shadow(4px 4px 8px grey);
+  filter: drop-shadow(4px 4px 4px grey);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@ export const NavList = styled.ul`
 
 export const Item = styled.li`
   width: 80%;
-  height: 6.2vh;
+  height: 7vh;
   display: flex;
   align-items: center;
   display: flex;
