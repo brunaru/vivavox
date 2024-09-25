@@ -10,4 +10,18 @@ export const BoardContainer = styled.div`
   column-gap: 2.3%;
   row-gap: 2.5%;
   box-sizing: border-box;
+
+  div {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+  }
+`;
+
+export const BoardItem = styled.div`
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
 `;

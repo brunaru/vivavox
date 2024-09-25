@@ -1,32 +1,33 @@
 import Cell from "../Cell";
 import {
-  BoardContainer
+  BoardContainer,
+  BoardItem
 } from "./styled";
 
 
 function Board() {
   return (
     <BoardContainer>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
-      <Cell/>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
+      <BoardItem><Cell/></BoardItem>
     </BoardContainer>
   );
 }

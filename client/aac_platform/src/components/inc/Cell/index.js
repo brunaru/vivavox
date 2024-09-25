@@ -6,7 +6,7 @@ import {
 function Cell() {
   return (
     <CellContainer>
-      
+      <p>Teste</p>
     </CellContainer>
   );
 }
