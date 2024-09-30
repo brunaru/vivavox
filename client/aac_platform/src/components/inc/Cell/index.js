@@ -3,10 +3,14 @@ import {
 } from "./styled";
 
 
-function Cell() {
+function Cell({ index, text, setActiveCell }) {
   return (
-    <CellContainer>
-      <p>Teste</p>
+    <CellContainer 
+      draggable 
+      onDragStart={() => setActiveCell(index)} 
+      onDragEnd={() => setActiveCell(null)}
+    >
+      <p>{text}</p>
     </CellContainer>
   );
 }
