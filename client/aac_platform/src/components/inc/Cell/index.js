@@ -3,14 +3,20 @@ import {
 } from "./styled";
 
 
-function Cell({ index, text, setActiveCell }) {
+function Cell({ index, text, setActiveCell, onDrop }) {
   return (
     <CellContainer 
       draggable 
       onDragStart={() => setActiveCell(index)} 
       onDragEnd={() => setActiveCell(null)}
+      onDrop={() => {
+        onDrop();
+      }}
+      onDragOver={(e) => {
+        e.preventDefault();
+      }}
     >
-      <p>{text}</p>
+      <p>{index+ " " + text}</p>
     </CellContainer>
   );
 }

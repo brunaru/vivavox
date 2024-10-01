@@ -84,6 +84,22 @@ function Board() {
 
   const [activeCell, setActiveCell] = useState(null);
 
+  const onDrop = (position) => {
+    console.log(`${activeCell} is going to place into position ${position}`);
+
+    if(activeCell == null || activeCell === undefined) return;
+
+    const newCells = [...cells];
+    const currentCell = newCells[activeCell];
+    const targetCell = newCells[position];
+
+    newCells[position] = currentCell;
+    newCells[activeCell] = targetCell;
+
+    setCells(newCells);
+    console.log(newCells);
+  }
+
   return (
     <BoardContainer>
       {cells.map((cell, index) => {
@@ -94,6 +110,7 @@ function Board() {
               index={index}
               text={cell.text} 
               setActiveCell={setActiveCell} 
+              onDrop={() => onDrop(index)}
             />
           </BoardItem>
         );

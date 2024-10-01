@@ -10,8 +10,11 @@ export const CellContainer = styled.div`
   max-width: 200px;
   max-height: 120px;
 
-
   &:hover {
     cursor: pointer;
+  }
+
+  &:active {
+    opacity: 0.6;
   }
 `;
