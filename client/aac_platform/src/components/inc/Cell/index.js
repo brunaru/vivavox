@@ -1,9 +1,11 @@
+import CellText from "../CellText";
+import Symbol from "../Symbol";
 import {
   CellContainer
 } from "./styled";
 
 
-function Cell({ index, text, setActiveCell, onDrop }) {
+function Cell({ index, text, img, setActiveCell, onDrop }) {
   return (
     <CellContainer 
       draggable 
@@ -16,7 +18,8 @@ function Cell({ index, text, setActiveCell, onDrop }) {
         e.preventDefault();
       }}
     >
-      <p>{index+ " " + text}</p>
+      <Symbol source={img} />
+      <CellText text={text} />
     </CellContainer>
   );
 }

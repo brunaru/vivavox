@@ -5,8 +5,8 @@ export const BoardContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 2% 2.3%;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(${({$dimensions}) => ($dimensions[1])}, 1fr);
+  grid-template-rows: repeat(${({$dimensions}) => ($dimensions[0])}, 1fr);
   column-gap: 2.3%;
   row-gap: 2.5%;
   box-sizing: border-box;
@@ -25,4 +25,5 @@ export const BoardItem = styled.div`
   justify-content: center; 
   align-items: center; 
   text-align: center; 
+  // overflow: hidden;
 `;

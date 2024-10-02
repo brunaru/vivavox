@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Cell from "../Cell";
+import eu from "../../images/eu-neutro.png";
+import voce from "../../images/você-neutro.png";
 import {
   BoardContainer,
   BoardItem
@@ -9,22 +11,28 @@ import {
 function Board() {
   const [cells, setCells] = useState([
     {
-      text: "eu"
+      text: "eu",
+      img: eu
     },
     {
-      text: "você"
+      text: "você",
+      img: voce
     },
     {
-      text: "ele"
+      text: "ele",
+      img: eu
     },
     {
-      text: "ela"
+      text: "ela",
+      img: eu
     },
     {
-      text: "nós"
+      text: "nós",
+      img: eu
     },
     {
-      text: "isto"
+      text: "isto",
+      img: eu
     },
     {
       text: "comer"
@@ -83,6 +91,7 @@ function Board() {
   ]);
 
   const [activeCell, setActiveCell] = useState(null);
+  const [dimensions, setDimensions] = useState([6, 4]);
 
   const onDrop = (position) => {
     console.log(`${activeCell} is going to place into position ${position}`);
@@ -101,14 +110,15 @@ function Board() {
   }
 
   return (
-    <BoardContainer>
+    <BoardContainer $dimensions={dimensions}>
       {cells.map((cell, index) => {
         return (
           <BoardItem>
             <Cell 
               key={index} 
               index={index}
-              text={cell.text} 
+              text={cell.text}
+              img = {cell.img} 
               setActiveCell={setActiveCell} 
               onDrop={() => onDrop(index)}
             />
