@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CellText from "../CellText";
 import Symbol from "../Symbol";
 import {
@@ -5,21 +6,36 @@ import {
 } from "./styled";
 
 
-function Cell({ index, text, img, setActiveCell, onDrop }) {
+function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop, bounceCells }) {
+  const [isDragging, setIsDragging] = useState(false);
+
   return (
     <CellContainer 
-      draggable 
-      onDragStart={() => setActiveCell(index)} 
-      onDragEnd={() => setActiveCell(null)}
+      draggable
+      isDragging={isDragging}
+      isTarget={targetIndex === index}
+      isBouncing={bounceCells !== null && bounceCells.includes(index)}
+      onDragStart={() => {
+        setActiveCell(index);
+        setIsDragging(true);
+
+        const dragIcon = document.createElement('img')
+      }} 
+      onDragEnd={() => {
+        setActiveCell(null);
+        setIsDragging(false);
+        setTargetIndex(null);
+      }}
       onDrop={() => {
         onDrop();
       }}
       onDragOver={(e) => {
         e.preventDefault();
+        setTargetIndex(index);
       }}
     >
-      <Symbol source={img} />
-      <CellText text={text} />
+      <Symbol source={cell.img} />
+      <CellText text={cell.text} />
     </CellContainer>
   );
 }

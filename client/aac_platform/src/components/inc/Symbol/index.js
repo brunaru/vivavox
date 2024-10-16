@@ -6,7 +6,7 @@ import {
 function Symbol({source}) {
   return (
     <SymbolContainer>
-      <SymbolImage src={source} />
+      <SymbolImage src={source} draggable={false} />
     </SymbolContainer>
   );
 }

@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
+
+const bounce = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+`;
 
 export const CellContainer = styled.div`
   display: flex;
@@ -20,5 +26,27 @@ export const CellContainer = styled.div`
 
   &:active {
     opacity: 0.6;
+  }
+
+  ${({ isDragging }) =>
+    isDragging &&
+    `
+      opacity: 1;
+      background-color: #999;
+    `
+  }
+
+  ${({ isTarget }) =>
+    isTarget &&
+    `
+      background-color: #777;
+    `
+  }
+
+  ${({ isBouncing }) =>
+    isBouncing &&
+    css`
+      animation: ${bounce} 0.3s ease-in-out;
+    `
   }
 `;
