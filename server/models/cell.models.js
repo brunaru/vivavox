@@ -6,7 +6,7 @@ const cellSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  imageURL: {
+  img: {
     type: String
   }
 }, { versionKey: false });

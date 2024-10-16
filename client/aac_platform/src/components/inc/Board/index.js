@@ -107,6 +107,20 @@ function Board() {
     }
   ]);
 
+  async function handleFetch() {
+    try {
+      const response = await axios.get('http://localhost:3001/board/get/Pronomes');
+      setCells(response.data.cells);
+      console.log(response.data.cells);
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
   const [activeCell, setActiveCell] = useState(null);
   const [targetIndex, setTargetIndex] = useState(null);
   const [dimensions, setDimensions] = useState([4, 6, 24]);
