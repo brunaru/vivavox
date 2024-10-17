@@ -46,7 +46,23 @@ export async function deleteCellById(req, res) {
     }
 
     res.status(200);
-    res.send("Cell successfully deleted")
+    res.send("Cell successfully deleted");
+  } catch(error) {
+    res.status(404);
+    res.send(error.message);
+  }
+}
+
+export async function deleteCellByText(req, res) {
+  try {
+    const deletedCell = await Cell.findOneAndDelete({ text: req.params.text });
+
+    if(!deletedCell) {
+      return res.status(404).send({ message: "Cell not found" });
+    }
+
+    res.status(200);
+    res.send("Cell successfully deleted");
   } catch(error) {
     res.status(404);
     res.send(error.message);

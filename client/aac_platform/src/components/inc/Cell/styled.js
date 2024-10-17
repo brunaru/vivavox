@@ -22,6 +22,7 @@ export const CellContainer = styled.div`
 
   &:hover {
     cursor: pointer;
+    filter: drop-shadow(0 4px 6px gray);
   }
 
   &:active {
