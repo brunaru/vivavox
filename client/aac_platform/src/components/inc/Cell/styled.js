@@ -13,7 +13,7 @@ export const CellContainer = styled.div`
   justify-content: center;
   background-color: white;
   border-radius: 8px;
-  filter: drop-shadow(0 4px 3px gray);
+  filter: ${({ color }) => `drop-shadow(0 4px 3px ${color || 'gray'})`};
   width: 100%;
   height: 100%;
   max-width: 200px;
@@ -22,7 +22,7 @@ export const CellContainer = styled.div`
 
   &:hover {
     cursor: pointer;
-    filter: drop-shadow(0 4px 6px gray);
+    filter: ${({ color }) => `drop-shadow(0 4px 6px ${color || 'gray'})`};
   }
 
   &:active {

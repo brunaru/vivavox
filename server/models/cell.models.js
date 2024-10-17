@@ -8,6 +8,9 @@ const cellSchema = new mongoose.Schema({
   },
   img: {
     type: String
+  },
+  color: {
+    type: String
   }
 }, { versionKey: false });
 

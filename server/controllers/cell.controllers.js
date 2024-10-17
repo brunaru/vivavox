@@ -5,7 +5,8 @@ export async function postCell(req, res) {
     // Instanciate an cell object:  
     const newCell = new Cell({
       text: req.body.text,
-      img: req.body.img
+      img: req.body.img,
+      color: req.body.color
     });
 
     // Checking existing cell text:
@@ -14,7 +15,7 @@ export async function postCell(req, res) {
       return res.status(400).send({message: "The cell text is already in use"});
     }
 
-    // Store it into the database:
+    // Store into the database:
     await newCell.save();
 
     res.status(201);
@@ -31,6 +32,25 @@ export async function getAllCells(req, res) {
 
     res.status(200);
     res.send(cells);
+  } catch(error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
+export async function updateCellById(req, res) {
+  try {
+    const cellId = req.params.id;
+    const modifications = req.body;
+    
+    const modifiedCell = await Cell.findByIdAndUpdate(cellId, modifications);
+
+    if(!modifiedCell) {
+      return res.status(404).send({ message: "Cell not found" });
+    }
+
+    res.status(200);
+    res.send("Cell successfully modified");
   } catch(error) {
     res.status(500);
     res.send(error.message);
