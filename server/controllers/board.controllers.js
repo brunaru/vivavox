@@ -35,3 +35,53 @@ export async function postBoard(req, res) {
     res.send(error.message);
   }
 }
+
+export async function getBoardByName(req, res) {
+  try {
+    const nameKey = req.params.name;
+
+    const board = await Board.findOne({ name: nameKey }).populate('cells');
+
+    if(!board) {
+      return res.status(404).send({ message: "Board does not exist" });
+    }
+
+    res.status(200);
+    res.send(board);
+  } catch(error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
+export async function DeleteBoardByName(req, res) {
+  try {
+    const deletedBoard = await Board.findOneAndDelete({ name: req.params.name });
+
+    if(!deletedBoard) {
+      return res.status(404).send({ message: "Board not found" });
+    }
+
+    res.status(200);
+    res.send("Board successfully deleted");
+  } catch(error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
+// export async function DeleteCellFromBoardById(req, res) {
+//   try {
+//     const deletedBoard = await Board.findOneAndDelete({ name: req.params.name });
+
+//     if(!deletedBoard) {
+//       return res.status(404).send({ message: "Board not found" });
+//     }
+
+//     res.status(200);
+//     res.send("Board successfully deleted");
+//   } catch(error) {
+//     res.status(500);
+//     res.send(error.message);
+//   }
+// }

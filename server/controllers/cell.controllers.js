@@ -5,7 +5,7 @@ export async function postCell(req, res) {
     // Instanciate an cell object:  
     const newCell = new Cell({
       text: req.body.text,
-      imageURL: req.body.img
+      img: req.body.img
     });
 
     // Checking existing cell text:
@@ -39,10 +39,30 @@ export async function getAllCells(req, res) {
 
 export async function deleteCellById(req, res) {
   try {
-    await Cell.findByIdAndDelete(req.params.id);
+    const deletedCell = await Cell.findByIdAndDelete(req.params.id);
+
+    if(!deletedCell) {
+      return res.status(404).send({ message: "Cell not found" });
+    }
 
     res.status(200);
-    res.send("Cell successfully deleted")
+    res.send("Cell successfully deleted");
+  } catch(error) {
+    res.status(404);
+    res.send(error.message);
+  }
+}
+
+export async function deleteCellByText(req, res) {
+  try {
+    const deletedCell = await Cell.findOneAndDelete({ text: req.params.text });
+
+    if(!deletedCell) {
+      return res.status(404).send({ message: "Cell not found" });
+    }
+
+    res.status(200);
+    res.send("Cell successfully deleted");
   } catch(error) {
     res.status(404);
     res.send(error.message);
