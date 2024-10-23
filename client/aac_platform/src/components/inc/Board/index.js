@@ -7,7 +7,7 @@ import {
 } from "./styled";
 
 
-function Board() {
+function Board({ editing }) {
   const [cells, setCells] = useState([]);
 
   async function handleFetch() {
@@ -62,6 +62,7 @@ function Board() {
               targetIndex={targetIndex}
               onDrop={() => onDrop(index)}
               bounceCells={bounceCells}
+              editing={editing}
             />
           </BoardItem>
         );

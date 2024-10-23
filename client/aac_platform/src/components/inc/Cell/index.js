@@ -6,13 +6,13 @@ import {
 } from "./styled";
 
 
-function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop, bounceCells }) {
+function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop, bounceCells, editing }) {
   const [isDragging, setIsDragging] = useState(false);
   const [color, setColor] = useState("gray");
 
   return (
     <CellContainer 
-      draggable
+      draggable={editing}
       isDragging={isDragging}
       isTarget={targetIndex === index}
       isBouncing={bounceCells !== null && bounceCells.includes(index)}
