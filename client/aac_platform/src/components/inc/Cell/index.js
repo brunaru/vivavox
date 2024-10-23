@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CellText from "../CellText";
 import Symbol from "../Symbol";
 import {
@@ -8,6 +8,7 @@ import {
 
 function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop, bounceCells }) {
   const [isDragging, setIsDragging] = useState(false);
+  const [color, setColor] = useState("gray");
 
   return (
     <CellContainer 
@@ -33,6 +34,7 @@ function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop,
         e.preventDefault();
         setTargetIndex(index);
       }}
+      color={cell.color}
     >
       <Symbol source={cell.img} />
       <CellText text={cell.text} />
