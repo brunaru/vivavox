@@ -54,6 +54,25 @@ export async function getBoardByName(req, res) {
   }
 }
 
+export async function updateBoardById(req, res) {
+  try {
+    const boardId = req.params.id;
+    const modifications = req.body;
+    
+    const modifiedBoard = await Board.findByIdAndUpdate(boardId, modifications);
+
+    if(!modifiedBoard) {
+      return res.status(404).send({ message: "Board not found" });
+    }
+
+    res.status(200);
+    res.send("Board successfully modified");
+  } catch(error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
 export async function DeleteBoardByName(req, res) {
   try {
     const deletedBoard = await Board.findOneAndDelete({ name: req.params.name });

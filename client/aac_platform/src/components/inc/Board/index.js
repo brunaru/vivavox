@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import Cell from "../Cell";
 import {
@@ -8,15 +8,34 @@ import {
 
 
 function Board({ editing }) {
-  const [cells, setCells] = useState([]);
+  const [board, setBoard] = useState({});
+  const [activeCell, setActiveCell] = useState(null);
+  const [targetIndex, setTargetIndex] = useState(null);
+  const [dimensions, setDimensions] = useState([4, 6, 24]);
+  const [bounceCells, setBounceCells] = useState( null );
+
+  const prevEditingRef = useRef(editing);
 
   async function handleFetch() {
     try {
       const response = await axios.get('http://localhost:3001/board/get/Padrão');
-      setCells(response.data.cells);
-      console.log(response.data.cells);
+      setBoard({
+        _id: response.data._id,
+        name: response.data.name,
+        numCells: response.data.numCells,
+        cells: response.data.cells
+      })
     } catch(error) {
       console.log(error);
+    }
+  }
+
+  async function updateBoard() {
+    try {
+      await axios.patch(`http://localhost:3001/board/patch/${board._id}`, board);
+      console.log('Cells successfully sent to api');
+    } catch(error) {
+      console.log('Error sending cells to api:', error);
     }
   }
 
@@ -24,23 +43,23 @@ function Board({ editing }) {
     handleFetch();
   }, []);
 
-  const [activeCell, setActiveCell] = useState(null);
-  const [targetIndex, setTargetIndex] = useState(null);
-  const [dimensions, setDimensions] = useState([4, 6, 24]);
-  const [bounceCells, setBounceCells] = useState( null );
-
   const onDrop = (targetPosition) => {
     if(activeCell == null || activeCell === undefined) return;
 
     // Switch cell positions:
-    const newCells = [...cells];
+    const newCells = [...board.cells];
     const currentCell = newCells[activeCell];
     const targetCell = newCells[targetPosition];
 
     newCells[targetPosition] = currentCell;
     newCells[activeCell] = targetCell;
 
-    setCells(newCells);
+    setBoard({
+      _id: board._id,
+      name: board.name,
+      numCells: board.numCells,
+      cells: newCells
+    })
     setBounceCells([activeCell, targetPosition]);
     setTimeout(() => {
       setBounceCells([]); 
@@ -48,13 +67,29 @@ function Board({ editing }) {
     setTargetIndex(null);
   }
 
+  useEffect(() => {
+    const prevEditing = prevEditingRef.current;
+
+    // If 'editing' changes from true to false:
+    if(prevEditing && !editing) {
+      updateBoard();
+    }
+
+    prevEditingRef.current = editing;
+  }, [editing]);
+
+  if(!board.cells) {
+    return (
+      <h2>Carregando...</h2>
+    );
+  }
+
   return (
     <BoardContainer $dimensions={dimensions}>
-      {cells.map((cell, index) => {
+      {board.cells.map((cell, index) => {
         return (
-          <BoardItem>
+          <BoardItem key={index}>
             <Cell 
-              key={index} 
               index={index}
               cell={cell}
               setActiveCell={setActiveCell} 
