@@ -13,7 +13,7 @@ function Button(props) {
       $width={props.width} 
       $padding={props.padding} 
       $fontSize={props.fontSize}
-      isEditing={props.editing}
+      $isEditing={props.editing}
       onClick={() => {
         if(editarText === 'Editar') {
           setEditarText('Confirmar edição');

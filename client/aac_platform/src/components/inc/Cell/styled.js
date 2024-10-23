@@ -20,6 +20,7 @@ export const CellContainer = styled.div`
   max-height: 120px;
   overflow: hidden;
   border: 3.5px solid ${({color}) => color};
+  position: relative;
 
   &:hover {
     cursor: pointer;
@@ -30,23 +31,23 @@ export const CellContainer = styled.div`
     opacity: 0.6;
   }
 
-  ${({ isDragging }) =>
-    isDragging &&
+  ${({ $isDragging }) =>
+    $isDragging &&
     `
       opacity: 1;
       background-color: #999;
     `
   }
 
-  ${({ isTarget }) =>
-    isTarget &&
+  ${({ $isTarget }) =>
+    $isTarget &&
     `
       background-color: #777;
     `
   }
 
-  ${({ isBouncing }) =>
-    isBouncing &&
+  ${({ $isBouncing }) =>
+    $isBouncing &&
     css`
       animation: ${bounce} 0.3s ease-in-out;
     `

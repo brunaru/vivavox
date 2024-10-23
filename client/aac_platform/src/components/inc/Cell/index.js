@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CellConfigButton from "../CellConfigButton";
 import CellText from "../CellText";
 import Symbol from "../Symbol";
 import {
@@ -13,9 +14,9 @@ function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop,
   return (
     <CellContainer 
       draggable={editing}
-      isDragging={isDragging}
-      isTarget={targetIndex === index}
-      isBouncing={bounceCells !== null && bounceCells.includes(index)}
+      $isDragging={isDragging}
+      $isTarget={targetIndex === index}
+      $isBouncing={bounceCells !== null && bounceCells.includes(index)}
       onDragStart={() => {
         setActiveCell(index);
         setIsDragging(true);
@@ -36,6 +37,9 @@ function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop,
       }}
       color={cell.color}
     >
+      {editing && (
+        <CellConfigButton content="C" />
+      )}
       <Symbol source={cell.img} />
       <CellText text={cell.text} />
     </CellContainer>

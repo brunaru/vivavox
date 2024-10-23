@@ -17,8 +17,8 @@ export const ButtonContainer = styled.button`
     cursor: pointer;
   }
 
-  ${({ isEditing }) =>
-    isEditing &&
+  ${({ $isEditing }) =>
+    $isEditing &&
     `
       filter: drop-shadow(0 4px 6px #525252);
     `
