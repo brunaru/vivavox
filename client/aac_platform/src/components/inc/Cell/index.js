@@ -34,7 +34,7 @@ function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop,
         e.preventDefault();
         setTargetIndex(index);
       }}
-      color={color}
+      color={cell.color}
     >
       <Symbol source={cell.img} />
       <CellText text={cell.text} />

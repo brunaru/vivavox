@@ -13,16 +13,17 @@ export const CellContainer = styled.div`
   justify-content: center;
   background-color: white;
   border-radius: 8px;
-  filter: ${({ color }) => `drop-shadow(0 4px 3px ${color || 'gray'})`};
+  filter: drop-shadow(0 4px 5px gray);
   width: 100%;
   height: 100%;
   max-width: 200px;
   max-height: 120px;
   overflow: hidden;
+  border: 3.5px solid ${({color}) => color};
 
   &:hover {
     cursor: pointer;
-    filter: ${({ color }) => `drop-shadow(0 4px 6px ${color || 'gray'})`};
+    filter: drop-shadow(0 4px 10px gray);
   }
 
   &:active {

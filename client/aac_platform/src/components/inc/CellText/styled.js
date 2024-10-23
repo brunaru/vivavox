@@ -6,6 +6,7 @@ export const Text = styled.p`
   align-items: center;
   margin: 0;
   padding: 0;
-  height: 20%;
+  height: 27%;
   font-weight: 600;
+  font-size: 19px;
 `;

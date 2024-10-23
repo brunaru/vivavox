@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SymbolContainer = styled.div`
-  height: 48px;
+  height: 52px;
   margin: 0;
   padding: 0;
 `;
