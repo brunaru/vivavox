@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
-import CellConfigButton from "../CellConfigButton";
+import { useState } from "react";
 import CellText from "../CellText";
 import Symbol from "../Symbol";
 import {
   CellContainer
 } from "./styled";
+import { useCell } from "../../contexts/CellContext";
 
 
-function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop, bounceCells, editing }) {
+function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop, bounceCells }) {
+  const {editing} = useCell();
   const [isDragging, setIsDragging] = useState(false);
   const [color, setColor] = useState("gray");
 
@@ -20,8 +21,6 @@ function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop,
       onDragStart={() => {
         setActiveCell(index);
         setIsDragging(true);
-
-        const dragIcon = document.createElement('img')
       }} 
       onDragEnd={() => {
         setActiveCell(null);
@@ -37,9 +36,6 @@ function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop,
       }}
       color={cell.color}
     >
-      {editing && (
-        <CellConfigButton content="C" />
-      )}
       <Symbol source={cell.img} />
       <CellText text={cell.text} />
     </CellContainer>

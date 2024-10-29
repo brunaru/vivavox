@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import FeatureBar from '../inc/FeatureBar';
 import SideBar from '../inc/SideBar';
 import Board from '../inc/Board';
-import { useState } from 'react';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -27,15 +26,13 @@ const BoardSpace = styled.div`
 `;
 
 function PageHome() {
-  const [editing, setEditing] = useState(false);
-
   return (
     <PageContainer>
       <FeatureBar/>
       <MainSection>
-        <SideBar editing={editing} setEditing={setEditing}/>
+        <SideBar/>
         <BoardSpace>
-          <Board editing={editing}/>
+          <Board/>
         </BoardSpace>
       </MainSection>
     </PageContainer>

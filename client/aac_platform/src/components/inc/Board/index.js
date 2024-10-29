@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from 'axios';
+import { useCell } from "../../contexts/CellContext";
 import Cell from "../Cell";
 import {
   BoardContainer,
@@ -7,12 +8,14 @@ import {
 } from "./styled";
 
 
-function Board({ editing }) {
+function Board() {
+  const {activeCell, setActiveCell, editing} = useCell();
   const [board, setBoard] = useState({});
-  const [activeCell, setActiveCell] = useState(null);
   const [targetIndex, setTargetIndex] = useState(null);
   const [dimensions, setDimensions] = useState([4, 6, 24]);
   const [bounceCells, setBounceCells] = useState( null );
+
+  console.log(activeCell);
 
   const prevEditingRef = useRef(editing);
 
@@ -97,7 +100,6 @@ function Board({ editing }) {
               targetIndex={targetIndex}
               onDrop={() => onDrop(index)}
               bounceCells={bounceCells}
-              editing={editing}
             />
           </BoardItem>
         );

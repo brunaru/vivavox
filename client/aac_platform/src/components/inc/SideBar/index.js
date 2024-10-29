@@ -1,3 +1,4 @@
+import { useCell } from "../../contexts/CellContext";
 import Button from "../Button";
 import {
   SideBarContainer,
@@ -7,7 +8,9 @@ import {
 } from "./styled";
 
 
-function SideBar({ editing, setEditing }) {
+function SideBar() {
+  const {editing, setEditing} = useCell();
+
   return (
     <SideBarContainer>
       <NavContainer>
