@@ -7,18 +7,29 @@ import {
 import { useCell } from "../../contexts/CellContext";
 
 
-function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop, bounceCells }) {
-  const {editing} = useCell();
+function Cell({ index, cell, setTargetIndex, targetIndex, onDrop, bounceCells }) {
+  const {editing, setActiveCell, configCell, setConfigCell} = useCell();
   const [isDragging, setIsDragging] = useState(false);
   const [color, setColor] = useState("gray");
+
+  function handleCellClick() {
+    console.log(editing, configCell)
+    if(!configCell && editing) {
+      setConfigCell(cell);
+      console.log(cell);
+    }
+  }
 
   return (
     <CellContainer 
       draggable={editing}
+      $editing={editing}
       $isDragging={isDragging}
       $isTarget={targetIndex === index}
       $isBouncing={bounceCells !== null && bounceCells.includes(index)}
-      onDragStart={() => {
+      onClick={handleCellClick}
+      onDragStart={(e) => {
+        e.stopPropagation();
         setActiveCell(index);
         setIsDragging(true);
       }} 

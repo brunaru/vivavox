@@ -7,13 +7,16 @@ const CellContext = createContext();
 export function CellContextProvider({ children }) {
   const [activeCell, setActiveCell] = useState(null);
   const [editing, setEditing] = useState(false);
+  const [configCell, setConfigCell] = useState(null);
 
   return (
     <CellContext.Provider value={{ 
       activeCell, 
       setActiveCell, 
       editing, 
-      setEditing 
+      setEditing,
+      configCell,
+      setConfigCell
     }}>
     {children}
     </CellContext.Provider>

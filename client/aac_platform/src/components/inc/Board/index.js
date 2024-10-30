@@ -15,8 +15,6 @@ function Board() {
   const [dimensions, setDimensions] = useState([4, 6, 24]);
   const [bounceCells, setBounceCells] = useState( null );
 
-  console.log(activeCell);
-
   const prevEditingRef = useRef(editing);
 
   async function handleFetch() {
@@ -95,7 +93,6 @@ function Board() {
             <Cell 
               index={index}
               cell={cell}
-              setActiveCell={setActiveCell} 
               setTargetIndex={setTargetIndex}
               targetIndex={targetIndex}
               onDrop={() => onDrop(index)}

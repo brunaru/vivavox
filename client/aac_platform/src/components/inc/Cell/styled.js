@@ -31,6 +31,13 @@ export const CellContainer = styled.div`
     opacity: 0.6;
   }
 
+  ${({ $editing, color }) =>
+    $editing &&
+    `
+      border: 3.5px dashed ${color};
+    `
+  }
+
   ${({ $isDragging }) =>
     $isDragging &&
     `
