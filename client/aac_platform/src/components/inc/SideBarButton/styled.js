@@ -23,7 +23,7 @@ export const ButtonContainer = styled.button`
   ${({ $activeButton }) =>
     $activeButton &&
     `
-      filter: drop-shadow(0 1.5px 3px #525252);
+      filter: drop-shadow(0 1px 4px #525252);
     `
   }
 `;

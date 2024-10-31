@@ -11,7 +11,7 @@ export const ButtonContainer = styled.button`
   align-items: center;
   justify-content: center;
   font-size: ${({$fontSize}) => ($fontSize ? $fontSize : "1.2vw")};
-  border: 3px solid #525252;
+  border: 2px solid #525252;
 
   &:hover {
     cursor: pointer;
