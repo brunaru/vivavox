@@ -5,8 +5,8 @@ export const ConfigCellMenuContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 68%;
-  height: 78%;
+  width: 66%;
+  height: 76%;
   background-color: white;
   border-radius: 8px;
   filter: drop-shadow(0 6px 8px gray);
