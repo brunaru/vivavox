@@ -3,7 +3,7 @@ import FeatureBar from '../inc/FeatureBar';
 import SideBar from '../inc/SideBar';
 import Board from '../inc/Board';
 import { useCell } from '../contexts/CellContext';
-import ConfigCellMenu from '../inc/ConfigCellMenu';
+import ConfigMenu from '../inc/ConfigMenu';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -40,7 +40,7 @@ function PageHome() {
         </BoardSpace>
       </MainSection>
       {configCell && 
-        <ConfigCellMenu/>
+        <ConfigMenu/>
       }
     </PageContainer>
   );

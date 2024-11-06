@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ConfigCellMenuContainer = styled.div`
+export const ConfigMenuContainer = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -15,4 +15,12 @@ export const ConfigCellMenuContainer = styled.div`
   align-items: center;
   z-index: 1000;
   overflow: hidden;
+`;
+
+export const ConfigCellContainer = styled.div`
+
+`;
+
+export const ConfigCellForm = styled.form`
+  
 `;

@@ -22,6 +22,7 @@ export const ConfigList = styled.ul`
   align-items: center;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 `;
 
 export const ListItem = styled.li`
@@ -44,5 +45,12 @@ export const ListButton = styled.button`
   &:hover {
     cursor: pointer;
     background-color: #EEEEEE;
+  }
+
+  ${({$activeButton}) => 
+    $activeButton && `
+      background-color: #EEEEEE;
+      filter: drop-shadow(0 1px 8px #525252);
+    `
   }
 `;
