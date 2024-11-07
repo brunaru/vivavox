@@ -1,5 +1,6 @@
 import { useCell } from '../../contexts/CellContext';
 import ConfigHeader from '../ConfigHeader';
+import Input from '../Input';
 import {
   ConfigMenuContainer,
   ConfigCellContainer,
@@ -16,7 +17,8 @@ function ConfigMenu() {
         configCell &&
         <ConfigCellContainer>
           <ConfigCellForm>
-            
+            <Input label="Texto" />
+            <Input label="Cor da borda" />
           </ConfigCellForm>
         </ConfigCellContainer>
       }
