@@ -44,12 +44,14 @@ export const ListButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: #EEEEEE;
+    background-color: ${({$activeButton}) => $activeButton ? '#003466' : '#EEEEEE' };
+    color: ${({$activeButton}) => $activeButton ? 'white' : 'black' };
   }
 
   ${({$activeButton}) => 
     $activeButton && `
-      background-color: #EEEEEE;
+      background-color: #003466;
+      color: white;
       filter: drop-shadow(0 1px 8px #525252);
     `
   }
