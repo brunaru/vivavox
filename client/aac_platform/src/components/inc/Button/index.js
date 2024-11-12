@@ -11,6 +11,7 @@ function Button(props) {
       $width={props.width} 
       $padding={props.padding} 
       $fontSize={props.fontSize}
+      $margin={props.margin}
     >
       {props.text}
     </ButtonContainer>
