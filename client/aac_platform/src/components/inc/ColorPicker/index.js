@@ -5,12 +5,7 @@ import {
   ColorInput
 } from './styled';
 
-function ColorPicker({ label }) {
-  const [color, setColor] = useState("#EEEEEE");
-
-  function handleColorChange(event) {
-    setColor(event.target.value);
-  }
+function ColorPicker({ color, handleColorChange, label }) {
 
   return (
     <ColorPickerContainer>

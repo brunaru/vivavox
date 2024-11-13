@@ -16,7 +16,6 @@ function Cell({ index, cell, setTargetIndex, targetIndex, onDrop, bounceCells })
     console.log(editing, configCell)
     if(!configCell && editing) {
       setConfigCell(cell);
-      console.log(cell);
     }
   }
 
