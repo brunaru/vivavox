@@ -7,6 +7,7 @@ import {
   ConfigCellContainer,
   ConfigCellForm
 } from './styled';
+import ColorPicker from '../ColorPicker';
 
 function ConfigMenu() {
   const {configCell} = useCell();
@@ -19,7 +20,7 @@ function ConfigMenu() {
         <ConfigCellContainer>
           <ConfigCellForm>
             <Input label="Texto" />
-            <Input label="Cor da borda" />
+            <ColorPicker label="Cor da borda"/>
           </ConfigCellForm>
           <Button 
               text="Confirmar" 
