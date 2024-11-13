@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import colorIcon from '../../images/color-icon.svg';
 import {
   ColorPickerContainer,
   Label,
