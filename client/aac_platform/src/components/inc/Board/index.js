@@ -9,7 +9,7 @@ import {
 
 
 function Board() {
-  const {activeCell, setActiveCell, editing} = useCell();
+  const {activeCell, setActiveCell, editing, configCell} = useCell();
   const [board, setBoard] = useState({});
   const [targetIndex, setTargetIndex] = useState(null);
   const [dimensions, setDimensions] = useState([4, 6, 24]);
@@ -43,6 +43,12 @@ function Board() {
   useEffect(() => {
     handleFetch();
   }, []);
+
+  useEffect(() => {
+    if(configCell === null) {
+      handleFetch();
+    }
+  }, [configCell]);
 
   const onDrop = (targetPosition) => {
     if(activeCell == null || activeCell === undefined) return;
