@@ -2,12 +2,14 @@ import { useCell } from '../../contexts/CellContext';
 import ConfigHeader from '../ConfigHeader';
 import Input from '../Input';
 import ConfirmButton from '../ConfirmButton';
+import Symbol from '../Symbol';
 import {
   ConfigMenuContainer,
   ConfigCellContainer,
   SettingsContainer,
   ConfigCellForm,
-  ConfigCellPictograms
+  ConfigCellPictograms,
+  PictogramItem
 } from './styled';
 import ColorPicker from '../ColorPicker';
 import axios from 'axios';
@@ -18,6 +20,7 @@ function ConfigMenu() {
   const [text, setText] = useState(configCell.text);
   const [color, setColor] = useState(configCell.color);
   const [pictograms, setPictograms] = useState([]);
+  const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
 
   async function updateCell() {
     try {
@@ -40,7 +43,6 @@ function ConfigMenu() {
 
   async function getPictogramsByText() {
     try {
-      console.log("ahoy!");
       const response = await axios.get(`https://api.arasaac.org/v1/pictograms/pt/search/${text}`);
       setPictograms(response.data);
       console.log(response.data);
@@ -51,7 +53,7 @@ function ConfigMenu() {
 
   useEffect(() => {
     getPictogramsByText();
-  }, []);
+  }, [text]);
 
   return (
     <ConfigMenuContainer>
@@ -65,7 +67,13 @@ function ConfigMenu() {
               <ColorPicker color={color} handleColorChange={handleColorChange} label="Cor da borda"/>
             </ConfigCellForm>
             <ConfigCellPictograms>
-              {}
+              {pictograms.map((pictogram, index) => {
+                return (
+                  <PictogramItem key={index}>
+                    <Symbol source={`${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`} />
+                  </PictogramItem>
+                );
+              })}
             </ConfigCellPictograms>
           </SettingsContainer>
           <ConfirmButton 
@@ -73,7 +81,7 @@ function ConfigMenu() {
             text="Confirmar" 
             height="40px" 
             width="180px" 
-            margin="150px 0 0 0" 
+            margin="100px 0 0 0" 
           />
         </ConfigCellContainer>
       }

@@ -19,6 +19,7 @@ export const ConfigMenuContainer = styled.div`
 
 export const ConfigCellContainer = styled.div`
   width: 100%;
+  max-width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -30,19 +31,34 @@ export const ConfigCellContainer = styled.div`
 export const SettingsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 90%;
+  justify-content: flex-start;
+  width: 100%;
 `;
 
 export const ConfigCellForm = styled.form`
   background-color: white;
-  width: 50%;
-  margin: 40px 0 0 0;
+  width: 35%;
+  margin: 40px 0 0 40px;
   display: flex;
   flex-direction: column;
   gap: 25px;
 `;
 
 export const ConfigCellPictograms = styled.div`
+  margin: 40px 40px 0 0;
   display: flex;
-  width: 50%;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 55%;
+  height: auto;
+  overflow-y: auto;
+  max-height: 259px;
+`;
+
+export const PictogramItem = styled.div`
+  border: solid 2px black;
+  border-radius: 6px;
+  max-height: 52px;
 `;
