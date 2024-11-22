@@ -27,6 +27,12 @@ export const ConfigCellContainer = styled.div`
   align-items: center;
 `;
 
+export const SettingsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+`;
+
 export const ConfigCellForm = styled.form`
   background-color: white;
   width: 50%;
@@ -34,4 +40,9 @@ export const ConfigCellForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 25px;
+`;
+
+export const ConfigCellPictograms = styled.div`
+  display: flex;
+  width: 50%;
 `;

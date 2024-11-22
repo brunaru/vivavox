@@ -5,16 +5,19 @@ import ConfirmButton from '../ConfirmButton';
 import {
   ConfigMenuContainer,
   ConfigCellContainer,
-  ConfigCellForm
+  SettingsContainer,
+  ConfigCellForm,
+  ConfigCellPictograms
 } from './styled';
 import ColorPicker from '../ColorPicker';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function ConfigMenu() {
   const {configCell, setConfigCell} = useCell();
   const [text, setText] = useState(configCell.text);
   const [color, setColor] = useState(configCell.color);
+  const [pictograms, setPictograms] = useState([]);
 
   async function updateCell() {
     try {
@@ -35,16 +38,36 @@ function ConfigMenu() {
     setColor(e.target.value);
   }
 
+  async function getPictogramsByText() {
+    try {
+      console.log("ahoy!");
+      const response = await axios.get(`https://api.arasaac.org/v1/pictograms/pt/search/${text}`);
+      setPictograms(response.data);
+      console.log(response.data);
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getPictogramsByText();
+  }, []);
+
   return (
     <ConfigMenuContainer>
       <ConfigHeader/>
       {
         configCell &&
         <ConfigCellContainer>
-          <ConfigCellForm>
-            <Input text={text} handleTextChange={handleTextChange} label="Texto" />
-            <ColorPicker color={color} handleColorChange={handleColorChange} label="Cor da borda"/>
-          </ConfigCellForm>
+          <SettingsContainer>
+            <ConfigCellForm>
+              <Input text={text} handleTextChange={handleTextChange} label="Texto" />
+              <ColorPicker color={color} handleColorChange={handleColorChange} label="Cor da borda"/>
+            </ConfigCellForm>
+            <ConfigCellPictograms>
+              {}
+            </ConfigCellPictograms>
+          </SettingsContainer>
           <ConfirmButton 
             updateCell={updateCell}
             text="Confirmar" 
