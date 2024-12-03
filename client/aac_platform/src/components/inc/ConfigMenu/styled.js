@@ -46,9 +46,11 @@ export const ConfigCellForm = styled.form`
 
 export const ConfigCellPictograms = styled.div`
   margin: 40px 40px 0 0;
+  padding: 0 0 0 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   gap: 12px;
   flex-wrap: wrap;
   width: 55%;
@@ -58,7 +60,24 @@ export const ConfigCellPictograms = styled.div`
 `;
 
 export const PictogramItem = styled.div`
+  position: relative;
   border: solid 2px black;
   border-radius: 6px;
   max-height: 52px;
+
+  ${({ $currentPictogram }) =>
+    $currentPictogram &&
+    `
+      &:before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border: solid 5px #003466;
+        border-radius: 8px;
+        pointer-events: none;
+    `
+  }
 `;

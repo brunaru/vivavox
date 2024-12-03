@@ -44,8 +44,8 @@ function ConfigMenu() {
   async function getPictogramsByText() {
     try {
       const response = await axios.get(`https://api.arasaac.org/v1/pictograms/pt/search/${text}`);
+      console.log("Célula a ser editada:", configCell);
       setPictograms(response.data);
-      console.log(response.data);
     } catch(error) {
       console.log(error);
     }
@@ -69,7 +69,10 @@ function ConfigMenu() {
             <ConfigCellPictograms>
               {pictograms.map((pictogram, index) => {
                 return (
-                  <PictogramItem key={index}>
+                  <PictogramItem 
+                      key={index}
+                      $currentPictogram={configCell.img === `${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`}
+                    >
                     <Symbol source={`${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`} />
                   </PictogramItem>
                 );
