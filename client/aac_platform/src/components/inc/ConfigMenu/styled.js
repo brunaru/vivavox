@@ -65,6 +65,26 @@ export const PictogramItem = styled.div`
   border-radius: 6px;
   max-height: 52px;
 
+  &:hover {
+    cursor: pointer;
+    ${({ $currentPictogram }) =>
+      !$currentPictogram &&
+      `
+        &:before {
+          content: '';
+          position: absolute;
+          top: -3px;
+          left: -3px;
+          right: -3px;
+          bottom: -3px;
+          border: solid 5px #003466;
+          border-radius: 8px;
+          pointer-events: none;
+        }
+      `
+    }
+  }
+
   ${({ $currentPictogram }) =>
     $currentPictogram &&
     `
@@ -78,6 +98,7 @@ export const PictogramItem = styled.div`
         border: solid 5px #003466;
         border-radius: 8px;
         pointer-events: none;
+      }
     `
   }
 `;

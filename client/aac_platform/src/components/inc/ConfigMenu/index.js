@@ -41,6 +41,19 @@ function ConfigMenu() {
     setColor(e.target.value);
   }
 
+  function handlePictogramClick(pictogram_id) {
+    console.log(`Id: ${pictogram_id}`);
+    const selectedImg = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
+
+    setConfigCell(prevConfigCell => {
+      if(prevConfigCell.img !== selectedImg) {
+        return { ...prevConfigCell, img: selectedImg};
+      }
+
+      return prevConfigCell;
+    });
+  }
+
   async function getPictogramsByText() {
     try {
       const response = await axios.get(`https://api.arasaac.org/v1/pictograms/pt/search/${text}`);
@@ -72,6 +85,7 @@ function ConfigMenu() {
                   <PictogramItem 
                       key={index}
                       $currentPictogram={configCell.img === `${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`}
+                      onClick={() => handlePictogramClick(pictogram._id)}
                     >
                     <Symbol source={`${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`} />
                   </PictogramItem>
