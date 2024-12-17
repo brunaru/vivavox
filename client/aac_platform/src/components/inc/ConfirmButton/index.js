@@ -2,9 +2,10 @@ import {
   ButtonContainer
 } from "./styled";
 
-function Button(props) {
+function ConfirmButton(props) {
   return (
     <ButtonContainer 
+      onClick={props.updateCell}
       $color={props.color} 
       $height={props.height} 
       $width={props.width} 
@@ -17,4 +18,4 @@ function Button(props) {
   );
 }
 
-export default Button;
+export default ConfirmButton;

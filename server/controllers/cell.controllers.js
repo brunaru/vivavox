@@ -38,6 +38,24 @@ export async function getAllCells(req, res) {
   }
 }
 
+export async function getCellById(req, res) {
+  try {
+    const cellId = req.params.id;
+
+    const foundCell = await Cell.findById(cellId);
+
+    if(!foundCell) {
+      return res.status(404).send({ message: "Cell not found" });
+    }
+
+    res.status(200);
+    res.send(foundCell);
+  } catch(error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
 export async function updateCellById(req, res) {
   try {
     const cellId = req.params.id;

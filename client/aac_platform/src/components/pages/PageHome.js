@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import FeatureBar from '../inc/FeatureBar';
 import SideBar from '../inc/SideBar';
 import Board from '../inc/Board';
+import { useCell } from '../contexts/CellContext';
+import ConfigMenu from '../inc/ConfigMenu';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -26,6 +28,8 @@ const BoardSpace = styled.div`
 `;
 
 function PageHome() {
+  const {configCell} = useCell();
+
   return (
     <PageContainer>
       <FeatureBar/>
@@ -35,6 +39,9 @@ function PageHome() {
           <Board/>
         </BoardSpace>
       </MainSection>
+      {configCell && 
+        <ConfigMenu/>
+      }
     </PageContainer>
   );
 }

@@ -9,6 +9,7 @@ export const SideBarContainer = styled.aside`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 
 export const NavContainer = styled.nav`
@@ -30,7 +31,7 @@ export const NavList = styled.ul`
 `;
 
 export const Item = styled.li`
-  width: 80%;
+  width: 100%;
   height: 7vh;
   display: flex;
   align-items: center;

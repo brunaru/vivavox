@@ -1,26 +1,34 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CellText from "../CellText";
 import Symbol from "../Symbol";
 import {
   CellContainer
 } from "./styled";
+import { useCell } from "../../contexts/CellContext";
 
 
-function Cell({ index, cell, setActiveCell, setTargetIndex, targetIndex, onDrop, bounceCells }) {
+function Cell({ index, cell, setTargetIndex, targetIndex, onDrop, bounceCells }) {
+  const {editing, setActiveCell, configCell, setConfigCell} = useCell();
   const [isDragging, setIsDragging] = useState(false);
-  const [color, setColor] = useState("gray");
+
+  function handleCellClick() {
+    if(!configCell && editing) {
+      setConfigCell(cell);
+    }
+  }
 
   return (
     <CellContainer 
-      draggable
-      isDragging={isDragging}
-      isTarget={targetIndex === index}
-      isBouncing={bounceCells !== null && bounceCells.includes(index)}
-      onDragStart={() => {
+      draggable={editing}
+      $editing={editing}
+      $isDragging={isDragging}
+      $isTarget={targetIndex === index}
+      $isBouncing={bounceCells !== null && bounceCells.includes(index)}
+      onClick={handleCellClick}
+      onDragStart={(e) => {
+        e.stopPropagation();
         setActiveCell(index);
         setIsDragging(true);
-
-        const dragIcon = document.createElement('img')
       }} 
       onDragEnd={() => {
         setActiveCell(null);

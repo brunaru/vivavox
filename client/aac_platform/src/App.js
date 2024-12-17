@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components"; 
 import styled from "styled-components";
+import { CellContextProvider } from "./components/contexts/CellContext";
 import PageHome from "./components/pages/PageHome";
 
 const AppContainer = styled.div`
@@ -22,7 +23,9 @@ function App() {
   return (
     <AppContainer>
       <GlobalStyle/> 
-      <PageHome/>
+      <CellContextProvider>
+        <PageHome/>
+      </CellContextProvider>
     </AppContainer>
   );
 }
