@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useCell } from "../../contexts/CellContext";
-import Button from "../Button";
 import SideBarButton from "../SideBarButton";
 import {
   SideBarContainer,
