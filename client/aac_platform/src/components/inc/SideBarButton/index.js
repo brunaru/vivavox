@@ -6,6 +6,8 @@ import {
 function SideBarButton(props) {
   const [editarText, setEditarText] = useState(props.text);
 
+  const saveText = 'Salvar edição';
+
   return (
     <ButtonContainer 
       $color={props.color} 
@@ -19,9 +21,9 @@ function SideBarButton(props) {
         props.setActiveButton(props.text);
 
         if(editarText === 'Editar') {
-          setEditarText('Confirmar edição');
+          setEditarText(saveText);
           props.setEditing(true);
-        } else if(editarText === 'Confirmar edição') {
+        } else if(editarText === saveText) {
           props.setActiveButton("Prancha padrão");
           setEditarText(props.text);
           props.setEditing(false);
