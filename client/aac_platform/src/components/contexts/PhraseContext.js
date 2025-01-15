@@ -5,11 +5,11 @@ const PhraseContext = createContext();
 
 // Create a provider:
 export function PhraseContextProvider({ children }) {
-  const [currentPhrase, setCurrentPhrase] = ('');
+  const [currentPhrase, setCurrentPhrase] = useState('');
 
   function addWord(word) {
     setCurrentPhrase((prevPhrase) => {
-      const newPhrase = prevPhrase.lenght > 0
+      const newPhrase = prevPhrase.length > 0
         ? `${prevPhrase} ${word}`
         : word;
       return newPhrase;
@@ -25,4 +25,9 @@ export function PhraseContextProvider({ children }) {
       {children}
     </PhraseContext.Provider>
   );
+}
+
+// Hook for context usage:
+export function usePhrase() {
+  return useContext(PhraseContext);
 }

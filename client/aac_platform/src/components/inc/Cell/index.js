@@ -5,15 +5,21 @@ import {
   CellContainer
 } from "./styled";
 import { useCell } from "../../contexts/CellContext";
+import { usePhrase } from "../../contexts/PhraseContext";
 
 
 function Cell({ index, cell, setTargetIndex, targetIndex, onDrop, bounceCells }) {
   const {editing, setActiveCell, configCell, setConfigCell} = useCell();
+  const {addWord} = usePhrase();
   const [isDragging, setIsDragging] = useState(false);
 
   function handleCellClick() {
-    if(!configCell && editing) {
-      setConfigCell(cell);
+    if(editing) {
+      if(!configCell) {
+        setConfigCell(cell);
+      }
+    } else {
+      addWord(cell.text);
     }
   }
 
