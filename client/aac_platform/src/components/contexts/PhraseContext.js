@@ -16,12 +16,24 @@ export function PhraseContextProvider({ children }) {
     });
   }
 
+  function deleteWord() {
+    setCurrentPhrase((prevPhrase) => {
+      // Remove first and last white spaces, and split in words:
+      const words = prevPhrase.trim().split(' ');
+
+      // Remove last word:
+      words.pop();
+
+      return words.join(' ');
+    });
+  }
+
   function clearPhrase() {
     setCurrentPhrase('');
   }
 
   return (
-    <PhraseContext.Provider value={{ currentPhrase, addWord, clearPhrase }}>
+    <PhraseContext.Provider value={{ currentPhrase, addWord, clearPhrase, deleteWord }}>
       {children}
     </PhraseContext.Provider>
   );

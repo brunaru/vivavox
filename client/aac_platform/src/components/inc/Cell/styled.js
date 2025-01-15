@@ -21,6 +21,7 @@ export const CellContainer = styled.div`
   overflow: hidden;
   border: 3.5px solid ${({color}) => color};
   position: relative;
+  user-select: none;
 
   &:hover {
     cursor: pointer;
