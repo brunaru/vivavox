@@ -32,8 +32,14 @@ export function PhraseContextProvider({ children }) {
     setCurrentPhrase('');
   }
 
+  function speech() {
+    const utterance = new SpeechSynthesisUtterance(currentPhrase);
+
+    speechSynthesis.speak(utterance);
+  }
+
   return (
-    <PhraseContext.Provider value={{ currentPhrase, addWord, clearPhrase, deleteWord }}>
+    <PhraseContext.Provider value={{ currentPhrase, addWord, clearPhrase, deleteWord, speech }}>
       {children}
     </PhraseContext.Provider>
   );

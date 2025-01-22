@@ -10,7 +10,7 @@ import {
 
 
 function FeatureBar() {
-  const {clearPhrase, deleteWord } = usePhrase();
+  const {clearPhrase, deleteWord, speech } = usePhrase();
 
   return (
     <FeatBarContainer>
@@ -18,7 +18,7 @@ function FeatureBar() {
         <Button text="Voltar" height="50%" width="5vw"/>
       </DivBack>
       <DivKeyboard>
-        <Button text="Falar" height="50%" width="5vw"/>
+        <Button onClick={speech} text="Falar" height="50%" width="5vw"/>
         <WriteBar/>
         <Button onClick={deleteWord} text="Apagar" height="50%" width="5vw"/>
         <Button onClick={clearPhrase} text="Limpar" height="50%" width="5vw"/>
