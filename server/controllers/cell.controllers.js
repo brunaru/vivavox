@@ -10,9 +10,9 @@ export async function postCell(req, res) {
     });
 
     // Checking existing cell text:
-    const existingCell = await Cell.findOne({ text: newCell.text });
+    const existingCell = await Cell.findOne({ img: newCell.img });
     if(existingCell) {
-      return res.status(400).send({message: "The cell text is already in use"});
+      return res.status(400).send({message: "The cell img is already in use"});
     }
 
     // Store into the database:
@@ -101,6 +101,22 @@ export async function deleteCellByText(req, res) {
 
     res.status(200);
     res.send("Cell successfully deleted");
+  } catch(error) {
+    res.status(404);
+    res.send(error.message);
+  }
+}
+
+export async function deleteAllCells(req, res) {
+  try {
+    const deletedCell = await Cell.deleteMany({})
+
+    if(!deletedCell) {
+      return res.status(404).send({ message: "Cell not found" });
+    }
+
+    res.status(200);
+    res.send("Cells successfully deleted");
   } catch(error) {
     res.status(404);
     res.send(error.message);

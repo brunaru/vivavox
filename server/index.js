@@ -4,6 +4,7 @@ import db from './config/dbConnect.js';
 import dotenv from 'dotenv';
 import cellRoutes from './routes/cell.routes.js';
 import boardRoutes from './routes/board.routes.js';
+import userRoutes from './routes/user.routes.js';
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use(cors());
 
 app.use('/cell', cellRoutes);
 app.use('/board', boardRoutes);
+app.use('/user', userRoutes);
 
 app.listen(3001,  () => {
   console.log('Server listening on port 3001');

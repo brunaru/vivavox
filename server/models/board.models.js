@@ -13,12 +13,7 @@ const boardSchema = new mongoose.Schema({
   cells: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'cell'
-  }],
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
-    required: true
-  }
+  }]
 }, { versionKey: false });
 
 const Board = mongoose.model('board', boardSchema);

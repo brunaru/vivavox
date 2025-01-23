@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { postCell, getAllCells, deleteCellById, deleteCellByText, updateCellById, getCellById } from "../controllers/cell.controllers.js";
+import { postCell, getAllCells, deleteCellById, deleteCellByText, updateCellById, getCellById, deleteAllCells } from "../controllers/cell.controllers.js";
 
 const router = Router();
 
@@ -10,5 +10,6 @@ router.get('/get/:id', getCellById);
 router.patch('/patch/:id', updateCellById);
 router.delete('/delete/:id', deleteCellById);
 router.delete('/deleteByText/:text', deleteCellByText);
+router.delete('/deleteAll', deleteAllCells);
 
 export default router;
