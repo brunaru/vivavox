@@ -1,5 +1,6 @@
 import Board from "../models/board.models.js";
 import Cell from "../models/cell.models.js";
+import UserCell from "../models/userCell.models.js";
 
 export async function postBoard(req, res) {
   try {
@@ -21,9 +22,20 @@ export async function postBoard(req, res) {
     }
 
     // Check valid cells:
-    const validCells = await Cell.find({ _id: { $in: newBoard.cells } });
-    if(validCells.length !== newBoard.cells.length) {
-      return res.status(400).send({message: "Some cells are not valid"});
+    const validCells = await Promise.all(newBoard.cells.map(async (cell) => {
+      let validCell;
+
+      if(cell.cellType === 'cell') {
+        validCell = await Cell.findById(cell.cellId);
+      } else if(cell.cellType === 'userCell') {
+        validCell = await UserCell.findById(cell.cellId);
+      }
+
+      return validCell ? cell : null;
+    }));
+    const invalidCells = validCells.filter(cell => cell === null);
+    if(invalidCells.length > 0) {
+      return res.status(400).send({ message: "Some cells are not valid"});
     }
 
     await newBoard.save();
@@ -40,14 +52,46 @@ export async function getBoardByName(req, res) {
   try {
     const nameKey = req.params.name;
 
-    const board = await Board.findOne({ name: nameKey }).populate('cells');
+    const board = await Board.findOne({ name: nameKey });
 
     if(!board) {
       return res.status(404).send({ message: "Board does not exist" });
     }
 
+    const populatedCells = await Promise.all(
+      board.cells.map(async (cell) => {
+        let populatedData = null;
+
+        if(cell.cellType === 'cell') {
+          populatedData = await Cell.findById(cell.cellId);
+        } else if(cell.cellType === 'userCell') {
+          populatedData = await UserCell.findById(cell.cellId);
+        }
+
+        if(!populatedData) {
+          return null;
+        }
+
+        return {
+          text: populatedData.text,
+          img: populatedData.img,
+          color: populatedData.color,
+          _id: populatedData._id
+        };
+      })
+    );
+
+    const filteredCells = populatedCells.filter(cell => cell !== null);
+
+    const responseBoard = {
+      _id: board._id,
+      name: board.name,
+      numCells: board.numCells,
+      cells: filteredCells
+    }
+
     res.status(200);
-    res.send(board);
+    res.send(responseBoard);
   } catch(error) {
     res.status(500);
     res.send(error.message);

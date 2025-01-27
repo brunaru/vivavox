@@ -20,6 +20,7 @@ function Board() {
   async function handleFetch() {
     try {
       const response = await axios.get('http://localhost:3001/board/get/Teste');
+      console.log(response.data);
       setBoard({
         _id: response.data._id,
         name: response.data.name,

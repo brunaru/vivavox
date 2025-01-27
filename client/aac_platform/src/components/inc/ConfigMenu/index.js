@@ -14,19 +14,29 @@ import {
 import ColorPicker from '../ColorPicker';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useBoard } from '../../contexts/BoardContext';
 
 function ConfigMenu() {
   const {configCell, setConfigCell} = useCell();
+  const {board} = useBoard();
   const [text, setText] = useState(configCell.text);
   const [color, setColor] = useState(configCell.color);
   const [pictograms, setPictograms] = useState([]);
   const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
 
-  async function updateCell() {
+  async function updateCellAndBoard() {
     try {
+      // Make updates to the cell:
       const updatedCell = { ...configCell, text: text, color: color };
-      await axios.patch(`http://localhost:3001/cell/patch/${updatedCell._id}`, updatedCell);
+      await axios.patch(`http://localhost:3001/userCell/patch/${updatedCell._id}`, updatedCell);
       console.log("Cell successfully sent to api");
+
+      // Make updates to the board:
+      // await axios.patch(`http://localhost:3001/board/patch/${board._id}`, {
+      //   updatedCell,
+      //   board
+      // })
+
       setConfigCell(null);
     } catch(error) {
       console.log("Error sending cell update: ", error);
@@ -42,7 +52,6 @@ function ConfigMenu() {
   }
 
   function handlePictogramClick(pictogram_id) {
-    console.log(`Id: ${pictogram_id}`);
     const selectedImg = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
 
     setConfigCell(prevConfigCell => {
@@ -94,7 +103,7 @@ function ConfigMenu() {
             </ConfigCellPictograms>
           </SettingsContainer>
           <ConfirmButton 
-            updateCell={updateCell}
+            updateCell={updateCellAndBoard}
             text="Confirmar" 
             height="40px" 
             width="180px" 

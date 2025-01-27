@@ -11,8 +11,16 @@ const boardSchema = new mongoose.Schema({
     required: true
   },
   cells: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'cell'
+    cellId:{
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      refPath: 'cells.cellType'
+    },
+    cellType: {
+      type: String,
+      required: true,
+      enum: ['cell', 'userCell']
+    }
   }]
 }, { versionKey: false });
 

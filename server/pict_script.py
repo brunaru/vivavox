@@ -12,7 +12,7 @@ def fetch_pictograms(language='pt'):
 
     formated_pictograms.append({
       'text': text,
-      'img': f'https://api.arasaac.org/v1/pictograms/{pictogram["_id"]}'
+      'img': f'https://static.arasaac.org/pictograms/{pictogram["_id"]}/{pictogram["_id"]}_300.png'
     })
 
   print("Collected all pictograms")
@@ -29,7 +29,7 @@ def send_pictograms_to_api(pictograms):
     data = {
       "text": pictogram["text"],
       "img": pictogram["img"],
-      "color": "#000000"  # Define uma cor padrão (se for obrigatório)
+      "color": "#000000"  
     }
 
     try:
