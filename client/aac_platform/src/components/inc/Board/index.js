@@ -91,7 +91,6 @@ function Board() {
 
   useEffect(() => {
     setHasBoardChanges(true);
-    console.log("Board: ", board.cells);
   }, [board]);
 
   if(!board.cells) {

@@ -107,8 +107,6 @@ export async function updateBoardById(req, res) {
   try {
     const boardId = req.params.id;
     const modifications = req.body;
-
-    console.log(modifications);
     
     const dbCells = modifications.cells.map((cell) => (
       {

@@ -100,7 +100,7 @@ function ConfigMenu() {
                 return (
                   <PictogramItem 
                       key={index}
-                      $currentPictogram={configCell.img === `${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`}
+                      $currentPictogram={image === `${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`}
                       onClick={() => handlePictogramClick(pictogram._id)}
                     >
                     <Symbol source={`${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`} />
