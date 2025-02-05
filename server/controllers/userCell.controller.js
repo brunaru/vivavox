@@ -62,16 +62,17 @@ export async function updateUserCellById(req, res) {
     if(!modifiedUserCell) {
       const newUserCell = new UserCell({
         ...req.body,
-        original_cell_id: userCellId
+        _id: undefined,
+        originalCellId: userCellId
       });
 
-      await newUserCell.save();
+      const savedUserCell = await newUserCell.save();
 
-      return res.status(201).send({ message: "User cell successfully modified (created)", newUserCell });
+      return res.status(201).send({ message: "User cell successfully modified (created)", finalId: savedUserCell._id });
     }
 
     res.status(200);
-    res.send("User cell successfully modified", modifiedUserCell);
+    res.send({ message: "User cell successfully modified", finalId: modifiedUserCell._id });
   } catch(error) {
     res.status(500);
     res.send(error.message);

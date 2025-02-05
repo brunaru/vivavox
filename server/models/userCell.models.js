@@ -6,7 +6,7 @@ const userCellSchema = new mongoose.Schema({
   //   ref: "user",
   //   required: true
   // },
-  original_cell_id: {
+  originalCellId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "cell",
     required: true

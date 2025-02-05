@@ -18,24 +18,38 @@ import { useBoard } from '../../contexts/BoardContext';
 
 function ConfigMenu() {
   const {configCell, setConfigCell} = useCell();
-  const {board} = useBoard();
+  const {board, setBoard} = useBoard();
   const [text, setText] = useState(configCell.text);
   const [color, setColor] = useState(configCell.color);
+  const [image, setImage] = useState(configCell.img);
   const [pictograms, setPictograms] = useState([]);
   const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
 
   async function updateCellAndBoard() {
     try {
-      // Make updates to the cell:
-      const updatedCell = { ...configCell, text: text, color: color };
-      await axios.patch(`http://localhost:3001/userCell/patch/${updatedCell._id}`, updatedCell);
-      console.log("Cell successfully sent to api");
+      // Verify if cell changes has been made:
+      const hasChanges = 
+        text !== configCell.text || 
+        color !== configCell.color ||
+        image !== configCell.img;
 
-      // Make updates to the board:
-      // await axios.patch(`http://localhost:3001/board/patch/${board._id}`, {
-      //   updatedCell,
-      //   board
-      // })
+      // Make updates to the cell and board:
+      if(hasChanges) {
+        const updatedCell = { ...configCell, text: text, color: color, img: image };
+        const response = await axios.patch(`http://localhost:3001/userCell/patch/${updatedCell._id}`, updatedCell);
+        console.log("Cell successfully sent to api");
+
+        const newCellId = response.data.finalId;
+
+        setBoard((prevBoard) => ({
+          ...prevBoard,
+          cells: prevBoard.cells.map((cell) => 
+            cell._id === updatedCell._id ? { ...cell, _id: newCellId, cellType: "userCell" } : cell
+          )
+        }));
+      } else {
+        console.log("No change has been made");
+      }
 
       setConfigCell(null);
     } catch(error) {
@@ -53,14 +67,7 @@ function ConfigMenu() {
 
   function handlePictogramClick(pictogram_id) {
     const selectedImg = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
-
-    setConfigCell(prevConfigCell => {
-      if(prevConfigCell.img !== selectedImg) {
-        return { ...prevConfigCell, img: selectedImg};
-      }
-
-      return prevConfigCell;
-    });
+    setImage(selectedImg);
   }
 
   async function getPictogramsByText() {

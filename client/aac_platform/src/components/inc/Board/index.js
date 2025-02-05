@@ -6,21 +6,22 @@ import {
   BoardContainer,
   BoardItem
 } from "./styled";
+import { useBoard } from "../../contexts/BoardContext";
 
 
 function Board() {
   const {activeCell, setActiveCell, editing, configCell} = useCell();
-  const [board, setBoard] = useState({});
+  const {board, setBoard} = useBoard();
   const [targetIndex, setTargetIndex] = useState(null);
   const [dimensions, setDimensions] = useState([4, 6, 24]);
   const [bounceCells, setBounceCells] = useState( null );
+  const [hasBoardChanges, setHasBoardChanges] = useState(false);
 
   const prevEditingRef = useRef(editing);
 
   async function handleFetch() {
     try {
       const response = await axios.get('http://localhost:3001/board/get/Teste');
-      console.log(response.data);
       setBoard({
         _id: response.data._id,
         name: response.data.name,
@@ -47,6 +48,7 @@ function Board() {
 
   useEffect(() => {
     if(configCell === null) {
+      updateBoard();
       handleFetch();
     }
   }, [configCell]);
@@ -79,12 +81,18 @@ function Board() {
     const prevEditing = prevEditingRef.current;
 
     // If 'editing' changes from true to false:
-    if(prevEditing && !editing) {
+    if(prevEditing && !editing && hasBoardChanges) {
       updateBoard();
+      setHasBoardChanges(false);
     }
 
     prevEditingRef.current = editing;
   }, [editing]);
+
+  useEffect(() => {
+    setHasBoardChanges(true);
+    console.log("Board: ", board.cells);
+  }, [board]);
 
   if(!board.cells) {
     return (

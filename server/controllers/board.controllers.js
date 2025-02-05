@@ -52,20 +52,23 @@ export async function getBoardByName(req, res) {
   try {
     const nameKey = req.params.name;
 
+    // Finds the board:
     const board = await Board.findOne({ name: nameKey });
-
     if(!board) {
       return res.status(404).send({ message: "Board does not exist" });
     }
-
+    // Populate cells:
     const populatedCells = await Promise.all(
       board.cells.map(async (cell) => {
         let populatedData = null;
+        let originalCellId = null;
 
         if(cell.cellType === 'cell') {
           populatedData = await Cell.findById(cell.cellId);
+          originalCellId = null;
         } else if(cell.cellType === 'userCell') {
           populatedData = await UserCell.findById(cell.cellId);
+          originalCellId = cell.originalCellId || null;
         }
 
         if(!populatedData) {
@@ -76,13 +79,15 @@ export async function getBoardByName(req, res) {
           text: populatedData.text,
           img: populatedData.img,
           color: populatedData.color,
-          _id: populatedData._id
+          _id: populatedData._id,
+          originalCellId: originalCellId,
+          cellType: cell.cellType
         };
       })
     );
 
+    // Makes formated board to return:
     const filteredCells = populatedCells.filter(cell => cell !== null);
-
     const responseBoard = {
       _id: board._id,
       name: board.name,
@@ -102,8 +107,22 @@ export async function updateBoardById(req, res) {
   try {
     const boardId = req.params.id;
     const modifications = req.body;
+
+    console.log(modifications);
     
-    const modifiedBoard = await Board.findByIdAndUpdate(boardId, modifications);
+    const dbCells = modifications.cells.map((cell) => (
+      {
+        cellId: cell._id,
+        cellType: cell.cellType
+      }
+    ));
+
+    const dbBoard = {
+      ...modifications,
+      cells: dbCells
+    }
+
+    const modifiedBoard = await Board.findByIdAndUpdate(boardId, dbBoard);
 
     if(!modifiedBoard) {
       return res.status(404).send({ message: "Board not found" });
@@ -133,18 +152,12 @@ export async function DeleteBoardByName(req, res) {
   }
 }
 
-// export async function DeleteCellFromBoardById(req, res) {
-//   try {
-//     const deletedBoard = await Board.findOneAndDelete({ name: req.params.name });
 
-//     if(!deletedBoard) {
-//       return res.status(404).send({ message: "Board not found" });
-//     }
 
-//     res.status(200);
-//     res.send("Board successfully deleted");
-//   } catch(error) {
-//     res.status(500);
-//     res.send(error.message);
-//   }
-// }
+
+
+
+
+
+
+
