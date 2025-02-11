@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import axios from 'axios';
 import { useCell } from "../../contexts/CellContext";
 import Cell from "../Cell";
 import {
@@ -7,6 +6,7 @@ import {
   BoardItem
 } from "./styled";
 import { useBoard } from "../../contexts/BoardContext";
+import api from "../../../services/api";
 
 
 function Board() {
@@ -21,7 +21,7 @@ function Board() {
 
   async function handleFetch() {
     try {
-      const response = await axios.get('http://localhost:3001/board/get/Teste');
+      const response = await api.get("/board/get/Padrão 1");
       setBoard({
         _id: response.data._id,
         name: response.data.name,
@@ -34,8 +34,9 @@ function Board() {
   }
 
   async function updateBoard() {
+    if(!board._id) return;
     try {
-      await axios.patch(`http://localhost:3001/board/patch/${board._id}`, board);
+      await api.patch(`/board/patch/${board._id}`, board);
       console.log('Cells successfully sent to api');
     } catch(error) {
       console.log('Error sending cells to api:', error);
@@ -43,7 +44,11 @@ function Board() {
   }
 
   useEffect(() => {
-    handleFetch();
+    if(process.env.REACT_APP_API_BASE_URL) {
+      handleFetch();
+    } else {
+      console.warn("API_BASE_URL not defined. Verify .env");
+    }
   }, []);
 
   useEffect(() => {

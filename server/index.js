@@ -37,6 +37,6 @@ app.use('/board', boardRoutes);
 app.use('/user', userRoutes);
 app.use('/userCell', userCellRoutes);
 
-app.listen(3001,  () => {
-  console.log('Server listening on port 3001');
+app.listen(5000,  () => {
+  console.log('Server listening on port 5000');
 });

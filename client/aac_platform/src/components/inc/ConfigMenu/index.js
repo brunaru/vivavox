@@ -13,20 +13,42 @@ import {
 } from './styled';
 import ColorPicker from '../ColorPicker';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useBoard } from '../../contexts/BoardContext';
+import api from '../../../services/api';
 
 function ConfigMenu() {
   const {configCell, setConfigCell} = useCell();
   const {board, setBoard} = useBoard();
-  const [text, setText] = useState(configCell.text);
-  const [color, setColor] = useState(configCell.color);
-  const [image, setImage] = useState(configCell.img);
+  const [text, setText] = useState(configCell?.text || '');
+  const [color, setColor] = useState(configCell?.color || '#000000');
+  const [image, setImage] = useState(configCell?.img || '');
   const [pictograms, setPictograms] = useState([]);
   const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
 
+  const getPictogramsByText = useCallback(() => {
+    if(!text.trim()) return;
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://api.arasaac.org/v1/pictograms/pt/search/${text}`);
+        setPictograms(response.data);
+      } catch(error) {
+        console.log("Error searching for pictograms");
+      }
+    };
+
+    // Waits 500ms before fetch:
+    const delay = setTimeout(fetchData, 500);
+
+    // Cancels requisition if 'text' changes before 500ms:
+    return () => clearTimeout(delay);
+  }, [text]);
+
   async function updateCellAndBoard() {
     try {
+      if(!configCell) return;
+
       // Verify if cell changes has been made:
       const hasChanges = 
         text !== configCell.text || 
@@ -36,7 +58,7 @@ function ConfigMenu() {
       // Make updates to the cell and board:
       if(hasChanges) {
         const updatedCell = { ...configCell, text: text, color: color, img: image };
-        const response = await axios.patch(`http://localhost:3001/userCell/patch/${updatedCell._id}`, updatedCell);
+        const response = await api.patch(`/userCell/patch/${updatedCell._id}`, updatedCell);
         console.log("Cell successfully sent to api");
 
         const newCellId = response.data.finalId;
@@ -69,20 +91,10 @@ function ConfigMenu() {
     const selectedImg = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
     setImage(selectedImg);
   }
-
-  async function getPictogramsByText() {
-    try {
-      const response = await axios.get(`https://api.arasaac.org/v1/pictograms/pt/search/${text}`);
-      console.log("Célula a ser editada:", configCell);
-      setPictograms(response.data);
-    } catch(error) {
-      console.log(error);
-    }
-  }
-
+  
   useEffect(() => {
     getPictogramsByText();
-  }, [text]);
+  }, [text, getPictogramsByText]);
 
   return (
     <ConfigMenuContainer>
