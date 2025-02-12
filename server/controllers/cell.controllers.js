@@ -75,6 +75,46 @@ export async function updateCellById(req, res) {
   }
 }
 
+export async function updateManyCells(req, res) {
+  try {
+    const updates = req.body;
+
+    if (!updates || !Array.isArray(updates)) {
+      return res.status(400).json({ message: "Invalid updates" });
+    }
+
+    await Cell.bulkWrite(updates);
+    res.status(200).send("Many cells successfully updated");
+  } catch(error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
+export async function cellColorReport(req, res) {
+  try {
+    const distribution = await Cell.aggregate([
+      {
+        $group: {
+          _id: '$color', 
+          count: { $sum: 1 } 
+        }
+      },
+      {
+        $sort: { count: -1 } 
+      }
+    ]);
+
+    res.status(200).json({
+      message: "Color distribution successfully generated",
+      distribution
+    });
+  } catch (error) {
+    console.error("Error generating color report:", error);
+    res.status(500).json({ message: "Error generating color report" });
+  }
+}
+
 export async function deleteCellById(req, res) {
   try {
     const deletedCell = await Cell.findByIdAndDelete(req.params.id);
