@@ -7,7 +7,7 @@ import {
   ListButton
 } from './styled';
 
-function ConfigHeader() {
+function ConfigHeader(props) {
   const {configCell} = useCell();
   const [activeMenu, setActiveMenu] = useState(null);
 
@@ -21,10 +21,10 @@ function ConfigHeader() {
     <ConfigHeaderContainer>
       <ConfigList>
         <ListItem>
-          <ListButton $activeButton={activeMenu === "cell"} >Célula</ListButton>
+          <ListButton $activeButton={activeMenu === "cell"} >{props.text1}</ListButton>
         </ListItem>
         <ListItem>
-          <ListButton $activeButton={activeMenu === "board"} >Prancha</ListButton>
+          <ListButton $activeButton={activeMenu === "board"} >{props.text2}</ListButton>
         </ListItem>
       </ConfigList>
     </ConfigHeaderContainer>

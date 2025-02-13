@@ -18,7 +18,7 @@ export function CellContextProvider({ children }) {
       configCell,
       setConfigCell
     }}>
-    {children}
+      {children}
     </CellContext.Provider>
   );
 }

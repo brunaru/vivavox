@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components"; 
 import styled from "styled-components";
 import { CellContextProvider } from "./components/contexts/CellContext";
+import { PhraseContextProvider } from "./components/contexts/PhraseContext";
 import PageHome from "./components/pages/PageHome";
+import { BoardContextProvider } from "./components/contexts/BoardContext";
 
 const AppContainer = styled.div`
   height: 100%;
@@ -22,10 +24,14 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <AppContainer>
-      <GlobalStyle/> 
-      <CellContextProvider>
-        <PageHome/>
-      </CellContextProvider>
+      <GlobalStyle/>
+      <BoardContextProvider>
+        <CellContextProvider>
+          <PhraseContextProvider>
+            <PageHome/>
+          </PhraseContextProvider>
+        </CellContextProvider>
+      </BoardContextProvider>
     </AppContainer>
   );
 }
