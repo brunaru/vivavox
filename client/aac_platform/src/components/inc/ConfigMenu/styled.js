@@ -26,12 +26,13 @@ export const ConfigCellContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const SettingsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
 `;
 
@@ -44,19 +45,32 @@ export const ConfigCellForm = styled.form`
   gap: 25px;
 `;
 
-export const ConfigCellPictograms = styled.div`
+export const ConfigCellSelector = styled.div`
   margin: 40px 40px 0 0;
   padding: 0 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 55%;
+  height: 300px;
+  overflow: hidden;
+`;
+
+export const ConfigCellPictograms = styled.div`
+  flex: 1;
+  margin: 0;
+  padding: 10px 0 6px 6px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  width: 55%;
+  width: 100%;
   height: auto;
   overflow-y: auto;
-  max-height: 259px;
+  max-height: 100%;
 `;
 
 export const PictogramItem = styled.div`

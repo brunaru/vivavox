@@ -3,19 +3,21 @@ import ConfigHeader from '../ConfigHeader';
 import Input from '../Input';
 import ConfirmButton from '../ConfirmButton';
 import Symbol from '../Symbol';
-import {
-  ConfigMenuContainer,
-  ConfigCellContainer,
-  SettingsContainer,
-  ConfigCellForm,
-  ConfigCellPictograms,
-  PictogramItem
-} from './styled';
 import ColorPicker from '../ColorPicker';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { useBoard } from '../../contexts/BoardContext';
 import api from '../../../services/api';
+import {
+  ConfigMenuContainer,
+  ConfigCellContainer,
+  SettingsContainer,
+  ConfigCellForm,
+  ConfigCellSelector,
+  ConfigCellPictograms,
+  PictogramItem
+} from './styled';
+
 
 function ConfigMenu() {
   const {configCell, setConfigCell} = useCell();
@@ -98,7 +100,7 @@ function ConfigMenu() {
 
   return (
     <ConfigMenuContainer>
-      <ConfigHeader/>
+      <ConfigHeader text1="Célula" text2="Prancha"/>
       {
         configCell &&
         <ConfigCellContainer>
@@ -107,26 +109,29 @@ function ConfigMenu() {
               <Input text={text} handleTextChange={handleTextChange} label="Texto" />
               <ColorPicker color={color} handleColorChange={handleColorChange} label="Cor da borda"/>
             </ConfigCellForm>
-            <ConfigCellPictograms>
-              {pictograms.map((pictogram, index) => {
-                return (
-                  <PictogramItem 
-                      key={index}
-                      $currentPictogram={image === `${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`}
-                      onClick={() => handlePictogramClick(pictogram._id)}
-                    >
-                    <Symbol source={`${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`} />
-                  </PictogramItem>
-                );
-              })}
-            </ConfigCellPictograms>
+            <ConfigCellSelector>
+              <ConfigHeader text1="Trocar célula" text2="Personalizar célula"/>
+              <ConfigCellPictograms>
+                {pictograms.map((pictogram, index) => {
+                  return (
+                    <PictogramItem 
+                        key={index}
+                        $currentPictogram={image === `${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`}
+                        onClick={() => handlePictogramClick(pictogram._id)}
+                      >
+                      <Symbol source={`${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`} />
+                    </PictogramItem>
+                  );
+                })}
+              </ConfigCellPictograms>
+            </ConfigCellSelector>
           </SettingsContainer>
           <ConfirmButton 
             updateCell={updateCellAndBoard}
             text="Confirmar" 
             height="40px" 
             width="180px" 
-            margin="100px 0 0 0" 
+            margin="60px 0 60px 0" 
           />
         </ConfigCellContainer>
       }
