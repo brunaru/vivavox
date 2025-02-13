@@ -47,14 +47,15 @@ export const ConfigCellForm = styled.form`
 
 export const ConfigCellSelector = styled.div`
   margin: 40px 40px 0 0;
-  padding: 0 0 0 10px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 55%;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
+  border-radius: 6px;
 `;
 
 export const ConfigCellPictograms = styled.div`
@@ -64,7 +65,7 @@ export const ConfigCellPictograms = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   flex-wrap: wrap;
   width: 100%;

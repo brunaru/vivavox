@@ -114,7 +114,7 @@ function ConfigMenu() {
               <ConfigCellPictograms>
                 {pictograms.map((pictogram, index) => {
                   return (
-                    <PictogramItem 
+                    <PictogramItem
                         key={index}
                         $currentPictogram={image === `${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`}
                         onClick={() => handlePictogramClick(pictogram._id)}
