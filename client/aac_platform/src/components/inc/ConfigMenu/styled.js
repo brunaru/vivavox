@@ -53,13 +53,13 @@ export const ConfigCellSelector = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 55%;
-  height: 400px;
+  height: 280px;
   overflow: hidden;
   border-radius: 6px;
 `;
 
 export const ConfigCellPictograms = styled.div`
-  flex: 1;
+  // flex: 1;
   margin: 0;
   padding: 10px 0 6px 6px;
   display: flex;
@@ -71,7 +71,7 @@ export const ConfigCellPictograms = styled.div`
   width: 100%;
   height: auto;
   overflow-y: auto;
-  max-height: 100%;
+  max-height: 220px;
 `;
 
 export const PictogramItem = styled.div`
