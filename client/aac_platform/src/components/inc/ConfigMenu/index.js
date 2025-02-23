@@ -23,6 +23,7 @@ function ConfigMenu() {
   const [color, setColor] = useState(configCell?.color || '#000000');
   const [image, setImage] = useState(configCell?.img || '');
   const [pictograms, setPictograms] = useState([]);
+  const [activeConfigMenu, setActiveConfigMenu] = useState(false);
 
   const getPictogramsByText = useCallback(() => {
     if(!text.trim()) return;
@@ -91,7 +92,12 @@ function ConfigMenu() {
 
   return (
     <ConfigMenuContainer>
-      <ConfigHeader text1="Célula" text2="Prancha"/>
+      <ConfigHeader 
+        text1="Célula" 
+        text2="Prancha"
+        activeMenu={activeConfigMenu}
+        setActiveMenu={setActiveConfigMenu}
+      />
       {
         configCell &&
         <ConfigCellContainer>

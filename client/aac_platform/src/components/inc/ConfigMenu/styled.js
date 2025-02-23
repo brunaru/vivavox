@@ -9,7 +9,7 @@ export const ConfigMenuContainer = styled.div`
   height: 76%;
   background-color: white;
   border-radius: 8px;
-  filter: drop-shadow(0 6px 8px gray);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
