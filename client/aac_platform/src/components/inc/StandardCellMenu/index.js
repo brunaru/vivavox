@@ -1,36 +1,52 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import axios from 'axios';
 import Input from '../Input';
+import Symbol from '../Symbol';
 import {
   StandardCellMenuContainer,
   SearchField,
-  StandardCells
+  StandardCells,
+  CellItem
 } from './styled';
+import { useCell } from '../../contexts/CellContext';
+import CellText from '../CellText';
 
 function StandardCellMenu() {
+  const {configCell} = useCell();
   const [keyText, setKeyText] = useState("");
+  const [foundCells, setFoundCells] = useState([]);
+  const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
 
   function handleKeyTextChange(e) {
     setKeyText(e.target.value);
   }
 
-  // const getCellsByText = useCallback(() => {
-  //   if(!keyText.trim()) return;
+  function handleCellClick(cell_id) {
+    // Troca de células...
+  }
 
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(``);
-  //       setPictograms(response.data);
-  //     } catch(error) {
-  //       console.log("Error searching for pictograms");
-  //     }
-  //   };
+  const getCellsByText = useCallback(() => {
+    if(!keyText.trim()) return;
 
-  //   // Waits 500ms before fetch:
-  //   const delay = setTimeout(fetchData, 500);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/cell/getByText/${keyText}`);
+        setFoundCells(response.data);
+      } catch(error) {
+        console.log("Error searching for cells");
+      }
+    };
 
-  //   // Cancels requisition if 'text' changes before 500ms:
-  //   return () => clearTimeout(delay);
-  // }, [text]);
+    // Waits 500ms before fetch:
+    const delay = setTimeout(fetchData, 500);
+
+    // Cancels requisition if 'text' changes before 500ms:
+    return () => clearTimeout(delay);
+  }, [keyText]);
+
+  useEffect(() => {
+    getCellsByText();
+  }, [keyText, getCellsByText]);
 
   return (
     <StandardCellMenuContainer>
@@ -42,19 +58,20 @@ function StandardCellMenu() {
           label="Buscar célula:"
         />
       </SearchField>
-      {/* <StandardCells>
-          {foundCells.map((pictogram, index) => {
+      <StandardCells>
+          {foundCells.map((cell, index) => {
             return (
-              <PictogramItem
-                  key={index}
-                  $currentPictogram={props.image === `${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`}
-                  onClick={() => handlePictogramClick(pictogram._id)}
-                >
-                <Symbol source={`${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`} />
-              </PictogramItem>
+              <CellItem
+                key={index}
+                $currentCell={configCell._id === cell._id}
+                onClick={() => handleCellClick(cell._id)}
+              >
+                <Symbol source={`${cell.img}`}/>
+                <CellText text={cell.text} fontSize="10px"/>
+              </CellItem>
             );
           })}
-        </StandardCells> */}
+        </StandardCells>
     </StandardCellMenuContainer>
   );
 }

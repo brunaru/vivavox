@@ -8,5 +8,5 @@ export const Text = styled.p`
   padding: 0;
   height: 27%;
   font-weight: 600;
-  font-size: 19px;
+  font-size: ${({$fontSize}) => ($fontSize ? $fontSize : "19px")};
 `;
