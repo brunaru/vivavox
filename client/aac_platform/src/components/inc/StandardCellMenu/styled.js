@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const StandardCellMenuContainer = styled.div`
   margin: 0;
-  padding: 10px 0 6px 6px;
+  padding: 10px 6px 6px 6px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 100%;
+  width: 98%;
   height: auto;
   max-height: 220px;
 `;
@@ -15,11 +15,14 @@ export const StandardCellMenuContainer = styled.div`
 export const SearchField = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
 `;
 
 export const StandardCells = styled.div`
-  margin: 0;
-  padding: 10px 0 6px 6px;
+  margin: 5px 0 0 0;
+  padding: 10px 0 6px 2px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

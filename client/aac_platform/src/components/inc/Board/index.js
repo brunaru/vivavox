@@ -43,21 +43,6 @@ function Board() {
     }
   }
 
-  useEffect(() => {
-    if(process.env.REACT_APP_API_BASE_URL) {
-      handleFetch();
-    } else {
-      console.warn("API_BASE_URL not defined. Verify .env");
-    }
-  }, []);
-
-  useEffect(() => {
-    if(configCell === null) {
-      updateBoard();
-      handleFetch();
-    }
-  }, [configCell]);
-
   const onDrop = (targetPosition) => {
     if(activeCell == null || activeCell === undefined) return;
 
@@ -82,11 +67,32 @@ function Board() {
     setTargetIndex(null);
   }
 
+  // Fetches board when reload page:
+  useEffect(() => {
+    if(process.env.REACT_APP_API_BASE_URL) {
+      console.log("Aqui -1");
+      handleFetch();
+    } else {
+      console.warn("API_BASE_URL not defined. Verify .env");
+    }
+  }, []);
+
+  // Update board after configCell menu:
+  useEffect(() => {
+    console.log("Aqui 0");
+    if(configCell === null) {
+      updateBoard();
+      handleFetch();
+    }
+  }, [configCell]);
+
   useEffect(() => {
     const prevEditing = prevEditingRef.current;
+    console.log("Aqui 1");
 
     // If 'editing' changes from true to false:
     if(prevEditing && !editing && hasBoardChanges) {
+      console.log("Aqui 2");
       updateBoard();
       setHasBoardChanges(false);
     }
@@ -95,6 +101,7 @@ function Board() {
   }, [editing]);
 
   useEffect(() => {
+    console.log("Aqui 3");
     setHasBoardChanges(true);
   }, [board]);
 

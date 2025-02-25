@@ -16,7 +16,7 @@ function Cell({ index, cell, setTargetIndex, targetIndex, onDrop, bounceCells })
   function handleCellClick() {
     if(editing) {
       if(!configCell) {
-        setConfigCell(cell);
+        setConfigCell({ ...cell, indexOnBoard: index });
       }
     } else {
       addWord(cell.text);

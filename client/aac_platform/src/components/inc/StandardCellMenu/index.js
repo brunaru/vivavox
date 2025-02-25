@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import axios from 'axios';
 import Input from '../Input';
 import Symbol from '../Symbol';
+import SearchButton from '../SearchButton';
 import {
   StandardCellMenuContainer,
   SearchField,
@@ -12,7 +13,7 @@ import { useCell } from '../../contexts/CellContext';
 import CellText from '../CellText';
 
 function StandardCellMenu() {
-  const {configCell} = useCell();
+  const {configCell, setConfigCell} = useCell();
   const [keyText, setKeyText] = useState("");
   const [foundCells, setFoundCells] = useState([]);
   const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
@@ -21,32 +22,22 @@ function StandardCellMenu() {
     setKeyText(e.target.value);
   }
 
-  function handleCellClick(cell_id) {
-    // Troca de células...
-  }
-
-  const getCellsByText = useCallback(() => {
+  async function handleSearchClick() {
     if(!keyText.trim()) return;
 
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/cell/getByText/${keyText}`);
-        setFoundCells(response.data);
-      } catch(error) {
-        console.log("Error searching for cells");
-      }
-    };
+    try {
+      const response = await axios.get(`http://localhost:5000/cell/getByText/${keyText}`);
+      setFoundCells(response.data);
+    } catch(error) {
+      console.log("Error searching for cells");
+    }
+    
 
-    // Waits 500ms before fetch:
-    const delay = setTimeout(fetchData, 500);
+  }
 
-    // Cancels requisition if 'text' changes before 500ms:
-    return () => clearTimeout(delay);
-  }, [keyText]);
-
-  useEffect(() => {
-    getCellsByText();
-  }, [keyText, getCellsByText]);
+  function handleCellClick(clickedCell) {
+    setConfigCell({ ...configCell, ...clickedCell });
+  }
 
   return (
     <StandardCellMenuContainer>
@@ -57,6 +48,7 @@ function StandardCellMenu() {
           type="text"  
           label="Buscar célula:"
         />
+        <SearchButton handleSearchClick={handleSearchClick} />
       </SearchField>
       <StandardCells>
           {foundCells.map((cell, index) => {
@@ -64,7 +56,7 @@ function StandardCellMenu() {
               <CellItem
                 key={index}
                 $currentCell={configCell._id === cell._id}
-                onClick={() => handleCellClick(cell._id)}
+                onClick={() => handleCellClick(cell)}
               >
                 <Symbol source={`${cell.img}`}/>
                 <CellText text={cell.text} fontSize="10px"/>

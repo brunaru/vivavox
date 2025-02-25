@@ -22,6 +22,7 @@ function ConfigMenu() {
   const [text, setText] = useState(configCell?.text || '');
   const [color, setColor] = useState(configCell?.color || '#000000');
   const [image, setImage] = useState(configCell?.img || '');
+  const [id, setId] = useState(configCell?._id || '');
   const [pictograms, setPictograms] = useState([]);
   const [activeConfigMenu, setActiveConfigMenu] = useState(false);
 
@@ -48,28 +49,39 @@ function ConfigMenu() {
     try {
       if(!configCell) return;
 
-      // Verify if cell changes has been made:
-      const hasChanges = 
+      if(id !== configCell._id) {
+        console.log("configCell: ", configCell);
+        
+        const newBoard = { ...board };
+        newBoard.cells[configCell.indexOnBoard]._id = configCell._id;
+        newBoard.cells[configCell.indexOnBoard].cellType = "cell";
+        setBoard(newBoard);
+      } else {
+        // Verify if cell changes has been made:
+        const hasChanges = 
         text !== configCell.text || 
         color !== configCell.color ||
         image !== configCell.img;
 
-      // Make updates to the cell and board:
-      if(hasChanges) {
-        const updatedCell = { ...configCell, text: text, color: color, img: image };
-        const response = await api.patch(`/userCell/patch/${updatedCell._id}`, updatedCell);
-        console.log("Cell successfully sent to api");
+        // Make updates to the cell and board:
+        if(hasChanges) {
+          const updatedCell = { ...configCell, text: text, color: color, img: image };
+          const response = await api.patch(`/userCell/patch/${updatedCell._id}`, updatedCell);
+          console.log("Cell successfully sent to api");
 
-        const newCellId = response.data.finalId;
+          const newCellId = response.data.finalId;
 
-        setBoard((prevBoard) => ({
-          ...prevBoard,
-          cells: prevBoard.cells.map((cell) => 
-            cell._id === updatedCell._id ? { ...cell, _id: newCellId, cellType: "userCell" } : cell
-          )
-        }));
-      } else {
-        console.log("No change has been made");
+          setBoard((prevBoard) => ({
+            ...prevBoard,
+            cells: prevBoard.cells.map((cell) => 
+              cell._id === updatedCell._id ? { ...cell, _id: newCellId, cellType: "userCell" } : cell
+            )
+          }));
+
+          console.log("AAAAAAA");
+        } else {
+          console.log("No change has been made");
+        }
       }
 
       setConfigCell(null);
