@@ -65,12 +65,13 @@ function Board() {
       setBounceCells([]); 
     }, 300); 
     setTargetIndex(null);
+    setHasBoardChanges(true);
   }
 
   // Fetches board when reload page:
   useEffect(() => {
     if(process.env.REACT_APP_API_BASE_URL) {
-      console.log("Aqui -1");
+      console.log("Reaload de página");
       handleFetch();
     } else {
       console.warn("API_BASE_URL not defined. Verify .env");
@@ -79,7 +80,7 @@ function Board() {
 
   // Update board after configCell menu:
   useEffect(() => {
-    console.log("Aqui 0");
+    console.log("Após configCell mudar");
     if(configCell === null) {
       updateBoard();
       handleFetch();
@@ -88,11 +89,11 @@ function Board() {
 
   useEffect(() => {
     const prevEditing = prevEditingRef.current;
-    console.log("Aqui 1");
+    console.log("Após editing mudar");
 
     // If 'editing' changes from true to false:
     if(prevEditing && !editing && hasBoardChanges) {
-      console.log("Aqui 2");
+      console.log("Editing mudou de true pra false, e temos mudanças no board");
       updateBoard();
       setHasBoardChanges(false);
     }
@@ -100,10 +101,10 @@ function Board() {
     prevEditingRef.current = editing;
   }, [editing]);
 
-  useEffect(() => {
-    console.log("Aqui 3");
-    setHasBoardChanges(true);
-  }, [board]);
+  // useEffect(() => {
+  //   console.log("Aqui 3");
+  //   setHasBoardChanges(true);
+  // }, [board]);
 
   if(!board.cells) {
     return (
