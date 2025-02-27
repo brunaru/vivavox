@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { NavLink as Link } from 'react-router-dom';
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled(Link)`
   width: ${({$width}) => ($width ? $width : "100%")};
   height: ${({$height}) => ($height ? $height : "100%")};
   background-color: ${({$activeButton}) => ($activeButton ? "#003466" : "white")};
@@ -11,6 +12,7 @@ export const ButtonContainer = styled.button`
   justify-content: center;
   font-size: ${({$fontSize}) => ($fontSize ? $fontSize : "1.2vw")};
   color: ${({$activeButton}) => ($activeButton ? "white" : "black")};
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;

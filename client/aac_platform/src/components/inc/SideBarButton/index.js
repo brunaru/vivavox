@@ -10,6 +10,7 @@ function SideBarButton(props) {
 
   return (
     <ButtonContainer 
+      to={props.to}
       $color={props.color} 
       $height={props.height} 
       $width={props.width} 

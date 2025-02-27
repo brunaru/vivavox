@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { useCell } from "../../contexts/CellContext";
+import { usePage } from "../../contexts/PageContext";
 import SideBarButton from "../SideBarButton";
 import {
   SideBarContainer,
@@ -11,19 +11,19 @@ import {
 
 function SideBar() {
   const {editing, setEditing} = useCell();
-  const [activeButton, setActiveButton] = useState("Prancha padrão");
+  const {page, setPage} = usePage();
 
   return (
     <SideBarContainer>
       <NavContainer>
         <NavList>
-          <Item><SideBarButton text="Logo e Marca" height="125%" width="86%" fontSize="1vw" setActiveButton={setActiveButton} activeButton={activeButton} /></Item>
-          <Item><SideBarButton text="Prancha padrão" height="100%" fontSize="1vw" setActiveButton={setActiveButton} activeButton={activeButton} /></Item>
-          <Item><SideBarButton text="Coleção de palavras básicas" height="100%" fontSize="1vw" setActiveButton={setActiveButton} activeButton={activeButton} /></Item>
-          <Item><SideBarButton text="Editar" height="100%" fontSize="1vw" editing={editing} setEditing={setEditing} setActiveButton={setActiveButton} activeButton={activeButton} /></Item>
-          <Item><SideBarButton text="Contas e usuários" height="100%" fontSize="1vw" setActiveButton={setActiveButton} activeButton={activeButton} /></Item>
-          <Item><SideBarButton text="Configurações" height="100%" fontSize="1vw" setActiveButton={setActiveButton} activeButton={activeButton} /></Item>
-          <Item><SideBarButton text="Sobre a plataforma" height="100%" fontSize="1vw" setActiveButton={setActiveButton} activeButton={activeButton} /></Item>
+          <Item><SideBarButton text="Logo e Marca" height="125%" width="86%" fontSize="1vw" setActiveButton={setPage} activeButton={page} /></Item>
+          <Item><SideBarButton to="/cur-board" text="Prancha atual" height="100%" fontSize="1vw" setActiveButton={setPage} activeButton={page} /></Item>
+          <Item><SideBarButton text="Editar" height="100%" fontSize="1vw" editing={editing} setEditing={setEditing} setActiveButton={setPage} activeButton={page} /></Item>
+          <Item><SideBarButton text="Biblioteca de Pranchas" height="100%" fontSize="1vw" setActiveButton={setPage} activeButton={page} /></Item>
+          <Item><SideBarButton to="/account" text="Contas e usuários" height="100%" fontSize="1vw" setActiveButton={setPage} activeButton={page} /></Item>
+          <Item><SideBarButton text="Configurações" height="100%" fontSize="1vw" setActiveButton={setPage} activeButton={page} /></Item>
+          <Item><SideBarButton text="Sobre a plataforma" height="100%" fontSize="1vw" setActiveButton={setPage} activeButton={page} /></Item>
         </NavList>
       </NavContainer>
     </SideBarContainer>
