@@ -5,7 +5,7 @@ import PageProfiles from './components/pages/PageProfiles';
 function Router() {
   return(
     <Routes>
-      <Route path='/cur-board' element={<PageCurrentBoard/>} />
+      <Route path='/' element={<PageCurrentBoard/>} />
       <Route path='/account' element={<PageProfiles/>} />
     </Routes>
   );

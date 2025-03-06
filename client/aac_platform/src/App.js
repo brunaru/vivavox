@@ -29,7 +29,6 @@ function App() {
           <PageContextProvider>
             <CellContextProvider>
               <Router/>
-              {/* <PageCurrentBoard/>             */}
             </CellContextProvider>
           </PageContextProvider>
         </BrowserRouter>

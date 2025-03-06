@@ -34,21 +34,21 @@ function PageCurrentBoard() {
 
   return (
     <BoardContextProvider>
-          <PhraseContextProvider>
-            <PageContainer> 
-              <FeatureBar/>
-              <MainSection>
-                <SideBar/>
-                <BoardSpace>
-                  <Board/>
-                </BoardSpace>
-              </MainSection>
-              {configCell && 
-                <ConfigMenu/>
-              }
-            </PageContainer>
-          </PhraseContextProvider>
-      </BoardContextProvider>      
+      <PhraseContextProvider>
+        <PageContainer> 
+          <FeatureBar/>
+          <MainSection>
+            <SideBar/>
+            <BoardSpace>
+              <Board/>
+            </BoardSpace>
+          </MainSection>
+          {configCell && 
+            <ConfigMenu/>
+          }
+        </PageContainer>
+      </PhraseContextProvider>
+    </BoardContextProvider>      
   );
 }
 

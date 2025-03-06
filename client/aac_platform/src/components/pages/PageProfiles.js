@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import FeatureBar from '../inc/FeatureBar';
 import SideBar from '../inc/SideBar';
 import Board from '../inc/Board';
+import AccountIntro from '../inc/PageProfiles/AccountIntro';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -19,7 +20,7 @@ const MainSection = styled.div`
 
 const BoardSpace = styled.div`
   width: 85vw;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,7 +32,7 @@ function PageProfiles() {
       <MainSection>
         <SideBar/>
         <BoardSpace>
-          
+          <AccountIntro/>
         </BoardSpace>
       </MainSection>
     </PageContainer>
