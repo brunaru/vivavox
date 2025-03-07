@@ -11,14 +11,17 @@ const boardSchema = new mongoose.Schema({
     required: true
   },
   cells: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'cell'
-  }],
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
-    required: true
-  }
+    cellId:{
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      refPath: 'cells.cellType'
+    },
+    cellType: {
+      type: String,
+      required: true,
+      enum: ['cell', 'userCell']
+    }
+  }]
 }, { versionKey: false });
 
 const Board = mongoose.model('board', boardSchema);

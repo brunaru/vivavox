@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components"; 
 import styled from "styled-components";
 import { CellContextProvider } from "./components/contexts/CellContext";
-import PageHome from "./components/pages/PageHome";
+import { BrowserRouter } from "react-router-dom"
+import Router from "./Routes";
+import { PageContextProvider } from "./components/contexts/PageContext";
 
 const AppContainer = styled.div`
   height: 100%;
@@ -22,10 +24,14 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <AppContainer>
-      <GlobalStyle/> 
-      <CellContextProvider>
-        <PageHome/>
-      </CellContextProvider>
+      <GlobalStyle/>
+        <BrowserRouter>
+          <PageContextProvider>
+            <CellContextProvider>
+              <Router/>
+            </CellContextProvider>
+          </PageContextProvider>
+        </BrowserRouter>
     </AppContainer>
   );
 }

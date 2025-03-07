@@ -2,12 +2,12 @@ import mongoose from 'mongoose';
 
 const cellSchema = new mongoose.Schema({
   text: {
-    type: String,
-    required: true,
-    unique: true
+    type: String
   },
   img: {
-    type: String
+    type: String,
+    unique: true,
+    required: true
   },
   color: {
     type: String

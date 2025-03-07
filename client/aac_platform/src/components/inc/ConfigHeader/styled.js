@@ -8,8 +8,7 @@ export const ConfigHeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 4px 2px gray);
-  // border-bottom: 2px solid gray;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.3);
 `;
 
 export const ConfigList = styled.ul`
@@ -52,7 +51,6 @@ export const ListButton = styled.button`
     $activeButton && `
       background-color: #003466;
       color: white;
-      filter: drop-shadow(0 1px 8px #525252);
     `
   }
 `;

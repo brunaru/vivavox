@@ -1,12 +1,18 @@
+import { usePhrase } from "../../contexts/PhraseContext";
 import {
   WriteBarContainer
 } from "./styled";
 
 function WriteBar() {
-  return (
-    <WriteBarContainer>
+  const { currentPhrase } = usePhrase();
 
-    </WriteBarContainer>
+  return (
+    <WriteBarContainer
+      type="text"
+      value={currentPhrase}
+      placeholder="Sua frase aparecerá aqui"
+      readOnly
+    />
   );
 }
 

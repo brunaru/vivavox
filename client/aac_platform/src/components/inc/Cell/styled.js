@@ -19,8 +19,9 @@ export const CellContainer = styled.div`
   max-width: 200px;
   max-height: 120px;
   overflow: hidden;
-  border: 3.5px solid ${({color}) => color};
+  border: 4.5px solid ${({color}) => color};
   position: relative;
+  user-select: none;
 
   &:hover {
     cursor: pointer;

@@ -11,7 +11,6 @@ function ColorPicker({ color, handleColorChange, label }) {
     <ColorPickerContainer>
       <Label>{label}</Label>
       <ColorInput type="color" value={color} onChange={handleColorChange}></ColorInput>
-      <p>Cor da borda: {color}</p>
     </ColorPickerContainer>
   );
 }

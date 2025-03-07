@@ -9,7 +9,7 @@ export const ConfigMenuContainer = styled.div`
   height: 76%;
   background-color: white;
   border-radius: 8px;
-  filter: drop-shadow(0 6px 8px gray);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,12 +26,13 @@ export const ConfigCellContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const SettingsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
 `;
 
@@ -42,63 +43,4 @@ export const ConfigCellForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 25px;
-`;
-
-export const ConfigCellPictograms = styled.div`
-  margin: 40px 40px 0 0;
-  padding: 0 0 0 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  width: 55%;
-  height: auto;
-  overflow-y: auto;
-  max-height: 259px;
-`;
-
-export const PictogramItem = styled.div`
-  position: relative;
-  border: solid 2px black;
-  border-radius: 6px;
-  max-height: 52px;
-
-  &:hover {
-    cursor: pointer;
-    ${({ $currentPictogram }) =>
-      !$currentPictogram &&
-      `
-        &:before {
-          content: '';
-          position: absolute;
-          top: -3px;
-          left: -3px;
-          right: -3px;
-          bottom: -3px;
-          border: solid 5px #003466;
-          border-radius: 8px;
-          pointer-events: none;
-        }
-      `
-    }
-  }
-
-  ${({ $currentPictogram }) =>
-    $currentPictogram &&
-    `
-      &:before {
-        content: '';
-        position: absolute;
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
-        border: solid 5px #003466;
-        border-radius: 8px;
-        pointer-events: none;
-      }
-    `
-  }
 `;
