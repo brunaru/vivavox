@@ -4,9 +4,9 @@ import {
   InputField
 } from './styled';
 
-function Input({ text, handleTextChange, type, label }) {
+function Input({ text, handleTextChange, type, label, width }) {
   return (
-    <InputContainer>
+    <InputContainer $width={width}>
       <Label>{label}</Label>
       <InputField
         value={text}

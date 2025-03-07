@@ -4,6 +4,8 @@ import SideBar from '../inc/SideBar';
 import Board from '../inc/Board';
 import { useCell } from '../contexts/CellContext';
 import ConfigMenu from '../inc/ConfigMenu';
+import { BoardContextProvider } from '../contexts/BoardContext';
+import { PhraseContextProvider } from '../contexts/PhraseContext';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -27,23 +29,27 @@ const BoardSpace = styled.div`
   justify-content: center;
 `;
 
-function PageHome() {
+function PageCurrentBoard() {
   const {configCell} = useCell();
 
   return (
-    <PageContainer>
-      <FeatureBar/>
-      <MainSection>
-        <SideBar/>
-        <BoardSpace>
-          <Board/>
-        </BoardSpace>
-      </MainSection>
-      {configCell && 
-        <ConfigMenu/>
-      }
-    </PageContainer>
+    <BoardContextProvider>
+      <PhraseContextProvider>
+        <PageContainer> 
+          <FeatureBar/>
+          <MainSection>
+            <SideBar/>
+            <BoardSpace>
+              <Board/>
+            </BoardSpace>
+          </MainSection>
+          {configCell && 
+            <ConfigMenu/>
+          }
+        </PageContainer>
+      </PhraseContextProvider>
+    </BoardContextProvider>      
   );
 }
 
-export default PageHome;
+export default PageCurrentBoard;

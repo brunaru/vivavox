@@ -43,21 +43,6 @@ function Board() {
     }
   }
 
-  useEffect(() => {
-    if(process.env.REACT_APP_API_BASE_URL) {
-      handleFetch();
-    } else {
-      console.warn("API_BASE_URL not defined. Verify .env");
-    }
-  }, []);
-
-  useEffect(() => {
-    if(configCell === null) {
-      updateBoard();
-      handleFetch();
-    }
-  }, [configCell]);
-
   const onDrop = (targetPosition) => {
     if(activeCell == null || activeCell === undefined) return;
 
@@ -80,13 +65,35 @@ function Board() {
       setBounceCells([]); 
     }, 300); 
     setTargetIndex(null);
+    setHasBoardChanges(true);
   }
+
+  // Fetches board when reload page:
+  useEffect(() => {
+    if(process.env.REACT_APP_API_BASE_URL) {
+      console.log("Reaload de página");
+      handleFetch();
+    } else {
+      console.warn("API_BASE_URL not defined. Verify .env");
+    }
+  }, []);
+
+  // Update board after configCell menu:
+  useEffect(() => {
+    console.log("Após configCell mudar");
+    if(configCell === null) {
+      updateBoard();
+      handleFetch();
+    }
+  }, [configCell]);
 
   useEffect(() => {
     const prevEditing = prevEditingRef.current;
+    console.log("Após editing mudar");
 
     // If 'editing' changes from true to false:
     if(prevEditing && !editing && hasBoardChanges) {
+      console.log("Editing mudou de true pra false, e temos mudanças no board");
       updateBoard();
       setHasBoardChanges(false);
     }
@@ -94,9 +101,10 @@ function Board() {
     prevEditingRef.current = editing;
   }, [editing]);
 
-  useEffect(() => {
-    setHasBoardChanges(true);
-  }, [board]);
+  // useEffect(() => {
+  //   console.log("Aqui 3");
+  //   setHasBoardChanges(true);
+  // }, [board]);
 
   if(!board.cells) {
     return (

@@ -2,9 +2,9 @@ import {
   Text
 } from "./styled";
 
-function CellText({text}) {
+function CellText({text, fontSize}) {
   return (
-    <Text>{text}</Text>
+    <Text $fontSize={fontSize} >{text}</Text>
   );
 }
 

@@ -2,8 +2,8 @@ import { useCell } from '../../contexts/CellContext';
 import ConfigHeader from '../ConfigHeader';
 import Input from '../Input';
 import ConfirmButton from '../ConfirmButton';
-import Symbol from '../Symbol';
 import ColorPicker from '../ColorPicker';
+import ConfigCellSelector from '../ConfigCellSelector';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { useBoard } from '../../contexts/BoardContext';
@@ -12,10 +12,7 @@ import {
   ConfigMenuContainer,
   ConfigCellContainer,
   SettingsContainer,
-  ConfigCellForm,
-  ConfigCellSelector,
-  ConfigCellPictograms,
-  PictogramItem
+  ConfigCellForm
 } from './styled';
 
 
@@ -25,8 +22,9 @@ function ConfigMenu() {
   const [text, setText] = useState(configCell?.text || '');
   const [color, setColor] = useState(configCell?.color || '#000000');
   const [image, setImage] = useState(configCell?.img || '');
+  const [id, setId] = useState(configCell?._id || '');
   const [pictograms, setPictograms] = useState([]);
-  const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
+  const [activeConfigMenu, setActiveConfigMenu] = useState(false);
 
   const getPictogramsByText = useCallback(() => {
     if(!text.trim()) return;
@@ -51,33 +49,44 @@ function ConfigMenu() {
     try {
       if(!configCell) return;
 
-      // Verify if cell changes has been made:
-      const hasChanges = 
+      if(id !== configCell._id) {
+        console.log("configCell: ", configCell);
+        
+        const newBoard = { ...board };
+        newBoard.cells[configCell.indexOnBoard]._id = configCell._id;
+        newBoard.cells[configCell.indexOnBoard].cellType = "cell";
+        setBoard(newBoard);
+      } else {
+        // Verify if cell changes has been made:
+        const hasChanges = 
         text !== configCell.text || 
         color !== configCell.color ||
         image !== configCell.img;
 
-      // Make updates to the cell and board:
-      if(hasChanges) {
-        const updatedCell = { ...configCell, text: text, color: color, img: image };
-        const response = await api.patch(`/userCell/patch/${updatedCell._id}`, updatedCell);
-        console.log("Cell successfully sent to api");
+        // Make updates to the cell and board:
+        if(hasChanges) {
+          const updatedCell = { ...configCell, text: text, color: color, img: image };
+          const response = await api.patch(`/userCell/patch/${updatedCell._id}`, updatedCell);
+          console.log("Cell successfully sent to api");
 
-        const newCellId = response.data.finalId;
+          const newCellId = response.data.finalId;
 
-        setBoard((prevBoard) => ({
-          ...prevBoard,
-          cells: prevBoard.cells.map((cell) => 
-            cell._id === updatedCell._id ? { ...cell, _id: newCellId, cellType: "userCell" } : cell
-          )
-        }));
-      } else {
-        console.log("No change has been made");
+          setBoard((prevBoard) => ({
+            ...prevBoard,
+            cells: prevBoard.cells.map((cell) => 
+              cell._id === updatedCell._id ? { ...cell, _id: newCellId, cellType: "userCell" } : cell
+            )
+          }));
+
+          console.log("AAAAAAA");
+        } else {
+          console.log("No change has been made");
+        }
       }
 
       setConfigCell(null);
     } catch(error) {
-      console.log("Error sending cell update: ", error);
+      console.log("Error sending cell personalization: ", error);
     }
   }
 
@@ -88,11 +97,6 @@ function ConfigMenu() {
   function handleColorChange(e) {
     setColor(e.target.value);
   }
-
-  function handlePictogramClick(pictogram_id) {
-    const selectedImg = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
-    setImage(selectedImg);
-  }
   
   useEffect(() => {
     getPictogramsByText();
@@ -100,7 +104,12 @@ function ConfigMenu() {
 
   return (
     <ConfigMenuContainer>
-      <ConfigHeader text1="Célula" text2="Prancha"/>
+      <ConfigHeader 
+        text1="Célula" 
+        text2="Prancha"
+        activeMenu={activeConfigMenu}
+        setActiveMenu={setActiveConfigMenu}
+      />
       {
         configCell &&
         <ConfigCellContainer>
@@ -109,22 +118,11 @@ function ConfigMenu() {
               <Input text={text} handleTextChange={handleTextChange} label="Texto" />
               <ColorPicker color={color} handleColorChange={handleColorChange} label="Cor da borda"/>
             </ConfigCellForm>
-            <ConfigCellSelector>
-              <ConfigHeader text1="Trocar célula" text2="Personalizar célula"/>
-              <ConfigCellPictograms>
-                {pictograms.map((pictogram, index) => {
-                  return (
-                    <PictogramItem
-                        key={index}
-                        $currentPictogram={image === `${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`}
-                        onClick={() => handlePictogramClick(pictogram._id)}
-                      >
-                      <Symbol source={`${pictogramUrlPrefix}${pictogram._id}/${pictogram._id}_300.png`} />
-                    </PictogramItem>
-                  );
-                })}
-              </ConfigCellPictograms>
-            </ConfigCellSelector>
+            <ConfigCellSelector 
+              pictograms={pictograms}
+              image={image}
+              setImage={setImage}
+            />
           </SettingsContainer>
           <ConfirmButton 
             updateCell={updateCellAndBoard}

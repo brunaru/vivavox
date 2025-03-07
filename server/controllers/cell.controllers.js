@@ -56,6 +56,22 @@ export async function getCellById(req, res) {
   }
 }
 
+export async function getCellsByText(req, res) {
+  try {
+    const keyText = req.params.text;
+
+    const foundCells = await Cell.find({ text: { $regex: keyText, $options: "i" } });
+
+    if(foundCells.length === 0) {
+      res.status(404).send({ message: "Cells not found by text: ", foundCells });
+    }
+
+    res.status(200).send(foundCells);
+  } catch(error) {
+    res.status(500).send(error.message);
+  }
+}
+
 export async function updateCellById(req, res) {
   try {
     const cellId = req.params.id;

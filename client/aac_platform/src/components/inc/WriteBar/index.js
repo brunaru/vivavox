@@ -11,6 +11,7 @@ function WriteBar() {
       type="text"
       value={currentPhrase}
       placeholder="Sua frase aparecerá aqui"
+      readOnly
     />
   );
 }

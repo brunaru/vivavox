@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { useCell } from '../../contexts/CellContext';
 import {
   ConfigHeaderContainer,
   ConfigList,
@@ -7,24 +5,23 @@ import {
   ListButton
 } from './styled';
 
-function ConfigHeader(props) {
-  const {configCell} = useCell();
-  const [activeMenu, setActiveMenu] = useState(null);
+function ConfigHeader(props) {  
+  function handleClickL() {
+    props.setActiveMenu(false);
+  }
 
-  useState(() => {
-    if(configCell !== null) {
-      setActiveMenu("cell");
-    }
-  }, [configCell]);
+  function handleClickR() {
+    props.setActiveMenu(true);
+  }
 
   return (
     <ConfigHeaderContainer>
       <ConfigList>
         <ListItem>
-          <ListButton $activeButton={activeMenu === "cell"} >{props.text1}</ListButton>
+          <ListButton onClick={handleClickL} $activeButton={props.activeMenu === false} >{props.text1}</ListButton>
         </ListItem>
         <ListItem>
-          <ListButton $activeButton={activeMenu === "board"} >{props.text2}</ListButton>
+          <ListButton onClick={handleClickR} $activeButton={props.activeMenu === true} >{props.text2}</ListButton>
         </ListItem>
       </ConfigList>
     </ConfigHeaderContainer>

@@ -10,13 +10,14 @@ function SideBarButton(props) {
 
   return (
     <ButtonContainer 
+      to={props.to}
       $color={props.color} 
       $height={props.height} 
       $width={props.width} 
       $padding={props.padding} 
       $fontSize={props.fontSize}
       $isEditing={props.editing}
-      $activeButton={props.text === props.activeButton}
+      $activeButton={props.to === props.activeButton}
       onClick={() => {
         props.setActiveButton(props.text);
 
