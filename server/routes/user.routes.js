@@ -5,4 +5,4 @@ const router = Router();
 
 router.post('/post', postUser);
 
-export default Router;
+export default router;

@@ -17,15 +17,12 @@ function SideBarButton(props) {
       $padding={props.padding} 
       $fontSize={props.fontSize}
       $isEditing={props.editing}
-      $activeButton={props.to === props.activeButton}
+      $activeButton={props.activeButton.startsWith(props.to)}
       onClick={() => {
-        props.setActiveButton(props.text);
-
         if(editarText === 'Editar') {
           setEditarText(saveText);
           props.setEditing(true);
         } else if(editarText === saveText) {
-          props.setActiveButton("Prancha padrão");
           setEditarText(props.text);
           props.setEditing(false);
         }

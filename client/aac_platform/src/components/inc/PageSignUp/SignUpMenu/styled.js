@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const AccountMenuContainer = styled.div`
+export const SignUpMenuContainer = styled.div`
   width: 50%;
   height: 80%;
   background-color: white;
@@ -9,9 +9,9 @@ export const AccountMenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `;
 
 export const AccountTitle = styled.h1`
-  margin: 40px 0 20px 0;
+  margin: 0px 0 0px 0;
 `;

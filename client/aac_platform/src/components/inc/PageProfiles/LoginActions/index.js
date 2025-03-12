@@ -10,7 +10,7 @@ function LoginActions() {
       <CreateAccountText>
         Ainda não tem uma conta?
       </CreateAccountText>
-      <CreateAccountLink>Criar uma conta</CreateAccountLink>
+      <CreateAccountLink to={"/account/signup"}>Criar uma conta</CreateAccountLink>
     </LoginActionsContainer>
   );
 }

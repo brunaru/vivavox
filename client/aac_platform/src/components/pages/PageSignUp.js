@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import SideBar from '../inc/SideBar';
-import AccountIntro from '../inc/PageProfiles/AccountIntro';
+import SignUpMenu from '../inc/PageSignUp/SignUpMenu';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -24,17 +24,17 @@ const BoardSpace = styled.div`
   justify-content: center;
 `;
 
-function PageProfiles() {
-  return (
+function PageSignUp() {
+  return(
     <PageContainer>
       <MainSection>
         <SideBar/>
         <BoardSpace>
-          <AccountIntro/>
+          <SignUpMenu/>
         </BoardSpace>
       </MainSection>
     </PageContainer>
   );
 }
 
-export default PageProfiles;
+export default PageSignUp;

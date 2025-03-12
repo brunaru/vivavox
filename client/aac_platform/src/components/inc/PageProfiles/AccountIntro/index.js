@@ -2,8 +2,8 @@ import LoginActions from '../LoginActions';
 import LoginForm from '../LoginForm';
 import Splitter from '../Splitter';
 import {
+  AccountMenuContainer,
   AccountTitle,
-  AccountMenuContainer
 } from './styled';
 
 function AccountIntro() {

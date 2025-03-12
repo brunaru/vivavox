@@ -4,7 +4,7 @@ import {
   InputField
 } from './styled';
 
-function Input({ text, handleTextChange, type, label, width }) {
+function Input({ text, handleTextChange, type, label, width, autocomplete }) {
   return (
     <InputContainer $width={width}>
       <Label>{label}</Label>
@@ -12,6 +12,7 @@ function Input({ text, handleTextChange, type, label, width }) {
         value={text}
         onChange={handleTextChange}
         type={type}
+        autoComplete={autocomplete}
       ></InputField>
     </InputContainer>
   );
