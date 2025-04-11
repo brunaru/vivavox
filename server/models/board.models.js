@@ -12,7 +12,8 @@ const boardSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    required: true
+    required: true,
+    enum: ['0', '1']
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,

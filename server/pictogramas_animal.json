@@ -1,0 +1,5348 @@
+[
+  {
+    "_id": "67929020ab0763ee2a27123f",
+    "text": "abelha",
+    "img": "https://static.arasaac.org/pictograms/2239/2239_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929021ab0763ee2a271269",
+    "text": "aranha",
+    "img": "https://static.arasaac.org/pictograms/2254/2254_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929021ab0763ee2a27126c",
+    "text": "esquilo",
+    "img": "https://static.arasaac.org/pictograms/2257/2257_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929021ab0763ee2a271284",
+    "text": "baleia",
+    "img": "https://static.arasaac.org/pictograms/2268/2268_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929021ab0763ee2a2712cc",
+    "text": "burro",
+    "img": "https://static.arasaac.org/pictograms/2291/2291_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929021ab0763ee2a2712d5",
+    "text": "cavalo",
+    "img": "https://static.arasaac.org/pictograms/2294/2294_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929022ab0763ee2a2712de",
+    "text": "cabra",
+    "img": "https://static.arasaac.org/pictograms/2295/2295_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929022ab0763ee2a2712f0",
+    "text": "dromedário",
+    "img": "https://static.arasaac.org/pictograms/2305/2305_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929022ab0763ee2a271305",
+    "text": "canguru",
+    "img": "https://static.arasaac.org/pictograms/2313/2313_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929022ab0763ee2a27130b",
+    "text": "caranguejo",
+    "img": "https://static.arasaac.org/pictograms/2312/2312_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929022ab0763ee2a27131a",
+    "text": "carne",
+    "img": "https://static.arasaac.org/pictograms/2316/2316_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929022ab0763ee2a271329",
+    "text": "zebra",
+    "img": "https://static.arasaac.org/pictograms/2324/2324_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929022ab0763ee2a27133b",
+    "text": "porco",
+    "img": "https://static.arasaac.org/pictograms/2327/2327_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929022ab0763ee2a271350",
+    "text": "cisne",
+    "img": "https://static.arasaac.org/pictograms/2337/2337_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929023ab0763ee2a271368",
+    "text": "crocodilo",
+    "img": "https://static.arasaac.org/pictograms/2343/2343_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929023ab0763ee2a27137d",
+    "text": "coelho",
+    "img": "https://static.arasaac.org/pictograms/2351/2351_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929023ab0763ee2a2713b9",
+    "text": "elefante",
+    "img": "https://static.arasaac.org/pictograms/2372/2372_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929024ab0763ee2a271407",
+    "text": "foca",
+    "img": "https://static.arasaac.org/pictograms/2397/2397_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929024ab0763ee2a271413",
+    "text": "galo",
+    "img": "https://static.arasaac.org/pictograms/2404/2404_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929024ab0763ee2a271416",
+    "text": "galinha",
+    "img": "https://static.arasaac.org/pictograms/2403/2403_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929024ab0763ee2a271422",
+    "text": "gorila",
+    "img": "https://static.arasaac.org/pictograms/2410/2410_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929024ab0763ee2a271434",
+    "text": "gato",
+    "img": "https://static.arasaac.org/pictograms/2406/2406_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929024ab0763ee2a271446",
+    "text": "hipopótamo",
+    "img": "https://static.arasaac.org/pictograms/2424/2424_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929024ab0763ee2a271455",
+    "text": "formiga",
+    "img": "https://static.arasaac.org/pictograms/2425/2425_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929024ab0763ee2a271476",
+    "text": "girafa",
+    "img": "https://static.arasaac.org/pictograms/2437/2437_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929025ab0763ee2a271497",
+    "text": "leão",
+    "img": "https://static.arasaac.org/pictograms/2449/2449_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929025ab0763ee2a2714c4",
+    "text": "borboleta",
+    "img": "https://static.arasaac.org/pictograms/2465/2465_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929025ab0763ee2a2714e5",
+    "text": "mosquito",
+    "img": "https://static.arasaac.org/pictograms/2479/2479_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929025ab0763ee2a2714e8",
+    "text": "macaco",
+    "img": "https://static.arasaac.org/pictograms/2477/2477_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929025ab0763ee2a2714ee",
+    "text": "mosca",
+    "img": "https://static.arasaac.org/pictograms/2478/2478_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929026ab0763ee2a271500",
+    "text": "ovelha",
+    "img": "https://static.arasaac.org/pictograms/2489/2489_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929026ab0763ee2a271503",
+    "text": "urso",
+    "img": "https://static.arasaac.org/pictograms/2488/2488_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929026ab0763ee2a271509",
+    "text": "pássaro",
+    "img": "https://static.arasaac.org/pictograms/2490/2490_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929026ab0763ee2a27150f",
+    "text": "pomba",
+    "img": "https://static.arasaac.org/pictograms/2493/2493_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929026ab0763ee2a271536",
+    "text": "perú",
+    "img": "https://static.arasaac.org/pictograms/2509/2509_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929026ab0763ee2a271551",
+    "text": "peixe",
+    "img": "https://static.arasaac.org/pictograms/2520/2520_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929026ab0763ee2a271557",
+    "text": "cão",
+    "img": "https://static.arasaac.org/pictograms/2517/2517_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929026ab0763ee2a27158a",
+    "text": "frango",
+    "img": "https://static.arasaac.org/pictograms/2533/2533_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929027ab0763ee2a271599",
+    "text": "rã",
+    "img": "https://static.arasaac.org/pictograms/2543/2543_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929027ab0763ee2a2715ab",
+    "text": "rinoceronte",
+    "img": "https://static.arasaac.org/pictograms/2550/2550_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929027ab0763ee2a2715ba",
+    "text": "rato",
+    "img": "https://static.arasaac.org/pictograms/2546/2546_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929027ab0763ee2a2715d5",
+    "text": "pato",
+    "img": "https://static.arasaac.org/pictograms/2563/2563_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929027ab0763ee2a2715db",
+    "text": "periquito",
+    "img": "https://static.arasaac.org/pictograms/2562/2562_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929027ab0763ee2a2715ea",
+    "text": "serpente",
+    "img": "https://static.arasaac.org/pictograms/2568/2568_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929028ab0763ee2a27161a",
+    "text": "tubarão",
+    "img": "https://static.arasaac.org/pictograms/2589/2589_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929028ab0763ee2a27161d",
+    "text": "tigre",
+    "img": "https://static.arasaac.org/pictograms/2590/2590_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929028ab0763ee2a271632",
+    "text": "touro",
+    "img": "https://static.arasaac.org/pictograms/2595/2595_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929028ab0763ee2a27163b",
+    "text": "tartaruga",
+    "img": "https://static.arasaac.org/pictograms/2596/2596_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929028ab0763ee2a271659",
+    "text": "vaca",
+    "img": "https://static.arasaac.org/pictograms/2609/2609_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929028ab0763ee2a271683",
+    "text": "raposo",
+    "img": "https://static.arasaac.org/pictograms/2623/2623_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929029ab0763ee2a2716aa",
+    "text": "águia",
+    "img": "https://static.arasaac.org/pictograms/2638/2638_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929029ab0763ee2a2716bc",
+    "text": "amêijoa",
+    "img": "https://static.arasaac.org/pictograms/2645/2645_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929029ab0763ee2a2716d1",
+    "text": "avestruz",
+    "img": "https://static.arasaac.org/pictograms/2650/2650_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929029ab0763ee2a271713",
+    "text": "coruja",
+    "img": "https://static.arasaac.org/pictograms/2671/2671_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929029ab0763ee2a271719",
+    "text": "cavalo marinho",
+    "img": "https://static.arasaac.org/pictograms/2672/2672_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902aab0763ee2a271734",
+    "text": "caracol",
+    "img": "https://static.arasaac.org/pictograms/2685/2685_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902bab0763ee2a2717c1",
+    "text": "golfinho",
+    "img": "https://static.arasaac.org/pictograms/2732/2732_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902bab0763ee2a2717f4",
+    "text": "dinossauro",
+    "img": "https://static.arasaac.org/pictograms/2738/2738_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902cab0763ee2a271860",
+    "text": "gafanhoto",
+    "img": "https://static.arasaac.org/pictograms/2805/2805_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902cab0763ee2a271890",
+    "text": "ratazana",
+    "img": "https://static.arasaac.org/pictograms/2821/2821_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902cab0763ee2a2718d2",
+    "text": "peixe espada",
+    "img": "https://static.arasaac.org/pictograms/2843/2843_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902dab0763ee2a27191a",
+    "text": "urso",
+    "img": "https://static.arasaac.org/pictograms/2868/2868_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902dab0763ee2a271929",
+    "text": "urso",
+    "img": "https://static.arasaac.org/pictograms/2869/2869_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902dab0763ee2a271935",
+    "text": "ganso",
+    "img": "https://static.arasaac.org/pictograms/2878/2878_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902dab0763ee2a271962",
+    "text": "morcego",
+    "img": "https://static.arasaac.org/pictograms/2903/2903_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902eab0763ee2a27198f",
+    "text": "mexilhão",
+    "img": "https://static.arasaac.org/pictograms/2918/2918_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902eab0763ee2a271995",
+    "text": "medusa",
+    "img": "https://static.arasaac.org/pictograms/2920/2920_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902eab0763ee2a2719a4",
+    "text": "joaninha",
+    "img": "https://static.arasaac.org/pictograms/2924/2924_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902eab0763ee2a2719bf",
+    "text": "papagaio",
+    "img": "https://static.arasaac.org/pictograms/2934/2934_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902eab0763ee2a2719d1",
+    "text": "leopardo",
+    "img": "https://static.arasaac.org/pictograms/2942/2942_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902eab0763ee2a2719d4",
+    "text": "minhoca",
+    "img": "https://static.arasaac.org/pictograms/2935/2935_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902eab0763ee2a2719dd",
+    "text": "mocho",
+    "img": "https://static.arasaac.org/pictograms/2945/2945_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902eab0763ee2a2719e9",
+    "text": "lagartixa",
+    "img": "https://static.arasaac.org/pictograms/2950/2950_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902eab0763ee2a2719ec",
+    "text": "lagarto",
+    "img": "https://static.arasaac.org/pictograms/2949/2949_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902fab0763ee2a2719f8",
+    "text": "koala",
+    "img": "https://static.arasaac.org/pictograms/2954/2954_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902fab0763ee2a271a0d",
+    "text": "lagosta",
+    "img": "https://static.arasaac.org/pictograms/2947/2947_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792902fab0763ee2a271a25",
+    "text": "javali",
+    "img": "https://static.arasaac.org/pictograms/2965/2965_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929030ab0763ee2a271a7f",
+    "text": "abutre",
+    "img": "https://static.arasaac.org/pictograms/2998/2998_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929030ab0763ee2a271a8b",
+    "text": "camaleão",
+    "img": "https://static.arasaac.org/pictograms/3003/3003_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929030ab0763ee2a271a91",
+    "text": "canário",
+    "img": "https://static.arasaac.org/pictograms/3004/3004_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929030ab0763ee2a271aa9",
+    "text": "lagostim",
+    "img": "https://static.arasaac.org/pictograms/3014/3014_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929030ab0763ee2a271aac",
+    "text": "cegonha",
+    "img": "https://static.arasaac.org/pictograms/3015/3015_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929032ab0763ee2a271bd8",
+    "text": "erva",
+    "img": "https://static.arasaac.org/pictograms/3113/3113_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929035ab0763ee2a271d55",
+    "text": "pinguim",
+    "img": "https://static.arasaac.org/pictograms/3243/3243_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929035ab0763ee2a271d7c",
+    "text": "cervo",
+    "img": "https://static.arasaac.org/pictograms/3263/3263_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929035ab0763ee2a271da3",
+    "text": "gambas",
+    "img": "https://static.arasaac.org/pictograms/3276/3276_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929036ab0763ee2a271e03",
+    "text": "estrela do mar",
+    "img": "https://static.arasaac.org/pictograms/3310/3310_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929036ab0763ee2a271e0f",
+    "text": "flamingo",
+    "img": "https://static.arasaac.org/pictograms/3316/3316_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929036ab0763ee2a271e12",
+    "text": "escaravelho",
+    "img": "https://static.arasaac.org/pictograms/3301/3301_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929036ab0763ee2a271e45",
+    "text": "gaivota",
+    "img": "https://static.arasaac.org/pictograms/3334/3334_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929037ab0763ee2a271e4b",
+    "text": "andorinha",
+    "img": "https://static.arasaac.org/pictograms/3336/3336_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929037ab0763ee2a271e4e",
+    "text": "quinta",
+    "img": "https://static.arasaac.org/pictograms/3337/3337_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929037ab0763ee2a271e66",
+    "text": "minhoca",
+    "img": "https://static.arasaac.org/pictograms/3344/3344_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929037ab0763ee2a271e69",
+    "text": "hámster",
+    "img": "https://static.arasaac.org/pictograms/3346/3346_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929037ab0763ee2a271ea5",
+    "text": "tubarão martelo",
+    "img": "https://static.arasaac.org/pictograms/3368/3368_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929037ab0763ee2a271ec6",
+    "text": "polvo",
+    "img": "https://static.arasaac.org/pictograms/3379/3379_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929038ab0763ee2a271ede",
+    "text": "sapo",
+    "img": "https://static.arasaac.org/pictograms/3384/3384_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792903aab0763ee2a27200d",
+    "text": "barata",
+    "img": "https://static.arasaac.org/pictograms/4617/4617_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792903aab0763ee2a272019",
+    "text": "corvo",
+    "img": "https://static.arasaac.org/pictograms/4619/4619_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792903bab0763ee2a272082",
+    "text": "pardal",
+    "img": "https://static.arasaac.org/pictograms/4657/4657_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792903cab0763ee2a27213c",
+    "text": "piolho",
+    "img": "https://static.arasaac.org/pictograms/4720/4720_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792903cab0763ee2a27215a",
+    "text": "pulga",
+    "img": "https://static.arasaac.org/pictograms/4727/4727_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792903dab0763ee2a2721c3",
+    "text": "gralha",
+    "img": "https://static.arasaac.org/pictograms/4766/4766_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929040ab0763ee2a27238e",
+    "text": "aquário",
+    "img": "https://static.arasaac.org/pictograms/5360/5360_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929041ab0763ee2a2723b2",
+    "text": "barbatanas",
+    "img": "https://static.arasaac.org/pictograms/5373/5373_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929041ab0763ee2a2723c1",
+    "text": "enguia",
+    "img": "https://static.arasaac.org/pictograms/5378/5378_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929041ab0763ee2a2723cd",
+    "text": "asa",
+    "img": "https://static.arasaac.org/pictograms/5368/5368_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929042ab0763ee2a27243c",
+    "text": "lula",
+    "img": "https://static.arasaac.org/pictograms/5418/5418_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929043ab0763ee2a2724a8",
+    "text": "escamas",
+    "img": "https://static.arasaac.org/pictograms/5456/5456_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929043ab0763ee2a2724b7",
+    "text": "espinha",
+    "img": "https://static.arasaac.org/pictograms/5459/5459_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929043ab0763ee2a2724d5",
+    "text": "garra",
+    "img": "https://static.arasaac.org/pictograms/5477/5477_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929043ab0763ee2a272517",
+    "text": "jaula",
+    "img": "https://static.arasaac.org/pictograms/5494/5494_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929044ab0763ee2a272583",
+    "text": "bico",
+    "img": "https://static.arasaac.org/pictograms/5538/5538_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929044ab0763ee2a272592",
+    "text": "pluma",
+    "img": "https://static.arasaac.org/pictograms/5545/5545_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929046ab0763ee2a27266a",
+    "text": "lobo",
+    "img": "https://static.arasaac.org/pictograms/5892/5892_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929047ab0763ee2a272742",
+    "text": "rabo",
+    "img": "https://static.arasaac.org/pictograms/5967/5967_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929047ab0763ee2a272748",
+    "text": "doninha",
+    "img": "https://static.arasaac.org/pictograms/5969/5969_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929048ab0763ee2a272763",
+    "text": "corno",
+    "img": "https://static.arasaac.org/pictograms/5978/5978_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792904aab0763ee2a27289e",
+    "text": "manta",
+    "img": "https://static.arasaac.org/pictograms/6146/6146_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792904aab0763ee2a2728c8",
+    "text": "lontra",
+    "img": "https://static.arasaac.org/pictograms/6158/6158_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792904aab0763ee2a2728d4",
+    "text": "palha",
+    "img": "https://static.arasaac.org/pictograms/6163/6163_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792904bab0763ee2a2728f8",
+    "text": "pelicano",
+    "img": "https://static.arasaac.org/pictograms/6174/6174_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792904cab0763ee2a2729c7",
+    "text": "voar",
+    "img": "https://static.arasaac.org/pictograms/6246/6246_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792904dab0763ee2a272a18",
+    "text": "correr",
+    "img": "https://static.arasaac.org/pictograms/6465/6465_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792904eab0763ee2a272abd",
+    "text": "ferradura",
+    "img": "https://static.arasaac.org/pictograms/6521/6521_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792904eab0763ee2a272ac9",
+    "text": "osso",
+    "img": "https://static.arasaac.org/pictograms/6528/6528_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929051ab0763ee2a272c22",
+    "text": "montar a cavalo",
+    "img": "https://static.arasaac.org/pictograms/6643/6643_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929051ab0763ee2a272c61",
+    "text": "aquário",
+    "img": "https://static.arasaac.org/pictograms/6882/6882_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929052ab0763ee2a272c79",
+    "text": "asa",
+    "img": "https://static.arasaac.org/pictograms/6890/6890_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929052ab0763ee2a272c88",
+    "text": "barbatana",
+    "img": "https://static.arasaac.org/pictograms/6895/6895_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929052ab0763ee2a272c9d",
+    "text": "animal",
+    "img": "https://static.arasaac.org/pictograms/6901/6901_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929052ab0763ee2a272cd0",
+    "text": "uivar",
+    "img": "https://static.arasaac.org/pictograms/6919/6919_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929052ab0763ee2a272cd9",
+    "text": "atum",
+    "img": "https://static.arasaac.org/pictograms/6918/6918_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929052ab0763ee2a272ce2",
+    "text": "abelha",
+    "img": "https://static.arasaac.org/pictograms/6925/6925_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929052ab0763ee2a272ce8",
+    "text": "balir",
+    "img": "https://static.arasaac.org/pictograms/6927/6927_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929052ab0763ee2a272ceb",
+    "text": "ave",
+    "img": "https://static.arasaac.org/pictograms/6923/6923_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929053ab0763ee2a272d12",
+    "text": "brânquias",
+    "img": "https://static.arasaac.org/pictograms/6941/6941_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929053ab0763ee2a272d2a",
+    "text": "cacarejar",
+    "img": "https://static.arasaac.org/pictograms/6949/6949_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929053ab0763ee2a272d2d",
+    "text": "cacarejar",
+    "img": "https://static.arasaac.org/pictograms/6950/6950_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929054ab0763ee2a272d9c",
+    "text": "coleira",
+    "img": "https://static.arasaac.org/pictograms/6987/6987_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929054ab0763ee2a272dc6",
+    "text": "coaxar",
+    "img": "https://static.arasaac.org/pictograms/7003/7003_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929055ab0763ee2a272e0e",
+    "text": "doméstico",
+    "img": "https://static.arasaac.org/pictograms/7026/7026_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929055ab0763ee2a272e3b",
+    "text": "anfíbio",
+    "img": "https://static.arasaac.org/pictograms/7043/7043_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929055ab0763ee2a272e5f",
+    "text": "castor",
+    "img": "https://static.arasaac.org/pictograms/7055/7055_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929055ab0763ee2a272e6b",
+    "text": "comida para cães",
+    "img": "https://static.arasaac.org/pictograms/7057/7057_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929055ab0763ee2a272e6e",
+    "text": "comida para gatos",
+    "img": "https://static.arasaac.org/pictograms/7058/7058_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929055ab0763ee2a272e71",
+    "text": "comida para pássaros",
+    "img": "https://static.arasaac.org/pictograms/7059/7059_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929055ab0763ee2a272e74",
+    "text": "comida para peixes",
+    "img": "https://static.arasaac.org/pictograms/7060/7060_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929055ab0763ee2a272e86",
+    "text": "crista",
+    "img": "https://static.arasaac.org/pictograms/7069/7069_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929056ab0763ee2a272ea7",
+    "text": "dromedário",
+    "img": "https://static.arasaac.org/pictograms/7080/7080_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929056ab0763ee2a272ebf",
+    "text": "escamas",
+    "img": "https://static.arasaac.org/pictograms/7085/7085_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929057ab0763ee2a272f13",
+    "text": "gato",
+    "img": "https://static.arasaac.org/pictograms/7114/7114_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929057ab0763ee2a272f19",
+    "text": "grasnar",
+    "img": "https://static.arasaac.org/pictograms/7119/7119_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929057ab0763ee2a272f1f",
+    "text": "grunhir",
+    "img": "https://static.arasaac.org/pictograms/7121/7121_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929057ab0763ee2a272f46",
+    "text": "inseto",
+    "img": "https://static.arasaac.org/pictograms/7134/7134_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929057ab0763ee2a272f4c",
+    "text": "jaula",
+    "img": "https://static.arasaac.org/pictograms/7136/7136_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929057ab0763ee2a272f70",
+    "text": "ladrar",
+    "img": "https://static.arasaac.org/pictograms/7139/7139_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929057ab0763ee2a272f82",
+    "text": "toca",
+    "img": "https://static.arasaac.org/pictograms/7149/7149_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929058ab0763ee2a272faf",
+    "text": "mugir",
+    "img": "https://static.arasaac.org/pictograms/7169/7169_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929058ab0763ee2a272fb2",
+    "text": "miar",
+    "img": "https://static.arasaac.org/pictograms/7156/7156_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929058ab0763ee2a272fbb",
+    "text": "ninho",
+    "img": "https://static.arasaac.org/pictograms/7173/7173_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929058ab0763ee2a273006",
+    "text": "peixe",
+    "img": "https://static.arasaac.org/pictograms/7199/7199_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929059ab0763ee2a273012",
+    "text": "cão",
+    "img": "https://static.arasaac.org/pictograms/7202/7202_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929059ab0763ee2a273015",
+    "text": "pele",
+    "img": "https://static.arasaac.org/pictograms/7205/7205_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929059ab0763ee2a273027",
+    "text": "por",
+    "img": "https://static.arasaac.org/pictograms/7211/7211_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929059ab0763ee2a27302a",
+    "text": "pluma",
+    "img": "https://static.arasaac.org/pictograms/7208/7208_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929059ab0763ee2a273057",
+    "text": "relinchar",
+    "img": "https://static.arasaac.org/pictograms/7228/7228_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929059ab0763ee2a273072",
+    "text": "selvagem",
+    "img": "https://static.arasaac.org/pictograms/7237/7237_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929059ab0763ee2a273078",
+    "text": "salamandra",
+    "img": "https://static.arasaac.org/pictograms/7236/7236_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929059ab0763ee2a273087",
+    "text": "rugir",
+    "img": "https://static.arasaac.org/pictograms/7235/7235_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905aab0763ee2a273108",
+    "text": "tromba",
+    "img": "https://static.arasaac.org/pictograms/7287/7287_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905bab0763ee2a273150",
+    "text": "zumbir",
+    "img": "https://static.arasaac.org/pictograms/7311/7311_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905bab0763ee2a273153",
+    "text": "zurrar",
+    "img": "https://static.arasaac.org/pictograms/7702/7702_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905bab0763ee2a273171",
+    "text": "focinho",
+    "img": "https://static.arasaac.org/pictograms/7772/7772_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905bab0763ee2a27319e",
+    "text": "mamífero",
+    "img": "https://static.arasaac.org/pictograms/7777/7777_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905cab0763ee2a2731aa",
+    "text": "casco",
+    "img": "https://static.arasaac.org/pictograms/7790/7790_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905cab0763ee2a2731d1",
+    "text": "réptil",
+    "img": "https://static.arasaac.org/pictograms/7806/7806_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905cab0763ee2a2731d7",
+    "text": "salmão",
+    "img": "https://static.arasaac.org/pictograms/7808/7808_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905cab0763ee2a2731da",
+    "text": "sardinha",
+    "img": "https://static.arasaac.org/pictograms/7809/7809_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905cab0763ee2a273210",
+    "text": "alce",
+    "img": "https://static.arasaac.org/pictograms/8010/8010_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905dab0763ee2a27323a",
+    "text": "truta",
+    "img": "https://static.arasaac.org/pictograms/7820/7820_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905dab0763ee2a27323d",
+    "text": "animal",
+    "img": "https://static.arasaac.org/pictograms/8025/8025_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905dab0763ee2a27325e",
+    "text": "tatu",
+    "img": "https://static.arasaac.org/pictograms/8031/8031_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905dab0763ee2a2732a0",
+    "text": "caracol",
+    "img": "https://static.arasaac.org/pictograms/8061/8061_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905dab0763ee2a2732a3",
+    "text": "carnívoro",
+    "img": "https://static.arasaac.org/pictograms/8062/8062_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905eab0763ee2a2732ca",
+    "text": "chimpanzé",
+    "img": "https://static.arasaac.org/pictograms/8073/8073_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905fab0763ee2a27337b",
+    "text": "herbívoro",
+    "img": "https://static.arasaac.org/pictograms/8133/8133_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792905fab0763ee2a27337e",
+    "text": "ferradura",
+    "img": "https://static.arasaac.org/pictograms/8134/8134_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929060ab0763ee2a2733ba",
+    "text": "invertebrado",
+    "img": "https://static.arasaac.org/pictograms/8141/8141_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929060ab0763ee2a2733c9",
+    "text": "borboleta",
+    "img": "https://static.arasaac.org/pictograms/8158/8158_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929060ab0763ee2a273414",
+    "text": "omnívoro",
+    "img": "https://static.arasaac.org/pictograms/8180/8180_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929062ab0763ee2a2734d4",
+    "text": "vertebrado",
+    "img": "https://static.arasaac.org/pictograms/8249/8249_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929062ab0763ee2a2734f2",
+    "text": "piar",
+    "img": "https://static.arasaac.org/pictograms/8262/8262_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929063ab0763ee2a273576",
+    "text": "pónei",
+    "img": "https://static.arasaac.org/pictograms/8324/8324_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929063ab0763ee2a2735c1",
+    "text": "gamba",
+    "img": "https://static.arasaac.org/pictograms/8350/8350_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929065ab0763ee2a27368d",
+    "text": "bisonte",
+    "img": "https://static.arasaac.org/pictograms/8507/8507_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929065ab0763ee2a2736a8",
+    "text": "camelo",
+    "img": "https://static.arasaac.org/pictograms/8522/8522_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929066ab0763ee2a273717",
+    "text": "escorpião",
+    "img": "https://static.arasaac.org/pictograms/8564/8564_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929068ab0763ee2a2737ce",
+    "text": "louva-a-deus",
+    "img": "https://static.arasaac.org/pictograms/8624/8624_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929068ab0763ee2a2737e0",
+    "text": "doninha",
+    "img": "https://static.arasaac.org/pictograms/8632/8632_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929068ab0763ee2a2737e3",
+    "text": "marisco",
+    "img": "https://static.arasaac.org/pictograms/8627/8627_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929068ab0763ee2a273804",
+    "text": "orca",
+    "img": "https://static.arasaac.org/pictograms/8642/8642_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929068ab0763ee2a27383a",
+    "text": "picar",
+    "img": "https://static.arasaac.org/pictograms/8665/8665_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929069ab0763ee2a2738d0",
+    "text": "víbora",
+    "img": "https://static.arasaac.org/pictograms/8716/8716_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906aab0763ee2a2738e2",
+    "text": "tucano",
+    "img": "https://static.arasaac.org/pictograms/8711/8711_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906bab0763ee2a27398a",
+    "text": "passear o cão",
+    "img": "https://static.arasaac.org/pictograms/9016/9016_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a14",
+    "text": "colibri",
+    "img": "https://static.arasaac.org/pictograms/9062/9062_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a1a",
+    "text": "carneiro",
+    "img": "https://static.arasaac.org/pictograms/9061/9061_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a1d",
+    "text": "lama",
+    "img": "https://static.arasaac.org/pictograms/9067/9067_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a20",
+    "text": "leoa",
+    "img": "https://static.arasaac.org/pictograms/9065/9065_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a23",
+    "text": "puma",
+    "img": "https://static.arasaac.org/pictograms/9068/9068_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a26",
+    "text": "rena",
+    "img": "https://static.arasaac.org/pictograms/9069/9069_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a29",
+    "text": "toupeira",
+    "img": "https://static.arasaac.org/pictograms/9070/9070_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a2c",
+    "text": "pegada",
+    "img": "https://static.arasaac.org/pictograms/9071/9071_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a32",
+    "text": "corvo-marinho",
+    "img": "https://static.arasaac.org/pictograms/9063/9063_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906cab0763ee2a273a35",
+    "text": "libélula",
+    "img": "https://static.arasaac.org/pictograms/9066/9066_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792906fab0763ee2a273bb5",
+    "text": "cavalo",
+    "img": "https://static.arasaac.org/pictograms/9200/9200_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929070ab0763ee2a273c4e",
+    "text": "gato",
+    "img": "https://static.arasaac.org/pictograms/9879/9879_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929071ab0763ee2a273cb4",
+    "text": "escovar",
+    "img": "https://static.arasaac.org/pictograms/10145/10145_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929072ab0763ee2a273d2f",
+    "text": "gato",
+    "img": "https://static.arasaac.org/pictograms/9881/9881_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929073ab0763ee2a273dce",
+    "text": "boi",
+    "img": "https://static.arasaac.org/pictograms/10238/10238_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929073ab0763ee2a273dd4",
+    "text": "cardume",
+    "img": "https://static.arasaac.org/pictograms/10242/10242_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929073ab0763ee2a273dd7",
+    "text": "bando",
+    "img": "https://static.arasaac.org/pictograms/10243/10243_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929073ab0763ee2a273dda",
+    "text": "enxame",
+    "img": "https://static.arasaac.org/pictograms/10244/10244_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929073ab0763ee2a273ddd",
+    "text": "tartaruga",
+    "img": "https://static.arasaac.org/pictograms/10241/10241_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929073ab0763ee2a273de0",
+    "text": "matilha",
+    "img": "https://static.arasaac.org/pictograms/10245/10245_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929074ab0763ee2a273de3",
+    "text": "alcateia",
+    "img": "https://static.arasaac.org/pictograms/10246/10246_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929074ab0763ee2a273de9",
+    "text": "vara",
+    "img": "https://static.arasaac.org/pictograms/10248/10248_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929074ab0763ee2a273dec",
+    "text": "rebanho",
+    "img": "https://static.arasaac.org/pictograms/10249/10249_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929074ab0763ee2a273def",
+    "text": "guaxinim",
+    "img": "https://static.arasaac.org/pictograms/10239/10239_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929074ab0763ee2a273df2",
+    "text": "pinguim imperador",
+    "img": "https://static.arasaac.org/pictograms/10240/10240_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929074ab0763ee2a273e04",
+    "text": "ser vivo",
+    "img": "https://static.arasaac.org/pictograms/10250/10250_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929076ab0763ee2a273f2a",
+    "text": "ostra",
+    "img": "https://static.arasaac.org/pictograms/10358/10358_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929078ab0763ee2a273ff3",
+    "text": "alimentar",
+    "img": "https://static.arasaac.org/pictograms/11176/11176_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929078ab0763ee2a274047",
+    "text": "caranguejo",
+    "img": "https://static.arasaac.org/pictograms/11200/11200_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929082ab0763ee2a274515",
+    "text": "poupa",
+    "img": "https://static.arasaac.org/pictograms/13022/13022_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929083ab0763ee2a274581",
+    "text": "ornitorrinco",
+    "img": "https://static.arasaac.org/pictograms/13090/13090_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929083ab0763ee2a274587",
+    "text": "pavão",
+    "img": "https://static.arasaac.org/pictograms/13348/13348_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792908cab0763ee2a274a01",
+    "text": "jaula",
+    "img": "https://static.arasaac.org/pictograms/16097/16097_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792908fab0763ee2a274b6f",
+    "text": "cigarra",
+    "img": "https://static.arasaac.org/pictograms/16613/16613_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792908fab0763ee2a274b72",
+    "text": "coicear",
+    "img": "https://static.arasaac.org/pictograms/16617/16617_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792908fab0763ee2a274bae",
+    "text": "minhoca",
+    "img": "https://static.arasaac.org/pictograms/16727/16727_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929090ab0763ee2a274c1d",
+    "text": "pata",
+    "img": "https://static.arasaac.org/pictograms/16833/16833_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929091ab0763ee2a274c80",
+    "text": "loja de animais",
+    "img": "https://static.arasaac.org/pictograms/16980/16980_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929092ab0763ee2a274d16",
+    "text": "gazela",
+    "img": "https://static.arasaac.org/pictograms/17241/17241_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929092ab0763ee2a274d19",
+    "text": "grou",
+    "img": "https://static.arasaac.org/pictograms/17245/17245_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929092ab0763ee2a274d22",
+    "text": "hiena",
+    "img": "https://static.arasaac.org/pictograms/17253/17253_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929093ab0763ee2a274d31",
+    "text": "lebre",
+    "img": "https://static.arasaac.org/pictograms/17265/17265_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929094ab0763ee2a274de2",
+    "text": "marisco",
+    "img": "https://static.arasaac.org/pictograms/20101/20101_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929094ab0763ee2a274df1",
+    "text": "pegadas",
+    "img": "https://static.arasaac.org/pictograms/20109/20109_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929094ab0763ee2a274df4",
+    "text": "molusco",
+    "img": "https://static.arasaac.org/pictograms/20111/20111_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929096ab0763ee2a274eb1",
+    "text": "barbo",
+    "img": "https://static.arasaac.org/pictograms/21417/21417_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929096ab0763ee2a274ec6",
+    "text": "goraz",
+    "img": "https://static.arasaac.org/pictograms/21441/21441_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929097ab0763ee2a274f4d",
+    "text": "cornear",
+    "img": "https://static.arasaac.org/pictograms/21563/21563_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929097ab0763ee2a274f7d",
+    "text": "dourada",
+    "img": "https://static.arasaac.org/pictograms/21806/21806_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929098ab0763ee2a274fa4",
+    "text": "esgaravatar",
+    "img": "https://static.arasaac.org/pictograms/21838/21838_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929098ab0763ee2a274fd4",
+    "text": "peixe-galo",
+    "img": "https://static.arasaac.org/pictograms/21884/21884_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929099ab0763ee2a275028",
+    "text": "linguado",
+    "img": "https://static.arasaac.org/pictograms/21957/21957_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929099ab0763ee2a275034",
+    "text": "robalo",
+    "img": "https://static.arasaac.org/pictograms/21969/21969_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929099ab0763ee2a275046",
+    "text": "lince",
+    "img": "https://static.arasaac.org/pictograms/21964/21964_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929099ab0763ee2a27507f",
+    "text": "preguiça",
+    "img": "https://static.arasaac.org/pictograms/22039/22039_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792909aab0763ee2a2750b2",
+    "text": "rodovalho",
+    "img": "https://static.arasaac.org/pictograms/22090/22090_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792909dab0763ee2a275259",
+    "text": "caimão",
+    "img": "https://static.arasaac.org/pictograms/23863/23863_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792909eab0763ee2a2752bc",
+    "text": "capoeira",
+    "img": "https://static.arasaac.org/pictograms/23979/23979_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792909fab0763ee2a275337",
+    "text": "incubar",
+    "img": "https://static.arasaac.org/pictograms/24117/24117_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a0ab0763ee2a2753b5",
+    "text": "pêlo de animal",
+    "img": "https://static.arasaac.org/pictograms/24256/24256_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a1ab0763ee2a2753c4",
+    "text": "pantera",
+    "img": "https://static.arasaac.org/pictograms/24226/24226_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a1ab0763ee2a2753d6",
+    "text": "pinça",
+    "img": "https://static.arasaac.org/pictograms/24292/24292_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a2ab0763ee2a275460",
+    "text": "novilho",
+    "img": "https://static.arasaac.org/pictograms/24455/24455_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a6ab0763ee2a275649",
+    "text": "abelha",
+    "img": "https://static.arasaac.org/pictograms/24823/24823_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a6ab0763ee2a275673",
+    "text": "aviário",
+    "img": "https://static.arasaac.org/pictograms/24865/24865_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a6ab0763ee2a275694",
+    "text": "aviário",
+    "img": "https://static.arasaac.org/pictograms/24866/24866_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a7ab0763ee2a2756b5",
+    "text": "carpa",
+    "img": "https://static.arasaac.org/pictograms/24943/24943_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a7ab0763ee2a2756cd",
+    "text": "porco",
+    "img": "https://static.arasaac.org/pictograms/24972/24972_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a7ab0763ee2a2756d9",
+    "text": "ciclo",
+    "img": "https://static.arasaac.org/pictograms/24984/24984_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a7ab0763ee2a2756dc",
+    "text": "centopeia",
+    "img": "https://static.arasaac.org/pictograms/24986/24986_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a7ab0763ee2a2756e5",
+    "text": "coruja",
+    "img": "https://static.arasaac.org/pictograms/24905/24905_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a8ab0763ee2a27570c",
+    "text": "alimentar",
+    "img": "https://static.arasaac.org/pictograms/25026/25026_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a8ab0763ee2a275724",
+    "text": "dinossauro",
+    "img": "https://static.arasaac.org/pictograms/25058/25058_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a8ab0763ee2a275772",
+    "text": "galo",
+    "img": "https://static.arasaac.org/pictograms/25125/25125_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a9ab0763ee2a275781",
+    "text": "grilo",
+    "img": "https://static.arasaac.org/pictograms/25147/25147_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a9ab0763ee2a2757b1",
+    "text": "leão",
+    "img": "https://static.arasaac.org/pictograms/25187/25187_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a9ab0763ee2a2757c0",
+    "text": "pirilampo",
+    "img": "https://static.arasaac.org/pictograms/25203/25203_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290a9ab0763ee2a2757ea",
+    "text": "mosca",
+    "img": "https://static.arasaac.org/pictograms/25261/25261_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290aaab0763ee2a27580b",
+    "text": "ovíparo",
+    "img": "https://static.arasaac.org/pictograms/25284/25284_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290aaab0763ee2a275817",
+    "text": "pomba",
+    "img": "https://static.arasaac.org/pictograms/25293/25293_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290aaab0763ee2a27581d",
+    "text": "pente para cavalos",
+    "img": "https://static.arasaac.org/pictograms/25311/25311_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290aaab0763ee2a275847",
+    "text": "poisar",
+    "img": "https://static.arasaac.org/pictograms/25353/25353_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290aaab0763ee2a275856",
+    "text": "escova",
+    "img": "https://static.arasaac.org/pictograms/25365/25365_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290abab0763ee2a27587a",
+    "text": "gafanhoto",
+    "img": "https://static.arasaac.org/pictograms/25407/25407_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290abab0763ee2a275889",
+    "text": "girino",
+    "img": "https://static.arasaac.org/pictograms/25389/25389_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290abab0763ee2a2758b0",
+    "text": "cadeira de montar",
+    "img": "https://static.arasaac.org/pictograms/25459/25459_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290abab0763ee2a2758b3",
+    "text": "cadeira de montar",
+    "img": "https://static.arasaac.org/pictograms/25460/25460_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290abab0763ee2a2758e6",
+    "text": "úbere",
+    "img": "https://static.arasaac.org/pictograms/25518/25518_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290acab0763ee2a2758fe",
+    "text": "vivíparo",
+    "img": "https://static.arasaac.org/pictograms/25528/25528_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290adab0763ee2a27596a",
+    "text": "mascote",
+    "img": "https://static.arasaac.org/pictograms/25654/25654_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290aeab0763ee2a275a42",
+    "text": "esquilo",
+    "img": "https://static.arasaac.org/pictograms/25815/25815_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290aeab0763ee2a275a45",
+    "text": "lesma",
+    "img": "https://static.arasaac.org/pictograms/25827/25827_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290aeab0763ee2a275a48",
+    "text": "bacalhau",
+    "img": "https://static.arasaac.org/pictograms/25835/25835_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290afab0763ee2a275a5a",
+    "text": "bonito",
+    "img": "https://static.arasaac.org/pictograms/25857/25857_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290afab0763ee2a275a72",
+    "text": "cabra",
+    "img": "https://static.arasaac.org/pictograms/25887/25887_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290afab0763ee2a275aba",
+    "text": "codorniz",
+    "img": "https://static.arasaac.org/pictograms/25970/25970_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b0ab0763ee2a275ad2",
+    "text": "correia",
+    "img": "https://static.arasaac.org/pictograms/25996/25996_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b0ab0763ee2a275ae4",
+    "text": "crisálida",
+    "img": "https://static.arasaac.org/pictograms/26012/26012_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b1ab0763ee2a275b47",
+    "text": "iguana",
+    "img": "https://static.arasaac.org/pictograms/26134/26134_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b1ab0763ee2a275b68",
+    "text": "larva",
+    "img": "https://static.arasaac.org/pictograms/26164/26164_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b1ab0763ee2a275b86",
+    "text": "borboleta",
+    "img": "https://static.arasaac.org/pictograms/26200/26200_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b1ab0763ee2a275b92",
+    "text": "centopeia",
+    "img": "https://static.arasaac.org/pictograms/26216/26216_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275bb6",
+    "text": "ninhada",
+    "img": "https://static.arasaac.org/pictograms/26254/26254_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275bb9",
+    "text": "navalha",
+    "img": "https://static.arasaac.org/pictograms/26248/26248_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275bd1",
+    "text": "pássaro",
+    "img": "https://static.arasaac.org/pictograms/26270/26270_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275bd7",
+    "text": "pássaro",
+    "img": "https://static.arasaac.org/pictograms/26271/26271_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275be3",
+    "text": "passear o cão",
+    "img": "https://static.arasaac.org/pictograms/26302/26302_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275bec",
+    "text": "pescada",
+    "img": "https://static.arasaac.org/pictograms/26316/26316_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275bf5",
+    "text": "praga",
+    "img": "https://static.arasaac.org/pictograms/26326/26326_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275c07",
+    "text": "polvo",
+    "img": "https://static.arasaac.org/pictograms/26350/26350_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275c16",
+    "text": "tamboril",
+    "img": "https://static.arasaac.org/pictograms/26362/26362_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b2ab0763ee2a275c28",
+    "text": "reprodução",
+    "img": "https://static.arasaac.org/pictograms/26380/26380_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b3ab0763ee2a275c3d",
+    "text": "roer",
+    "img": "https://static.arasaac.org/pictograms/26398/26398_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b3ab0763ee2a275c91",
+    "text": "vitela",
+    "img": "https://static.arasaac.org/pictograms/26489/26489_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b3ab0763ee2a275c97",
+    "text": "tartaruga",
+    "img": "https://static.arasaac.org/pictograms/26503/26503_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b5ab0763ee2a275d3f",
+    "text": "balir",
+    "img": "https://static.arasaac.org/pictograms/26664/26664_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b6ab0763ee2a275d8a",
+    "text": "cavalariça",
+    "img": "https://static.arasaac.org/pictograms/26712/26712_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b6ab0763ee2a275d90",
+    "text": "cama de gatos",
+    "img": "https://static.arasaac.org/pictograms/26724/26724_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b7ab0763ee2a275d9f",
+    "text": "casota",
+    "img": "https://static.arasaac.org/pictograms/26736/26736_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b7ab0763ee2a275db4",
+    "text": "colmeia",
+    "img": "https://static.arasaac.org/pictograms/26761/26761_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b7ab0763ee2a275db7",
+    "text": "colmeia",
+    "img": "https://static.arasaac.org/pictograms/26765/26765_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b7ab0763ee2a275e05",
+    "text": "estábulo",
+    "img": "https://static.arasaac.org/pictograms/26840/26840_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b8ab0763ee2a275e14",
+    "text": "ouriço",
+    "img": "https://static.arasaac.org/pictograms/26829/26829_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290b8ab0763ee2a275e1d",
+    "text": "galinheiro",
+    "img": "https://static.arasaac.org/pictograms/26867/26867_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290baab0763ee2a275f13",
+    "text": "jaula de viagem",
+    "img": "https://static.arasaac.org/pictograms/27113/27113_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290bcab0763ee2a27605d",
+    "text": "percurso",
+    "img": "https://static.arasaac.org/pictograms/27406/27406_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290bdab0763ee2a27609f",
+    "text": "leão marinho",
+    "img": "https://static.arasaac.org/pictograms/27501/27501_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290beab0763ee2a276105",
+    "text": "antílope",
+    "img": "https://static.arasaac.org/pictograms/27570/27570_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290beab0763ee2a276120",
+    "text": "bigodes",
+    "img": "https://static.arasaac.org/pictograms/27601/27601_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290beab0763ee2a27613e",
+    "text": "equitação",
+    "img": "https://static.arasaac.org/pictograms/27627/27627_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290beab0763ee2a276144",
+    "text": "montar a cavalo",
+    "img": "https://static.arasaac.org/pictograms/27626/27626_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290beab0763ee2a276156",
+    "text": "catatua",
+    "img": "https://static.arasaac.org/pictograms/27640/27640_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290bfab0763ee2a276168",
+    "text": "caranguejo",
+    "img": "https://static.arasaac.org/pictograms/27673/27673_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290bfab0763ee2a2761a1",
+    "text": "periquito",
+    "img": "https://static.arasaac.org/pictograms/27699/27699_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290bfab0763ee2a2761c5",
+    "text": "goelas",
+    "img": "https://static.arasaac.org/pictograms/27755/27755_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c0ab0763ee2a2761dd",
+    "text": "ganso",
+    "img": "https://static.arasaac.org/pictograms/27780/27780_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c0ab0763ee2a2761e3",
+    "text": "garra",
+    "img": "https://static.arasaac.org/pictograms/27786/27786_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c0ab0763ee2a2761f5",
+    "text": "garra",
+    "img": "https://static.arasaac.org/pictograms/27787/27787_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c0ab0763ee2a276222",
+    "text": "pintassilgo",
+    "img": "https://static.arasaac.org/pictograms/27853/27853_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c1ab0763ee2a276261",
+    "text": "caranguejo",
+    "img": "https://static.arasaac.org/pictograms/27909/27909_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c1ab0763ee2a27628b",
+    "text": "pata",
+    "img": "https://static.arasaac.org/pictograms/27953/27953_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c1ab0763ee2a27629d",
+    "text": "peixe-palhaço",
+    "img": "https://static.arasaac.org/pictograms/27968/27968_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c1ab0763ee2a2762b8",
+    "text": "traça",
+    "img": "https://static.arasaac.org/pictograms/27982/27982_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c1ab0763ee2a2762be",
+    "text": "espinhos",
+    "img": "https://static.arasaac.org/pictograms/28016/28016_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c5ab0763ee2a276486",
+    "text": "nascer",
+    "img": "https://static.arasaac.org/pictograms/28409/28409_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c6ab0763ee2a2764ce",
+    "text": "berbigão",
+    "img": "https://static.arasaac.org/pictograms/28461/28461_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c6ab0763ee2a2764d1",
+    "text": "lula",
+    "img": "https://static.arasaac.org/pictograms/28465/28465_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c6ab0763ee2a2764da",
+    "text": "lula",
+    "img": "https://static.arasaac.org/pictograms/28466/28466_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c6ab0763ee2a2764dd",
+    "text": "rã",
+    "img": "https://static.arasaac.org/pictograms/28473/28473_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c6ab0763ee2a2764e0",
+    "text": "minhoca",
+    "img": "https://static.arasaac.org/pictograms/28485/28485_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c6ab0763ee2a2764e6",
+    "text": "pato",
+    "img": "https://static.arasaac.org/pictograms/28479/28479_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c6ab0763ee2a2764f5",
+    "text": "pato",
+    "img": "https://static.arasaac.org/pictograms/28477/28477_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290c9ab0763ee2a276663",
+    "text": "águia marinha",
+    "img": "https://static.arasaac.org/pictograms/28819/28819_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290caab0763ee2a27666f",
+    "text": "hibernar",
+    "img": "https://static.arasaac.org/pictograms/28831/28831_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290caab0763ee2a276687",
+    "text": "rato",
+    "img": "https://static.arasaac.org/pictograms/28845/28845_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290caab0763ee2a2766c6",
+    "text": "choco",
+    "img": "https://static.arasaac.org/pictograms/28934/28934_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290caab0763ee2a2766c9",
+    "text": "anchova",
+    "img": "https://static.arasaac.org/pictograms/28930/28930_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290ceab0763ee2a276846",
+    "text": "terapia assistida com animais",
+    "img": "https://static.arasaac.org/pictograms/29202/29202_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290ceab0763ee2a276849",
+    "text": "terapia assistida com animais",
+    "img": "https://static.arasaac.org/pictograms/29203/29203_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290d4ab0763ee2a276b2b",
+    "text": "tetraz",
+    "img": "https://static.arasaac.org/pictograms/29690/29690_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290d4ab0763ee2a276b2e",
+    "text": "gnu",
+    "img": "https://static.arasaac.org/pictograms/29694/29694_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290d5ab0763ee2a276b6a",
+    "text": "ema",
+    "img": "https://static.arasaac.org/pictograms/29702/29702_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290d5ab0763ee2a276b73",
+    "text": "passear o cão",
+    "img": "https://static.arasaac.org/pictograms/29738/29738_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290d5ab0763ee2a276b9d",
+    "text": "piranha",
+    "img": "https://static.arasaac.org/pictograms/29776/29776_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290d5ab0763ee2a276ba9",
+    "text": "presa",
+    "img": "https://static.arasaac.org/pictograms/29784/29784_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290d6ab0763ee2a276c0c",
+    "text": "coiote",
+    "img": "https://static.arasaac.org/pictograms/29768/29768_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290d7ab0763ee2a276c54",
+    "text": "associação protectora dos animais",
+    "img": "https://static.arasaac.org/pictograms/29913/29913_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290e0ab0763ee2a27702c",
+    "text": "doer",
+    "img": "https://static.arasaac.org/pictograms/30620/30620_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290e5ab0763ee2a27729f",
+    "text": "mero",
+    "img": "https://static.arasaac.org/pictograms/31039/31039_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290e7ab0763ee2a277347",
+    "text": "nascer",
+    "img": "https://static.arasaac.org/pictograms/31158/31158_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290e7ab0763ee2a277350",
+    "text": "aterrar",
+    "img": "https://static.arasaac.org/pictograms/31165/31165_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290e7ab0763ee2a277386",
+    "text": "embrião",
+    "img": "https://static.arasaac.org/pictograms/31202/31202_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290eaab0763ee2a277491",
+    "text": "pocilga",
+    "img": "https://static.arasaac.org/pictograms/31392/31392_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290eaab0763ee2a277494",
+    "text": "curral",
+    "img": "https://static.arasaac.org/pictograms/31394/31394_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290eaab0763ee2a2774a0",
+    "text": "estábulo",
+    "img": "https://static.arasaac.org/pictograms/31396/31396_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290eaab0763ee2a2774a3",
+    "text": "coelheira",
+    "img": "https://static.arasaac.org/pictograms/31398/31398_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290eaab0763ee2a2774a6",
+    "text": "estábulo",
+    "img": "https://static.arasaac.org/pictograms/31400/31400_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290eaab0763ee2a2774ac",
+    "text": "curral",
+    "img": "https://static.arasaac.org/pictograms/31404/31404_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290f6ab0763ee2a2779ec",
+    "text": "quinta",
+    "img": "https://static.arasaac.org/pictograms/32482/32482_300.png",
+    "color": "#FF69B4",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290fdab0763ee2a277d16",
+    "text": "desmontar",
+    "img": "https://static.arasaac.org/pictograms/33014/33014_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "679290fdab0763ee2a277d19",
+    "text": "subir para o cavalo",
+    "img": "https://static.arasaac.org/pictograms/33016/33016_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929100ab0763ee2a277e48",
+    "text": "terapia com golfinhos",
+    "img": "https://static.arasaac.org/pictograms/33981/33981_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929100ab0763ee2a277e72",
+    "text": "lagostim",
+    "img": "https://static.arasaac.org/pictograms/34010/34010_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929100ab0763ee2a277e81",
+    "text": "terapia com golfinhos",
+    "img": "https://static.arasaac.org/pictograms/33980/33980_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929101ab0763ee2a277ea2",
+    "text": "cachorro",
+    "img": "https://static.arasaac.org/pictograms/34041/34041_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929101ab0763ee2a277ecf",
+    "text": "cria",
+    "img": "https://static.arasaac.org/pictograms/34072/34072_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929101ab0763ee2a277ed8",
+    "text": "pinto",
+    "img": "https://static.arasaac.org/pictograms/34076/34076_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929101ab0763ee2a277edb",
+    "text": "anho",
+    "img": "https://static.arasaac.org/pictograms/34078/34078_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929101ab0763ee2a277ee1",
+    "text": "vitela",
+    "img": "https://static.arasaac.org/pictograms/34080/34080_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929101ab0763ee2a277ef3",
+    "text": "gatinho",
+    "img": "https://static.arasaac.org/pictograms/34082/34082_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929102ab0763ee2a277f38",
+    "text": "xixi de cão",
+    "img": "https://static.arasaac.org/pictograms/34143/34143_300.png",
+    "color": "#FF69B4",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929102ab0763ee2a277f47",
+    "text": "fazer xixi",
+    "img": "https://static.arasaac.org/pictograms/34141/34141_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929103ab0763ee2a277fdd",
+    "text": "nascer",
+    "img": "https://static.arasaac.org/pictograms/34252/34252_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929104ab0763ee2a278010",
+    "text": "dar banho a um animal",
+    "img": "https://static.arasaac.org/pictograms/34294/34294_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929104ab0763ee2a278022",
+    "text": "lavagem de animais de estimação",
+    "img": "https://static.arasaac.org/pictograms/34308/34308_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929105ab0763ee2a278061",
+    "text": "siluro",
+    "img": "https://static.arasaac.org/pictograms/34355/34355_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929105ab0763ee2a2780a3",
+    "text": "desenterrar",
+    "img": "https://static.arasaac.org/pictograms/34397/34397_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929105ab0763ee2a2780be",
+    "text": "rã arborícola",
+    "img": "https://static.arasaac.org/pictograms/34415/34415_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780c1",
+    "text": "peixe cirurgião azul",
+    "img": "https://static.arasaac.org/pictograms/34417/34417_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780c4",
+    "text": "peixe arlequim",
+    "img": "https://static.arasaac.org/pictograms/34419/34419_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780ca",
+    "text": "gourami pérola",
+    "img": "https://static.arasaac.org/pictograms/34425/34425_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780cd",
+    "text": "carpa koi",
+    "img": "https://static.arasaac.org/pictograms/34427/34427_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780d0",
+    "text": "aruanã australiana",
+    "img": "https://static.arasaac.org/pictograms/34429/34429_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780d3",
+    "text": "tubarão prateado",
+    "img": "https://static.arasaac.org/pictograms/34423/34423_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780d6",
+    "text": "peixe arqueiro",
+    "img": "https://static.arasaac.org/pictograms/34431/34431_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780d9",
+    "text": "Torvosaurus",
+    "img": "https://static.arasaac.org/pictograms/34435/34435_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780dc",
+    "text": "crocodilo",
+    "img": "https://static.arasaac.org/pictograms/34433/34433_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780df",
+    "text": "Aragosaurus ischiaticus",
+    "img": "https://static.arasaac.org/pictograms/34437/34437_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780e2",
+    "text": "Baryonyx",
+    "img": "https://static.arasaac.org/pictograms/34439/34439_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780e5",
+    "text": "macaco-titi",
+    "img": "https://static.arasaac.org/pictograms/34421/34421_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929106ab0763ee2a2780f7",
+    "text": "Brachiosaurus",
+    "img": "https://static.arasaac.org/pictograms/34441/34441_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781a5",
+    "text": "Princesa do Burundi",
+    "img": "https://static.arasaac.org/pictograms/34571/34571_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781ab",
+    "text": "peixe disco",
+    "img": "https://static.arasaac.org/pictograms/34577/34577_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781ae",
+    "text": "Tastavinsaurus",
+    "img": "https://static.arasaac.org/pictograms/34579/34579_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781b1",
+    "text": "cágado de carapaça estriada",
+    "img": "https://static.arasaac.org/pictograms/34581/34581_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781b4",
+    "text": "peixe pulmonado",
+    "img": "https://static.arasaac.org/pictograms/34583/34583_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781b7",
+    "text": "golfinho do Malawi",
+    "img": "https://static.arasaac.org/pictograms/34573/34573_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781ba",
+    "text": "sanitwongsei",
+    "img": "https://static.arasaac.org/pictograms/34575/34575_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781c0",
+    "text": "Europelta carbonensis",
+    "img": "https://static.arasaac.org/pictograms/34591/34591_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781c3",
+    "text": "Triceratops",
+    "img": "https://static.arasaac.org/pictograms/34593/34593_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781c6",
+    "text": "Dacentrurus armatus",
+    "img": "https://static.arasaac.org/pictograms/34595/34595_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781c9",
+    "text": "dichotomyctere ocellatus",
+    "img": "https://static.arasaac.org/pictograms/34597/34597_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781cc",
+    "text": "pacu negro",
+    "img": "https://static.arasaac.org/pictograms/34599/34599_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781cf",
+    "text": "pirarucu",
+    "img": "https://static.arasaac.org/pictograms/34601/34601_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781d5",
+    "text": "Proa Valdearinnoensis",
+    "img": "https://static.arasaac.org/pictograms/34587/34587_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781e1",
+    "text": "tartaruga pescoço de cobra",
+    "img": "https://static.arasaac.org/pictograms/34589/34589_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781e7",
+    "text": "Turiasaurus",
+    "img": "https://static.arasaac.org/pictograms/34585/34585_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781f3",
+    "text": "concha",
+    "img": "https://static.arasaac.org/pictograms/34625/34625_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929108ab0763ee2a2781f6",
+    "text": "raia",
+    "img": "https://static.arasaac.org/pictograms/34627/34627_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910bab0763ee2a278322",
+    "text": "corrida de cavalos",
+    "img": "https://static.arasaac.org/pictograms/34830/34830_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910bab0763ee2a278325",
+    "text": "galopar",
+    "img": "https://static.arasaac.org/pictograms/34832/34832_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910bab0763ee2a27834f",
+    "text": "rapina",
+    "img": "https://static.arasaac.org/pictograms/34860/34860_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910bab0763ee2a278355",
+    "text": "roedor",
+    "img": "https://static.arasaac.org/pictograms/34864/34864_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910cab0763ee2a2783d0",
+    "text": "braços de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34945/34945_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910cab0763ee2a2783d3",
+    "text": "terrário",
+    "img": "https://static.arasaac.org/pictograms/34946/34946_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783d6",
+    "text": "placas de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34949/34949_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783df",
+    "text": "dentes de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34959/34959_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783e2",
+    "text": "cauda de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34961/34961_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783e5",
+    "text": "vértebras de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34963/34963_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783e8",
+    "text": "pescoço de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34953/34953_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783eb",
+    "text": "crâneo de triceratops",
+    "img": "https://static.arasaac.org/pictograms/34967/34967_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783ee",
+    "text": "crâneo de Tyrannosaurus Rex",
+    "img": "https://static.arasaac.org/pictograms/34969/34969_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783f1",
+    "text": "pescoço de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34957/34957_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783f4",
+    "text": "patas de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34971/34971_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783f7",
+    "text": "pegada de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34973/34973_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783fa",
+    "text": "pegada de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34974/34974_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a2783fd",
+    "text": "garras de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34951/34951_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a278400",
+    "text": "pegada de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34975/34975_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a278403",
+    "text": "Tyrannosaurus Rex",
+    "img": "https://static.arasaac.org/pictograms/34981/34981_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a278406",
+    "text": "Iguanodón galvensis",
+    "img": "https://static.arasaac.org/pictograms/34983/34983_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a278409",
+    "text": "pegadas de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34985/34985_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a27840c",
+    "text": "ninho de dinossauros",
+    "img": "https://static.arasaac.org/pictograms/34987/34987_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a278415",
+    "text": "pegada de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34976/34976_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a278418",
+    "text": "caçar",
+    "img": "https://static.arasaac.org/pictograms/34993/34993_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a278427",
+    "text": "parque de dinossauros",
+    "img": "https://static.arasaac.org/pictograms/35005/35005_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910dab0763ee2a27842a",
+    "text": "parque de dinossauros",
+    "img": "https://static.arasaac.org/pictograms/35006/35006_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910eab0763ee2a278451",
+    "text": "búzio",
+    "img": "https://static.arasaac.org/pictograms/35035/35035_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910eab0763ee2a27846c",
+    "text": "cobra",
+    "img": "https://static.arasaac.org/pictograms/35051/35051_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910eab0763ee2a27846f",
+    "text": "rola",
+    "img": "https://static.arasaac.org/pictograms/35053/35053_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910eab0763ee2a278472",
+    "text": "nautilus",
+    "img": "https://static.arasaac.org/pictograms/35055/35055_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792910fab0763ee2a2784c9",
+    "text": "fóssil de vértebras de dinossauro",
+    "img": "https://static.arasaac.org/pictograms/34965/34965_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929111ab0763ee2a2785ad",
+    "text": "coral",
+    "img": "https://static.arasaac.org/pictograms/35269/35269_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929112ab0763ee2a27864f",
+    "text": "álveola",
+    "img": "https://static.arasaac.org/pictograms/35359/35359_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929112ab0763ee2a27865e",
+    "text": "vieira",
+    "img": "https://static.arasaac.org/pictograms/35375/35375_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929113ab0763ee2a278679",
+    "text": "dente de tubarão",
+    "img": "https://static.arasaac.org/pictograms/35405/35405_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929113ab0763ee2a2786a9",
+    "text": "vieira",
+    "img": "https://static.arasaac.org/pictograms/35395/35395_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929113ab0763ee2a2786be",
+    "text": "cabeleireiro de cães",
+    "img": "https://static.arasaac.org/pictograms/35451/35451_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929114ab0763ee2a2786dc",
+    "text": "acariciar",
+    "img": "https://static.arasaac.org/pictograms/35471/35471_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929114ab0763ee2a2786eb",
+    "text": "hipoterapia",
+    "img": "https://static.arasaac.org/pictograms/35481/35481_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929114ab0763ee2a2786ee",
+    "text": "montar a cavalo",
+    "img": "https://static.arasaac.org/pictograms/35483/35483_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929114ab0763ee2a2786f1",
+    "text": "passear a cavalo",
+    "img": "https://static.arasaac.org/pictograms/35485/35485_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929114ab0763ee2a2786fd",
+    "text": "incitar",
+    "img": "https://static.arasaac.org/pictograms/35487/35487_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929114ab0763ee2a278700",
+    "text": "escada",
+    "img": "https://static.arasaac.org/pictograms/35489/35489_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929116ab0763ee2a2787e1",
+    "text": "chispe",
+    "img": "https://static.arasaac.org/pictograms/35649/35649_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929119ab0763ee2a278910",
+    "text": "animais marinhos",
+    "img": "https://static.arasaac.org/pictograms/35853/35853_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929119ab0763ee2a278913",
+    "text": "animais aéreos",
+    "img": "https://static.arasaac.org/pictograms/35855/35855_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929119ab0763ee2a278916",
+    "text": "animais terrestres",
+    "img": "https://static.arasaac.org/pictograms/35857/35857_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792911bab0763ee2a2789ee",
+    "text": "cão-guia",
+    "img": "https://static.arasaac.org/pictograms/35997/35997_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792911cab0763ee2a278a69",
+    "text": "atacar",
+    "img": "https://static.arasaac.org/pictograms/36045/36045_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792911dab0763ee2a278af6",
+    "text": "técnico de terapia assistida com animais",
+    "img": "https://static.arasaac.org/pictograms/36179/36179_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792911dab0763ee2a278af9",
+    "text": "terapia assistida com animais",
+    "img": "https://static.arasaac.org/pictograms/36181/36181_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792911fab0763ee2a278bef",
+    "text": "célula",
+    "img": "https://static.arasaac.org/pictograms/36340/36340_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929122ab0763ee2a278ce8",
+    "text": "passear o cão",
+    "img": "https://static.arasaac.org/pictograms/36424/36424_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929123ab0763ee2a278d87",
+    "text": "treinador",
+    "img": "https://static.arasaac.org/pictograms/36177/36177_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929127ab0763ee2a278efe",
+    "text": "eguada",
+    "img": "https://static.arasaac.org/pictograms/36605/36605_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929131ab0763ee2a279354",
+    "text": "alpaca",
+    "img": "https://static.arasaac.org/pictograms/36978/36978_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929131ab0763ee2a279360",
+    "text": "lavagante",
+    "img": "https://static.arasaac.org/pictograms/36982/36982_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929131ab0763ee2a279363",
+    "text": "lavagante",
+    "img": "https://static.arasaac.org/pictograms/36983/36983_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929131ab0763ee2a27936c",
+    "text": "condor",
+    "img": "https://static.arasaac.org/pictograms/36986/36986_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929131ab0763ee2a279381",
+    "text": "formigueiro",
+    "img": "https://static.arasaac.org/pictograms/36993/36993_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929131ab0763ee2a2793a8",
+    "text": "pastar",
+    "img": "https://static.arasaac.org/pictograms/37006/37006_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929132ab0763ee2a2793ab",
+    "text": "pastar",
+    "img": "https://static.arasaac.org/pictograms/37007/37007_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929132ab0763ee2a2793ba",
+    "text": "vicunha",
+    "img": "https://static.arasaac.org/pictograms/37012/37012_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929133ab0763ee2a279441",
+    "text": "carapaça",
+    "img": "https://static.arasaac.org/pictograms/37057/37057_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929135ab0763ee2a279522",
+    "text": "cabeleireira de cães",
+    "img": "https://static.arasaac.org/pictograms/37132/37132_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929135ab0763ee2a279525",
+    "text": "cabeleireiro de cães",
+    "img": "https://static.arasaac.org/pictograms/37133/37133_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929136ab0763ee2a27958b",
+    "text": "percebes",
+    "img": "https://static.arasaac.org/pictograms/37167/37167_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929137ab0763ee2a27962a",
+    "text": "parque canino",
+    "img": "https://static.arasaac.org/pictograms/37226/37226_300.png",
+    "color": "#FF69B4",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929138ab0763ee2a27966f",
+    "text": "furão",
+    "img": "https://static.arasaac.org/pictograms/37251/37251_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929138ab0763ee2a279684",
+    "text": "pulgão",
+    "img": "https://static.arasaac.org/pictograms/37258/37258_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792913aab0763ee2a279735",
+    "text": "tosquiar",
+    "img": "https://static.arasaac.org/pictograms/37317/37317_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792913bab0763ee2a2797c5",
+    "text": "porco ibérico",
+    "img": "https://static.arasaac.org/pictograms/37365/37365_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792913cab0763ee2a279837",
+    "text": "barrir",
+    "img": "https://static.arasaac.org/pictograms/37403/37403_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792913dab0763ee2a279855",
+    "text": "trinar",
+    "img": "https://static.arasaac.org/pictograms/37413/37413_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792913eab0763ee2a27991b",
+    "text": "safari fotográfico",
+    "img": "https://static.arasaac.org/pictograms/37481/37481_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792913fab0763ee2a27993f",
+    "text": "texugo",
+    "img": "https://static.arasaac.org/pictograms/37493/37493_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929141ab0763ee2a279a56",
+    "text": "pampo",
+    "img": "https://static.arasaac.org/pictograms/37586/37586_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929141ab0763ee2a279a59",
+    "text": "vieira-pintalgada",
+    "img": "https://static.arasaac.org/pictograms/37587/37587_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929141ab0763ee2a279a5c",
+    "text": "cachucho",
+    "img": "https://static.arasaac.org/pictograms/37588/37588_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929141ab0763ee2a279a5f",
+    "text": "pescada",
+    "img": "https://static.arasaac.org/pictograms/37589/37589_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929142ab0763ee2a279a65",
+    "text": "focinho de porco",
+    "img": "https://static.arasaac.org/pictograms/37591/37591_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929142ab0763ee2a279a6b",
+    "text": "sapateira",
+    "img": "https://static.arasaac.org/pictograms/37593/37593_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929142ab0763ee2a279a6e",
+    "text": "orelha de porco",
+    "img": "https://static.arasaac.org/pictograms/37594/37594_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929142ab0763ee2a279a74",
+    "text": "peixe-escorpião vermelho",
+    "img": "https://static.arasaac.org/pictograms/37596/37596_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929142ab0763ee2a279a77",
+    "text": "cavala",
+    "img": "https://static.arasaac.org/pictograms/37597/37597_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929142ab0763ee2a279a8f",
+    "text": "camarão",
+    "img": "https://static.arasaac.org/pictograms/37605/37605_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929142ab0763ee2a279a92",
+    "text": "peixe de São Pedro",
+    "img": "https://static.arasaac.org/pictograms/37606/37606_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929144ab0763ee2a279b5e",
+    "text": "tubarão baleia",
+    "img": "https://static.arasaac.org/pictograms/37675/37675_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929144ab0763ee2a279b91",
+    "text": "morto",
+    "img": "https://static.arasaac.org/pictograms/37693/37693_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929145ab0763ee2a279bac",
+    "text": "adoptar",
+    "img": "https://static.arasaac.org/pictograms/37702/37702_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929145ab0763ee2a279baf",
+    "text": "abandonado",
+    "img": "https://static.arasaac.org/pictograms/37703/37703_300.png",
+    "color": "#FF8C00",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929145ab0763ee2a279bb2",
+    "text": "dono",
+    "img": "https://static.arasaac.org/pictograms/37704/37704_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929145ab0763ee2a279bca",
+    "text": "hastes",
+    "img": "https://static.arasaac.org/pictograms/37712/37712_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929147ab0763ee2a279c9f",
+    "text": "libertar",
+    "img": "https://static.arasaac.org/pictograms/37783/37783_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792914bab0763ee2a279e5e",
+    "text": "loba",
+    "img": "https://static.arasaac.org/pictograms/37933/37933_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792914dab0763ee2a279f00",
+    "text": "pista de cavalos",
+    "img": "https://static.arasaac.org/pictograms/37987/37987_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792914dab0763ee2a279f03",
+    "text": "pista de cavalos",
+    "img": "https://static.arasaac.org/pictograms/37988/37988_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792914eab0763ee2a279fb4",
+    "text": "dar a pata",
+    "img": "https://static.arasaac.org/pictograms/38048/38048_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792914fab0763ee2a27a005",
+    "text": "concha",
+    "img": "https://static.arasaac.org/pictograms/38075/38075_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929151ab0763ee2a27a0b3",
+    "text": "fumigar",
+    "img": "https://static.arasaac.org/pictograms/38133/38133_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929151ab0763ee2a27a0cb",
+    "text": "fisioterapia animal",
+    "img": "https://static.arasaac.org/pictograms/38141/38141_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929151ab0763ee2a27a0dd",
+    "text": "morsa",
+    "img": "https://static.arasaac.org/pictograms/38147/38147_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929155ab0763ee2a27a257",
+    "text": "aranha",
+    "img": "https://static.arasaac.org/pictograms/38275/38275_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929155ab0763ee2a27a269",
+    "text": "investir",
+    "img": "https://static.arasaac.org/pictograms/38281/38281_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929155ab0763ee2a27a26f",
+    "text": "cornear",
+    "img": "https://static.arasaac.org/pictograms/38283/38283_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2d5",
+    "text": "peixe-gato-de-vidro",
+    "img": "https://static.arasaac.org/pictograms/38318/38318_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2d8",
+    "text": "barbo prateado",
+    "img": "https://static.arasaac.org/pictograms/38319/38319_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2db",
+    "text": "peixe-faca palhaço",
+    "img": "https://static.arasaac.org/pictograms/38320/38320_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2e1",
+    "text": "lagartixa de Madagáscar",
+    "img": "https://static.arasaac.org/pictograms/38322/38322_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2e4",
+    "text": "peixe-gato",
+    "img": "https://static.arasaac.org/pictograms/38323/38323_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2e7",
+    "text": "peixe-gato-de-cauda-vermelha",
+    "img": "https://static.arasaac.org/pictograms/38324/38324_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2ea",
+    "text": "enguia-de-fogo",
+    "img": "https://static.arasaac.org/pictograms/38325/38325_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2ed",
+    "text": "perioptalmo",
+    "img": "https://static.arasaac.org/pictograms/38326/38326_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2f0",
+    "text": "peixe oscar",
+    "img": "https://static.arasaac.org/pictograms/38327/38327_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2f9",
+    "text": "peixe lobo",
+    "img": "https://static.arasaac.org/pictograms/38330/38330_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a2fc",
+    "text": "pitão reticulada",
+    "img": "https://static.arasaac.org/pictograms/38331/38331_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a30e",
+    "text": "petauro-do-açúcar",
+    "img": "https://static.arasaac.org/pictograms/38337/38337_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a311",
+    "text": "turaco",
+    "img": "https://static.arasaac.org/pictograms/38338/38338_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a314",
+    "text": "rã ponta de flecha",
+    "img": "https://static.arasaac.org/pictograms/38339/38339_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a317",
+    "text": "gurami gigante",
+    "img": "https://static.arasaac.org/pictograms/38340/38340_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a31a",
+    "text": "beijador",
+    "img": "https://static.arasaac.org/pictograms/38341/38341_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929156ab0763ee2a27a31d",
+    "text": "basilisco",
+    "img": "https://static.arasaac.org/pictograms/38342/38342_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929157ab0763ee2a27a359",
+    "text": "anémona",
+    "img": "https://static.arasaac.org/pictograms/38362/38362_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929157ab0763ee2a27a35f",
+    "text": "Varanus",
+    "img": "https://static.arasaac.org/pictograms/38364/38364_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929157ab0763ee2a27a377",
+    "text": "tarântula",
+    "img": "https://static.arasaac.org/pictograms/38372/38372_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929158ab0763ee2a27a3a7",
+    "text": "golfinho do Malawi",
+    "img": "https://static.arasaac.org/pictograms/38388/38388_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929158ab0763ee2a27a3b0",
+    "text": "quarentena",
+    "img": "https://static.arasaac.org/pictograms/38391/38391_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929158ab0763ee2a27a3b9",
+    "text": "viver",
+    "img": "https://static.arasaac.org/pictograms/38394/38394_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929158ab0763ee2a27a3bc",
+    "text": "bicho-pau",
+    "img": "https://static.arasaac.org/pictograms/38395/38395_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929158ab0763ee2a27a3bf",
+    "text": "bicho-folha",
+    "img": "https://static.arasaac.org/pictograms/38396/38396_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929159ab0763ee2a27a40a",
+    "text": "barata gigante",
+    "img": "https://static.arasaac.org/pictograms/38421/38421_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929159ab0763ee2a27a40d",
+    "text": "insecto assassino",
+    "img": "https://static.arasaac.org/pictograms/38422/38422_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929159ab0763ee2a27a428",
+    "text": "alimentar",
+    "img": "https://static.arasaac.org/pictograms/38431/38431_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929159ab0763ee2a27a42e",
+    "text": " esturjão",
+    "img": "https://static.arasaac.org/pictograms/38433/38433_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792915bab0763ee2a27a4fa",
+    "text": "comedouro",
+    "img": "https://static.arasaac.org/pictograms/38506/38506_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792915fab0763ee2a27a671",
+    "text": "anaconda amarela",
+    "img": "https://static.arasaac.org/pictograms/38634/38634_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792915fab0763ee2a27a674",
+    "text": "Louva-a-deus orquídea",
+    "img": "https://static.arasaac.org/pictograms/38635/38635_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792915fab0763ee2a27a677",
+    "text": "caranguejo eremita",
+    "img": "https://static.arasaac.org/pictograms/38636/38636_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929165ab0763ee2a27a90e",
+    "text": "ovo",
+    "img": "https://static.arasaac.org/pictograms/38868/38868_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929165ab0763ee2a27a911",
+    "text": "incubar",
+    "img": "https://static.arasaac.org/pictograms/38869/38869_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929166ab0763ee2a27a956",
+    "text": "macho",
+    "img": "https://static.arasaac.org/pictograms/38895/38895_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929166ab0763ee2a27a959",
+    "text": "fêmea",
+    "img": "https://static.arasaac.org/pictograms/38896/38896_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929166ab0763ee2a27a96b",
+    "text": "ferrão",
+    "img": "https://static.arasaac.org/pictograms/38902/38902_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929166ab0763ee2a27a9a1",
+    "text": "ovo de tubarão",
+    "img": "https://static.arasaac.org/pictograms/38920/38920_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929166ab0763ee2a27a9a4",
+    "text": "ovo de raia",
+    "img": "https://static.arasaac.org/pictograms/38921/38921_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929167ab0763ee2a27a9f2",
+    "text": "falcão",
+    "img": "https://static.arasaac.org/pictograms/38947/38947_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929168ab0763ee2a27aa1c",
+    "text": "cão",
+    "img": "https://static.arasaac.org/pictograms/38967/38967_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929168ab0763ee2a27aa1f",
+    "text": "gato doméstico",
+    "img": "https://static.arasaac.org/pictograms/38968/38968_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792916aab0763ee2a27ab00",
+    "text": "recolher excrementos",
+    "img": "https://static.arasaac.org/pictograms/39046/39046_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792916aab0763ee2a27ab3f",
+    "text": "antena",
+    "img": "https://static.arasaac.org/pictograms/39068/39068_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792916bab0763ee2a27ab66",
+    "text": "coicear",
+    "img": "https://static.arasaac.org/pictograms/39082/39082_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792916cab0763ee2a27abc6",
+    "text": "montar um pónei",
+    "img": "https://static.arasaac.org/pictograms/39117/39117_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792916cab0763ee2a27abc9",
+    "text": "tritão",
+    "img": "https://static.arasaac.org/pictograms/39118/39118_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792916eab0763ee2a27ac8c",
+    "text": "predador",
+    "img": "https://static.arasaac.org/pictograms/39189/39189_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792916eab0763ee2a27ac8f",
+    "text": "presa",
+    "img": "https://static.arasaac.org/pictograms/39190/39190_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792916eab0763ee2a27ac92",
+    "text": "caçar",
+    "img": "https://static.arasaac.org/pictograms/39191/39191_300.png",
+    "color": "#2E8B57",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "6792916eab0763ee2a27acd4",
+    "text": "escamas",
+    "img": "https://static.arasaac.org/pictograms/39214/39214_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  },
+  {
+    "_id": "67929170ab0763ee2a27ad64",
+    "text": "",
+    "img": "https://static.arasaac.org/pictograms/39265/39265_300.png",
+    "color": "#4169E1",
+    "categories": [
+      "animal"
+    ]
+  }
+]
