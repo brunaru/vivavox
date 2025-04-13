@@ -11,7 +11,7 @@ export const SideBarContainer = styled.aside`
   justify-content: center;
   overflow: hidden;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 `;
 
 export const NavContainer = styled.nav`

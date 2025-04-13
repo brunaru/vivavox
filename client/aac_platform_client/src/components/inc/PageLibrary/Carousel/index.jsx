@@ -28,7 +28,7 @@ function Carousel(props) {
             width: "100%"
           }}
           breakpoints={{
-            // 520: { slidesPerView: 3 }
+            // 1500: { slidesPerView: 3 }
           }}
         >
           <SwiperSlide>

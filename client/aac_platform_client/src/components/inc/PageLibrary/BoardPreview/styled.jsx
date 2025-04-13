@@ -10,7 +10,7 @@ export const BoardPreviewContainer = styled.div`
   align-items: center;
   justify-content: center;
   filter: drop-shadow(0 4px 2px gray);
-  
+
 
   &:hover {
     cursor: pointer;

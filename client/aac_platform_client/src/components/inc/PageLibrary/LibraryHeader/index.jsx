@@ -13,12 +13,14 @@ import {
 import { useState } from 'react';
 import { useBoard } from '../../../contexts/BoardContext';
 
-function LibraryHeader() {
+function LibraryHeader(props) {
   const {board} = useBoard();
   const [categories, setCategories] = useState([]);
 
+  
+
   return(
-    <LibraryHeaderContainer>
+    <LibraryHeaderContainer $hasShadow={props.hasShadow}>
       <CurrentBoardContainer>
         <HeaderItemTitle>Prancha atual:</HeaderItemTitle>
         <BoardPreview board={board}/>

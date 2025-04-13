@@ -16,6 +16,7 @@ function Board() {
   const [dimensions, setDimensions] = useState([4, 6, 24]);
   const [bounceCells, setBounceCells] = useState( null );
   const [hasBoardChanges, setHasBoardChanges] = useState(false);
+  const [boardNameKey, setBoardNameKey] = useState('Padrão 2')
 
   const baseURL = import.meta.env.VITE_API_BASE_URL
 
@@ -23,7 +24,7 @@ function Board() {
 
   async function handleFetch() {
     try {
-      const response = await api.get("/board/get/Padrão 1");
+      const response = await api.get(`/board/get/${boardNameKey}`);
       setBoard({
         _id: response.data._id,
         name: response.data.name,

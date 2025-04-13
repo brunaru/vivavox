@@ -8,9 +8,13 @@ export const LibraryHeaderContainer = styled.section`
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  filter: drop-shadow(2px 4px 4px grey);
-  position: relative;
-  z-index: 1;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  ${({ $hasShadow }) => $hasShadow && `
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.5));
+  `}
 `;
 
 export const CurrentBoardContainer = styled.div`

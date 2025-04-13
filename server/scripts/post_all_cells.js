@@ -47,7 +47,7 @@ async function postCellsToApi() {
 
     for (let i = 0; i < totalCells; i++) {
         const cell = allCells[i];
-        const cellIdentifier = cell.img || cell._id || `índice ${i}`; // For logging
+        const cellIdentifier = cell.categories || cell._id || `índice ${i}`; // For logging
 
         // Optional: Add basic validation if needed before posting
         if (!cell || typeof cell !== 'object' || !cell.img) {
@@ -60,7 +60,7 @@ async function postCellsToApi() {
         try {
             // Log progress periodically
             if ((i + 1) % 100 === 0 || (i + 1) === totalCells ) {
-                 console.log(`[${i + 1}/${totalCells}] Postando célula: ${cellIdentifier}...`);
+                 console.log(`[${i + 1}/${totalCells}] Postando célula com categories: ${cellIdentifier} ...`);
             }
 
             // Make the POST request
