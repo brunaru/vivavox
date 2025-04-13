@@ -6,7 +6,8 @@ export async function postCell(req, res) {
     const newCell = new Cell({
       text: req.body.text,
       img: req.body.img,
-      color: req.body.color
+      color: req.body.color,
+      categories: req.body.categories
     });
 
     // Checking existing cell text:

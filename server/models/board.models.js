@@ -10,6 +10,16 @@ const boardSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  type: {
+    type: String,
+    required: true,
+    enum: ['0', '1']
+  },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'user'
+  },
   cells: [{
     cellId:{
       type: mongoose.Schema.Types.ObjectId,

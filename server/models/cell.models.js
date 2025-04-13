@@ -11,6 +11,10 @@ const cellSchema = new mongoose.Schema({
   },
   color: {
     type: String
+  },
+  categories: {
+    type: [String], 
+    default: []     
   }
 }, { versionKey: false });
 

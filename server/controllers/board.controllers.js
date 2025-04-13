@@ -7,6 +7,8 @@ export async function postBoard(req, res) {
     const newBoard = new Board({
       name: req.body.name,
       numCells: req.body.numCells,
+      type: req.body.type,
+      userId: req.body.userId,
       cells: req.body.cells
     });
 

@@ -1,0 +1,104 @@
+{
+  "name": "Animais 1",
+  "numCells": 24,
+  "type": "0",
+  "userId": "67d1ba27049c3eae90ec8c9e",
+  "cells": [
+    {
+      "cellId": "67fae32eeea87b7263f3c227",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae7b1eea87b7263f438b3",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae802eea87b7263f4411a",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae503eea87b7263f3f22a",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae412eea87b7263f3d9a0",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae7a0eea87b7263f436f4",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae65deea87b7263f41582",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae54beea87b7263f3f96b",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae347eea87b7263f3c4b5",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae592eea87b7263f400df",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae4c9eea87b7263f3ec3c",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae3a7eea87b7263f3ceae",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae238eea87b7263f3a970",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae3a8eea87b7263f3cec0",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae753eea87b7263f42eea",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae5e2eea87b7263f4091c",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae242eea87b7263f3aa60",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae4f8eea87b7263f3f11c",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae4cdeea87b7263f3ec96",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae4daeea87b7263f3edf5",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae297eea87b7263f3b2f4",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae6b4eea87b7263f41e79",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae232eea87b7263f3a8d1",
+      "cellType": "cell"
+    },
+    {
+      "cellId": "67fae5e3eea87b7263f40931",
+      "cellType": "cell"
+    }
+  ]
+}
