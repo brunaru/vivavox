@@ -10,14 +10,17 @@ import {
   SelectFilter,
   CreateBoardContainer
 } from './styled';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useBoard } from '../../../contexts/BoardContext';
 
 function LibraryHeader(props) {
-  const {board} = useBoard();
+  const {board, fetchBoard, isLoading, error} = useBoard();
   const [categories, setCategories] = useState([]);
 
-  
+  useEffect(() => {
+    console.log("Board atual", board.name);
+    fetchBoard(board.name);
+  }, []);
 
   return(
     <LibraryHeaderContainer $hasShadow={props.hasShadow}>
