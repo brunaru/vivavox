@@ -10,7 +10,7 @@ export const FeatBarContainer = styled.div`
   filter: drop-shadow(0 4px 8px grey);
   padding: 0 14vw 0 4vw;
   box-sizing: border-box;
-  z-index: 3;
+  z-index: 4;
 `;
 
 export const DivBack = styled.div`

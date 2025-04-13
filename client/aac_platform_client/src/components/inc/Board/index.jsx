@@ -11,7 +11,7 @@ import api from "../../../services/api";
 
 function Board() {
   const {activeCell, setActiveCell, editing, configCell} = useCell();
-  const {board, setBoard} = useBoard();
+  const {board, fetchBoard, setBoard, isLoading, error} = useBoard();
   const [targetIndex, setTargetIndex] = useState(null);
   const [dimensions, setDimensions] = useState([4, 6, 24]);
   const [bounceCells, setBounceCells] = useState( null );
@@ -75,7 +75,7 @@ function Board() {
   useEffect(() => {
     if(baseURL) {
       console.log("Reaload de página");
-      handleFetch();
+      fetchBoard(boardNameKey);
     } else {
       console.warn("API_BASE_URL not defined. Verify .env");
     }
@@ -86,9 +86,9 @@ function Board() {
     console.log("Após configCell mudar");
     if(configCell === null) {
       updateBoard();
-      handleFetch();
+      fetchBoard(boardNameKey);
     }
-  }, [configCell]);
+  }, [configCell, boardNameKey]);
 
   useEffect(() => {
     const prevEditing = prevEditingRef.current;
@@ -96,7 +96,6 @@ function Board() {
 
     // If 'editing' changes from true to false:
     if(prevEditing && !editing && hasBoardChanges) {
-      console.log("Editing mudou de true pra false, e temos mudanças no board");
       updateBoard();
       setHasBoardChanges(false);
     }
