@@ -18,6 +18,11 @@ const userSchema = new mongoose.Schema({
   type: {
     type: String, 
     default: 'client'
+  },
+  currentBoard: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'cell',
+    default: null
   }
 }, { versionKey: false });
 

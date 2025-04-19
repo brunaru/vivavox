@@ -10,6 +10,10 @@ const boardSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  imgPreview: {
+    type: String,
+    required: false
+  },
   type: {
     type: String,
     required: true,
@@ -20,6 +24,9 @@ const boardSchema = new mongoose.Schema({
     required: true,
     ref: 'user'
   },
+  tags: [{
+    type: String
+  }],
   cells: [{
     cellId:{
       type: mongoose.Schema.Types.ObjectId,

@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom"
 import Router from "./Routes";
 import { PageContextProvider } from "./components/contexts/PageContext";
 import { BoardContextProvider } from "./components/contexts/BoardContext";
+import { UserContextProvider } from "./components/contexts/UserContext";
 
 const AppContainer = styled.div`
   height: 100%;
@@ -27,13 +28,15 @@ function App() {
     <AppContainer>
       <GlobalStyle/>
         <BrowserRouter>
-          <PageContextProvider>
-            <BoardContextProvider>
-              <CellContextProvider>
-                <Router/>
-              </CellContextProvider>
-            </BoardContextProvider>
-          </PageContextProvider>
+          <UserContextProvider>
+            <PageContextProvider>
+              <BoardContextProvider>
+                <CellContextProvider>
+                  <Router/>
+                </CellContextProvider>
+              </BoardContextProvider>
+            </PageContextProvider>
+          </UserContextProvider>
         </BrowserRouter>
     </AppContainer>
   );

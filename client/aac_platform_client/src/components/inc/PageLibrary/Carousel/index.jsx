@@ -10,11 +10,11 @@ import {
 } from './styled'
 import BoardPreview from '../BoardPreview';
 
-function Carousel(props) {
+function Carousel({ title, boards = [] }) {
   return(
     <CarouselContainer>
       <CarouselTitle>
-        {props.title}
+        {title}
       </CarouselTitle>
       <StyledSwiperWrapper>
         <Swiper
@@ -31,24 +31,17 @@ function Carousel(props) {
             // 1500: { slidesPerView: 3 }
           }}
         >
-          <SwiperSlide>
-            <BoardPreview/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <BoardPreview/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <BoardPreview/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <BoardPreview/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <BoardPreview/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <BoardPreview/>
-          </SwiperSlide>
+          {boards.map((board) => (
+            // React precisa de uma 'key' única ao renderizar listas.
+            // O _id do board é perfeito para isso.
+            <SwiperSlide key={board._id}>
+              {/*
+                 Renderiza o componente BoardPreview e passa
+                 o objeto 'board' inteiro como uma prop chamada 'board'.
+              */}
+              <BoardPreview board={board} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </StyledSwiperWrapper>
     </CarouselContainer>

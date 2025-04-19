@@ -5,10 +5,10 @@ import path from 'path';
 // --- Configuration ---
 // ... (Keep your existing configuration) ...
 const API_ENDPOINT = 'http://localhost:5000/cell/get';
-const OUTPUT_JSON_FILE = 'animal_board_with_text.json';
+const OUTPUT_JSON_FILE = 'feeling_board_with_text.json';
 const BOARD_SIZE = 24;
-const BOARD_NAME = 'Animais 1';
-const TARGET_CATEGORY = 'animal';
+const BOARD_NAME = 'Sentimentos 1';
+const TARGET_CATEGORY = 'feeling';
 const BOARD_TYPE = '0';
 const USER_ID = '67d1ba27049c3eae90ec8c9e';
 // ---------------------

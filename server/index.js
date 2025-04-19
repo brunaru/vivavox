@@ -30,13 +30,15 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+   origin: ['http://localhost:3000', 'https://624d-179-125-135-210.ngrok-free.app']
+}));
 
 app.use('/cell', cellRoutes);
 app.use('/board', boardRoutes);
 app.use('/user', userRoutes);
 app.use('/userCell', userCellRoutes);
 
-app.listen(5000,  () => {
+app.listen(5000, '0.0.0.0', () => {
   console.log('Server listening on port 5000');
 });
