@@ -14,7 +14,7 @@ import { useState, useEffect } from 'react';
 import { useBoard } from '../../../contexts/BoardContext';
 
 function LibraryHeader(props) {
-  const {board, fetchBoard, isLoading, error} = useBoard();
+  const {board, fetchBoard} = useBoard();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

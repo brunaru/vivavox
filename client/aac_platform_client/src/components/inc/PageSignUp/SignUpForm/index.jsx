@@ -5,8 +5,10 @@ import {
   EnterButton
 } from './styled';
 import api from '../../../../services/api';
+import { useUser } from '../../../contexts/UserContext';
 
 function SignUpForm() {
+  const {signUpUser} = useUser();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +31,7 @@ function SignUpForm() {
         confirmedPassword: confirmedPassword
       }
 
-      const response = await api.post("/user/post", newUser);
+      const response = signUpUser(newUser);
 
       if(response.status === 201) {
         setName("");

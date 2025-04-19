@@ -14,7 +14,7 @@ function BoardPreview(props) {
     <BoardPreviewContainer>
       {props.board.cells.length > 0 ? (
         <>
-          <Symbol source={props.board.cells[0].img} />
+          <Symbol source={props.board.imgPreview} />
           <CellText text={props.board.name}/>
         </>
       ) : (

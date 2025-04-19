@@ -9,7 +9,9 @@ export async function postBoard(req, res) {
       numCells: req.body.numCells,
       type: req.body.type,
       userId: req.body.userId,
-      cells: req.body.cells
+      tags: req.body.tags,
+      cells: req.body.cells,
+      imgPreview: req.body.imgPreview
     });
 
     // Check the number of cells coherency:
@@ -94,14 +96,79 @@ export async function getBoardByName(req, res) {
       _id: board._id,
       name: board.name,
       numCells: board.numCells,
+      userId: board.userId,
+      tags: board.tags,
+      type: board.type,
+      imgPreview: board.imgPreview,
       cells: filteredCells
     }
 
+    console.log(`Fetch no board ${responseBoard.name}`);
     res.status(200);
     res.send(responseBoard);
   } catch(error) {
     res.status(500);
     res.send(error.message);
+  }
+}
+
+export async function getCategorizedBoards(req, res) {
+  try {
+    const allBoards = await Board.find({}).lean();
+
+    // Reduzir a lista de boards a um objeto de categorias
+    const categorized = allBoards.reduce((acc, board) => {
+      // 'acc' é o acumulador (o objeto com as categorias que estamos construindo)
+      // 'board' é o board atual sendo processado
+
+      // Verifica se o campo 'tags' existe, é um array e não está vazio
+      if (Array.isArray(board.tags) && board.tags.length > 0) {
+        // Itera sobre CADA tag dentro do array 'tags' do board atual
+        board.tags.forEach(tag => {
+          // Usa a tag como a chave da categoria.
+          // Opcional: Limpar/normalizar a tag (remover espaços, converter para minúsculas, etc.)
+          // const categoryKey = tag.trim().toLowerCase();
+          const categoryKey = tag.trim().toLocaleLowerCase();
+
+          // Se a categoria (chave) ainda não existe no acumulador 'acc',
+          // inicializa-a como um array vazio.
+          if (!acc[categoryKey]) {
+            acc[categoryKey] = [];
+          }
+
+          // Adiciona o board ATUAL ao array correspondente à categoria (tag).
+          // O mesmo board pode ser adicionado a múltiplas categorias se tiver múltiplas tags.
+          acc[categoryKey].push(board);
+        });
+      } else {
+        // Opcional: Se um board não tiver tags ou o campo 'tags' estiver ausente/vazio,
+        // você pode adicioná-lo a uma categoria padrão como 'Outros'.
+        const defaultCategory = 'Outros';
+        if (!acc[defaultCategory]) {
+          acc[defaultCategory] = [];
+        }
+        acc[defaultCategory].push(board);
+      }
+
+      // Retorna o acumulador atualizado para a próxima iteração do reduce.
+      return acc;
+
+    }, {}); // O `{}` inicializa o acumulador como um objeto vazio.
+
+    // Remover categorias que acabaram ficando vazias (embora improvável com a lógica acima, a menos que allBoards estivesse vazio)
+    Object.keys(categorized).forEach(key => {
+      if (categorized[key].length === 0) {
+        delete categorized[key];
+      }
+    });
+
+    // Enviar a resposta com os boards categorizados
+    res.status(200).json(categorized);
+
+  } catch (error) {
+    // Logar o erro no servidor para debugging
+    console.error("Erro ao buscar boards categorizados:", error);
+    res.status(500).json({ message: 'Erro ao buscar boards categorizados', error: error.message });
   }
 }
 

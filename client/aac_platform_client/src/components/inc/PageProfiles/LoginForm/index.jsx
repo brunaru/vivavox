@@ -6,39 +6,45 @@ import {
   ForgotPassword
 } from './styled';
 import { useState } from 'react';
+import { useUser } from '../../../contexts/UserContext';
 
 function LoginForm() {
+  const {signInUser} = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false); 
+  const [error, setError] = useState(null); 
 
   async function handleEnterButton(e) {
     e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
 
     try { 
       const loginData = {
-        email: email,
-        password: password
+        email,
+        password
       }
 
-      const response = await api.post('/user/login', loginData);
+      await signInUser(loginData);
 
-      if(response.status === 200) {
-        setEmail("");
-        setPassword("");
-
-        const token = response.data.token;
-        localStorage.setItem('token', token);
-        window.dispatchEvent(new Event("storage"));
-      }
+      console.log("Login successfully done");
+      setEmail("");
+      setPassword("");
     } catch(error) {
       console.log("Error submiting login form: ", error);
+      const errorMessage = error.response?.data?.message || error.message || "Falha no login. Verifique suas credenciais.";
+      setError(errorMessage);
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
   return(
     <LoginFormContainer>
-      <Input type="email" label="E-mail" text={email} handleTextChange={(e) => setEmail(e.target.value)} width="50%" required autocomplete="username" />
-      <Input type="password" label="Senha" text={password} handleTextChange={(e) => setPassword(e.target.value)} width="50%" required autocomplete="current-password" />
+      <Input type="email" label="E-mail" text={email} handleTextChange={(e) => setEmail(e.target.value)} width="50%" required autocomplete="username" disabled={isSubmitting}/>
+      <Input type="password" label="Senha" text={password} handleTextChange={(e) => setPassword(e.target.value)} width="50%" required autocomplete="current-password" disabled={isSubmitting}/>
+      {error && <p style={{ color: 'red', width: '50%', textAlign: 'center', marginTop: '10px' }}>{error}</p>}
       <EnterButton onClick={handleEnterButton} $height="8%" $width="14%" $fontSize="1vw" >Entrar</EnterButton>
       <ForgotPassword>Esqueci a senha</ForgotPassword>
     </LoginFormContainer>

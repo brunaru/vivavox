@@ -5,11 +5,26 @@ const BoardContext = createContext();
 
 export function BoardContextProvider({ children }) {
   const [board, setBoard] = useState({});
+  const [categorizedBoards, setCategorizedBoards] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const fetchCategorizedBoards = useCallback(async () => {
+    setIsLoading(true);
+    
+    try {
+      const response = await api.get('/board/getTagBoards');
+      setCategorizedBoards(response.data || {});
+    } catch(err) {
+      console.error("BoardContext: Error fetching categorized boards:", err);
+      setError(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   const fetchBoard = useCallback(async (boardIdOrKey) => { 
-    if (!boardIdOrKey) {
+    if(!boardIdOrKey) {
       console.warn("fetchBoard called without an ID/key.");
       setError("No board selected to search.");
       return; 
@@ -24,7 +39,9 @@ export function BoardContextProvider({ children }) {
         _id: response.data._id,
         name: response.data.name,
         numCells: response.data.numCells,
-        cells: response.data.cells
+        cells: response.data.cells,
+        tags: response.data.tags,
+        imgPreview: response.data.imgPreview
       });
 
     } catch (err) {
@@ -40,6 +57,8 @@ export function BoardContextProvider({ children }) {
     <BoardContext.Provider value={{
       board,
       setBoard,
+      categorizedBoards,
+      fetchCategorizedBoards,
       fetchBoard,
       isLoading,
       error

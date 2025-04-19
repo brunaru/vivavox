@@ -1,0 +1,9 @@
+# Ignora todos os node_modules do projeto
+**/node_modules
+
+# Arquivos de ambiente
+**/.env
+
+# Pastas de build
+**/dist
+**/.vite

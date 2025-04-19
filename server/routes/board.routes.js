@@ -1,10 +1,11 @@
 import { Router } from 'express';
-import { DeleteBoardByName, getBoardByName, postBoard, updateBoardById } from '../controllers/board.controllers.js';
+import { DeleteBoardByName, getBoardByName, getCategorizedBoards, postBoard, updateBoardById } from '../controllers/board.controllers.js';
 
 const router = Router();
 
 router.post('/post', postBoard);
 router.get('/get/:name', getBoardByName);
+router.get('/getTagBoards', getCategorizedBoards);
 router.patch('/patch/:id', updateBoardById);
 router.delete('/delete/:name', DeleteBoardByName);
 

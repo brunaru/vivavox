@@ -24,7 +24,8 @@ export async function postUser(req, res) {
       email: req.body.email,
       password: passwordHash,
       name: req.body.name,
-      type: req.body.type
+      type: req.body.type,
+      currentBoard: req.body.currentBoard
     });
 
     await newUser.save();
@@ -49,13 +50,13 @@ export async function loginUser(req, res) {
     // Check if user exists:
     const user = await User.findOne({ email: req.body.email });
     if(!user) {
-      return res.status(404).send({ message: "Incorrect email" });
+      return res.status(404).send({ message: "Email ou senha incorretos" });
     }
   
     // Check password:
     const checkPassword = await bcrypt.compare(req.body.password, user.password);
     if(!checkPassword) {
-      return(res.status(422).json({ mesage: "Incorrect password" }));
+      return(res.status(422).json({ message: "Email ou senha incorretos" }));
     }
 
     const secret = process.env.SECRET;
@@ -63,7 +64,10 @@ export async function loginUser(req, res) {
     // Token creation:
     const token = jwt.sign({
       _id: user._id,
-      name: user.name
+      name: user.name,
+      email: user.email,
+      type: user.type,
+      currentBoard: user.currentBoard
     }, secret);
 
     // Response:
