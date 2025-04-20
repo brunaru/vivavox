@@ -23,6 +23,7 @@ export function BoardContextProvider({ children }) {
     try {
       const response = await api.get('/board/getTagBoards');
       setCategorizedBoards(response.data || {});
+      console.log(response.data);
     } catch(err) {
       console.error("BoardContext: Error fetching categorized boards:", err);
       setCategorizedError(err.response?.data?.message || err.message || 'Failed to load categorized boards.'); // Define o erro específico

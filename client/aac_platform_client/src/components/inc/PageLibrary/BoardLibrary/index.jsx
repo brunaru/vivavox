@@ -14,7 +14,8 @@ function BoardLibrary() {
 
   const categoriesToDisplay = [
     { key: 'core', title: 'Core words' },
-    { key: 'animal', title: 'Animais' }
+    { key: 'animal', title: 'Animais' },
+    { key: 'feeling', title: 'Sentimentos'}
   ]
 
   useEffect(() => {
