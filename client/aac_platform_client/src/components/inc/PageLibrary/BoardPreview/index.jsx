@@ -1,4 +1,5 @@
 import { useBoard } from '../../../contexts/BoardContext';
+import { useUser } from '../../../contexts/UserContext';
 import CellText from '../../CellText';
 import Symbol from '../../Symbol';
 import {
@@ -6,12 +7,14 @@ import {
 } from './styled';
 
 function BoardPreview(props) {
+  const {updateCurrentBoard} = useUser();
+
   if(!props.board || !props.board.cells) {
     return <BoardPreviewContainer></BoardPreviewContainer>
   }
 
   return(
-    <BoardPreviewContainer>
+    <BoardPreviewContainer onClick={() => updateCurrentBoard(props.board)}>
       {props.board.cells.length > 0 ? (
         <>
           <Symbol source={props.board.imgPreview} />

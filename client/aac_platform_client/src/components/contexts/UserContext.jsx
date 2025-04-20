@@ -142,6 +142,70 @@ export function UserContextProvider({ children }) {
     // window.location.href = '/login';
   };
 
+  const updateCurrentBoard = async (newCurrentBoard) => {
+    // 1. Validar entradas
+    if (!newCurrentBoard?._id) { // Verifica se newCurrentBoard e seu _id existem
+      console.warn("updateCurrentBoard chamado sem um newCurrentBoard válido com _id.");
+      return;
+    }
+    if (!user?._id) { // Verifica se user e seu _id existem
+      console.warn("updateCurrentBoard chamado quando o usuário não está carregado ou não tem _id.");
+      return;
+    }
+
+    const newBoardId = newCurrentBoard._id;
+    const userId = user._id;
+
+    // 2. Criar o payload CORRETO para a API (apenas o campo a ser mudado)
+    const updatePayload = {
+      currentBoard: newBoardId
+    };
+
+    // 3. (Opcional, mas bom para UI rápida) Atualizar estado local IMEDIATAMENTE com um NOVO objeto
+    //    Isso faz a UI refletir a mudança antes da confirmação da API.
+    const updatedUserObject = {
+        ...user, // Copia todas as propriedades existentes do usuário
+        currentBoard: newBoardId // Sobrescreve apenas o currentBoard
+    };
+    setUser(updatedUserObject); // Passa um NOVO objeto para setUser
+
+    try {
+      // 4. Chamar a API com o payload correto e a rota correta (ajuste se necessário)
+      //    ASSUMINDO que o backend retorna { message: string, token: string } com um NOVO token
+      const response = await api.patch(`/user/update/${userId}`, updatePayload); // Rota /users/:id como no exemplo anterior
+
+      console.log("Current board update successful on backend:", response.data.message);
+
+      // 5. ATUALIZAR O TOKEN se o backend retornar um novo
+      if (response.data && response.data.token) {
+          const receivedToken = response.data.token;
+          const decodedUser = jwtDecode(receivedToken); // Decodifica novo token
+
+          localStorage.setItem('authToken', receivedToken); // Salva NOVO token
+          setToken(receivedToken); // Atualiza estado do token
+
+          // Re-sincroniza o estado do usuário com base no NOVO token (garante consistência total)
+           setUser({
+              _id: decodedUser._id,
+              name: decodedUser.name,
+              email: decodedUser.email,
+              type: decodedUser.type,
+              currentBoard: decodedUser.currentBoard // Agora está atualizado pelo novo token
+           });
+           // Define o header default com o novo token
+           api.defaults.headers.common['Authorization'] = `Bearer ${receivedToken}`;
+
+      } else {
+         // Se o backend não retornou um novo token, o estado local já foi atualizado
+         // no passo 3, mas a persistência ao recarregar não funcionará até o próximo login.
+         console.warn("Backend did not return a new token after update. Refresh might revert currentBoard.");
+      }
+
+    } catch (error) {
+      console.error("Error updating current board on backend:", error.response?.data || error.message);
+    }
+  }
+
   return (
     <UserContext.Provider value={{
       token,
@@ -150,7 +214,8 @@ export function UserContextProvider({ children }) {
       loading,
       signUpUser,
       signInUser,
-      signOutUser
+      signOutUser,
+      updateCurrentBoard
     }}>
       {!loading && children}
     </UserContext.Provider>
