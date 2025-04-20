@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import SideBar from '../inc/SideBar';
 import AccountIntro from '../inc/PageProfiles/AccountIntro';
+import { useSidebar } from '../contexts/SideBarContext';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -22,14 +23,19 @@ const BoardSpace = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
+  transition: margin-left 0.3s ease-in-out;
+  margin-left: ${({ $isSidebarOpen }) => $isSidebarOpen ? '15vw' : '0'};
 `;
 
 function PageProfiles() {
+  const {isSidebarOpen} = useSidebar();
+
   return (
     <PageContainer>
       <MainSection>
         <SideBar/>
-        <BoardSpace>
+        <BoardSpace $isSidebarOpen={isSidebarOpen}>
           <AccountIntro/>
         </BoardSpace>
       </MainSection>
