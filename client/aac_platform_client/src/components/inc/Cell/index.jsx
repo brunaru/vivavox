@@ -23,6 +23,13 @@ function Cell({ index, cell, setTargetIndex, targetIndex, onDrop, bounceCells })
     }
   }
 
+  function handleContextMenu(e) {
+    // Previne o menu de contexto APENAS se estiver editando e for arrastável
+    if (editing) {
+      e.preventDefault();
+    }
+  }
+
   return (
     <CellContainer 
       draggable={editing}
@@ -31,6 +38,7 @@ function Cell({ index, cell, setTargetIndex, targetIndex, onDrop, bounceCells })
       $isTarget={targetIndex === index}
       $isBouncing={bounceCells !== null && bounceCells.includes(index)}
       onClick={handleCellClick}
+      onContextMenu={handleContextMenu} 
       onDragStart={(e) => {
         e.stopPropagation();
         setActiveCell(index);
