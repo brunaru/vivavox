@@ -1,103 +1,104 @@
 {
-  "name": "Animais 1",
+  "name": "Animais 2",
   "numCells": 24,
   "type": "0",
+  "imgPreview": "https://static.arasaac.org/pictograms/26271/26271_300.png",
   "userId": "67d1ba27049c3eae90ec8c9e",
   "cells": [
     {
-      "cellId": "67fae32eeea87b7263f3c227",
+      "cellId": "67fae4f1eea87b7263f3f062",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae7b1eea87b7263f438b3",
+      "cellId": "67fae29ceea87b7263f3b369",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae802eea87b7263f4411a",
+      "cellId": "67fae271eea87b7263f3af0a",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae503eea87b7263f3f22a",
+      "cellId": "67fae26aeea87b7263f3ae4a",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae412eea87b7263f3d9a0",
+      "cellId": "67fae528eea87b7263f3f5f3",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae7a0eea87b7263f436f4",
+      "cellId": "67fae241eea87b7263f3aa45",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae65deea87b7263f41582",
+      "cellId": "67fae483eea87b7263f3e53d",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae54beea87b7263f3f96b",
+      "cellId": "67fae65ceea87b7263f41561",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae347eea87b7263f3c4b5",
+      "cellId": "67fae2cceea87b7263f3b858",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae592eea87b7263f400df",
+      "cellId": "67fae4ffeea87b7263f3f1ca",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae4c9eea87b7263f3ec3c",
+      "cellId": "67fae64ceea87b7263f413c3",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae3a7eea87b7263f3ceae",
+      "cellId": "67fae26beea87b7263f3ae5c",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae238eea87b7263f3a970",
+      "cellId": "67fae357eea87b7263f3c65c",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae3a8eea87b7263f3cec0",
+      "cellId": "67fae4a9eea87b7263f3e8eb",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae753eea87b7263f42eea",
+      "cellId": "67fae265eea87b7263f3adc0",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae5e2eea87b7263f4091c",
+      "cellId": "67fae790eea87b7263f4353e",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae242eea87b7263f3aa60",
+      "cellId": "67fae268eea87b7263f3ae1a",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae4f8eea87b7263f3f11c",
+      "cellId": "67fae22beea87b7263f3a808",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae4cdeea87b7263f3ec96",
+      "cellId": "67fae735eea87b7263f42bc0",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae4daeea87b7263f3edf5",
+      "cellId": "67fae697eea87b7263f41b88",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae297eea87b7263f3b2f4",
+      "cellId": "67fae520eea87b7263f3f52a",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae6b4eea87b7263f41e79",
+      "cellId": "67fae4d3eea87b7263f3ed3e",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae232eea87b7263f3a8d1",
+      "cellId": "67fae4bdeea87b7263f3eafe",
       "cellType": "cell"
     },
     {
-      "cellId": "67fae5e3eea87b7263f40931",
+      "cellId": "67fae2d9eea87b7263f3b960",
       "cellType": "cell"
     }
   ]

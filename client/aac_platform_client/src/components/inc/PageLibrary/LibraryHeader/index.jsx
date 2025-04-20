@@ -14,13 +14,8 @@ import { useState, useEffect } from 'react';
 import { useBoard } from '../../../contexts/BoardContext';
 
 function LibraryHeader(props) {
-  const {board, fetchBoard} = useBoard();
+  const {board} = useBoard();
   const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    console.log("Board atual", board.name);
-    fetchBoard(board.name);
-  }, []);
 
   return(
     <LibraryHeaderContainer $hasShadow={props.hasShadow}>
