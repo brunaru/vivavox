@@ -97,7 +97,7 @@ function SideBar() {
         <SideBarButton to="/cur-board" text="Prancha atual" height="100%" fontSize="1vw" activeButton={location.pathname} />
     </Item>,
     <Item key="edit" onClick={(e) => handleItemClick(e, () => setEditing(!editing))}>
-        <SideBarButton text="Editar" height="100%" fontSize="1vw" editing={editing} /*setEditing={setEditing}*/ activeButton={location.pathname} isToggleButton />
+        <SideBarButton text="Editar" height="100%" fontSize="1vw" editing={editing} setEditing={setEditing} activeButton={location.pathname} isToggleButton />
     </Item>,
     <Item key="library" onClick={(e) => handleItemClick(e)}>
         <SideBarButton to="/library" text="Biblioteca de Pranchas" height="100%" fontSize="1vw" activeButton={location.pathname} />
