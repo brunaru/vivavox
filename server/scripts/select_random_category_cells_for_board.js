@@ -3,17 +3,17 @@ import fs from 'fs';
 import path from 'path';
 
 // --- Configuration ---
-// ... (Keep your existing configuration) ...
-const API_ENDPOINT = 'http://localhost:5000/cell/get';
-const OUTPUT_JSON_FILE = 'feeling_board_with_text.json';
+const API_BASE_URL = 'http://localhost:5000'; // Base URL for API calls
+const API_ENDPOINT_GET_ALL = `${API_BASE_URL}/cell/get`; // Endpoint to get all cells
+const API_ENDPOINT_GET_ONE = `${API_BASE_URL}/cell/get`; // Endpoint to get one cell by ID (adjust if different)
+const OUTPUT_JSON_FILE = 'animal_board_with_text.json';
 const BOARD_SIZE = 24;
-const BOARD_NAME = 'Sentimentos 1';
-const TARGET_CATEGORY = 'feeling';
+const BOARD_NAME = 'Animais 8';
+const TARGET_CATEGORY = 'animal'; // This will also be used for the tag
 const BOARD_TYPE = '0';
 const USER_ID = '67d1ba27049c3eae90ec8c9e';
 // ---------------------
 
-// ... (shuffleArray function remains the same) ...
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -23,55 +23,54 @@ function shuffleArray(array) {
 }
 
 async function createAnimalBoardWithTextFromAPI() {
-    // ... (Initial logs and config validation remain the same) ...
     console.log(`--- Iniciando criação de quadro (${BOARD_SIZE} células) ---`);
     console.log(`--- Filtros: texto não vazio E categoria '${TARGET_CATEGORY}' ---`);
-    console.log(`--- Buscando células da API: ${API_ENDPOINT} ---`);
+    console.log(`--- Buscando células da API: ${API_ENDPOINT_GET_ALL} ---`);
     const lowerTargetCategory = TARGET_CATEGORY.toLowerCase();
-     if (!USER_ID || USER_ID === 'YOUR_USER_ID_HERE') { /* ... */ process.exit(1);}
-     if (BOARD_TYPE !== '0' && BOARD_TYPE !== '1') { /* ... */ process.exit(1);}
-     if (BOARD_SIZE <= 0) { /* ... */ process.exit(1);}
 
+    // --- Configuration Validation ---
+    if (!USER_ID || USER_ID === 'YOUR_USER_ID_HERE') {
+        console.error("\nError: USER_ID não está configurado corretamente.");
+        process.exit(1);
+    }
+    if (BOARD_TYPE !== '0' && BOARD_TYPE !== '1') {
+        console.error("\nError: BOARD_TYPE inválido (deve ser '0' ou '1').");
+        process.exit(1);
+    }
+    if (BOARD_SIZE <= 0) {
+        console.error("\nError: BOARD_SIZE deve ser maior que zero.");
+        process.exit(1);
+    }
+    // --- End Validation ---
 
     let liveCells;
 
     // 1. Fetch data from the API
     try {
-        // ... (API fetch logic remains the same) ...
-        const response = await axios.get(API_ENDPOINT);
+        const response = await axios.get(API_ENDPOINT_GET_ALL);
         liveCells = response.data;
-        if (!Array.isArray(liveCells)) { /* ... */ process.exit(1); }
+        if (!Array.isArray(liveCells)) {
+            console.error("\nAPI Error: A resposta da API não é um array.");
+            process.exit(1);
+        }
         console.log(`API Success: ${liveCells.length} total cells found.`);
 
     } catch (error) {
-        // ... (API error handling remains the same) ...
-        console.error(`\nAPI Error: Failed to fetch data from ${API_ENDPOINT}`);
-        /* ... */ process.exit(1);
+        console.error(`\nAPI Error: Failed to fetch data from ${API_ENDPOINT_GET_ALL}`);
+        if (error.response) {
+            console.error(` -> Status: ${error.response.status}, Data: ${JSON.stringify(error.response.data)}`);
+        } else if (error.request) {
+            console.error(" -> No response received from server.");
+        } else {
+            console.error(` -> Error message: ${error.message}`);
+        }
+        process.exit(1);
     }
 
-    // ---- DEBUGGING: Inspect sample cell data ----
-    console.log("\n--- DEBUG: Inspecting first 15 cells from API ---");
-    let potentialMatches = 0;
-    for(let i = 0; i < Math.min(liveCells.length, 200); i++) {
-        const cell = liveCells[i];
-        if (!cell) continue;
-        const textNotEmpty = cell.text && String(cell.text).trim() !== '';
-        const categoriesIsArray = Array.isArray(cell.categories);
-        let hasAnimalCategory = false;
-        if (categoriesIsArray) {
-            hasAnimalCategory = cell.categories.some(category =>
-                String(category).trim().toLowerCase() === lowerTargetCategory // Added trim() here for check
-            );
-        }
-        console.log(`Cell ${i}: _id=${cell._id}`);
-        console.log(`  -> Text: '${cell.text}' (NotEmpty=${textNotEmpty})`);
-        console.log(`  -> Categories: ${JSON.stringify(cell.categories)} (IsArray=${categoriesIsArray}, HasAnimal=${hasAnimalCategory})`);
-        if(textNotEmpty && hasAnimalCategory){
-            potentialMatches++;
-        }
-    }
-    console.log(`--- DEBUG: Found ${potentialMatches} potential matches in the first 15 cells ---`);
-    console.log("-------------------------------------------------\n");
+    // ---- DEBUGGING: Inspect sample cell data (Optional, keep if useful) ----
+    // console.log("\n--- DEBUG: Inspecting first 15 cells from API ---");
+    // ... (your debugging code here) ...
+    // console.log("-------------------------------------------------\n");
     // ---- END DEBUGGING ----
 
 
@@ -81,7 +80,6 @@ async function createAnimalBoardWithTextFromAPI() {
         const textIsValid = cell && cell.text && String(cell.text).trim() !== '';
         const categoriesIsValid = Array.isArray(cell.categories) &&
                                cell.categories.some(category =>
-                                   // Add trim() here as well for robustness
                                    String(category).trim().toLowerCase() === lowerTargetCategory
                                );
         return cell && typeof cell._id !== 'undefined' && textIsValid && categoriesIsValid;
@@ -91,11 +89,9 @@ async function createAnimalBoardWithTextFromAPI() {
     // 3. Check if enough valid cells are available
     if (validCellsForBoard.length < BOARD_SIZE) {
         console.error(`\nError: Not enough valid cells found (${validCellsForBoard.length}) matching all criteria to create a board of size ${BOARD_SIZE}.\n`);
-        // Consider not exiting if you want to see the rest of the process with fewer cells
-         process.exit(1);
+        process.exit(1);
     }
 
-    // ... (Rest of the script: Shuffle, Select, Format, Save remains the same) ...
 
     // 4. Shuffle
     console.log('Shuffling valid cells...');
@@ -105,18 +101,51 @@ async function createAnimalBoardWithTextFromAPI() {
     console.log(`Selecting the first ${BOARD_SIZE} shuffled cells...`);
     const selectedCells = validCellsForBoard.slice(0, BOARD_SIZE);
 
-    // 6. Format
+    // *** NEW STEP 5.5: Get image URL from the first selected cell ***
+    let firstCellImageUrl = null; // Default value
+    if (selectedCells.length > 0) {
+        const firstCellId = selectedCells[0]._id;
+        console.log(`Fetching details for the first cell (ID: ${firstCellId}) to get image preview...`);
+        try {
+            // Construct the endpoint for getting a single cell
+            const singleCellEndpoint = `${API_ENDPOINT_GET_ONE}/${firstCellId}`;
+            const cellResponse = await axios.get(singleCellEndpoint);
+
+            if (cellResponse.data && cellResponse.data.img) {
+                firstCellImageUrl = cellResponse.data.img;
+                console.log(` -> Image preview URL found: ${firstCellImageUrl}`);
+            } else {
+                console.warn(` -> Warning: Could not find imageUrl for cell ID ${firstCellId}. 'imgPreview' will be null.`);
+            }
+        } catch (error) {
+            console.error(`\nAPI Error: Failed to fetch details for cell ID ${firstCellId}`);
+            if (error.response) {
+                console.error(` -> Status: ${error.response.status}, Data: ${JSON.stringify(error.response.data)}`);
+            } else {
+                console.error(` -> Error message: ${error.message}`);
+            }
+            console.warn(" -> Proceeding without image preview.");
+            // Continue without stopping the script, imgPreview will remain null
+        }
+    } else {
+        console.warn(" -> Warning: No cells selected, cannot fetch image preview.");
+    }
+    // *** END NEW STEP 5.5 ***
+
+    // 6. Format the 'cells' array for the board
     const boardCells = selectedCells.map(cell => ({
         cellId: String(cell._id),
-        cellType: "cell"
+        cellType: "cell" // Assuming all are 'cell' type
     }));
 
-    // 7. Create final object
+    // 7. Create final board object with new fields
     const finalBoard = {
         name: BOARD_NAME,
         numCells: boardCells.length,
         type: BOARD_TYPE,
         userId: USER_ID,
+        imgPreview: firstCellImageUrl,       // *** ADDED imgPreview ***
+        tags: [TARGET_CATEGORY.toLowerCase()], // *** ADDED tags array ***
         cells: boardCells
     };
 
@@ -131,6 +160,8 @@ async function createAnimalBoardWithTextFromAPI() {
         console.log(` -> Number of Cells: ${finalBoard.numCells}`);
         console.log(` -> Type: ${finalBoard.type}`);
         console.log(` -> User ID: ${finalBoard.userId}`);
+        console.log(` -> Image Preview: ${finalBoard.imgPreview}`); // Log new field
+        console.log(` -> Tags: ${JSON.stringify(finalBoard.tags)}`);   // Log new field
     } catch (error) {
         console.error(`\nFile Error: Failed to save the board to ${outputFilePath}:`, error.message);
         process.exit(1);

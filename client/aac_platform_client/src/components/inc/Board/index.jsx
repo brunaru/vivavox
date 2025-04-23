@@ -11,33 +11,19 @@ import api from "../../../services/api";
 
 function Board() {
   const {activeCell, setActiveCell, editing, configCell} = useCell();
-  const {board, fetchBoard, setBoard, isLoading, error} = useBoard();
+  const {board, setBoard, isLoading, error} = useBoard();
   const [targetIndex, setTargetIndex] = useState(null);
   const [dimensions, setDimensions] = useState([4, 6, 24]);
   const [bounceCells, setBounceCells] = useState( null );
   const [hasBoardChanges, setHasBoardChanges] = useState(false);
-  const [boardNameKey, setBoardNameKey] = useState('Padrão 2')
+  const [boardNameKey, setBoardNameKey] = useState('Padrão 1');
 
   const baseURL = import.meta.env.VITE_API_BASE_URL
 
   const prevEditingRef = useRef(editing);
 
-  async function handleFetch() {
-    try {
-      const response = await api.get(`/board/get/${boardNameKey}`);
-      setBoard({
-        _id: response.data._id,
-        name: response.data.name,
-        numCells: response.data.numCells,
-        cells: response.data.cells
-      })
-    } catch(error) {
-      console.log(error);
-    }
-  }
-
   async function updateBoard() {
-    if(!board._id) return;
+    if(!board || !board._id) return;
     try {
       await api.patch(`/board/patch/${board._id}`, board);
       console.log('Cells successfully sent to api');
@@ -71,28 +57,17 @@ function Board() {
     setHasBoardChanges(true);
   }
 
-  // Fetches board when reload page:
-  useEffect(() => {
-    if(baseURL) {
-      console.log("Reaload de página");
-      fetchBoard(boardNameKey);
-    } else {
-      console.warn("API_BASE_URL not defined. Verify .env");
-    }
-  }, []);
-
   // Update board after configCell menu:
   useEffect(() => {
-    console.log("Após configCell mudar");
+    console.log("Após sair da configuração da célula => UpdateBoard e FetchBoard");
     if(configCell === null) {
       updateBoard();
-      fetchBoard(boardNameKey);
     }
-  }, [configCell, boardNameKey]);
+  }, [configCell]);
 
   useEffect(() => {
     const prevEditing = prevEditingRef.current;
-    console.log("Após editing mudar");
+    console.log("Após sair do modo edição => UpdateBoard");
 
     // If 'editing' changes from true to false:
     if(prevEditing && !editing && hasBoardChanges) {
@@ -104,7 +79,7 @@ function Board() {
   }, [editing]);
 
 
-  if(!board.cells) {
+  if(!board || board === undefined) {
     return (
       <h2>Carregando...</h2>
     );

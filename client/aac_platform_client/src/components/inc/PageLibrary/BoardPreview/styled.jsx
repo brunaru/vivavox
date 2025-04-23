@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BoardPreviewContainer = styled.div`
+export const BoardPreviewContainer = styled.button`
   background-color: white;
   width: 70%;
   height: 70%;
@@ -10,6 +10,7 @@ export const BoardPreviewContainer = styled.div`
   align-items: center;
   justify-content: center;
   filter: drop-shadow(0 4px 2px gray);
+  border: none;
 
 
   &:hover {

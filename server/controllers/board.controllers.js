@@ -112,6 +112,65 @@ export async function getBoardByName(req, res) {
   }
 }
 
+export async function getBoardById(req, res) {
+  try {
+    const id = req.params.id;
+
+    // Finds the board:
+    const board = await Board.findById(id);
+    if(!board) {
+      return res.status(404).send({ message: "Board does not exist" });
+    }
+    // Populate cells:
+    const populatedCells = await Promise.all(
+      board.cells.map(async (cell) => {
+        let populatedData = null;
+        let originalCellId = null;
+
+        if(cell.cellType === 'cell') {
+          populatedData = await Cell.findById(cell.cellId);
+          originalCellId = null;
+        } else if(cell.cellType === 'userCell') {
+          populatedData = await UserCell.findById(cell.cellId);
+          originalCellId = cell.originalCellId || null;
+        }
+
+        if(!populatedData) {
+          return null;
+        }
+
+        return {
+          text: populatedData.text,
+          img: populatedData.img,
+          color: populatedData.color,
+          _id: populatedData._id,
+          originalCellId: originalCellId,
+          cellType: cell.cellType
+        };
+      })
+    );
+
+    // Makes formated board to return:
+    const filteredCells = populatedCells.filter(cell => cell !== null);
+    const responseBoard = {
+      _id: board._id,
+      name: board.name,
+      numCells: board.numCells,
+      userId: board.userId,
+      tags: board.tags,
+      type: board.type,
+      imgPreview: board.imgPreview,
+      cells: filteredCells
+    }
+
+    res.status(200);
+    res.send(responseBoard);
+  } catch(error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
 export async function getCategorizedBoards(req, res) {
   try {
     const allBoards = await Board.find({}).lean();
