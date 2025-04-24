@@ -26,5 +26,4 @@ export const BoardItem = styled.div`
   align-items: center; 
   text-align: center; 
   min-height: 0;
-  // overflow: hidden;
 `;

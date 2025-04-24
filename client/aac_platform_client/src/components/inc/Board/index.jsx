@@ -1,22 +1,23 @@
 import { useState, useEffect, useRef } from "react";
 import { useCell } from "../../contexts/CellContext";
 import Cell from "../Cell";
+import BoardPreview from '../PageLibrary/BoardPreview';
 import {
   BoardContainer,
   BoardItem
 } from "./styled";
 import { useBoard } from "../../contexts/BoardContext";
 import api from "../../../services/api";
+import CellPreview from "../CellPreview";
 
 
 function Board() {
   const {activeCell, setActiveCell, editing, configCell} = useCell();
   const {board, setBoard, isLoading, error} = useBoard();
   const [targetIndex, setTargetIndex] = useState(null);
-  const [dimensions, setDimensions] = useState([6, 7, 30]);
+  const [dimensions, setDimensions] = useState([5, 6]);
   const [bounceCells, setBounceCells] = useState( null );
   const [hasBoardChanges, setHasBoardChanges] = useState(false);
-  const [boardNameKey, setBoardNameKey] = useState('Padrão 1');
   const prevConfigCellRef = useRef(configCell);
 
   const baseURL = import.meta.env.VITE_API_BASE_URL
@@ -94,23 +95,32 @@ function Board() {
     return (
       <h2>Carregando...</h2>
     );
-  }
+  } 
 
-  console.log('Rendering Board with state:', board);
 
   return (
-    <BoardContainer $dimensions={dimensions}>
-      {board.cells.map((cell, index) => {
+    <BoardContainer $dimensions={board.dimensions}>
+      {Array.from({ length: board.numCells }).map((_, index) => {
+        // Verifica se existe uma célula definida no array 'board.cells' para este índice
+        const cellData = board.cells && board.cells[index];
+
         return (
           <BoardItem key={index}>
-            <Cell 
-              index={index}
-              cell={cell}
-              setTargetIndex={setTargetIndex}
-              targetIndex={targetIndex}
-              onDrop={() => onDrop(index)}
-              bounceCells={bounceCells}
-            />
+            {
+              // Se cellData existe e não é null/undefined (ou qualquer valor que signifique 'vazio')
+              cellData ?
+              <Cell
+                index={index}
+                cell={cellData} // Passa a célula encontrada
+                setTargetIndex={setTargetIndex}
+                targetIndex={targetIndex}
+                onDrop={() => onDrop(index)}
+                bounceCells={bounceCells}
+              />
+              :
+              // Caso contrário, renderiza o placeholder BoardPreview
+              <CellPreview/>
+            }
           </BoardItem>
         );
       })}

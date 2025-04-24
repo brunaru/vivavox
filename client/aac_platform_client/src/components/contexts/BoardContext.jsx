@@ -53,6 +53,7 @@ export function BoardContextProvider({ children }) {
           _id: response.data._id,
           name: response.data.name,
           numCells: response.data.numCells,
+          dimensions: response.data.dimensions,
           cells: response.data.cells,
           tags: response.data.tags,
           imgPreview: response.data.imgPreview,

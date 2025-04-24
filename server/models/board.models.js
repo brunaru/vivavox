@@ -10,6 +10,9 @@ const boardSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  dimensions: [{
+    type: Number
+  }],
   imgPreview: {
     type: String,
     required: false
