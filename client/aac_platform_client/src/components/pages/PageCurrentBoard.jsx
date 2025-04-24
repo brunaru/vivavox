@@ -29,6 +29,7 @@ const MainSection = styled.div`
 const BoardSpace = styled.div`
   flex-grow: 1;
   height: 90vh;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;

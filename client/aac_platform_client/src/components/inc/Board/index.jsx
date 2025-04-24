@@ -13,10 +13,11 @@ function Board() {
   const {activeCell, setActiveCell, editing, configCell} = useCell();
   const {board, setBoard, isLoading, error} = useBoard();
   const [targetIndex, setTargetIndex] = useState(null);
-  const [dimensions, setDimensions] = useState([4, 6, 24]);
+  const [dimensions, setDimensions] = useState([6, 7, 30]);
   const [bounceCells, setBounceCells] = useState( null );
   const [hasBoardChanges, setHasBoardChanges] = useState(false);
   const [boardNameKey, setBoardNameKey] = useState('Padrão 1');
+  const prevConfigCellRef = useRef(configCell);
 
   const baseURL = import.meta.env.VITE_API_BASE_URL
 
@@ -59,10 +60,20 @@ function Board() {
 
   // Update board after configCell menu:
   useEffect(() => {
-    console.log("Após sair da configuração da célula => UpdateBoard e FetchBoard");
-    if(configCell === null) {
-      updateBoard();
+    // Use a ref to track the previous value
+    const prevConfigCell = prevConfigCellRef.current; // (Necessário adicionar este ref, veja abaixo)
+
+    // Only act if configCell changed FROM something TO null
+    if (prevConfigCell !== null && configCell === null) {
+      console.log("Após sair da configuração da célula => Marcando que houve mudanças");
+      // Instead of saving immediately, just mark that changes happened
+      setHasBoardChanges(true);
+      // The existing useEffect that monitors 'editing' will handle the save
+      // when the user exits editing mode.
     }
+
+    // Update the ref for the next render
+    prevConfigCellRef.current = configCell;
   }, [configCell]);
 
   useEffect(() => {
@@ -84,6 +95,8 @@ function Board() {
       <h2>Carregando...</h2>
     );
   }
+
+  console.log('Rendering Board with state:', board);
 
   return (
     <BoardContainer $dimensions={dimensions}>

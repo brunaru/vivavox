@@ -52,10 +52,26 @@ function ConfigMenu() {
       if(id !== configCell._id) {
         console.log("configCell: ", configCell);
         
-        const newBoard = { ...board };
-        newBoard.cells[configCell.indexOnBoard]._id = configCell._id;
-        newBoard.cells[configCell.indexOnBoard].cellType = "cell";
-        setBoard(newBoard);
+        // Create a new 'cells' array using map for immutability
+        const updatedCells = board.cells.map((cell, index) => {
+          // If this is the cell to update
+          if (index === configCell.indexOnBoard) {
+            // Return a *new* cell object with the changes
+            return {
+              ...cell, // Copy other properties from the original cell
+              _id: configCell._id,
+              cellType: "cell" // Set the new type
+            };
+          }
+          // Otherwise, return the cell unchanged
+          return cell;
+        });
+
+        // Update the board state with the new cells array
+        setBoard({
+          ...board, // Keep other board properties (_id, name, etc.)
+          cells: updatedCells // Assign the completely new array
+        });
       } else {
         // Verify if cell changes has been made:
         const hasChanges = 
