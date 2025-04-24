@@ -15,7 +15,7 @@ function Board() {
   const {activeCell, setActiveCell, editing, configCell} = useCell();
   const {board, setBoard, isLoading, error} = useBoard();
   const [targetIndex, setTargetIndex] = useState(null);
-  const [dimensions, setDimensions] = useState([5, 6]);
+  const [dimensions, setDimensions] = useState(board ? [board.dimensions[0], board.dimensions[1]] : [4, 6]);
   const [bounceCells, setBounceCells] = useState( null );
   const [hasBoardChanges, setHasBoardChanges] = useState(false);
   const prevConfigCellRef = useRef(configCell);
@@ -49,7 +49,12 @@ function Board() {
       _id: board._id,
       name: board.name,
       numCells: board.numCells,
-      cells: newCells
+      cells: newCells,
+      dimensions: board.dimensions,
+      type: board.type,
+      userId: board.userId,
+      tags: board.tags,
+      imgPreview: board.imgPreview
     })
     setBounceCells([activeCell, targetPosition]);
     setTimeout(() => {
@@ -90,6 +95,11 @@ function Board() {
     prevEditingRef.current = editing;
   }, [editing]);
 
+  useEffect(() => {
+    if(board){
+      setDimensions(board.dimensions);
+    }
+  }, [board]);
 
   if(!board || board === undefined) {
     return (
@@ -97,9 +107,8 @@ function Board() {
     );
   } 
 
-
   return (
-    <BoardContainer $dimensions={board.dimensions}>
+    <BoardContainer $dimensions={dimensions}>
       {Array.from({ length: board.numCells }).map((_, index) => {
         // Verifica se existe uma célula definida no array 'board.cells' para este índice
         const cellData = board.cells && board.cells[index];
