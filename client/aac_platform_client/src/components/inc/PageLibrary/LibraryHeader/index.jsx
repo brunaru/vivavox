@@ -36,10 +36,6 @@ function LibraryHeader(props) {
           </SelectFilter>
         </SearchSubcontainer>
       </SearchBoardContainer>
-      <CreateBoardContainer>
-        <HeaderItemTitle>Criar nova prancha:</HeaderItemTitle>
-        <BoardPreview/>
-      </CreateBoardContainer>
     </LibraryHeaderContainer>
   );
 }

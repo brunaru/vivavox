@@ -12,6 +12,7 @@ export function BoardContextProvider({ children }) {
   const [isLoadingUserBoard, setIsLoadingUserBoard] = useState(false);
   const [userBoardError, setUserBoardError] = useState(null);
   const [configBoard, setConfigBoard] = useState(false);
+  const [boardStack, setBoardStack] = useState([]);
   const { user, isAuthenticated } = useUser();
 
   const currentUserBoardId = user?.currentBoard;
@@ -99,7 +100,9 @@ export function BoardContextProvider({ children }) {
       isLoadingUserBoard, // Loading específico para o board do usuário
       userBoardError,     // Erro específico para o board do usuário
       isLoadingCategorized, // Loading específico para categorias
-      categorizedError      // Erro específico para categorias
+      categorizedError,      // Erro específico para categorias
+      boardStack,
+      setBoardStack
     }}>
       {children}
     </BoardContext.Provider>

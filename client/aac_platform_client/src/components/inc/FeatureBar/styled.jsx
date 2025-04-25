@@ -27,6 +27,11 @@ export const DivBack = styled.div`
   margin: 0;
 `;
 
+export const BoardName = styled.h1`
+  font-size: 1.5vw;
+  font-weight: 400;
+`;
+
 export const DivKeyboard = styled.div`
   height: 100%;
   display: flex;
