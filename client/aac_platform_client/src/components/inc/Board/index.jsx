@@ -96,7 +96,7 @@ function Board() {
   }, [editing]);
 
   useEffect(() => {
-    if(board){
+    if(board && board.dimensions){
       setDimensions(board.dimensions);
     }
   }, [board]);
@@ -106,6 +106,8 @@ function Board() {
       <h2>Carregando...</h2>
     );
   } 
+
+  console.log("Células do board:", board.cells);
 
   return (
     <BoardContainer $dimensions={dimensions}>
@@ -128,7 +130,7 @@ function Board() {
               />
               :
               // Caso contrário, renderiza o placeholder BoardPreview
-              <CellPreview/>
+              <CellPreview index={index}/>
             }
           </BoardItem>
         );

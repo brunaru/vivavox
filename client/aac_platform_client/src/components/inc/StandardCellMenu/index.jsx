@@ -36,6 +36,7 @@ function StandardCellMenu() {
   }
 
   function handleCellClick(clickedCell) {
+    console.log("Célula escolhida (StandardCellMenu): ", clickedCell);
     setConfigCell({ ...configCell, ...clickedCell });
   }
 

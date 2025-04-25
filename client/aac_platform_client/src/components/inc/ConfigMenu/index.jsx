@@ -50,28 +50,37 @@ function ConfigMenu() {
       if(!configCell) return;
 
       if(id !== configCell._id) {
-        console.log("configCell: ", configCell);
-        
-        // Create a new 'cells' array using map for immutability
-        const updatedCells = board.cells.map((cell, index) => {
-          // If this is the cell to update
-          if (index === configCell.indexOnBoard) {
-            // Return a *new* cell object with the changes
-            return {
-              ...cell, // Copy other properties from the original cell
-              _id: configCell._id,
-              cellType: "cell" // Set the new type
-            };
-          }
-          // Otherwise, return the cell unchanged
-          return cell;
-        });
+        console.log("Colocando célula no board:", configCell);
 
-        // Update the board state with the new cells array
-        setBoard({
-          ...board, // Keep other board properties (_id, name, etc.)
-          cells: updatedCells // Assign the completely new array
-        });
+        // Adicionando NOVA célula no board:
+        if(configCell.indexOnBoard >= board.cells.length) {
+          let newBoard = {...board};
+          const newCell = {
+            ...configCell
+          }
+          newBoard.cells.push(newCell);
+          console.log("Board com célula adicionada:", newBoard.cells);
+          setBoard(newBoard);
+        } else {
+          // Create a new 'cells' array using map for immutability
+          const updatedCells = board.cells.map((cell, index) => {
+            // If this is the cell to update
+            if (index === configCell.indexOnBoard) {
+              // Return a *new* cell object with the changes
+              return {
+                ...configCell
+              };
+            }
+            // Otherwise, return the cell unchanged
+            return cell;
+          });
+
+          // Update the board state with the new cells array
+          setBoard({
+            ...board, // Keep other board properties (_id, name, etc.)
+            cells: updatedCells // Assign the completely new array
+          });
+        }
       } else {
         // Verify if cell changes has been made:
         const hasChanges = 

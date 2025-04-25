@@ -7,8 +7,8 @@ export const BoardContainer = styled.div`
   padding: 1% 1%;
   grid-template-columns: repeat(${({$dimensions}) => ($dimensions[1])}, 1fr);
   grid-template-rows: repeat(${({$dimensions}) => ($dimensions[0])}, 1fr);
-  row-gap: max(12px, 1.5%); // Mínimo de 5px, ou 1.5% da altura se for maior
-  column-gap: max(10px, 1.5%); // Mínimo de 5px, ou 1.5% da largura se for maior
+  row-gap: max(12px, 1.5%); 
+  column-gap: max(10px, 1.5%); 
   box-sizing: border-box;
   grid-auto-flow: row;
 
