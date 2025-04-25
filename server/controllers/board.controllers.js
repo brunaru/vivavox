@@ -81,7 +81,8 @@ export async function getBoardByName(req, res) {
           color: populatedData.color,
           _id: populatedData._id,
           originalCellId: originalCellId,
-          cellType: cell.cellType
+          cellType: cell.cellType,
+          categories: cell.categories
         };
       })
     );
@@ -142,7 +143,8 @@ export async function getBoardById(req, res) {
           color: populatedData.color,
           _id: populatedData._id,
           originalCellId: originalCellId,
-          cellType: cell.cellType
+          cellType: cell.cellType,
+          categories: populatedData.categories
         };
       })
     );

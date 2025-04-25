@@ -13,7 +13,7 @@ import CellPreview from "../CellPreview";
 
 function Board() {
   const {activeCell, setActiveCell, editing, configCell} = useCell();
-  const {board, setBoard, configBoard} = useBoard();
+  const {board, setBoard, configBoard, fetchCategorizedBoards, boardStack} = useBoard();
   const [targetIndex, setTargetIndex] = useState(null);
   const [dimensions, setDimensions] = useState(board ? [board.dimensions[0], board.dimensions[1]] : [4, 6]);
   const [bounceCells, setBounceCells] = useState( null );
@@ -25,7 +25,7 @@ function Board() {
 
   const prevEditingRef = useRef(editing);
 
-  async function updateBoard() {
+  async function updateImgPreview() {
     if(!board || !board._id) return;
     try {
       const cell0Id = board.cells[0]._id;
@@ -37,7 +37,17 @@ function Board() {
       const newBoard = {...board, imgPreview: cell0Img};
       setBoard(newBoard);
 
-      await api.patch(`/board/patch/${board._id}`, board);
+      return {...board, imgPreview: cell0Img};
+    } catch(error) {
+      console.log('Error sending cells to api:', error);
+    }
+  }
+
+  async function updateBoard(boardToSave) {
+    if(!boardToSave || !boardToSave._id) return;
+    try {
+      console.log("Imagem do board antes do patch: ", boardToSave.imgPreview);
+      await api.patch(`/board/patch/${board._id}`, boardToSave);
       console.log('Cells successfully sent to api');
     } catch(error) {
       console.log('Error sending cells to api:', error);
@@ -111,12 +121,17 @@ function Board() {
   useEffect(() => {
     const prevEditing = prevEditingRef.current;
 
-    // If 'editing' changes from true to false:
-    if(prevEditing && !editing && hasBoardChanges) {
-      console.log("Após sair do modo edição => UpdateBoard");
-      updateBoard();
-      setHasBoardChanges(false);
+    async function handleSave() {
+      // If 'editing' changes from true to false:
+      if(prevEditing && !editing && hasBoardChanges) {
+        console.log("Após sair do modo edição => UpdateBoard");
+        const updatedBoard = await updateImgPreview();
+        await updateBoard(updatedBoard);
+        setHasBoardChanges(false);
+      }
     }
+    
+    handleSave();
 
     prevEditingRef.current = editing;
   }, [editing]);
@@ -127,13 +142,17 @@ function Board() {
     }
   }, [board]);
 
+  useEffect(() => {
+    fetchCategorizedBoards();
+  }, [])
+
   if(!board || board === undefined) {
     return (
       <h2>Carregando...</h2>
     );
   } 
 
-  console.log("Nome do board:", board.name);
+  console.log("Board stack: ", boardStack);
 
   return (
     <BoardContainer $dimensions={dimensions}>
