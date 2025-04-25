@@ -4,6 +4,7 @@ import Input from '../Input';
 import ConfirmButton from '../ConfirmButton';
 import ColorPicker from '../ColorPicker';
 import ConfigCellSelector from '../ConfigCellSelector';
+import Button from '../Button';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { useBoard } from '../../contexts/BoardContext';
@@ -14,17 +15,18 @@ import {
   SettingsContainer,
   ConfigCellForm
 } from './styled';
+import BoardMenu from '../BoardMenu';
 
 
 function ConfigMenu() {
   const {configCell, setConfigCell} = useCell();
-  const {board, setBoard} = useBoard();
+  const {board, setBoard, configBoard} = useBoard();
   const [text, setText] = useState(configCell?.text || '');
   const [color, setColor] = useState(configCell?.color || '#000000');
   const [image, setImage] = useState(configCell?.img || '');
   const [id, setId] = useState(configCell?._id || '');
   const [pictograms, setPictograms] = useState([]);
-  const [activeConfigMenu, setActiveConfigMenu] = useState(false);
+  const [activeConfigMenu, setActiveConfigMenu] = useState(configBoard);
 
   const getPictogramsByText = useCallback(() => {
     if(!text.trim()) return;
@@ -50,12 +52,37 @@ function ConfigMenu() {
       if(!configCell) return;
 
       if(id !== configCell._id) {
-        console.log("configCell: ", configCell);
-        
-        const newBoard = { ...board };
-        newBoard.cells[configCell.indexOnBoard]._id = configCell._id;
-        newBoard.cells[configCell.indexOnBoard].cellType = "cell";
-        setBoard(newBoard);
+        console.log("Colocando célula no board:", configCell);
+
+        // Adicionando NOVA célula no board:
+        if(configCell.indexOnBoard >= board.cells.length) {
+          let newBoard = {...board};
+          const newCell = {
+            ...configCell
+          }
+          newBoard.cells.push(newCell);
+          console.log("Board com célula adicionada:", newBoard.cells);
+          setBoard(newBoard);
+        } else {
+          // Create a new 'cells' array using map for immutability
+          const updatedCells = board.cells.map((cell, index) => {
+            // If this is the cell to update
+            if (index === configCell.indexOnBoard) {
+              // Return a *new* cell object with the changes
+              return {
+                ...configCell
+              };
+            }
+            // Otherwise, return the cell unchanged
+            return cell;
+          });
+
+          // Update the board state with the new cells array
+          setBoard({
+            ...board, // Keep other board properties (_id, name, etc.)
+            cells: updatedCells // Assign the completely new array
+          });
+        }
       } else {
         // Verify if cell changes has been made:
         const hasChanges = 
@@ -97,6 +124,19 @@ function ConfigMenu() {
   function handleColorChange(e) {
     setColor(e.target.value);
   }
+
+  function removeCell() {
+    if(!configCell) return;
+
+    // Célula em questão EXISTE:
+    if(configCell.indexOnBoard < board.cells.length) {
+      let newBoard = {...board};
+      // Remove do array de células:
+      newBoard.cells.splice(configCell.indexOnBoard, 1);
+      setBoard(newBoard);
+    }
+    setConfigCell(null);
+  }
   
   useEffect(() => {
     getPictogramsByText();
@@ -111,12 +151,13 @@ function ConfigMenu() {
         setActiveMenu={setActiveConfigMenu}
       />
       {
-        configCell &&
+        (!activeConfigMenu &&
         <ConfigCellContainer>
           <SettingsContainer>
             <ConfigCellForm>
               <Input text={text} handleTextChange={handleTextChange} label="Texto" />
               <ColorPicker color={color} handleColorChange={handleColorChange} label="Cor da borda"/>
+              <Button onClick={removeCell} width="120px" height="30px" text="Remover célula" fontSize="14px"/>
             </ConfigCellForm>
             <ConfigCellSelector 
               pictograms={pictograms}
@@ -131,7 +172,10 @@ function ConfigMenu() {
             width="180px" 
             margin="60px 0 60px 0" 
           />
-        </ConfigCellContainer>
+        </ConfigCellContainer>) || 
+        (activeConfigMenu && 
+          <BoardMenu/>
+        )
       }
     </ConfigMenuContainer>
   );

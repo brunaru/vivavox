@@ -21,13 +21,12 @@ function ConfigCellSelector (props) {
   return (
     <SelectorContainer>
       <ConfigHeader 
-        text1="Personalizar célula" 
-        text2="Trocar célula"
+        text1="Trocar célula" 
+        text2="Mudar pictograma"
         activeMenu={activeMenu}
         setActiveMenu={setActiveMenu}
       />
-      {activeMenu ? <StandardCellMenu/> : 
-        <ConfigCellPictograms>
+      {activeMenu ? <ConfigCellPictograms>
           {props.pictograms.map((pictogram, index) => {
             return (
               <PictogramItem
@@ -39,7 +38,8 @@ function ConfigCellSelector (props) {
               </PictogramItem>
             );
           })}
-        </ConfigCellPictograms>
+        </ConfigCellPictograms>  : 
+        <StandardCellMenu/>
       }
     </SelectorContainer>
   );

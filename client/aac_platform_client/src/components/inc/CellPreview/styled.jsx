@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const BoardPreviewContainer = styled.button`
+export const CellPreviewContainer = styled.div`
   background-color: white;
-  width: ${({$width}) => ($width ? $width : "70%")};
-  height: ${({$height}) => ($height ? $height : "70%")};
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   display: flex;
   flex-direction: column;

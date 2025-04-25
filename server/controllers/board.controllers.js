@@ -7,17 +7,13 @@ export async function postBoard(req, res) {
     const newBoard = new Board({
       name: req.body.name,
       numCells: req.body.numCells,
+      dimensions: req.body.dimensions,
       type: req.body.type,
       userId: req.body.userId,
       tags: req.body.tags,
       cells: req.body.cells,
       imgPreview: req.body.imgPreview
     });
-
-    // Check the number of cells coherency:
-    if(newBoard.numCells !== newBoard.cells.length) {
-      return res.status(400).send({message: "The number of cells is not coherent"});
-    }
 
     // Check existency of board name:
     const existingBoard = await Board.findOne({ name: newBoard.name });
@@ -96,6 +92,7 @@ export async function getBoardByName(req, res) {
       _id: board._id,
       name: board.name,
       numCells: board.numCells,
+      dimensions: board.dimensions,
       userId: board.userId,
       tags: board.tags,
       type: board.type,
@@ -156,6 +153,7 @@ export async function getBoardById(req, res) {
       _id: board._id,
       name: board.name,
       numCells: board.numCells,
+      dimensions: board.dimensions,
       userId: board.userId,
       tags: board.tags,
       type: board.type,

@@ -4,13 +4,13 @@ export const BoardContainer = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
-  padding: 2% 2.3%;
+  padding: 1% 1%;
   grid-template-columns: repeat(${({$dimensions}) => ($dimensions[1])}, 1fr);
   grid-template-rows: repeat(${({$dimensions}) => ($dimensions[0])}, 1fr);
-  column-gap: 2.3%;
-  row-gap: 2.5%;
+  row-gap: max(12px, 1.5%); 
+  column-gap: max(10px, 1.5%); 
   box-sizing: border-box;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
 
   div {
     display: flex;
@@ -25,5 +25,5 @@ export const BoardItem = styled.div`
   justify-content: center; 
   align-items: center; 
   text-align: center; 
-  // overflow: hidden;
+  min-height: 0;
 `;

@@ -14,7 +14,7 @@ function BoardPreview(props) {
   }
 
   return(
-    <BoardPreviewContainer onClick={() => updateCurrentBoard(props.board)}>
+    <BoardPreviewContainer $width={props.width} $height={props.height} onClick={() => updateCurrentBoard(props.board)}>
       {props.board.cells.length > 0 ? (
         <>
           <Symbol source={props.board.imgPreview} />

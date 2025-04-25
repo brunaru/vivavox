@@ -1,22 +1,25 @@
 import { useState, useEffect, useRef } from "react";
 import { useCell } from "../../contexts/CellContext";
 import Cell from "../Cell";
+import BoardPreview from '../PageLibrary/BoardPreview';
 import {
   BoardContainer,
   BoardItem
 } from "./styled";
 import { useBoard } from "../../contexts/BoardContext";
 import api from "../../../services/api";
+import CellPreview from "../CellPreview";
 
 
 function Board() {
   const {activeCell, setActiveCell, editing, configCell} = useCell();
-  const {board, setBoard, isLoading, error} = useBoard();
+  const {board, setBoard, configBoard} = useBoard();
   const [targetIndex, setTargetIndex] = useState(null);
-  const [dimensions, setDimensions] = useState([4, 6, 24]);
+  const [dimensions, setDimensions] = useState(board ? [board.dimensions[0], board.dimensions[1]] : [4, 6]);
   const [bounceCells, setBounceCells] = useState( null );
   const [hasBoardChanges, setHasBoardChanges] = useState(false);
-  const [boardNameKey, setBoardNameKey] = useState('Padrão 1');
+  const prevConfigCellRef = useRef(configCell);
+  const prevConfigBoardRef = useRef(configBoard);
 
   const baseURL = import.meta.env.VITE_API_BASE_URL
 
@@ -25,6 +28,15 @@ function Board() {
   async function updateBoard() {
     if(!board || !board._id) return;
     try {
+      const cell0Id = board.cells[0]._id;
+      const response = await api.get(`/cell/get/${cell0Id}`);
+      const cell0Complete = response.data;
+      console.log(cell0Complete);
+      const cell0Img = cell0Complete.img;
+      console.log(cell0Img);
+      const newBoard = {...board, imgPreview: cell0Img};
+      setBoard(newBoard);
+
       await api.patch(`/board/patch/${board._id}`, board);
       console.log('Cells successfully sent to api');
     } catch(error) {
@@ -47,7 +59,12 @@ function Board() {
       _id: board._id,
       name: board.name,
       numCells: board.numCells,
-      cells: newCells
+      cells: newCells,
+      dimensions: board.dimensions,
+      type: board.type,
+      userId: board.userId,
+      tags: board.tags,
+      imgPreview: board.imgPreview
     })
     setBounceCells([activeCell, targetPosition]);
     setTimeout(() => {
@@ -59,18 +76,44 @@ function Board() {
 
   // Update board after configCell menu:
   useEffect(() => {
-    console.log("Após sair da configuração da célula => UpdateBoard e FetchBoard");
-    if(configCell === null) {
-      updateBoard();
+    // Use a ref to track the previous value
+    const prevConfigCell = prevConfigCellRef.current; // (Necessário adicionar este ref, veja abaixo)
+
+    // Only act if configCell changed FROM something TO null
+    if (prevConfigCell !== null && configCell === null) {
+      console.log("Após sair da configuração da célula => Marcando que houve mudanças");
+      // Instead of saving immediately, just mark that changes happened
+      setHasBoardChanges(true);
+      // The existing useEffect that monitors 'editing' will handle the save
+      // when the user exits editing mode.
     }
+
+    // Update the ref for the next render
+    prevConfigCellRef.current = configCell;
   }, [configCell]);
+
+  // Update board after configBoard menu:
+  useEffect(() => {
+    // Use a ref to track the previous value
+    const prevConfigBoard = prevConfigBoardRef.current; 
+
+    // Only act if configBoard changed FROM something TO false
+    if (prevConfigBoard !== false && configBoard === false) {
+      console.log("Após sair da configuração do board => Marcando que houve mudanças");
+      // Instead of saving immediately, just mark that changes happened
+      setHasBoardChanges(true);
+    }
+
+    // Update the ref for the next render
+    prevConfigBoardRef.current = configBoard;
+  }, [configBoard]);
 
   useEffect(() => {
     const prevEditing = prevEditingRef.current;
-    console.log("Após sair do modo edição => UpdateBoard");
 
     // If 'editing' changes from true to false:
     if(prevEditing && !editing && hasBoardChanges) {
+      console.log("Após sair do modo edição => UpdateBoard");
       updateBoard();
       setHasBoardChanges(false);
     }
@@ -78,26 +121,43 @@ function Board() {
     prevEditingRef.current = editing;
   }, [editing]);
 
+  useEffect(() => {
+    if(board && board.dimensions){
+      setDimensions(board.dimensions);
+    }
+  }, [board]);
 
   if(!board || board === undefined) {
     return (
       <h2>Carregando...</h2>
     );
-  }
+  } 
+
+  console.log("Nome do board:", board.name);
 
   return (
     <BoardContainer $dimensions={dimensions}>
-      {board.cells.map((cell, index) => {
+      {Array.from({ length: board.numCells }).map((_, index) => {
+        // Verifica se existe uma célula definida no array 'board.cells' para este índice
+        const cellData = board.cells && board.cells[index];
+
         return (
           <BoardItem key={index}>
-            <Cell 
-              index={index}
-              cell={cell}
-              setTargetIndex={setTargetIndex}
-              targetIndex={targetIndex}
-              onDrop={() => onDrop(index)}
-              bounceCells={bounceCells}
-            />
+            {
+              // Se cellData existe e não é null/undefined (ou qualquer valor que signifique 'vazio')
+              cellData ?
+              <Cell
+                index={index}
+                cell={cellData} // Passa a célula encontrada
+                setTargetIndex={setTargetIndex}
+                targetIndex={targetIndex}
+                onDrop={() => onDrop(index)}
+                bounceCells={bounceCells}
+              />
+              :
+              // Caso contrário, renderiza o placeholder BoardPreview
+              <CellPreview index={index}/>
+            }
           </BoardItem>
         );
       })}

@@ -11,6 +11,13 @@ export const FeatBarContainer = styled.div`
   padding: 0 14vw 0 4vw;
   box-sizing: border-box;
   z-index: 4;
+
+  ${({ $editing }) =>
+    $editing &&
+    `
+      padding: 0 4vw 0 4vw;
+    `
+  }
 `;
 
 export const DivBack = styled.div`

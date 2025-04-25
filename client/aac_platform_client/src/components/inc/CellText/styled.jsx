@@ -5,8 +5,9 @@ export const Text = styled.p`
   text-align: center;
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 6px 0 7px 0;
   height: 27%;
+  line-height: 1;
   font-weight: 600;
   font-size: ${({$fontSize}) => ($fontSize ? $fontSize : "19px")};
 `;
