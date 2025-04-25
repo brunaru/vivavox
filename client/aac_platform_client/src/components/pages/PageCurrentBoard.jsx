@@ -6,8 +6,8 @@ import { useCell } from '../contexts/CellContext';
 import ConfigMenu from '../inc/ConfigMenu';
 import { BoardContextProvider } from '../contexts/BoardContext';
 import { PhraseContextProvider } from '../contexts/PhraseContext';
-import { useState } from 'react';
 import { useSidebar } from '../contexts/SideBarContext';
+import { useBoard } from '../contexts/BoardContext';
 
 const PageContainer = styled.div`
   width: 100%;
@@ -38,8 +38,9 @@ const BoardSpace = styled.div`
 `;
 
 function PageCurrentBoard() {
-  const {configCell} = useCell();
-  const { isSidebarOpen } = useSidebar();
+  const {configCell, editing} = useCell();
+  const {configBoard} = useBoard();
+  const {isSidebarOpen} = useSidebar();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -55,7 +56,7 @@ function PageCurrentBoard() {
             <Board/>
           </BoardSpace>
         </MainSection>
-        {configCell && 
+        {(configCell || configBoard) && editing && 
           <ConfigMenu/>
         }
       </PageContainer>

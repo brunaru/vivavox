@@ -8,11 +8,17 @@ import {
   DivKeyboard,
 } from "./styled";
 import { useCell } from "../../contexts/CellContext";
+import { useBoard } from "../../contexts/BoardContext";
 
 
 function FeatureBar() {
   const {clearPhrase, deleteWord, speech } = usePhrase();
   const {editing} = useCell();
+  const {setConfigBoard} = useBoard();
+
+  function openConfigBoard() {
+    setConfigBoard(true);
+  }
 
   return (
     <FeatBarContainer $editing={editing}>
@@ -27,7 +33,7 @@ function FeatureBar() {
       </DivKeyboard>
       {
         editing &&
-        <Button text="Editar prancha" height="50%" width="9vw"/>
+        <Button onClick={openConfigBoard} text="Editar prancha" height="50%" width="9vw"/>
       }
     </FeatBarContainer>
   );

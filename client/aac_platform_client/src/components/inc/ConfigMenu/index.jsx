@@ -14,17 +14,18 @@ import {
   SettingsContainer,
   ConfigCellForm
 } from './styled';
+import BoardMenu from '../BoardMenu';
 
 
 function ConfigMenu() {
   const {configCell, setConfigCell} = useCell();
-  const {board, setBoard} = useBoard();
+  const {board, setBoard, configBoard} = useBoard();
   const [text, setText] = useState(configCell?.text || '');
   const [color, setColor] = useState(configCell?.color || '#000000');
   const [image, setImage] = useState(configCell?.img || '');
   const [id, setId] = useState(configCell?._id || '');
   const [pictograms, setPictograms] = useState([]);
-  const [activeConfigMenu, setActiveConfigMenu] = useState(false);
+  const [activeConfigMenu, setActiveConfigMenu] = useState(configBoard);
 
   const getPictogramsByText = useCallback(() => {
     if(!text.trim()) return;
@@ -136,7 +137,7 @@ function ConfigMenu() {
         setActiveMenu={setActiveConfigMenu}
       />
       {
-        configCell &&
+        (!activeConfigMenu &&
         <ConfigCellContainer>
           <SettingsContainer>
             <ConfigCellForm>
@@ -156,7 +157,10 @@ function ConfigMenu() {
             width="180px" 
             margin="60px 0 60px 0" 
           />
-        </ConfigCellContainer>
+        </ConfigCellContainer>) || 
+        (activeConfigMenu && 
+          <BoardMenu/>
+        )
       }
     </ConfigMenuContainer>
   );

@@ -13,12 +13,13 @@ import CellPreview from "../CellPreview";
 
 function Board() {
   const {activeCell, setActiveCell, editing, configCell} = useCell();
-  const {board, setBoard, isLoading, error} = useBoard();
+  const {board, setBoard, configBoard} = useBoard();
   const [targetIndex, setTargetIndex] = useState(null);
   const [dimensions, setDimensions] = useState(board ? [board.dimensions[0], board.dimensions[1]] : [4, 6]);
   const [bounceCells, setBounceCells] = useState( null );
   const [hasBoardChanges, setHasBoardChanges] = useState(false);
   const prevConfigCellRef = useRef(configCell);
+  const prevConfigBoardRef = useRef(configBoard);
 
   const baseURL = import.meta.env.VITE_API_BASE_URL
 
@@ -27,6 +28,15 @@ function Board() {
   async function updateBoard() {
     if(!board || !board._id) return;
     try {
+      const cell0Id = board.cells[0]._id;
+      const response = await api.get(`/cell/get/${cell0Id}`);
+      const cell0Complete = response.data;
+      console.log(cell0Complete);
+      const cell0Img = cell0Complete.img;
+      console.log(cell0Img);
+      const newBoard = {...board, imgPreview: cell0Img};
+      setBoard(newBoard);
+
       await api.patch(`/board/patch/${board._id}`, board);
       console.log('Cells successfully sent to api');
     } catch(error) {
@@ -82,12 +92,28 @@ function Board() {
     prevConfigCellRef.current = configCell;
   }, [configCell]);
 
+  // Update board after configBoard menu:
+  useEffect(() => {
+    // Use a ref to track the previous value
+    const prevConfigBoard = prevConfigBoardRef.current; 
+
+    // Only act if configBoard changed FROM something TO false
+    if (prevConfigBoard !== false && configBoard === false) {
+      console.log("Após sair da configuração do board => Marcando que houve mudanças");
+      // Instead of saving immediately, just mark that changes happened
+      setHasBoardChanges(true);
+    }
+
+    // Update the ref for the next render
+    prevConfigBoardRef.current = configBoard;
+  }, [configBoard]);
+
   useEffect(() => {
     const prevEditing = prevEditingRef.current;
-    console.log("Após sair do modo edição => UpdateBoard");
 
     // If 'editing' changes from true to false:
     if(prevEditing && !editing && hasBoardChanges) {
+      console.log("Após sair do modo edição => UpdateBoard");
       updateBoard();
       setHasBoardChanges(false);
     }
@@ -107,7 +133,7 @@ function Board() {
     );
   } 
 
-  console.log("Células do board:", board.cells);
+  console.log("Nome do board:", board.name);
 
   return (
     <BoardContainer $dimensions={dimensions}>
