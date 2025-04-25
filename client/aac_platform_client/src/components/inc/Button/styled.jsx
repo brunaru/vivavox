@@ -10,6 +10,7 @@ export const ButtonContainer = styled.button`
   align-items: center;
   justify-content: center;
   font-size: ${({$fontSize}) => ($fontSize ? $fontSize : "1.2vw")};
+  font-weight: ${({$fontWeight}) => ($fontWeight ? $fontWeight : "400")};
   border: 2px solid #525252;
   margin: ${({$margin}) => ($margin ? $margin : "0")};
 

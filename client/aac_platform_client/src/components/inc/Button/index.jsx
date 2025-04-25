@@ -7,6 +7,7 @@ function Button(props) {
     <ButtonContainer 
       $color={props.color} 
       $height={props.height} 
+      $fontWeight={props.fontWeight}
       $width={props.width} 
       $padding={props.padding} 
       $fontSize={props.fontSize}

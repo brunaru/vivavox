@@ -4,6 +4,7 @@ import Input from '../Input';
 import ConfirmButton from '../ConfirmButton';
 import ColorPicker from '../ColorPicker';
 import ConfigCellSelector from '../ConfigCellSelector';
+import Button from '../Button';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { useBoard } from '../../contexts/BoardContext';
@@ -123,6 +124,19 @@ function ConfigMenu() {
   function handleColorChange(e) {
     setColor(e.target.value);
   }
+
+  function removeCell() {
+    if(!configCell) return;
+
+    // Célula em questão EXISTE:
+    if(configCell.indexOnBoard < board.cells.length) {
+      let newBoard = {...board};
+      // Remove do array de células:
+      newBoard.cells.splice(configCell.indexOnBoard, 1);
+      setBoard(newBoard);
+    }
+    setConfigCell(null);
+  }
   
   useEffect(() => {
     getPictogramsByText();
@@ -143,6 +157,7 @@ function ConfigMenu() {
             <ConfigCellForm>
               <Input text={text} handleTextChange={handleTextChange} label="Texto" />
               <ColorPicker color={color} handleColorChange={handleColorChange} label="Cor da borda"/>
+              <Button onClick={removeCell} width="120px" height="30px" text="Remover célula" fontSize="14px"/>
             </ConfigCellForm>
             <ConfigCellSelector 
               pictograms={pictograms}
