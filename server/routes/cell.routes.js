@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { postCell, getAllCells, getCellsByText, deleteCellById, updateCellById, updateManyCells, cellColorReport, getCellById, deleteAllCells } from "../controllers/cell.controllers.js";
-
+import { getUploadUrl } from "../controllers/upload.controller.js";
 const router = Router();
 
 // Registering a cell:
@@ -10,6 +10,7 @@ router.get('/get', getAllCells);
 router.get('/get/:id', getCellById);
 router.get('/getByText/:text', getCellsByText);
 router.get('/getCellColorReport', cellColorReport);
+router.get('/uploadUrl', getUploadUrl);
 
 router.patch('/patch/:id', updateCellById);
 router.patch('/patchMany', updateManyCells);
