@@ -46,7 +46,7 @@ export const InputPictogramSearch = styled.input`
 `;
 
 export const ButtonPictogramSearch = styled.button`
-  padding: 0.6rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 0 0.375rem 0.375rem 0; /* arredonda só à direita */
   background-color: #003466;
   color: white;
