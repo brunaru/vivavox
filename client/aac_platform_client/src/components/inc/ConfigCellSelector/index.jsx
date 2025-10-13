@@ -23,6 +23,10 @@ function ConfigCellSelector(props) {
   const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
 
   function handlePictogramClick(pictogram_id) {
+    if (isS3Url(props.image)) {
+      handleDelete(props.image);
+    }
+
     const selectedImg = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
     props.setImage(selectedImg);
   }
@@ -52,14 +56,36 @@ function ConfigCellSelector(props) {
     }
   }
 
+  async function handleDelete(url) {
+    try {
+      await api.delete("/cell/deleteImage", { data: { imageUrl: url } });
+      console.log("Imagem deletada");
+    } catch (err) {
+      console.error("Erro ao deletar imagem:", err);
+    }
+  }
 
 
-   async function handleUpload(file, url) {
+  function isS3Url(url) {
+    try {
+      const parsed = new URL(url);
+      return parsed.hostname.includes('.s3.') && parsed.hostname.endsWith('amazonaws.com');
+    } catch {
+      return false;
+    }
+  }
+
+  async function handleUpload(file, tempUrl, index) {
     if (!file) return;
-    props.setImage(url);
+
+    if (isS3Url(props.image)) {
+      await handleDelete(props.image);
+    }
+
+    props.setImage(tempUrl);
 
     try {
-      const { data } = await api.get("/upload-url", {
+      const { data } = await api.get("/cell/uploadUrl", {
         params: {
           fileName: file.name,
           fileType: file.type,
@@ -70,14 +96,22 @@ function ConfigCellSelector(props) {
         headers: { "Content-Type": file.type },
       });
 
-      const imageUrl = data.uploadUrl.split("?")[0];
-      props.setImage(imageUrl);
+      const imageURL = data.uploadUrl.split("?")[0];
+
+      setLocalPictograms(prev => {
+        const copy = [...prev];
+        copy[index] = { ...copy[index], url: imageURL };
+        return copy;
+      });
+
+      props.setImage(imageURL);
+
+      console.log("Imagem enviada");
 
     } catch (error) {
       console.error("Erro ao fazer upload:", error);
     }
   }
-
 
   return (
     <SelectorContainer>
@@ -94,7 +128,7 @@ function ConfigCellSelector(props) {
               <PictogramItem
                 key={`local-${index}`}
                 $currentPictogram={props.image === item.url}
-                onClick={() => handleUpload(item.file, item.url)}
+                onClick={() => handleUpload(item.file, item.url, index)}
               >
                 <Symbol source={item.url} />
               </PictogramItem>
