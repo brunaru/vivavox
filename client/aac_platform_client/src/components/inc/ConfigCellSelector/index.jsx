@@ -4,6 +4,7 @@ import Symbol from '../Symbol';
 import { useState, useRef } from 'react';
 import api from "../../../services/api";
 import axios from 'axios';
+import { useS3Upload } from '../../hooks/useS3Upload';
 import {
   SelectorContainer,
   ConfigCellPictograms,
@@ -18,13 +19,19 @@ function ConfigCellSelector(props) {
   const [activeMenu, setActiveMenu] = useState(false);
   const [localPictograms, setLocalPictograms] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
+  const { uploadFile, deleteFile, loading } = useS3Upload();
 
   const fileInputRef = useRef(null);
   const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
 
-  function handlePictogramClick(pictogram_id) {
+  async function handlePictogramClick(pictogram_id) {
     if (isS3Url(props.image)) {
-      handleDelete(props.image);
+      try {
+        await deleteFile(props.image);
+        console.log("Imagem deletada");
+      } catch (error) {
+        console.error("Falha ao deletar imagem:", error);
+      }
     }
 
     const selectedImg = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
@@ -56,16 +63,6 @@ function ConfigCellSelector(props) {
     }
   }
 
-  async function handleDelete(url) {
-    try {
-      await api.delete("/cell/deleteImage", { data: { imageUrl: url } });
-      console.log("Imagem deletada");
-    } catch (err) {
-      console.error("Erro ao deletar imagem:", err);
-    }
-  }
-
-
   function isS3Url(url) {
     try {
       const parsed = new URL(url);
@@ -79,25 +76,18 @@ function ConfigCellSelector(props) {
     if (!file) return;
 
     if (isS3Url(props.image)) {
-      await handleDelete(props.image);
+      try {
+        await deleteFile(props.image);
+        console.log("Imagem deletada");
+      } catch (error) {
+        console.error("Falha ao deletar imagem:", error);
+      }
     }
 
     props.setImage(tempUrl);
 
     try {
-      const { data } = await api.get("/cell/uploadUrl", {
-        params: {
-          fileName: file.name,
-          fileType: file.type,
-        },
-      });
-
-      await axios.put(data.uploadUrl, file, {
-        headers: { "Content-Type": file.type },
-      });
-
-      const imageURL = data.uploadUrl.split("?")[0];
-
+      const imageURL = await uploadFile(file);
       setLocalPictograms(prev => {
         const copy = [...prev];
         copy[index] = { ...copy[index], url: imageURL };
@@ -105,9 +95,7 @@ function ConfigCellSelector(props) {
       });
 
       props.setImage(imageURL);
-
-      console.log("Imagem enviada");
-
+      console.log("Upload concluído");
     } catch (error) {
       console.error("Erro ao fazer upload:", error);
     }
