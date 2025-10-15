@@ -2,9 +2,6 @@ import ConfigHeader from '../ConfigHeader';
 import StandardCellMenu from '../StandardCellMenu';
 import Symbol from '../Symbol';
 import { useState, useRef } from 'react';
-import api from "../../../services/api";
-import axios from 'axios';
-import { useS3Upload } from '../../hooks/useS3Upload';
 import {
   SelectorContainer,
   ConfigCellPictograms,
@@ -19,21 +16,11 @@ function ConfigCellSelector(props) {
   const [activeMenu, setActiveMenu] = useState(false);
   const [localPictograms, setLocalPictograms] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-  const { uploadFile, deleteFile, loading } = useS3Upload();
 
   const fileInputRef = useRef(null);
   const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
 
-  async function handlePictogramClick(pictogram_id) {
-    if (isS3Url(props.image)) {
-      try {
-        await deleteFile(props.image);
-        console.log("Imagem deletada");
-      } catch (error) {
-        console.error("Falha ao deletar imagem:", error);
-      }
-    }
-
+  function handlePictogramClick(pictogram_id) {
     const selectedImg = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
     props.setImage(selectedImg);
   }
@@ -63,42 +50,11 @@ function ConfigCellSelector(props) {
     }
   }
 
-  function isS3Url(url) {
-    try {
-      const parsed = new URL(url);
-      return parsed.hostname.includes('.s3.') && parsed.hostname.endsWith('amazonaws.com');
-    } catch {
-      return false;
-    }
-  }
 
-  async function handleUpload(file, tempUrl, index) {
+  async function handleUpload(file, tempUrl) {
     if (!file) return;
-
-    if (isS3Url(props.image)) {
-      try {
-        await deleteFile(props.image);
-        console.log("Imagem deletada");
-      } catch (error) {
-        console.error("Falha ao deletar imagem:", error);
-      }
-    }
-
     props.setImage(tempUrl);
-
-    try {
-      const imageURL = await uploadFile(file);
-      setLocalPictograms(prev => {
-        const copy = [...prev];
-        copy[index] = { ...copy[index], url: imageURL };
-        return copy;
-      });
-
-      props.setImage(imageURL);
-      console.log("Upload concluído");
-    } catch (error) {
-      console.error("Erro ao fazer upload:", error);
-    }
+    props.onFileSelect(file);
   }
 
   return (
@@ -116,7 +72,7 @@ function ConfigCellSelector(props) {
               <PictogramItem
                 key={`local-${index}`}
                 $currentPictogram={props.image === item.url}
-                onClick={() => handleUpload(item.file, item.url, index)}
+                onClick={() => handleUpload(item.file, item.url)}
               >
                 <Symbol source={item.url} />
               </PictogramItem>
@@ -141,7 +97,7 @@ function ConfigCellSelector(props) {
               ref={fileInputRef}
             />
             <ButtonPictogramSearch onClick={handleAddPictogram}>
-              Buscar
+              Adicionar
             </ButtonPictogramSearch>
           </PictogramSearch>
         </PictogramContainer>

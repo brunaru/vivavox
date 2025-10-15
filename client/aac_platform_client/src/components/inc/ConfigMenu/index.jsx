@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { useBoard } from '../../contexts/BoardContext';
 import api from '../../../services/api';
+import { useS3Upload } from '../../hooks/useS3Upload';
 import {
   ConfigMenuContainer,
   ConfigCellContainer,
@@ -27,6 +28,8 @@ function ConfigMenu() {
   const [id, setId] = useState(configCell?._id || '');
   const [pictograms, setPictograms] = useState([]);
   const [activeConfigMenu, setActiveConfigMenu] = useState(configBoard);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const { uploadFile, deleteFile } = useS3Upload();
 
   const getPictogramsByText = useCallback(() => {
     if(!text.trim()) return;
@@ -36,7 +39,7 @@ function ConfigMenu() {
         const response = await axios.get(`https://api.arasaac.org/v1/pictograms/pt/search/${text}`);
         setPictograms(response.data);
       } catch(error) {
-        console.log("Error searching for pictograms");
+        console.log("Error searching for pictograms", error);
       }
     };
 
@@ -47,9 +50,39 @@ function ConfigMenu() {
     return () => clearTimeout(delay);
   }, [text]);
 
+  function isTempUrl(url) {
+    return url.startsWith("blob:");
+  }
+
+  
+  function isS3Url(url) {
+    try {
+      const parsed = new URL(url);
+      return parsed.hostname.includes(".s3.") && parsed.hostname.endsWith("amazonaws.com");
+    } catch {
+      return false;
+    }
+  }
+
   async function updateCellAndBoard() {
     try {
       if(!configCell) return;
+
+      let finalImageUrl = image;
+
+      // If the user selected a local file (temp URL) → upload it
+      if (isTempUrl(image) && selectedFile) {
+        try {
+          // Upload the new image
+          finalImageUrl = await uploadFile(selectedFile);
+          setImage(finalImageUrl);
+          console.log("Upload concluído");
+        } catch (err) {
+          console.error("Erro no upload:", err);
+          return;
+        }
+      }
+
 
       if(id !== configCell._id) {
         console.log("Colocando célula no board:", configCell);
@@ -92,7 +125,17 @@ function ConfigMenu() {
 
         // Make updates to the cell and board:
         if(hasChanges) {
-          const updatedCell = { ...configCell, text: text, color: color, img: image };
+          // If the image was changed and the old image is in S3 → delete the old one
+          if (isS3Url(configCell.img)) {
+            try{
+              await deleteFile(configCell.img);
+              console.log("Imagem antiga deletada");
+            } catch (error) {
+              console.error("Erro ao deletar imagem antiga:", error);
+            }  
+          }
+
+          const updatedCell = { ...configCell, text: text, color: color, img: finalImageUrl };
           const response = await api.patch(`/userCell/patch/${updatedCell._id}`, updatedCell);
           console.log("Cell successfully sent to api");
 
@@ -128,10 +171,10 @@ function ConfigMenu() {
   function removeCell() {
     if(!configCell) return;
 
-    // Célula em questão EXISTE:
+    // The cell in question EXISTS:
     if(configCell.indexOnBoard < board.cells.length) {
       let newBoard = {...board};
-      // Remove do array de células:
+      // Remove from the cell array:
       newBoard.cells.splice(configCell.indexOnBoard, 1);
       setBoard(newBoard);
     }
@@ -159,10 +202,11 @@ function ConfigMenu() {
               <ColorPicker color={color} handleColorChange={handleColorChange} label="Cor da borda"/>
               <Button onClick={removeCell} width="120px" height="30px" text="Remover célula" fontSize="14px"/>
             </ConfigCellForm>
-            <ConfigCellSelector 
+            <ConfigCellSelector
               pictograms={pictograms}
               image={image}
               setImage={setImage}
+              onFileSelect={setSelectedFile}
             />
           </SettingsContainer>
           <ConfirmButton 
