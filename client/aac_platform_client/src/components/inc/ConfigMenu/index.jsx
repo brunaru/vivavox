@@ -30,6 +30,7 @@ function ConfigMenu() {
   const [activeConfigMenu, setActiveConfigMenu] = useState(configBoard);
   const [selectedFile, setSelectedFile] = useState(null);
   const { uploadFile, deleteFile } = useS3Upload();
+  const [loading, setLoading] = useState(false);
 
   const getPictogramsByText = useCallback(() => {
     if(!text.trim()) return;
@@ -54,7 +55,6 @@ function ConfigMenu() {
     return url.startsWith("blob:");
   }
 
-  
   function isS3Url(url) {
     try {
       const parsed = new URL(url);
@@ -65,6 +65,9 @@ function ConfigMenu() {
   }
 
   async function updateCellAndBoard() {
+    if (loading) return;
+    setLoading(true);
+    
     try {
       if(!configCell) return;
 
@@ -157,6 +160,8 @@ function ConfigMenu() {
       setConfigCell(null);
     } catch(error) {
       console.log("Error sending cell personalization: ", error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -211,10 +216,11 @@ function ConfigMenu() {
           </SettingsContainer>
           <ConfirmButton 
             updateCell={updateCellAndBoard}
-            text="Confirmar" 
+            text={loading ? "Salvando..." : "Confirmar"}
             height="40px" 
             width="180px" 
-            margin="60px 0 60px 0" 
+            margin="60px 0 60px 0"
+            disabled={loading}
           />
         </ConfigCellContainer>) || 
         (activeConfigMenu && 

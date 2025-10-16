@@ -1,7 +1,7 @@
+import { useState, useRef } from 'react';
 import ConfigHeader from '../ConfigHeader';
 import StandardCellMenu from '../StandardCellMenu';
 import Symbol from '../Symbol';
-import { useState, useRef } from 'react';
 import {
   SelectorContainer,
   ConfigCellPictograms,
@@ -11,50 +11,23 @@ import {
   PictogramSearch,
   PictogramContainer
 } from './styled';
+import { useLocalPictograms } from '../../hooks/useLocalPictograms';
 
-function ConfigCellSelector(props) {
+function ConfigCellSelector( props ) {
   const [activeMenu, setActiveMenu] = useState(false);
-  const [localPictograms, setLocalPictograms] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const {
+    localPictograms,
+    handleFileSelect,
+    handleAddLocalPictogram,
+    handleUploadLocalPictogram,
+    fileInputRef,
+  } = useLocalPictograms({ setImage: props.setImage, onFileSelect: props.onFileSelect });
 
-  const fileInputRef = useRef(null);
   const pictogramUrlPrefix = 'https://static.arasaac.org/pictograms/';
 
   function handlePictogramClick(pictogram_id) {
-    const selectedImg = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
-    props.setImage(selectedImg);
-  }
-
-  function handleFileSelect(event) {
-    const file = event.target.files[0];
-    if (file) {
-      setSelectedFile(file);
-    }
-  }
-
-  function handleAddPictogram() {
-    if (selectedFile) {
-      const newImageUrl = URL.createObjectURL(selectedFile);
-      
-      const newPictogram = {
-        url: newImageUrl,
-        file: selectedFile
-      };
-      
-      setLocalPictograms(prevPictograms => [newPictogram, ...prevPictograms]);
-      
-      setSelectedFile(null);
-      if(fileInputRef.current) {
-        fileInputRef.current.value = "";
-      }
-    }
-  }
-
-
-  async function handleUpload(file, tempUrl) {
-    if (!file) return;
-    props.setImage(tempUrl);
-    props.onFileSelect(file);
+    const url = `${pictogramUrlPrefix}${pictogram_id}/${pictogram_id}_300.png`;
+    props.setImage(url);
   }
 
   return (
@@ -72,7 +45,7 @@ function ConfigCellSelector(props) {
               <PictogramItem
                 key={`local-${index}`}
                 $currentPictogram={props.image === item.url}
-                onClick={() => handleUpload(item.file, item.url)}
+                onClick={() => handleUploadLocalPictogram(item)}
               >
                 <Symbol source={item.url} />
               </PictogramItem>
@@ -96,7 +69,7 @@ function ConfigCellSelector(props) {
               onChange={handleFileSelect}
               ref={fileInputRef}
             />
-            <ButtonPictogramSearch onClick={handleAddPictogram}>
+            <ButtonPictogramSearch onClick={handleAddLocalPictogram}>
               Adicionar
             </ButtonPictogramSearch>
           </PictogramSearch>
