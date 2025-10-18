@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   ButtonContainer
 } from "./styled";
 
 function SideBarButton(props) {
+  const navigate = useNavigate();
   const [editarText, setEditarText] = useState(props.text);
 
   const saveText = 'Salvar edição';
@@ -25,6 +28,7 @@ function SideBarButton(props) {
         } else if(editarText === saveText) {
           setEditarText(props.text);
           props.setEditing(false);
+          navigate(0);
         }
       }}
     >
