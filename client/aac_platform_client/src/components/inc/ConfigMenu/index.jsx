@@ -89,16 +89,61 @@ function ConfigMenu() {
 
       if(id !== configCell._id) {
         console.log("Colocando célula no board:", configCell);
+        // // Creating a NEW userCell:
+        // try {
+        //   const cellResponse = await api.post(`/userCell/post`, {
+        //     originalCellId: configCell?._id || null,
+        //     text: text,
+        //     img: finalImageUrl,
+        //     color: color
+        //   });
+        //   console.log("Resposta da criação da célula:", cellResponse.data);
+
+        //   const newUserCell = {
+        //     _id: cellResponse.data.cell._id,
+        //     cellType: "userCell"
+        //   }
+
+        //   const updatedBoard = {
+        //     ...board,
+        //     cells: [...board.cells, newUserCell]
+        //   };
+
+        //   const boardResponse = await api.patch(`/board/patch/${board._id}`, updatedBoard);
+        //   console.log("Resposta da atualização do board:", boardResponse.data);
+        // }
+        // catch (error) {
+        //   console.log("Error to create cell: ", error);
+        // }
 
         // Adicionando NOVA célula no board:
         if(configCell.indexOnBoard >= board.cells.length) {
-          let newBoard = {...board};
-          const newCell = {
-            ...configCell
+          // Creating a NEW userCell:
+          try {
+            const cellResponse = await api.post(`/userCell/post`, {
+              originalCellId: configCell?._id || null,
+              text: text,
+              img: finalImageUrl,
+              color: color
+            });
+            console.log("Resposta da criação da célula:", cellResponse.data);
+
+            const newUserCell = {
+              _id: cellResponse.data.cell._id,
+              cellType: "userCell"
+            }
+
+            const updatedBoard = {
+              ...board,
+              cells: [...board.cells, newUserCell]
+            };
+
+            const boardResponse = await api.patch(`/board/patch/${board._id}`, updatedBoard);
+            console.log("Resposta da atualização do board:", boardResponse.data);
           }
-          newBoard.cells.push(newCell);
-          console.log("Board com célula adicionada:", newBoard.cells);
-          setBoard(newBoard);
+          catch (error) {
+            console.log("Error to create cell: ", error);
+          }
         } else {
           // Create a new 'cells' array using map for immutability
           const updatedCells = board.cells.map((cell, index) => {

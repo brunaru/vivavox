@@ -119,6 +119,7 @@ export async function getBoardById(req, res) {
     if(!board) {
       return res.status(404).send({ message: "Board does not exist" });
     }
+    console.log(board.cells)
     // Populate cells:
     const populatedCells = await Promise.all(
       board.cells.map(async (cell) => {

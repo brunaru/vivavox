@@ -5,17 +5,18 @@ export async function postUserCell(req, res) {
     // Instanciate an cell object:  
     const newUserCell = new UserCell({
       // user_id: req.body.user_id,
-      original_cell_id: req.body.original_cell_id,
+      originalCellId: req.body.originalCellId,
       text: req.body.text,
       img: req.body.img,
       color: req.body.color
     });
-
     // Store into the database:
     await newUserCell.save();
+    res.status(201).send({
+      message: "Cell successfuly created", 
+      cell: newUserCell
+    });
 
-    res.status(201);
-    res.send({message: "Cell successfuly created"});
   } catch(error) {
     res.status(500);
     res.send(error.message);
@@ -25,6 +26,7 @@ export async function postUserCell(req, res) {
 export async function getAllUserCells(req, res) {
   try {
     const cells = await UserCell.find({});
+    console.log("Todas as células de usuário:", cells);
 
     res.status(200);
     res.send(cells);
