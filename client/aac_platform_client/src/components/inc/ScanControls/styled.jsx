@@ -2,27 +2,52 @@
 import styled from 'styled-components';
 
 export const ControlsContainer = styled.div`
-  width: calc(100% - 40px);
-  max-width: 900px;
-  margin: 0 auto 20px auto;
-  padding: 12px 20px;
-  background-color: #FFFFFF;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Alterado para distribuir melhor os grupos */
-  gap: 20px;
-  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5vw;
+  padding: 2vw;
   box-sizing: border-box;
+  filter: drop-shadow(0 4px 8px grey);
+  margin-bottom: 2vh;
 `;
 
-// Novo componente para agrupar controles relacionados
+// Grid item para cada seção
+export const GridCell = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1vw;
+  padding: 1.5vw;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+
+  &:hover {
+    background-color: #ffffff;
+    border-color: #dee2e6;
+  }
+`;
+
+export const InnerGridCell = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1vw;
+`;
+
+// Componente para agrupar controles relacionados
 export const ControlGroup = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 15px; /* Espaçamento interno do grupo */
-  flex-wrap: wrap;
+  gap: 15px;
 `;
 
 export const ControlButton = styled.button`
@@ -38,61 +63,148 @@ export const ControlButton = styled.button`
     $listening ? '#ffc107' : '#007bff'};
   color: ${({ $listening }) => $listening ? 'black' : 'white'};
 
-  &:hover {
+  &:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 `;
 
 export const Label = styled.span`
   font-weight: bold;
   color: #333;
-  font-size: 1rem;
+  font-size: 1vw;
+  white-space: nowrap;
 `;
 
 export const KeyDisplay = styled.span`
-  padding: 8px 12px;
+  padding: 0.6vw 1vw;
   background-color: #e9ecef;
   border-radius: 6px;
   font-family: monospace;
-  font-size: 1.1rem;
+  font-size: 1vw;
   color: #495057;
   border: 1px solid #ced4da;
-`;
-
-// Mantido como um grupo específico para velocidade
-export const SpeedControlContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`;
-
-export const SpeedButton = styled.button`
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 1px solid #ced4da;
-  background-color: #f8f9fa;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: #e9ecef;
-  }
+  min-width: 3vw;
+  text-align: center;
 `;
 
 export const SpeedDisplay = styled.span`
   font-weight: bold;
   font-family: monospace;
-  font-size: 1rem;
+  font-size: 0.95vw;
   color: #495057;
-  min-width: 50px;
+  min-width: 4vw;
   text-align: center;
 `;
 
+export const SpeedRangeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  width: 100%;
+
+  input[type='range'] {
+    flex: 1;
+    height: 0.4vw;
+    border-radius: 3px;
+    background: linear-gradient(
+      to right,
+      #007bff 0%,
+      #007bff var(--value),
+      #e9ecef var(--value),
+      #e9ecef 100%
+    );
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 1.2vw;
+      height: 1.2vw;
+      border-radius: 50%;
+      background: #007bff;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &::-moz-range-thumb {
+      width: 1.2vw;
+      height: 1.2vw;
+      border-radius: 50%;
+      background: #007bff;
+      cursor: pointer;
+      border: 2px solid white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+`;
+
+// Novos estilos para detecção de piscadas
+export const BlinkStatusContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  padding: 0.8vw 1.2vw;
+  background-color: #f0f7ff;
+  border-radius: 6px;
+  border: 1px solid #b3d9ff;
+  width: 100%;
+  margin-top: 0.5vw;
+`;
+
+export const StatusIndicator = styled.div`
+  width: 0.8vw;
+  height: 0.8vw;
+  border-radius: 50%;
+  background-color: ${({ $status }) => {
+    switch ($status) {
+      case 'loading':
+        return '#ffc107'; // Amarelo para carregando
+      case 'success':
+        return '#28a745'; // Verde para sucesso
+      case 'error':
+        return '#dc3545'; // Vermelho para erro
+      default:
+        return '#6c757d'; // Cinza para ocioso
+    }
+  }};
+  animation: ${({ $status }) =>
+    $status === 'loading' ? 'pulse 1.5s ease-in-out infinite' : 'none'};
+  flex-shrink: 0;
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+`;
+
+export const StatusText = styled.span`
+  font-size: 0.85vw;
+  color: #495057;
+  font-weight: 500;
+  white-space: nowrap;
+`;
