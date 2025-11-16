@@ -14,6 +14,7 @@ export function ScanContextProvider({ children, rows, cols, onSelect }) {
   const [activeCol, setActiveCol] = useState(null);
   const [triggerKey, setTriggerKey] = useState('Space');
   const [scanSpeed, setScanSpeed] = useState(1500); // Estado para a velocidade
+  const [isBlinkScanMode, setIsBlinkScanMode] = useState(false); // Novo: modo varredura por piscada
 
   useEffect(() => {
     let interval;
@@ -75,7 +76,10 @@ export function ScanContextProvider({ children, rows, cols, onSelect }) {
     triggerKey,
     setTriggerKey,
     scanSpeed,      // Expõe a velocidade
-    setScanSpeed    // Expõe a função para mudar a velocidade
+    setScanSpeed,    // Expõe a função para mudar a velocidade
+    isBlinkScanMode, // Novo: expõe o modo de varredura por piscada
+    setIsBlinkScanMode, // Novo: expõe a função para mudar o modo de varredura por piscada
+    handleScanTrigger // Novo: expõe o handle do trigger para ser usado pelo useBlinkDetection
   };
 
   return <ScanContext.Provider value={value}>{children}</ScanContext.Provider>;
