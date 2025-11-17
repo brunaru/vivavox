@@ -60,4 +60,19 @@ export const CellContainer = styled.div`
       animation: ${bounce} 0.3s ease-in-out;
     `
   }
+
+  ${({ $isRowActive, $isCellActive }) => {
+    if ($isCellActive) {
+      return `
+        outline: 5px solid #0056b3;
+        box-shadow: 0 0 15px rgba(0, 86, 179, 0.7);
+        transform: scale(1.05);
+      `;
+    }
+    if ($isRowActive) {
+      return `
+        outline: 3px solid #1d6279ff; 
+      `;
+    }
+  }}
 `;
