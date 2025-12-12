@@ -218,15 +218,41 @@ function ConfigMenu() {
     setColor(e.target.value);
   }
 
-  function removeCell() {
+  async function removeCell() {
     if(!configCell) return;
 
     // The cell in question EXISTS:
     if(configCell.indexOnBoard < board.cells.length) {
-      let newBoard = {...board};
-      // Remove from the cell array:
-      newBoard.cells.splice(configCell.indexOnBoard, 1);
-      setBoard(newBoard);
+      // Only userCells can be removed
+      if (configCell.cellType === 'userCell') {
+        // Delete from S3 if applicable:
+        if (isS3Url(configCell.img)) {
+          deleteFile(configCell.img)
+            .then(() => {
+              console.log("Imagem da célula removida do S3");
+            })
+            .catch((error) => {
+              console.error("Erro ao remover imagem do S3:", error);
+            });
+        }
+
+        try{
+          const cellResponse = await api.delete(`/userCell/delete/${configCell?._id}`);
+          console.log(cellResponse.data);
+
+        let newBoard = {...board};
+
+        // Remove from the cell array:
+        newBoard.cells.splice(configCell.indexOnBoard, 1);
+        setBoard(newBoard);
+
+        const boardResponse = await api.patch(`/board/patch/${board._id}`, newBoard);
+        console.log("Resposta da atualização do board:", boardResponse.data);
+
+        } catch (error) {
+          console.error("Erro ao remover célula:", error);
+        }
+      }
     }
     setConfigCell(null);
   }
