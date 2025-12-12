@@ -89,34 +89,8 @@ function ConfigMenu() {
 
       if(id !== configCell._id) {
         console.log("Colocando célula no board:", configCell);
-        // // Creating a NEW userCell:
-        // try {
-        //   const cellResponse = await api.post(`/userCell/post`, {
-        //     originalCellId: configCell?._id || null,
-        //     text: text,
-        //     img: finalImageUrl,
-        //     color: color
-        //   });
-        //   console.log("Resposta da criação da célula:", cellResponse.data);
 
-        //   const newUserCell = {
-        //     _id: cellResponse.data.cell._id,
-        //     cellType: "userCell"
-        //   }
-
-        //   const updatedBoard = {
-        //     ...board,
-        //     cells: [...board.cells, newUserCell]
-        //   };
-
-        //   const boardResponse = await api.patch(`/board/patch/${board._id}`, updatedBoard);
-        //   console.log("Resposta da atualização do board:", boardResponse.data);
-        // }
-        // catch (error) {
-        //   console.log("Error to create cell: ", error);
-        // }
-
-        // Adicionando NOVA célula no board:
+        // Adding a NEW cell to the board
         if(configCell.indexOnBoard >= board.cells.length) {
           // Creating a NEW userCell:
           try {
@@ -126,7 +100,7 @@ function ConfigMenu() {
               img: finalImageUrl,
               color: color
             });
-            console.log("Resposta da criação da célula:", cellResponse.data);
+            console.log(cellResponse.data);
 
             const newUserCell = {
               _id: cellResponse.data.cell._id,
@@ -139,7 +113,7 @@ function ConfigMenu() {
             };
 
             const boardResponse = await api.patch(`/board/patch/${board._id}`, updatedBoard);
-            console.log("Resposta da atualização do board:", boardResponse.data);
+            console.log(boardResponse.data);
           }
           catch (error) {
             console.log("Error to create cell: ", error);
@@ -247,7 +221,7 @@ function ConfigMenu() {
         setBoard(newBoard);
 
         const boardResponse = await api.patch(`/board/patch/${board._id}`, newBoard);
-        console.log("Resposta da atualização do board:", boardResponse.data);
+        console.log(boardResponse.data);
 
         } catch (error) {
           console.error("Erro ao remover célula:", error);
