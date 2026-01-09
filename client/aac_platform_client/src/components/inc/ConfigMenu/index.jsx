@@ -90,15 +90,34 @@ function ConfigMenu() {
       if(id !== configCell._id) {
         console.log("Colocando célula no board:", configCell);
 
-        // Adicionando NOVA célula no board:
+        // Adding a NEW cell to the board
         if(configCell.indexOnBoard >= board.cells.length) {
-          let newBoard = {...board};
-          const newCell = {
-            ...configCell
+          // Creating a NEW userCell:
+          try {
+            const cellResponse = await api.post(`/userCell/post`, {
+              originalCellId: configCell?._id || null,
+              text: text,
+              img: finalImageUrl,
+              color: color
+            });
+            console.log(cellResponse.data);
+
+            const newUserCell = {
+              _id: cellResponse.data.cell._id,
+              cellType: "userCell"
+            }
+
+            const updatedBoard = {
+              ...board,
+              cells: [...board.cells, newUserCell]
+            };
+
+            const boardResponse = await api.patch(`/board/patch/${board._id}`, updatedBoard);
+            console.log(boardResponse.data);
           }
-          newBoard.cells.push(newCell);
-          console.log("Board com célula adicionada:", newBoard.cells);
-          setBoard(newBoard);
+          catch (error) {
+            console.log("Error to create cell: ", error);
+          }
         } else {
           // Create a new 'cells' array using map for immutability
           const updatedCells = board.cells.map((cell, index) => {
@@ -173,15 +192,41 @@ function ConfigMenu() {
     setColor(e.target.value);
   }
 
-  function removeCell() {
+  async function removeCell() {
     if(!configCell) return;
 
     // The cell in question EXISTS:
     if(configCell.indexOnBoard < board.cells.length) {
-      let newBoard = {...board};
-      // Remove from the cell array:
-      newBoard.cells.splice(configCell.indexOnBoard, 1);
-      setBoard(newBoard);
+      // Only userCells can be removed
+      if (configCell.cellType === 'userCell') {
+        // Delete from S3 if applicable:
+        if (isS3Url(configCell.img)) {
+          deleteFile(configCell.img)
+            .then(() => {
+              console.log("Imagem da célula removida do S3");
+            })
+            .catch((error) => {
+              console.error("Erro ao remover imagem do S3:", error);
+            });
+        }
+
+        try{
+          const cellResponse = await api.delete(`/userCell/delete/${configCell?._id}`);
+          console.log(cellResponse.data);
+
+        let newBoard = {...board};
+
+        // Remove from the cell array:
+        newBoard.cells.splice(configCell.indexOnBoard, 1);
+        setBoard(newBoard);
+
+        const boardResponse = await api.patch(`/board/patch/${board._id}`, newBoard);
+        console.log(boardResponse.data);
+
+        } catch (error) {
+          console.error("Erro ao remover célula:", error);
+        }
+      }
     }
     setConfigCell(null);
   }

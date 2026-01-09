@@ -5,6 +5,7 @@ import {
 function Button(props) {
   return (
     <ButtonContainer 
+      type="button"
       $color={props.color} 
       $height={props.height} 
       $fontWeight={props.fontWeight}

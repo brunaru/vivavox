@@ -9,7 +9,8 @@ const userCellSchema = new mongoose.Schema({
   originalCellId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "cell",
-    required: true
+    required: false,
+    default: null
   },
   text: {
     type: String,
