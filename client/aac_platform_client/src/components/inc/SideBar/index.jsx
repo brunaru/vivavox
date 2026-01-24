@@ -81,14 +81,11 @@ function SideBar() {
   };
 
   const alwaysVisibleItems = [
-    <Item key="logo" onClick={(e) => handleItemClick(e)}>
-        <SideBarButton text="Logo e Marca" height="125%" width="86%" fontSize="1vw" activeButton={location.pathname} />
-    </Item>,
     <Item key="account" onClick={(e) => handleItemClick(e)}>
         <SideBarButton to="/account" text="Contas e usuários" height="100%" fontSize="1vw" activeButton={location.pathname} />
     </Item>,
     <Item key="about" onClick={(e) => handleItemClick(e)}>
-        <SideBarButton text="Sobre a plataforma" height="100%" fontSize="1vw" activeButton={location.pathname} />
+        <SideBarButton to="/about" text="Sobre a plataforma" height="100%" fontSize="1vw" activeButton={location.pathname} />
     </Item>,
   ];
 
