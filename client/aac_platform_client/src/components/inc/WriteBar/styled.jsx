@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WriteBarContainer = styled.input`
-  width: 38vw;
+  width: 34vw;
   height: 50%;
   background-color: ${({$color}) => ($color ? $color : "#EAEAEA")};
   border: none;

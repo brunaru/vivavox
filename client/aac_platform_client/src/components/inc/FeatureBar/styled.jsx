@@ -8,10 +8,10 @@ export const FeatBarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   filter: drop-shadow(0 4px 8px grey);
-  padding: 0 14vw 0 4vw;
+  padding: 0 2vw;
   box-sizing: border-box;
   z-index: 4;
-  gap: 2vw;
+  gap: 1.5vw;
 
   ${({ $editing }) =>
     $editing &&
@@ -25,12 +25,19 @@ export const DivBack = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  margin: 0;
+  gap: 0.5vw;
+  margin-right: 0vw;
 `;
 
 export const BoardName = styled.h1`
-  font-size: 1.5vw;
-  font-weight: 400;
+  font-size: 1.2vw;
+  font-weight: 600;
+  min-width: fit-content;
+  margin-right: 7vw;
+  flex: 1 1 100%;     
+  min-width: 0;
+  white-space: normal; 
+  word-break: normal;  
 `;
 
 export const DivKeyboard = styled.div`
@@ -38,5 +45,16 @@ export const DivKeyboard = styled.div`
   display: flex;
   align-items: center;
   margin: 0;
-  gap: 1.5vw;
+  gap: 0.5vw;
+`;
+
+export const ScanMenuBar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65vw;
+  margin: 0 auto; 
+  padding: 6px 12px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #cfd8dc;
 `;

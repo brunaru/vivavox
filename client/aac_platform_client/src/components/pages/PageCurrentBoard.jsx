@@ -77,7 +77,6 @@ function PageCurrentBoard() {
                 onSelect={onSelect}
               >
                 <BoardSpace>
-                  <ScanControls />
                   <Board ref={boardRef} />
                 </BoardSpace>
               </ScanContextProvider>

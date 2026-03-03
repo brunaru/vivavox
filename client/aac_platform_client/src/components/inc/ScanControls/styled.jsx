@@ -8,7 +8,7 @@ export const ControlsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 1.5vw;
+  gap: 1vw;
   padding: 2vw;
   box-sizing: border-box;
   filter: drop-shadow(0 4px 8px grey);
@@ -22,10 +22,11 @@ export const GridCell = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 1vw;
-  padding: 1.5vw;
+  padding: 1vw;
   background-color: #f8f9fa;
   border-radius: 8px;
   border: 1px solid #e9ecef;
+  width: 70%;
 
   &:hover {
     background-color: #ffffff;
@@ -47,7 +48,7 @@ export const ControlGroup = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 `;
 
 export const ControlButton = styled.button`
@@ -96,9 +97,9 @@ export const KeyDisplay = styled.span`
 export const SpeedDisplay = styled.span`
   font-weight: bold;
   font-family: monospace;
-  font-size: 0.95vw;
+  font-size: 0.5vw;
   color: #495057;
-  min-width: 4vw;
+  min-width: 2vw;
   text-align: center;
 `;
 
