@@ -75,11 +75,11 @@ export function ScanContextProvider({ children, rows, cols, onSelect }) {
     activeCol,
     triggerKey,
     setTriggerKey,
-    scanSpeed,      // Expõe a velocidade
-    setScanSpeed,    // Expõe a função para mudar a velocidade
-    isBlinkScanMode, // Novo: expõe o modo de varredura por piscada
-    setIsBlinkScanMode, // Novo: expõe a função para mudar o modo de varredura por piscada
-    handleScanTrigger // Novo: expõe o handle do trigger para ser usado pelo useBlinkDetection
+    scanSpeed,     
+    setScanSpeed,    
+    isBlinkScanMode, 
+    setIsBlinkScanMode, 
+    handleScanTrigger 
   };
 
   return <ScanContext.Provider value={value}>{children}</ScanContext.Provider>;

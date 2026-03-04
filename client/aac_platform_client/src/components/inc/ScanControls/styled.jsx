@@ -15,7 +15,6 @@ export const ControlsContainer = styled.div`
   margin-bottom: 2vh;
 `;
 
-// Grid item para cada seção
 export const GridCell = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,7 +42,6 @@ export const InnerGridCell = styled.div`
   gap: 1vw;
 `;
 
-// Componente para agrupar controles relacionados
 export const ControlGroup = styled.div`
   display: flex;
   flex-direction: row;
@@ -160,7 +158,6 @@ export const SpeedRangeContainer = styled.div`
   }
 `;
 
-// Novos estilos para detecção de piscadas
 export const BlinkStatusContainer = styled.div`
   display: flex;
   align-items: center;
@@ -180,13 +177,13 @@ export const StatusIndicator = styled.div`
   background-color: ${({ $status }) => {
     switch ($status) {
       case 'loading':
-        return '#ffc107'; // Amarelo para carregando
+        return '#ffc107'; 
       case 'success':
-        return '#28a745'; // Verde para sucesso
+        return '#28a745'; 
       case 'error':
-        return '#dc3545'; // Vermelho para erro
+        return '#dc3545'; 
       default:
-        return '#6c757d'; // Cinza para ocioso
+        return '#6c757d'; 
     }
   }};
   animation: ${({ $status }) =>
