@@ -4,6 +4,7 @@ import PageCurrentBoard from './components/pages/PageCurrentBoard';
 import PageProfiles from './components/pages/PageProfiles';
 import PageSignUp from './components/pages/PageSignUp';
 import PageLibrary from './components/pages/PageLibrary';
+import PageAbout from './components/pages/PageAbout';
 
 function Router() {
   return(
@@ -17,6 +18,11 @@ function Router() {
       <Route path='/library' element={
         <ProtectedRouteUser>
           <PageLibrary/>
+        </ProtectedRouteUser>
+      } />
+      <Route path='/about' element={
+        <ProtectedRouteUser>
+          <PageAbout/>
         </ProtectedRouteUser>
       } />
       <Route path='/account' element={<PageProfiles/>} />

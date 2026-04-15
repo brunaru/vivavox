@@ -39,10 +39,8 @@ function ScanControls() {
     const [blinkDetectionReady, setBlinkDetectionReady] = useState(false);
     const [blinkDetectionError, setBlinkDetectionError] = useState(null);
     
-    // ⚠️ CRÍTICO: Chamar hook SEMPRE, fora de condicionais
     const blinkDetectionHook = useBlinkDetection(videoRef);
     
-    // Refs para evitar que mudanças matem a detecção durante RAF loop
     const handleScanTriggerRef = useRef(handleScanTrigger);
     const blinkDetectionHookRef = useRef(blinkDetectionHook);
 
@@ -54,22 +52,21 @@ function ScanControls() {
         blinkDetectionHookRef.current = blinkDetectionHook;
     }, [blinkDetectionHook]);
 
-    const MIN_SPEED = 500; // 0.5s
-    const MAX_SPEED = 4000; // 4s
-    const SPEED_STEP = 250; // 0.25s
+    const MIN_SPEED = 500; 
+    const MAX_SPEED = 4000; 
+    const SPEED_STEP = 250; 
 
-    // Inicializar blink detection quando necessário
     useEffect(() => {
         if (isBlinkScanMode && !blinkDetectionReady) {
             const initializeBlinkDetection = async () => {
                 try {
                     setBlinkDetectionError(null);
-                    if (DEBUG_MODE) console.log('🚀 Inicializando detecção de piscadas...');
+                    if (DEBUG_MODE) console.log('Inicializando detecção de piscadas...');
                     await blinkDetectionHookRef.current.initialize();
                     setBlinkDetectionReady(true);
-                    if (DEBUG_MODE) console.log('✅ Detecção de piscadas inicializada!');
+                    if (DEBUG_MODE) console.log('Detecção de piscadas inicializada!');
                 } catch (err) {
-                    console.error('❌ Erro ao inicializar detecção de piscadas:', err);
+                    console.error('Erro ao inicializar detecção de piscadas:', err);
                     setBlinkDetectionError(err.message || 'Erro desconhecido');
                 }
             };
@@ -77,24 +74,21 @@ function ScanControls() {
         }
     }, [isBlinkScanMode, blinkDetectionReady]);
 
-    // Iniciar/parar detecção de piscadas
     useEffect(() => {
         if (isBlinkScanMode && blinkDetectionReady) {
-            if (DEBUG_MODE) console.log('👁️ Iniciando detecção de piscadas como trigger...');
+            if (DEBUG_MODE) console.log('Iniciando detecção de piscadas como trigger...');
             let lastBlinkState = false;
             
             const cleanup = blinkDetectionHookRef.current.startPrediction((blinkEvent) => {
-                // Detecta piscada completa: transição de olhos fechados para abertos
                 if (!blinkEvent.blink && lastBlinkState) {
-                    if (DEBUG_MODE) console.log('🎯 Piscada detectada! Acionando gatilho de varredura');
-                    // ✅ Usa ref em vez de dependência direta para evitar re-render do prediction loop
+                    if (DEBUG_MODE) console.log('Piscada detectada! Acionando gatilho de varredura');
                     handleScanTriggerRef.current();
                 }
                 lastBlinkState = blinkEvent.blink;
             });
             
             return () => {
-                if (DEBUG_MODE) console.log('🛑 Parando detecção de piscadas...');
+                if (DEBUG_MODE) console.log('Parando detecção de piscadas...');
                 if (cleanup) cleanup();
                 blinkDetectionHookRef.current.stopPrediction();
             };
@@ -135,22 +129,19 @@ function ScanControls() {
 
     const handleBlinkScanToggle = () => {
         if (!isBlinkScanMode) {
-            // Ativando modo de piscada
             setIsBlinkScanMode(true);
         } else {
-            // Desativando modo de piscada
             setIsBlinkScanMode(false);
             blinkDetectionHookRef.current.stopPrediction();
             setBlinkDetectionReady(false);
         }
     };
 
-    // Calcular percentual do range para gradient visual
+
     const speedPercent = ((scanSpeed - MIN_SPEED) / (MAX_SPEED - MIN_SPEED)) * 100;
 
     return (
         <ControlsContainer>
-            {/* Grid [0, 0]: Varredura Padrão */}
             <GridCell>
                 <ControlGroup>
                     <Button
@@ -167,7 +158,6 @@ function ScanControls() {
                 </ControlGroup>
             </GridCell>
 
-            {/* Grid [0, 1]: Configuração do Gatilho */}
             <GridCell>
                 <Label>Gatilho</Label>
                 <ControlGroup>
@@ -184,7 +174,6 @@ function ScanControls() {
                 </ControlGroup>
             </GridCell>
 
-            {/* Grid [1, 0]: Varredura por Piscada */}
             <GridCell>
                 <InnerGridCell>
                     <Button
@@ -198,7 +187,6 @@ function ScanControls() {
                     <Label>Varredura por Piscada</Label>
                 </InnerGridCell>
                 <ControlGroup>
-                {/* Status da detecção de piscadas */}
                 {isBlinkScanMode && (
                     <BlinkStatusContainer>
                         <StatusIndicator $status={
@@ -220,7 +208,6 @@ function ScanControls() {
                 </ControlGroup>
             </GridCell>
 
-            {/* Grid [1, 1]: Regulagem de Velocidade */}
             <GridCell>
                 <Label>Intervalo de Varredura</Label>
                 <ControlGroup>
@@ -252,14 +239,13 @@ function ScanControls() {
                 </ControlGroup>
             </GridCell>
 
-            {/* Video oculto para capturar a webcam */}
             <video
                 ref={videoRef}
                 style={{
                     display: 'none',
                     width: '500px',
                     height: '500px',
-                    transform: 'scaleX(-1)' // Espelhar para parecer mais natural
+                    transform: 'scaleX(-1)' 
                 }}
                 autoPlay
                 playsInline

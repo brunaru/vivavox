@@ -81,23 +81,17 @@ function SideBar() {
   };
 
   const alwaysVisibleItems = [
-    <Item key="logo" onClick={(e) => handleItemClick(e)}>
-        <SideBarButton text="Logo e Marca" height="125%" width="86%" fontSize="1vw" activeButton={location.pathname} />
-    </Item>,
     <Item key="account" onClick={(e) => handleItemClick(e)}>
         <SideBarButton to="/account" text="Contas e usuários" height="100%" fontSize="1vw" activeButton={location.pathname} />
     </Item>,
     <Item key="about" onClick={(e) => handleItemClick(e)}>
-        <SideBarButton text="Sobre a plataforma" height="100%" fontSize="1vw" activeButton={location.pathname} />
+        <SideBarButton to="/about" text="Sobre a plataforma" height="100%" fontSize="1vw" activeButton={location.pathname} />
     </Item>,
   ];
 
   const loggedInOnlyItems = [
     <Item key="cur-board" onClick={(e) => handleItemClick(e)}>
         <SideBarButton to="/cur-board" text="Prancha atual" height="100%" fontSize="1vw" activeButton={location.pathname} />
-    </Item>,
-    <Item key="edit" onClick={(e) => handleItemClick(e, () => setEditing(!editing))}>
-        <SideBarButton text="Editar" height="100%" fontSize="1vw" editing={editing} setEditing={setEditing} activeButton={location.pathname} isToggleButton />
     </Item>,
     <Item key="library" onClick={(e) => handleItemClick(e)}>
         <SideBarButton to="/library" text="Biblioteca de Pranchas" height="100%" fontSize="1vw" activeButton={location.pathname} />

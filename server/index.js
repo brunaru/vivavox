@@ -6,8 +6,35 @@ import cellRoutes from './routes/cell.routes.js';
 import boardRoutes from './routes/board.routes.js';
 import userRoutes from './routes/user.routes.js';
 import userCellRoutes from './routes/userCell.routes.js';
+import bcrypt from "bcrypt";
+import User from "./models/user.models.js";
 
 dotenv.config();
+
+async function createDefaultUser() {
+  try {
+    const email = "admin@email.com";
+
+    const userExists = await User.findOne({ email });
+
+    if (!userExists) {
+      const salt = await bcrypt.genSalt(12);
+      const passwordHash = await bcrypt.hash("123456", salt);
+
+      await User.create({
+        name: "Admin",
+        email: email,
+        password: passwordHash,
+        type: "admin",
+        currentBoard: null
+      });
+
+      console.log("Usuário padrão criado!");
+    }
+  } catch (error){
+    console.error("Erro ao criar usuáro padrão")
+  }
+}
 
 async function connectDB() {
   // Create a database connection:
@@ -19,8 +46,10 @@ async function connectDB() {
   });
 
   // Captures connection successfully:
-  connection.once("open", () => {
+  connection.once("open", async () => {
     console.log("Database connection successful");
+
+    await createDefaultUser();
   });
 }
 

@@ -7,6 +7,7 @@ import { PageContextProvider } from "./components/contexts/PageContext";
 import { BoardContextProvider } from "./components/contexts/BoardContext";
 import { UserContextProvider } from "./components/contexts/UserContext";
 import { SidebarProvider } from "./components/contexts/SideBarContext";
+import { ScanContextProvider } from "./components/contexts/ScanContext";
 
 const AppContainer = styled.div`
   height: 100%;
@@ -34,7 +35,9 @@ function App() {
               <PageContextProvider>
                 <BoardContextProvider>
                   <CellContextProvider>
-                    <Router/>
+                    <ScanContextProvider>
+                      <Router/>
+                    </ScanContextProvider>
                   </CellContextProvider>
                 </BoardContextProvider>
               </PageContextProvider>
