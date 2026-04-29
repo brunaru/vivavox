@@ -1,12 +1,14 @@
-export {default as BubblesFullPage} from './bubbles.svg';
-export {default as Seaweed} from './seaweed.svg';
-export {default as Turtle} from './turtle.svg';
-export {default as VivavoxLogo} from './vivavox-logo.svg'
+// Images
+export const Seaweed = require('./seaweed.png');
+export const Turtle = require('./turtle.png');
+export const VivavoxLogo = require('./vivavox-logo.png');
+export const BubblesFullPage = {
+  mobile: require('./bubbles-mobile.png'),
+  tablet: require('./bubbles-tablet.png'),
+};
 
-import InicialShapeMobile from './initial-screen-shape-mobile.svg';
-import InicialShapeTablet from './initial-screen-shape-tablet.svg';
-
-export const actionAssets = {
-    mobile: InicialShapeMobile,
-    tablet: InicialShapeTablet,
+// Shapes
+export const BGWhiteFrame = {
+  mobile: require('./initial-screen-shape-mobile.png'),
+  tablet: require('./initial-screen-shape-tablet.png'),
 };
