@@ -169,8 +169,6 @@ function ConfigMenu() {
               cell._id === updatedCell._id ? { ...cell, _id: newCellId, cellType: "userCell" } : cell
             )
           }));
-
-          console.log("AAAAAAA");
         } else {
           console.log("No change has been made");
         }

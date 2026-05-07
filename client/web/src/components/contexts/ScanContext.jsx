@@ -1,5 +1,6 @@
 // client/aac_platform_client/src/components/contexts/ScanContext.jsx
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { useCell } from "./CellContext";
 
 const ScanContext = createContext();
 
@@ -15,6 +16,9 @@ export function ScanContextProvider({ children, rows, cols, onSelect }) {
   const [triggerKey, setTriggerKey] = useState('Space');
   const [scanSpeed, setScanSpeed] = useState(1500); // Estado para a velocidade
   const [isBlinkScanMode, setIsBlinkScanMode] = useState(false); // Novo: modo varredura por piscada
+  const { editing } = useCell();
+  const [showScanMenu, setShowScanMenu] = useState(false);
+  const [isKeyScanMode, setIsKeyScanMode] = useState(false);
 
   useEffect(() => {
     let interval;
@@ -55,8 +59,15 @@ export function ScanContextProvider({ children, rows, cols, onSelect }) {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.code === triggerKey) {
+      // Tem que ser "&& varredura de tecla" ao inves desse !editing, essa eh uma solucao provisoria
+      if (
+        event.code === triggerKey &&
+        isKeyScanMode &&
+        !editing
+      ) {
         event.preventDefault();
+        event.stopPropagation();
+
         handleScanTrigger();
       }
     };
@@ -65,7 +76,7 @@ export function ScanContextProvider({ children, rows, cols, onSelect }) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleScanTrigger, triggerKey]);
+  }, [handleScanTrigger, triggerKey, isKeyScanMode, editing]);
 
   const value = {
     isScanning,
@@ -79,7 +90,11 @@ export function ScanContextProvider({ children, rows, cols, onSelect }) {
     setScanSpeed,    
     isBlinkScanMode, 
     setIsBlinkScanMode, 
-    handleScanTrigger 
+    handleScanTrigger,
+    showScanMenu,
+    setShowScanMenu,
+    isKeyScanMode,
+    setIsKeyScanMode,
   };
 
   return <ScanContext.Provider value={value}>{children}</ScanContext.Provider>;

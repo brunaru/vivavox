@@ -6,7 +6,7 @@ import { usePhrase } from "../../contexts/PhraseContext";
 import { useCell } from "../../contexts/CellContext";
 import { useBoard } from "../../contexts/BoardContext";
 import api from "../../../services/api";
-
+import { useScan } from "../../contexts/ScanContext";
 import {
   FeatBarContainer,
   DivBack,
@@ -28,8 +28,7 @@ function FeatureBar() {
   const {clearPhrase, deleteWord, speech } = usePhrase();
   const {board, setBoard, boardStack, setBoardStack} = useBoard();
   const {editing, setEditing} = useCell();
-  const [showScanMenu, setShowScanMenu] = useState(false);
-
+  const { showScanMenu, setShowScanMenu } = useScan();
   const saveText = "Salvar";
   const editText = "Editar";
 
@@ -58,9 +57,9 @@ function FeatureBar() {
     <>
     <FeatBarContainer $editing={editing}>
       <DivBack>
-        <Button onClick={boardBack} text="Voltar" height="50%" width="7vw" image={returnIcon}/>
-        <Button onClick={handleEditToggle} text={editing ? saveText : editText} height="50%" width="7vw" image={editing ? saveIcon : editIcon} key = "edit"/>
-        <Button onClick={() => setShowScanMenu(prev => !prev)} text="Varredura" height="50%" width="10vw" image={scanIcon}/>
+        <Button type="button" onClick={boardBack} text="Voltar" height="50%" width="7vw" image={returnIcon}/>
+        <Button type="button" onClick={handleEditToggle} text={editing ? saveText : editText} height="50%" width="7vw" image={editing ? saveIcon : editIcon} key = "edit"/>
+        <Button type="button" onClick={() => setShowScanMenu(prev => !prev)} text="Varredura" height="50%" width="10vw" image={scanIcon}/>
       </DivBack>
       <BoardName>{board?.name}</BoardName>
       <DivKeyboard>
