@@ -1,13 +1,12 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { View, Image, StyleSheet } from 'react-native';
-import { useDevice } from '../../hooks/useDevice';
-import { BGWhiteFrame, BubblesFullPage, Seaweed } from '../../assets/items';
+import { useDevice } from '../../../hooks/useDevice';
+import { BGWhiteFrame, BubblesFullPage, Seaweed } from '../../../assets/items';
 
 
 export default function Background() {
     const  { isTablet } = useDevice();
-
     return (
         <View style={StyleSheet.absoluteFill}>
             <LinearGradient 

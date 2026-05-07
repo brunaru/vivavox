@@ -32,7 +32,9 @@ function ScanControls() {
         setScanSpeed,
         isBlinkScanMode,
         setIsBlinkScanMode,
-        handleScanTrigger
+        handleScanTrigger,
+        isKeyScanMode,
+        setIsKeyScanMode,
     } = useScan();
     const [isListening, setIsListening] = useState(false);
     const videoRef = useRef(null);
@@ -145,8 +147,8 @@ function ScanControls() {
             <GridCell>
                 <ControlGroup>
                     <Button
-                        onClick={() => setIsScanning(prev => !prev)}
-                        text={isScanning ? 'Parar' : 'Iniciar'}
+                        onClick={() => setIsKeyScanMode(prev => !prev)}
+                        text={isKeyScanMode ? 'Desativar' : 'Ativar'}
                         image={isScanning ? stopIcon : playIcon}
                         height="100%"
                         width="10vw"
@@ -181,7 +183,7 @@ function ScanControls() {
                         text={isBlinkScanMode ? 'Desativar Piscada' : 'Ativar Piscada'}
                         image={eyeIcon}
                         height="100%"
-                        width="15vw"
+                        width="13vw"
                         title={isBlinkScanMode ? "Clique para desativar varredura por piscada" : "Clique para ativar varredura por piscada"}
                     />
                     <Label>Varredura por Piscada</Label>

@@ -64,33 +64,36 @@ function PageCurrentBoard() {
   };
 
   return (
-    <PhraseContextProvider>
-      <PageContainer> 
-        <FeatureBar/>
-        <MainSection>
-          <SideBar/>
-          <ContentContainer $isSidebarOpen={isSidebarOpen}>
-            {board ? ( 
-              <ScanContextProvider
-                rows={board.dimensions[0]}
-                cols={board.dimensions[1]}
-                onSelect={onSelect}
-              >
-                <BoardSpace>
-                  <Board ref={boardRef} />
-                </BoardSpace>
-              </ScanContextProvider>
-            ) : (
-              <h2>Carregando quadro...</h2>
-            )}
-          </ContentContainer>
-        </MainSection>
-        {(configCell || editing) && 
-          <ConfigMenu/>
-        }
-      </PageContainer>
-    </PhraseContextProvider>
-  );
+  <PhraseContextProvider>
+    <PageContainer>
+
+      {board ? (
+        <ScanContextProvider
+          rows={board.dimensions[0]}
+          cols={board.dimensions[1]}
+          onSelect={onSelect}
+        >
+          <FeatureBar/>
+
+          <MainSection>
+            <SideBar/>
+
+            <ContentContainer $isSidebarOpen={isSidebarOpen}>
+              <BoardSpace>
+                <Board ref={boardRef} />
+              </BoardSpace>
+            </ContentContainer>
+          </MainSection>
+        </ScanContextProvider>
+      ) : (
+        <h2>Carregando quadro...</h2>
+      )}
+
+      {configCell && <ConfigMenu/>}
+
+    </PageContainer>
+  </PhraseContextProvider>
+);
 }
 
 export default PageCurrentBoard;

@@ -55,6 +55,4 @@ export const ScanMenuBar = styled.div`
   width: 65vw;
   margin: 0 auto; 
   padding: 6px 12px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #cfd8dc;
 `;

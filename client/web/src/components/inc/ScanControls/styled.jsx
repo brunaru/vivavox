@@ -4,11 +4,12 @@ import styled from 'styled-components';
 export const ControlsContainer = styled.div`
   width: 100%;
   height: auto;
+  border-radius: 20px;
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 1vw;
+  gap: 20px;
   padding: 2vw;
   box-sizing: border-box;
   filter: drop-shadow(0 4px 8px grey);
@@ -20,12 +21,12 @@ export const GridCell = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 1vw;
+  gap: 0.5vw;
   padding: 1vw;
   background-color: #f8f9fa;
   border-radius: 8px;
   border: 1px solid #e9ecef;
-  width: 70%;
+  width: 25vw;
 
   &:hover {
     background-color: #ffffff;

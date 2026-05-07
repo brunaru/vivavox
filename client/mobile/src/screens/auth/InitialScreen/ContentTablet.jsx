@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Image, Pressable, Text, StyleSheet } from 'react-native';
-import { VivavoxLogo, Turtle } from '../../assets/items';
-import Arrow from '../../svg/arrow';
+import { VivavoxLogo, Turtle } from '../../../assets/items';
+import { useNavigation } from '@react-navigation/native';
+import Arrow from '../../../svg/arrow';
 
 
 export default function ContentTablet(){
+    const navigation = useNavigation();
     return(
         <View style={styles.container}>
             <View style={styles.left}>
@@ -16,7 +18,7 @@ export default function ContentTablet(){
             <View style={styles.right}>
               <Text style={styles.title}>Conheça mais sobre a plataforma!</Text>
               <View style={styles.buttons}>
-                <Pressable style={styles.buttonOutline}>
+                <Pressable style={styles.buttonOutline} onPress={() => navigation.navigate('Login')}>
                   <Text style={styles.buttonText}>Entrar</Text>
                 </Pressable>
                 <Pressable style={styles.buttonFilled}>
