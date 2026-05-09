@@ -102,7 +102,8 @@ export function BoardContextProvider({ children }) {
       isLoadingCategorized, // Loading específico para categorias
       categorizedError,      // Erro específico para categorias
       boardStack,
-      setBoardStack
+      setBoardStack,
+      fetchBoardById,
     }}>
       {children}
     </BoardContext.Provider>
