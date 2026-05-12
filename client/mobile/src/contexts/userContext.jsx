@@ -20,7 +20,6 @@ export function UserContextProvider({ children }) {
             // or make a quick API call to validate it on the backend if needed.
             const decodedUser = jwtDecode(storedToken); // Make sure token has user details
 
-            // Optional: Check token expiration
             const currentTime = Date.now() / 1000;
             if (decodedUser.exp && decodedUser.exp < currentTime) {
               console.log("Token expired");
@@ -48,7 +47,7 @@ export function UserContextProvider({ children }) {
             setUser(null);
         }
         }
-        setLoading(false); // Finished initial check
+        setLoading(false); 
         }
     loadToken();
   }, []);
@@ -85,7 +84,8 @@ export function UserContextProvider({ children }) {
         currentBoard: defaultBoardId 
       };
 
-     await api.post(`/user/post`, userDataToSend); 
+     const response = await api.post(`/user/post`, userDataToSend); 
+     return response;
     } catch (err) {
       console.error("UserContext: Error during sign up process:", err.response?.data || err.message || err);
       setUser(null); 
@@ -96,13 +96,13 @@ export function UserContextProvider({ children }) {
   // Login function:
   const signInUser = useCallback(async (loginData) => {
     try {
-      const response = await api.post('/user/login', loginData); // Use your actual API endpoint
+      const response = await api.post('/user/login', loginData); 
       const { token: receivedToken, message } = response.data; // Get token from response
       
       if (receivedToken) {
-        const decodedUser = jwtDecode(receivedToken); // Decode to get user info
+        const decodedUser = jwtDecode(receivedToken); 
 
-       storage.set('authToken', receivedToken); // *** STORE TOKEN ***
+       storage.set('authToken', receivedToken); 
         setToken(receivedToken);
         setUser({
             _id: decodedUser._id,
@@ -116,7 +116,6 @@ export function UserContextProvider({ children }) {
         console.log(message || "Login successful");
         // No need to return anything specific unless your component needs it
       } else {
-         // Handle case where backend sends 200 but no token (shouldn't happen with your code)
          throw new Error("Login successful but no token received.");
       }
 
@@ -125,7 +124,6 @@ export function UserContextProvider({ children }) {
       setToken(null);
       setUser(null);
       delete api.defaults.headers.common['Authorization'];
-      // Re-throw the error so the LoginForm component can catch it and display message
       throw error;
     }
   }, []);
@@ -133,22 +131,19 @@ export function UserContextProvider({ children }) {
   // Logout function
   const signOutUser = () => {
     console.log("Signing out");
-     storage.delete('authToken'); // *** REMOVE TOKEN ***
+     storage.delete('authToken'); 
     setToken(null);
     setUser(null);
     // Remove default header
     delete api.defaults.headers.common['Authorization'];
-    // Optional: Redirect to login page or home page
-    // window.location.href = '/login';
   };
 
   const updateCurrentBoard = async (newCurrentBoard) => {
-    // 1. Validar entradas
-    if (!newCurrentBoard?._id) { // Verifica se newCurrentBoard e seu _id existem
+    if (!newCurrentBoard?._id) { 
       console.warn("updateCurrentBoard chamado sem um newCurrentBoard válido com _id.");
       return;
     }
-    if (!user?._id) { // Verifica se user e seu _id existem
+    if (!user?._id) { 
       console.warn("updateCurrentBoard chamado quando o usuário não está carregado ou não tem _id.");
       return;
     }
@@ -156,48 +151,38 @@ export function UserContextProvider({ children }) {
     const newBoardId = newCurrentBoard._id;
     const userId = user._id;
 
-    // 2. Criar o payload CORRETO para a API (apenas o campo a ser mudado)
+    
     const updatePayload = {
       currentBoard: newBoardId
     };
 
-    // 3. (Opcional, mas bom para UI rápida) Atualizar estado local IMEDIATAMENTE com um NOVO objeto
-    //    Isso faz a UI refletir a mudança antes da confirmação da API.
     const updatedUserObject = {
-        ...user, // Copia todas as propriedades existentes do usuário
-        currentBoard: newBoardId // Sobrescreve apenas o currentBoard
+        ...user, 
+        currentBoard: newBoardId 
     };
-    setUser(updatedUserObject); // Passa um NOVO objeto para setUser
+    setUser(updatedUserObject); 
 
     try {
-      // 4. Chamar a API com o payload correto e a rota correta (ajuste se necessário)
-      //    ASSUMINDO que o backend retorna { message: string, token: string } com um NOVO token
-      const response = await api.patch(`/user/update/${userId}`, updatePayload); // Rota /users/:id como no exemplo anterior
-
+      const response = await api.patch(`/user/update/${userId}`, updatePayload); 
       console.log("Current board update successful on backend:", response.data.message);
 
-      // 5. ATUALIZAR O TOKEN se o backend retornar um novo
       if (response.data && response.data.token) {
           const receivedToken = response.data.token;
-          const decodedUser = jwtDecode(receivedToken); // Decodifica novo token
+          const decodedUser = jwtDecode(receivedToken); 
 
-         storage.set('authToken', receivedToken); // Salva NOVO token
-          setToken(receivedToken); // Atualiza estado do token
+         storage.set('authToken', receivedToken); 
+          setToken(receivedToken); 
 
-          // Re-sincroniza o estado do usuário com base no NOVO token (garante consistência total)
            setUser({
               _id: decodedUser._id,
               name: decodedUser.name,
               email: decodedUser.email,
               type: decodedUser.type,
-              currentBoard: decodedUser.currentBoard // Agora está atualizado pelo novo token
+              currentBoard: decodedUser.currentBoard 
            });
-           // Define o header default com o novo token
            api.defaults.headers.common['Authorization'] = `Bearer ${receivedToken}`;
 
       } else {
-         // Se o backend não retornou um novo token, o estado local já foi atualizado
-         // no passo 3, mas a persistência ao recarregar não funcionará até o próximo login.
          console.warn("Backend did not return a new token after update. Refresh might revert currentBoard.");
       }
 

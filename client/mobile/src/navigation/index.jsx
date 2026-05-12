@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { useUser } from "../contexts/userContext";
 
-import AuthNavigator from "./AuthNavigator";
+import NoAuthNavigator from "./NoAuthNavigator";
 
 export default function Routes() {
   const { user, loading } = useUser();
@@ -10,7 +10,7 @@ export default function Routes() {
 
   return (
     <NavigationContainer>
-       <AuthNavigator />
+       <NoAuthNavigator/>
     </NavigationContainer>
   );
 }
