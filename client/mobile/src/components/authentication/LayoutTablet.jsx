@@ -6,15 +6,15 @@ import { BubblesHalfPage, BGBlueTabletFrame, VivavoxLogo } from '../../assets/it
 export default function TabletLayout({ children }){
     return(
         <View style={styles.container}>
+            <Image 
+                source={BGBlueTabletFrame}
+                style={styles.background}
+            />
+            <Image 
+                source={BubblesHalfPage}
+                style={styles.bubbles}
+             />
             <View style={styles.left}>
-                <Image 
-                    source={BGBlueTabletFrame}
-                    style={styles.background}
-                />
-                <Image 
-                    source={BubblesHalfPage}
-                    style={styles.bubbles}
-                />
                 <Image 
                     source={VivavoxLogo}
                     style={styles.logo}
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         flexDirection: "row",
-        backgroundColor: "#FFF",
     },
 
     left:{
@@ -44,16 +43,18 @@ const styles = StyleSheet.create({
         position: "absolute",
         width: "100%",
         height: "100%",
+        rezideMode: "contain",
     },
 
     bubbles:{
         position: "absolute",
         width: "100%",
         height: "100%",
+        rezideMode: "contain",
     },
 
     logo:{
-        width: 140,
+        width: 200,
         height: 60,
         resizeMode: "contain",
     },

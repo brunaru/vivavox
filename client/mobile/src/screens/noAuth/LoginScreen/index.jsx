@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput, Text, StyleSheet } from "react-native";
 import { useUser } from "../../../contexts/userContext";
 import { useDevice } from "../../../hooks/useDevice";
@@ -33,7 +32,6 @@ export default function LoginScreen () {
     }
 
     return(
-        <SafeAreaView style={{ flex: 1 }}>
           <Layout>
             <AuthForm
                 formText="Entrar"
@@ -71,8 +69,6 @@ export default function LoginScreen () {
                 onPress={() => navigation.navigate("SignUp")}
             />
         </Layout>
-
-        </SafeAreaView>
     );
 }
 
