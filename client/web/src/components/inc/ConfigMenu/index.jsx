@@ -21,7 +21,7 @@ import BoardMenu from '../BoardMenu';
 
 function ConfigMenu() {
   const {configCell, setConfigCell} = useCell();
-  const {board, setBoard, configBoard} = useBoard();
+  const { board, setBoard, configBoard, fetchBoardById } = useBoard();
   const [text, setText] = useState(configCell?.text || '');
   const [color, setColor] = useState(configCell?.color || '#000000');
   const [image, setImage] = useState(configCell?.img || '');
@@ -32,24 +32,8 @@ function ConfigMenu() {
   const { uploadFile, deleteFile } = useS3Upload();
   const [loading, setLoading] = useState(false);
 
-  const getPictogramsByText = useCallback(() => {
-    if(!text.trim()) return;
 
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`https://api.arasaac.org/v1/pictograms/pt/search/${text}`);
-        setPictograms(response.data);
-      } catch(error) {
-        console.log("Error searching for pictograms", error);
-      }
-    };
 
-    // Waits 500ms before fetch:
-    const delay = setTimeout(fetchData, 500);
-
-    // Cancels requisition if 'text' changes before 500ms:
-    return () => clearTimeout(delay);
-  }, [text]);
 
   function isTempUrl(url) {
     return url.startsWith("blob:");
@@ -71,7 +55,9 @@ function ConfigMenu() {
     try {
       if(!configCell) return;
 
-      let finalImageUrl = image;
+      let finalImageUrl = image?.trim()
+      ? image
+      : configCell?.img || "";
 
       // If the user selected a local file (temp URL) → upload it
       if (isTempUrl(image) && selectedFile) {
@@ -94,26 +80,36 @@ function ConfigMenu() {
         if(configCell.indexOnBoard >= board.cells.length) {
           // Creating a NEW userCell:
           try {
+            const finalText = text?.trim() 
+            ? text 
+            : configCell?.text || "";
+
             const cellResponse = await api.post(`/userCell/post`, {
-              originalCellId: configCell?._id || null,
-              text: text,
+              text: finalText,
               img: finalImageUrl,
               color: color
             });
             console.log(cellResponse.data);
+                      
+            setBoard(prev => ({
+              ...prev,
+              cells: [...prev.cells, {
+                _id: cellResponse.data.cell._id,
+                cellType: "userCell"
+              }]
+            }));
 
-            const newUserCell = {
+          // Depois salva no backend
+          await api.patch(`/board/patch/${board._id}`, {
+            ...board,
+            cells: [...board.cells, {
               _id: cellResponse.data.cell._id,
               cellType: "userCell"
-            }
+            }]
+          });
 
-            const updatedBoard = {
-              ...board,
-              cells: [...board.cells, newUserCell]
-            };
-
-            const boardResponse = await api.patch(`/board/patch/${board._id}`, updatedBoard);
-            console.log(boardResponse.data);
+          // (opcional) sincroniza com banco depois
+          await fetchBoardById(board._id);
           }
           catch (error) {
             console.log("Error to create cell: ", error);
@@ -159,16 +155,11 @@ function ConfigMenu() {
 
           const updatedCell = { ...configCell, text: text, color: color, img: finalImageUrl };
           const response = await api.patch(`/userCell/patch/${updatedCell._id}`, updatedCell);
+          await fetchBoardById(board._id);
           console.log("Cell successfully sent to api");
 
           const newCellId = response.data.finalId;
 
-          setBoard((prevBoard) => ({
-            ...prevBoard,
-            cells: prevBoard.cells.map((cell) => 
-              cell._id === updatedCell._id ? { ...cell, _id: newCellId, cellType: "userCell" } : cell
-            )
-          }));
         } else {
           console.log("No change has been made");
         }
@@ -219,6 +210,7 @@ function ConfigMenu() {
         setBoard(newBoard);
 
         const boardResponse = await api.patch(`/board/patch/${board._id}`, newBoard);
+        await fetchBoardById(board._id);
         console.log(boardResponse.data);
 
         } catch (error) {
@@ -228,10 +220,6 @@ function ConfigMenu() {
     }
     setConfigCell(null);
   }
-  
-  useEffect(() => {
-    getPictogramsByText();
-  }, [text, getPictogramsByText]);
 
   return (
     <ConfigMenuContainer>

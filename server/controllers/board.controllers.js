@@ -277,13 +277,3 @@ export async function DeleteBoardByName(req, res) {
     res.send(error.message);
   }
 }
-
-
-
-
-
-
-
-
-
-
