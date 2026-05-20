@@ -1,6 +1,7 @@
 // Images
 export const Seaweed = require('./seaweed.png');
 export const Turtle = require('./turtle.png');
+export const AboutTurtle = require('./turtle-about-mobile.png');
 export const VivavoxLogo = require('./vivavox-logo.png');
 export const BubblesFullPage = {
   mobile: require('./bubbles-mobile.png'),
@@ -17,3 +18,4 @@ export const BGWhiteFrame = {
   tablet: require('./initial-screen-shape-tablet.png'),
 };
 export const BGBlueTabletFrame = require('./bg-login-tablet.png');
+export const BGAboutTabletFrame = require('./bg-about-tablet.png');
