@@ -7,7 +7,7 @@ const cellSchema = new mongoose.Schema({
   img: {
     type: String,
     unique: true,
-    required: true
+    required: false
   },
   color: {
     type: String
