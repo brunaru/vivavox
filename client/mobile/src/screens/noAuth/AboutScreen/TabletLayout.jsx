@@ -1,33 +1,66 @@
 import React from 'react';
 import { View, Image, Pressable, Text, StyleSheet } from 'react-native';
-import { Seaweed, BGAboutTabletFrame , Turtle } from '../../../assets/items';
+import { BubblesHalfPage, Seaweed, BGAboutTabletFrame , Turtle } from '../../../assets/items';
 import { useNavigation } from '@react-navigation/native';
-import AboutText from './TextContent'; 
 
+import AboutText from './components/AboutText'; 
+import TurtleText from './components/TurtleText';
+import RelatedArticles from './components/RelatedArticles';
 
 export default function ContentTablet(){
     const navigation = useNavigation();
+    
     return(
         <View style={styles.container}>
-            <Image source={BGAboutTabletFrame} style={styles.background}/>
+            <Image 
+              source={BGAboutTabletFrame} 
+              style={styles.bg}
+            />
+            <Image
+              source={BubblesHalfPage.tablet}
+              style={styles.bubbles}
+            />
             <View style={styles.left}>
               <View style={styles.top}>
-                <Image source={Turtle} style={styles.turtle}/>
+                <Image 
+                  source={Turtle} 
+                  style={styles.turtle}
+                />
               </View>
               <View style={styles.bottom}>
-                
+                <TurtleText/>
+                <Text style={styles.subtitle}>Artigos relacionados:</Text>
+                <RelatedArticles/>
               </View>
             </View>
-          
             <View style={styles.right}>
-              <View style={styles.contentSection}>
-                <Text style={styles.title}>Conheça mais sobre a plataforma!</Text>
+               <View style={styles.rightTop}>
+                <Image
+                  source={Seaweed}
+                  style={styles.seaweed}
+                />
+               </View>
+               <AboutText/>
+               <View style={styles.buttonsSection}>
+                <Text style={styles.subtitle}>
+                  Gostou da nossa proposta?
+                </Text>
                 <View style={styles.buttons}>
-                  <Pressable style={styles.buttonOutline} onPress={() => navigation.navigate('Login')}>
-                    <Text style={styles.buttonText}>Entrar</Text>
+                  <Pressable 
+                    style={styles.buttonOutline}
+                    onPress={() => navigation.navigate('Login')}
+                  >
+                    <Text style={styles.buttonOutlineText}>
+                      Entrar
+                    </Text>
                   </Pressable>
-                  <Pressable style={styles.buttonFilled}>
-                    <Arrow/>
+                  <Pressable 
+                    style={styles.buttonFilled}
+                    onPress={() => navigation.navigate('SingUp')}
+                  >
+                    <Text style={styles.buttonFilledText}>
+                      Criar conta
+                    </Text>
                   </Pressable>
                 </View>
               </View>
@@ -39,13 +72,52 @@ export default function ContentTablet(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    padding: 40,
+        flexDirection: 'row',
+        padding: 40,
+        backgroundColor: '#fff',
+  },
+  
+  bg:{
+    position: 'absolute',
+      width: '100%',
+      height: '100%',
+      resizeMode: 'cover',
+  },
+
+  bubbles:{
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width:"100%",
+    height: 200,
+    resizeMode: 'contain'
   },
 
   left: {
     flex: 1.3,
     justifyContent: 'center',
+  },
+
+  top: {
+    alignItems: 'center',
+    marginBottom: 40,
+  },
+
+  turtle: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
+  },
+
+  bottom: {
+    paddingHorizontal: 20,
+  },
+
+  sectionTitle: {
+    marginTop: 20,
+    marginBottom: 10,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 
   right: {
@@ -54,47 +126,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  top: {
-    marginTop: 0,
-    marginBottom: 90,
-  },
-  bottom: {
-    marginTop: 20,
+  rightTop: {
+    alignItems: 'center',
+    marginBottom: 40,
   },
 
-  logo: {
-    width: 250,
-    height: 80,
+  seaweed:{
+    width: 500,
+    height: 90,
     resizeMode: 'contain',
   },
 
   subtitle: {
-    color: 'white',
-    marginTop: 10,
-    fontSize: 22,
-    fontWeight: 'bold',
-  },
-
-  turtle: {
-    width: '50%',
-    height: 150,
-    left: '25%',
-    resizeMode: 'contain',
-  },
-
-  title: {
     marginBottom: 10,
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
-  },
-
-  contentSection: {
-    marginLeft: 120,
   },
 
   buttons: {
     flexDirection: 'row',
-    marginRight: 12,
+    marginTop: 10,
   },
 
   buttonOutline: {
@@ -103,18 +154,25 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginRight: 12,
     paddingVertical: 12,
-    paddingHorizontal: 34,
+    paddingHorizontal: 28,
   },
-  buttonText: {
+
+  buttonOutlineText: {
     color: '#0A2E5C',
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
   },
 
   buttonFilled: {
     backgroundColor: '#003466',
     paddingVertical: 12,
-    paddingHorizontal: 44,
+    paddingHorizontal: 28,
     borderRadius: 30,
+  },
+
+  buttonFilledText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
