@@ -12,15 +12,11 @@ export default function Routes() {
 
   useEffect(() => {
     if (isTablet) {
-      Orientation.unlockAllOrientations();
+      Orientation.lockToLandscape();
     } else {
       Orientation.lockToPortrait();
     }
-
-    return () => {
-      Orientation.unlockAllOrientations();
-    };
-  }, [isTablet]);
+  }, []);
   
   if (loading) return null; 
 
