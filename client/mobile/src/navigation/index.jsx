@@ -5,10 +5,12 @@ import { useUser } from "../contexts/userContext";
 import { useDevice } from "../hooks/useDevice";
 
 import NoAuthNavigator from "./NoAuthNavigator";
+import WithAuthNavigator from "./WithAuthNavigator";
 
 export default function Routes() {
   const { user, loading } = useUser();
   const { isTablet } = useDevice();
+  const { isAuthenticated, loading } = useUser();
 
   useEffect(() => {
     if (isTablet) {
@@ -22,7 +24,11 @@ export default function Routes() {
 
   return (
     <NavigationContainer>
-       <NoAuthNavigator/>
+      {isAuthenticated ? (
+        <WithAuthNavigator/>
+      ) : (
+        <NoAuthNavigator/>
+      )}
     </NavigationContainer>
   );
 }
