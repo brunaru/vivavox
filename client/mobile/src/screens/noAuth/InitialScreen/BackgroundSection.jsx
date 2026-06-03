@@ -59,22 +59,22 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     height: '100%',
-    width: '40%',
+    width: '60%',
     resizeMode: 'cover',
   },
   bubblesTablet: {
     position: 'absolute',
     top: 0,
     left: 0,
-    width: '60%',
+    height: '90%',
     resizeMode: 'contain',
   },
 
   seaweedTablet: {
     position: 'absolute',
-    bottom: 0,
+    bottom: "5%",
     left: 0,
-    height: '60%',
+    height: '15%',
     resizeMode: 'contain',
   },
 });

@@ -10,20 +10,29 @@ export default function ContentTablet(){
     return(
         <View style={styles.container}>
             <View style={styles.left}>
-              <Image source={VivavoxLogo} style={styles.logo}/>
-              <Text style={styles.subtitle}>Viva a sua voz.</Text>
-              <Image source={Turtle} style={styles.turtle}/>
+              <View style={styles.top}>
+                <Image source={VivavoxLogo} style={styles.logo}/>
+                <Text style={styles.subtitle}>Viva a sua voz.</Text>
+              </View>
+              <View style={styles.bottom}>
+                <Image source={Turtle} style={styles.turtle}/>
+              </View>
             </View>
           
             <View style={styles.right}>
-              <Text style={styles.title}>Conheça mais sobre a plataforma!</Text>
-              <View style={styles.buttons}>
-                <Pressable style={styles.buttonOutline} onPress={() => navigation.navigate('Login')}>
-                  <Text style={styles.buttonText}>Entrar</Text>
-                </Pressable>
-                <Pressable style={styles.buttonFilled}>
-                  <Arrow/>
-                </Pressable>
+              <View style={styles.contentSection}>
+                <Text style={styles.title}>Conheça mais sobre a plataforma!</Text>
+                <View style={styles.buttons}>
+                  <Pressable style={styles.buttonOutline} onPress={() => navigation.navigate('Login')}>
+                    <Text style={styles.buttonText}>Entrar</Text>
+                  </Pressable>
+                  <Pressable 
+                    style={styles.buttonFilled}
+                    onPress={() => navigation.navigate('About')}  
+                  >
+                    <Arrow/>
+                  </Pressable>
+                </View>
               </View>
             </View>
         </View>
@@ -48,6 +57,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  top: {
+    marginTop: 0,
+    marginBottom: 90,
+  },
+  bottom: {
+    marginTop: 20,
+  },
+
   logo: {
     width: 250,
     height: 80,
@@ -57,17 +74,25 @@ const styles = StyleSheet.create({
   subtitle: {
     color: 'white',
     marginTop: 10,
+    fontSize: 22,
+    fontWeight: 'bold',
   },
 
   turtle: {
-    width: 250,
-    height: 180,
-    marginTop: 40,
+    width: '50%',
+    height: 150,
+    left: '25%',
+    resizeMode: 'contain',
   },
 
   title: {
-    fontSize: 18,
-    marginBottom: 20,
+    marginBottom: 10,
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+
+  contentSection: {
+    marginLeft: 120,
   },
 
   buttons: {
@@ -76,20 +101,23 @@ const styles = StyleSheet.create({
   },
 
   buttonOutline: {
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: '#0A2E5C',
+    borderRadius: 30,
     marginRight: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 34,
+  },
+  buttonText: {
+    color: '#0A2E5C',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 
   buttonFilled: {
-    backgroundColor: '#0A2E5C',
+    backgroundColor: '#003466',
     paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingHorizontal: 44,
+    borderRadius: 30,
   },
 });

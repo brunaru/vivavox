@@ -28,7 +28,10 @@ export default function ContentMobile(){
                     <Pressable style={styles.buttonOutline} onPress={() => navigation.navigate('Login')}>
                         <Text style={styles.buttonText}>Entrar</Text>
                     </Pressable>
-                    <Pressable style={styles.buttonFilled}>
+                    <Pressable 
+                      style={styles.buttonFilled}
+                      onPress={() => navigation.navigate('About')}
+                    >
                         <Arrow/>
                     </Pressable>
                 </View>
