@@ -46,7 +46,7 @@ export default function LibraryHeader({
                   source={isTablet ? BubblesHalfPage.tablet : BubblesHalfPage.mobile}
                   style={styles.bubbles}
                 />
-                <View style={styles.topHeaderContent}>
+                <View style={[styles.topHeaderContent, isTablet && styles.topHeaderContentTablet]}>
                   <View>
                     <Text style={styles.title}>Biblioteca</Text>
                   </View>
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   containerTablet: {
-    paddingHorizontal: 40,
+    paddingBottom: 40,
   },
   shadow: {
     elevation: 4,
@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
   topHeader: {
     height: 130,
     justifyContent: 'center',
-    paddingHorizontal: 20,
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
     overflow: 'hidden'
@@ -134,10 +133,19 @@ const styles = StyleSheet.create({
   topHeaderTablet: {
     height: 160,
     borderBottomRightRadius: 120,
+    borderBottomLeftRadius: 120,
+    overflow: 'hidden'
   },
   topHeaderContent:{
     flexDirection: 'row',
-    gap: 150
+    gap: 100,
+    paddingHorizontal: 40,
+    justifyContent: 'center'
+  },
+  topHeaderContentTablet:{
+    flexDirection: 'row',
+    gap: 100,
+    paddingHorizontal: 40
   },
   bubbles:{
     position: 'absolute',
@@ -159,7 +167,8 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     flexDirection: 'row',
-    gap: 10
+    gap: 10,
+    justifyContent: 'center'
   },
   searchLeft:{
     marginTop: -25,
@@ -174,7 +183,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E5E5E5',
     borderRadius: 20,
     paddingHorizontal: 10,
-    width: '40',
+    width: 40,
     height: 40,
     justifyContent: 'center'
   },
@@ -197,6 +206,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     height: 30,
     justifyContent: 'center',
+    position: 'relative',
   },
 
   dropdownText: {
@@ -218,6 +228,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     opacity: 0,
+    zIndex: 10,
   },
   label: {
     fontSize: 15,

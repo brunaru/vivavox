@@ -8,9 +8,8 @@ import NoAuthNavigator from "./NoAuthNavigator";
 import WithAuthNavigator from "./WithAuthNavigator";
 
 export default function Routes() {
-  const { user, loading } = useUser();
+  const { user, loading, isAuthenticated } = useUser();
   const { isTablet } = useDevice();
-  const { isAuthenticated, loading } = useUser();
 
   useEffect(() => {
     if (isTablet) {
