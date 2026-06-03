@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
         height: 200,
         top: 0,
         justifyContent: 'center',
-        paddingHorizontal: 20,
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
         overflow: 'hidden' 

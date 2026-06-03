@@ -6,10 +6,10 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import LinearGradient from "react-native-linear-gradient";
 import {
   BubblesHalfPage,
   Seaweed,
-  BGAboutTabletFrame,
   Turtle,
 } from '../../../assets/items';
 import { useNavigation } from '@react-navigation/native';
@@ -23,30 +23,29 @@ export default function ContentTablet() {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={BGAboutTabletFrame}
+      <LinearGradient
+        colors={['#031B45', '#003466', '#0a4780', '#026783', '#0388C2']}
         style={styles.bg}
-      />
-
+      >
       <Image
         source={BubblesHalfPage.tablet}
         style={styles.bubbles}
       />
-
+      </LinearGradient>
       <View style={styles.content}>
         <View style={styles.left}>
-          <View style={styles.top}>
-            <Image
-              source={Turtle}
-              style={styles.turtle}
-            />
-          </View>
+            <View style={styles.top}>
+              <Image
+                source={Turtle}
+                style={styles.turtle}
+              />
+            </View>
 
-          <View style={styles.bottom}>
-            <TurtleText />
-            <Text style={styles.subtitle}>Artigos relacionados:</Text>
-            <RelatedArticles />
-          </View>
+            <View style={styles.bottom}>
+              <TurtleText />
+              <Text style={styles.subtitle}>Artigos relacionados:</Text>
+              <RelatedArticles />
+            </View>
         </View>
 
         <View style={styles.right}>
@@ -57,7 +56,7 @@ export default function ContentTablet() {
             />
           </View>
 
-          <AboutText />
+          <AboutText style={{ marginBottom: 10}}/>
 
           <View style={styles.buttonsSection}>
             <Text style={styles.subtitle}>
@@ -98,40 +97,43 @@ const styles = StyleSheet.create({
   },
 
   bg: {
-    position: 'absolute',
-    justifyContent: 'flex-start',
-    top: 0,
-    left: 0,
-    bottom: 0,
+    flex: 0.20,
     width: '100%',
-    height: 250,
-    resizeMode: 'stretch'
+    height: 150,
+    top: 0,
+    justifyContent: 'center',
+    borderBottomLeftRadius: 100,
+    borderBottomRightRadius: 100,
+    overflow: 'hidden' 
   },
 
   content: {
-    flex: 1,
-    flexDirection: 'row',
+    flex: 0.7,
+    justifyContent: "flex-start",
+    marginTop: -200,
+    paddingHorizontal: 20,
+    flexDirection: 'row'
   },
 
   bubbles: {
     position: 'absolute',
-    top: 0,
+    top: 50,
     left: 0,
-    width: '80%',
-    height: 100,
+    width: '50%',
+    height: '100%',
     resizeMode: 'contain',
   },
 
   left: {
-    flex: 1.2,
-    justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'flex-start',
     padding: 40,
     overflow: 'hidden',
   },
 
   top: {
     alignItems: 'center',
-    marginBottom: 50,
+    marginBottom: 30,
   },
 
   turtle: {
@@ -142,10 +144,11 @@ const styles = StyleSheet.create({
 
   bottom: {
     paddingHorizontal: 20,
+    gap: 10,
   },
 
   sectionTitle: {
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 30,
     fontSize: 16,
     fontWeight: 'bold',
@@ -153,26 +156,30 @@ const styles = StyleSheet.create({
 
   right: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
 
   rightTop: {
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 80,
   },
 
   seaweed: {
-    width: 500,
+    top: 20,      
+    right: 0,     
+    width: 700,
     height: 90,
     resizeMode: 'contain',
   },
 
   buttonsSection: {
-    marginTop: 20,
+    marginTop: 10,
+    justifyContent: 'center'
   },
 
   subtitle: {
+    marginTop: 20,
     marginBottom: 10,
     fontSize: 16,
     fontWeight: 'bold',
@@ -180,7 +187,7 @@ const styles = StyleSheet.create({
 
   buttons: {
     flexDirection: 'row',
-    marginTop: 10,
+    marginTop: 5,
   },
 
   buttonOutline: {
