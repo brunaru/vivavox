@@ -2,6 +2,7 @@ import React from "react";
 import LinearGradient from "react-native-linear-gradient";
 import { View, Text, Image, StyleSheet, ScrollView, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useDevice } from '../../../hooks/useDevice';
 
 import { AboutTurtle, Seaweed, BubblesHalfPage } from "../../../assets/items";
 
@@ -11,6 +12,7 @@ import RelatedArticles from "./components/RelatedArticles";
 
 export default function ContentMobile(){
     const navigation = useNavigation();
+    const { isTablet, isLandscape } = useDevice();
 
     return(
         <ScrollView style={styles.container}>
@@ -18,14 +20,16 @@ export default function ContentMobile(){
                 colors={['#031B45', '#003466', '#0a4780', '#026783', '#0388C2']}
                 style={styles.bg}
             >
-                <Image
-                  source={BubblesHalfPage.mobile}
-                  style={styles.bubbles}
-                />
-                <Image
-                    source={Seaweed} 
-                    style={styles.seaweed}
-                />
+                <View style={styles.bgItemsSection}>
+                    <Image
+                    source={BubblesHalfPage.mobile}
+                    style={styles.bubbles}
+                    />
+                    <Image
+                        source={Seaweed} 
+                        style={styles.seaweed}
+                    />
+                </View>
             </LinearGradient>
             <View style={styles.content}>
                 <AboutText/>
@@ -36,27 +40,33 @@ export default function ContentMobile(){
                     />
                 </View>
                 <TurtleText/>
-                <Text style={styles.subtitle}>Gostou da nossa proposta?</Text>
-                <Pressable
-                    style={styles.button}
-                    onPress={() => navigation.navigate('Login')}
+                <View
+                style={[
+                    isTablet && !isLandscape && { paddingHorizontal: 24 }
+                ]}
                 >
-                    <Text style={styles.buttonText}>Entrar</Text>
-                </Pressable>
-                <View style={styles.linkContainer}>
-                    <Text style={styles.normalText}>
-                        Ainda não tem uma conta?
-                    </Text>
-
-                    <Pressable 
-                        android_ripple={{ color: '#ccc' }}
-                        onPress={() => navigation.navigate('SignUp')}
+                    <Text style={styles.subtitle}>Gostou da nossa proposta?</Text>
+                    <Pressable
+                        style={styles.button}
+                        onPress={() => navigation.navigate('Login')}
                     >
-                        <Text style={styles.link}>Criar uma conta</Text>
+                        <Text style={styles.buttonText}>Entrar</Text>
                     </Pressable>
+                    <View style={styles.linkContainer}>
+                        <Text style={styles.normalText}>
+                            Ainda não tem uma conta?
+                        </Text>
+
+                        <Pressable 
+                            android_ripple={{ color: '#ccc' }}
+                            onPress={() => navigation.navigate('SignUp')}
+                        >
+                            <Text style={styles.link}>Criar uma conta</Text>
+                        </Pressable>
+                    </View>
+                    <Text style={styles.subtitle}>Artigos relacionados:</Text>
+                    <RelatedArticles/>
                 </View>
-                <Text style={styles.subtitle}>Artigos relacionados:</Text>
-                <RelatedArticles/>
             </View>
         </ScrollView>
     );
@@ -75,6 +85,9 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
         overflow: 'hidden' 
+    },
+    bgItemsSection:{
+        alignItems: 'center', 
     },
     bubbles:{
         position: 'absolute',

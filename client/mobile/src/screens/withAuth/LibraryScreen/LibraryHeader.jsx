@@ -1,6 +1,5 @@
 import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 import { Picker } from '@react-native-picker/picker'
-import { useState } from 'react'
 import LinearGradient from 'react-native-linear-gradient'
 
 import { useBoard } from '../../../contexts/boardContext' 
@@ -23,8 +22,9 @@ export default function LibraryHeader({
   hasShadow 
 }){
     const { board, categorizedBoards } = useBoard();
-    const { isTablet } = useDevice();
+    const { isTablet, isIOS } = useDevice();
     const categories = Object.keys(categorizedBoards || {});
+
     const handleSearch = () => {
       setSearch(searchInput);
     }
@@ -50,7 +50,7 @@ export default function LibraryHeader({
                   <View>
                     <Text style={styles.title}>Biblioteca</Text>
                   </View>
-                  <View style={styles.topHeaderRight}>
+                  <View>
                     <Image
                       source={Turtle}
                       style={styles.turtle}
@@ -76,34 +76,59 @@ export default function LibraryHeader({
                 </TouchableOpacity>
               </View>
             </View>
+
             <View style={styles.filterContainer}>
               <Text style={styles.label}>
                 Selecionar categorias:
               </Text>
-              <View style={styles.dropdownBox}>
-                <Text style={styles.dropdownText}>
-                  {selectedCategory === 'all'
-                    ? 'Todas'
-                    : capitalize(selectedCategory)}
-                </Text>
-                <Text style={styles.arrow}>⌄</Text>
-                <Picker
-                  selectedValue={selectedCategory}
-                  onValueChange={(itemValue) => setSelectedCategory(itemValue)}
-                  style={styles.hiddenPicker}
-                >
-                  <Picker.Item label="Todas" value="all" />
-                  {categories.map((cat) => (
-                    <Picker.Item
-                      key={cat}
-                      label={capitalize(cat)}
-                      value={cat}
-                    />
-                  ))}
-                </Picker>
-              </View>
 
+              {isIOS ? (
+                <View style={styles.iosPickerWrapper}>
+                  <Picker
+                    selectedValue={selectedCategory}
+                    onValueChange={(itemValue) => setSelectedCategory(itemValue)}
+                    style={styles.iosPicker}
+                    itemStyle={{ fontSize: 16, fontWeight: '500' }}
+                  >
+                    <Picker.Item label="Todas" value="all" />
+                    {categories.map((cat) => (
+                      <Picker.Item
+                        key={cat}
+                        label={capitalize(cat)}
+                        value={cat}
+                      />
+                    ))}
+                  </Picker>
+                  <Text style={styles.iosArrow}>⇅</Text>
+                </View>
+              ) : (
+                <View style={styles.dropdownBox}>
+                  <Text style={styles.dropdownText}>
+                    {selectedCategory === 'all'
+                      ? 'Todas'
+                      : capitalize(selectedCategory)}
+                  </Text>
+
+                  <Text style={styles.arrow}>⌄</Text>
+
+                  <Picker
+                    selectedValue={selectedCategory}
+                    onValueChange={(itemValue) => setSelectedCategory(itemValue)}
+                    style={styles.hiddenPicker}
+                  >
+                    <Picker.Item label="Todas" value="all" />
+                    {categories.map((cat) => (
+                      <Picker.Item
+                        key={cat}
+                        label={capitalize(cat)}
+                        value={cat}
+                      />
+                    ))}
+                  </Picker>
+                </View>
+              )}
             </View>
+
             <View style={styles.currentBoardContainer}>
                 <Text style={styles.sectionTitle}>Prancha atual:</Text>
                 <BoardPreview board={board} />
@@ -208,44 +233,43 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'relative',
   },
-
   dropdownText: {
     fontSize: 14,
     marginRight: 10
   },
-
   arrow: {
     position: 'absolute',
     right: 8,
     fontSize: 14,
-    marginLeft: 5,
     top: 0,
     fontWeight: '500'
   },
-
   hiddenPicker: {
     position: 'absolute',
     width: '100%',
     height: '100%',
     opacity: 0,
-    zIndex: 10,
   },
+  iosPickerWrapper: {
+    flex: 1,
+    backgroundColor: '#E5E5E5',
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#999',
+    height: 40,
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  iosArrow: {
+    position: 'absolute',
+    right: 10,
+    alignSelf: 'center',
+    fontSize: 18,
+  },
+    
   label: {
     fontSize: 15,
     fontWeight: '500',
-    marginBottom: 5,
-  },
-  pickerWrapper: {
-    backgroundColor: '#FFF',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#000',
-    flexDirection: 'row',
-    overflow: 'hidden',
-  },
-  picker: {
-    height: 15,
-    width: 40
   },
   currentBoardContainer: {
     marginTop: 20,

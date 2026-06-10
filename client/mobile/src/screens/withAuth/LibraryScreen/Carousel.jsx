@@ -7,12 +7,16 @@ function capitalize(text) {
 }
 
 export default function LibraryCarousel({ title, boards = [] }) {
-  const { isTablet } = useDevice();
-  const { width } = Dimensions.get('window');
+  const { isTablet, width, height, isLandscape } = useDevice();
 
-  const ITEM_WIDTH = isTablet ? width * 0.18 : width * 0.35;
-  const ITEM_HEIGHT = isTablet ? 180 : 140;
-  const SPACING = isTablet ? 20 : 10;
+  const ITEM_WIDTH = isTablet
+    ? isLandscape
+      ? width * 0.15   
+      : width * 0.23   
+      : width * 0.45;
+    
+  const ITEM_HEIGHT = isTablet ? 160 : 140;
+  const SPACING = isTablet ? 10 : 10;
 
   if (!boards || boards.length === 0) return null;
 
@@ -20,7 +24,7 @@ export default function LibraryCarousel({ title, boards = [] }) {
     <View style={{ marginBottom: 24 }}>
       <Text
         style={{
-          fontSize: isTablet ? 20 : 16,
+          fontSize: isTablet ? 18 : 16,
           fontWeight: 'bold',
           marginBottom: 12,
           marginLeft: 20,
@@ -34,7 +38,7 @@ export default function LibraryCarousel({ title, boards = [] }) {
         horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => item._id || index.toString()}
-        contentContainerStyle={{ paddingHorizontal: 20 }}
+        contentContainerStyle={{ paddingHorizontal: 10 }}
         ItemSeparatorComponent={() => <View style={{ width: SPACING }} />}
         renderItem={({ item }) => (
           <View
@@ -47,8 +51,6 @@ export default function LibraryCarousel({ title, boards = [] }) {
           >
             <BoardPreview
               board={item}
-              width={ITEM_WIDTH * 0.9}
-              height={ITEM_HEIGHT * 0.9}
             />
           </View>
         )}

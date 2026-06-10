@@ -12,7 +12,7 @@ export default function App() {
     <SafeAreaProvider>
       <UserContextProvider>
         <BoardContextProvider>
-          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <StatusBar barStyle={'light-content'}/>
           <Routes/>
         </BoardContextProvider>  
       </UserContextProvider>

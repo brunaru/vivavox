@@ -4,7 +4,7 @@ import ContentTablet from './TabletLayout';
 import { useDevice } from '../../../hooks/useDevice';
 
 export default function AboutScreen(){
-    const { isTablet } = useDevice();
+    const { isTablet, isLandscape } = useDevice();
 
-    return isTablet ? <ContentTablet /> : <ContentMobile />;
+    return isTablet && isLandscape ? <ContentTablet /> : <ContentMobile />;
 }

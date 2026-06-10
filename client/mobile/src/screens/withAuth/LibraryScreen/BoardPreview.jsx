@@ -20,8 +20,8 @@ export default function BoardPreview({ board, width, height }){
         style={[
             styles.container,
             {
-            width: width || (isTablet ? 160 : 120),
-            height: height || (isTablet ? 140 : 110),
+            width: width || (isTablet ? 160 : 140),
+            height: height || (isTablet ? 140 : 125),
             },
         ]}
         activeOpacity={0.8}

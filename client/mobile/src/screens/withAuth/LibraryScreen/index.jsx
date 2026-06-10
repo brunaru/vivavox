@@ -64,7 +64,5 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 30,
   },
-  scrollTablet: {
-    paddingHorizontal: 40, 
-  },
+  
 });

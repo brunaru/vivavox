@@ -3,6 +3,7 @@ import Orientation from "react-native-orientation-locker";
 import { NavigationContainer } from "@react-navigation/native";
 import { useUser } from "../contexts/userContext";
 import { useDevice } from "../hooks/useDevice";
+import { SidebarProvider } from "../contexts/sideBarContext"
 
 import NoAuthNavigator from "./NoAuthNavigator";
 import WithAuthNavigator from "./WithAuthNavigator";
@@ -23,11 +24,13 @@ export default function Routes() {
 
   return (
     <NavigationContainer>
-      {isAuthenticated ? (
-        <WithAuthNavigator/>
-      ) : (
-        <NoAuthNavigator/>
-      )}
+      <SidebarProvider>
+        {isAuthenticated ? (
+          <WithAuthNavigator/>
+        ) : (
+          <NoAuthNavigator/>
+        )}
+      </SidebarProvider>
     </NavigationContainer>
   );
 }
