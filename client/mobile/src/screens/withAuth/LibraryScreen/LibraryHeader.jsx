@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient'
 
 import { useBoard } from '../../../contexts/boardContext' 
 import { useDevice } from '../../../hooks/useDevice'
-import BoardPreview from './BoardPreview'
+import BoardPreview from '../../../components/board/BoardPreview'
 import { BubblesHalfPage, Turtle } from '../../../assets/items'
 import SearchIcon from '../../../svg/search'
 

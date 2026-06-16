@@ -1,6 +1,6 @@
 import { View, Text, Dimensions, FlatList } from 'react-native';
 import { useDevice } from '../../../hooks/useDevice';
-import BoardPreview from './BoardPreview';
+import BoardPreview from '../../../components/board/BoardPreview';
 
 function capitalize(text) {
   return text.charAt(0).toUpperCase() + text.slice(1);

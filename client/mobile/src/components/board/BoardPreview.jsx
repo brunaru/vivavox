@@ -1,9 +1,9 @@
 import { TouchableOpacity, View, StyleSheet } from "react-native";
-import { useUser } from '../../../contexts/userContext'
-import { useDevice } from '../../../hooks/useDevice'
+import { useUser } from '../../contexts/userContext'
+import { useDevice } from '../../hooks/useDevice'
 
-import CellText from "../../../components/cell/CellText";
-import Symbol from "../../../components/symbol";
+import CellText from "../cell/CellText";
+import Symbol from "../symbol";
 
 export default function BoardPreview({ board, width, height }){
     const { updateCurrentBoard } = useUser();
