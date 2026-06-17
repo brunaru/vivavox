@@ -10,7 +10,7 @@ export default function SideBar(){
 
     const MENU_ITEMS = [
         { icon: HomeIcon, label: 'Biblioteca', route: 'Library' },
-        { icon: BoardIcon, label: 'Pranchas', route: 'Boards' },
+        { icon: BoardIcon, label: 'Pranchas', route: 'Board' },
         { icon: AboutIcon, label: 'Sobre', route: 'About' },
         { icon: PersonIcon, label: 'Perfil', route: 'Login' },
         { icon: SettingsIcon, label: 'Configurações', route: 'SignUp' },

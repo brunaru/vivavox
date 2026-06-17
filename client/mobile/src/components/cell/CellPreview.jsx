@@ -5,7 +5,7 @@ import { useCell } from "../../contexts/cellContext"
 import Symbol from "../symbol"
 
 //if yiu are editing the empty cells will have a + symbol
-export default function CellPreview({ index }){
+export default function CellPreview({ index, size }){
     const { editing, configCell, setConfigCell } = useCell();
     
     function openConfigMenu(){
@@ -19,7 +19,15 @@ export default function CellPreview({ index }){
 
     return(
         <Pressable onPress={openConfigMenu}>
-            <View style={styles.container}>
+            <View 
+            style={[
+            styles.container,
+            {
+                width: size,
+                height: size,
+            },
+          editing && styles.editing,
+        ]}>
                 {editing && (
                     <Symbol source="https://static.arasaac.org/pictograms/3220/3220_300.png"/>
                 )}
@@ -33,8 +41,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     borderRadius: 8,
-    width: 120,
-    height: 100,
     justifyContent: "center",
     alignItems: "center",
     elevation: 2,

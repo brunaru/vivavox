@@ -13,7 +13,7 @@ export default function BoardLibrary({ search, selectedCategory }) {
 
   useEffect(() => {
     fetchCategorizedBoards();
-  }, [fetchCategorizedBoards]);
+  }, []);
 
   if (isLoadingCategorized) return <Text>Carregando...</Text>;
   if (categorizedError) return <Text>Erro: {categorizedError}</Text>;

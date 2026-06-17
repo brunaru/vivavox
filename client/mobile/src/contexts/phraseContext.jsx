@@ -1,10 +1,21 @@
-import { createContext, useContext, useState } from 'react';
-import * as Speech from 'expo-speech';
+import { createContext, useContext, useState, useEffect } from 'react';
+import Tts from 'react-native-tts';
 
 const PhraseContext = createContext();
 
 export function PhraseContextProvider({ children }) {
   const [words, setWords] = useState([]);
+
+  useEffect(() => {
+  Tts.getInitStatus()
+    .then(() => {
+      Tts.setDefaultLanguage('pt-BR');
+      Tts.setDefaultRate(0.5, true);
+    })
+    .catch((err) => {
+      console.log('TTS init error:', err);
+    });
+}, []);
 
   function addWord(word) {
     setWords((prev) => [...prev, word]);
@@ -24,19 +35,17 @@ export function PhraseContextProvider({ children }) {
 
   function speech() {
     const phrase = getPhrase();
-
     if (!phrase) return;
 
-    Speech.speak(phrase, {
-      language: 'pt-BR',
-    });
+    Tts.stop(); 
+    Tts.speak(phrase);
   }
 
   return (
     <PhraseContext.Provider
       value={{
         words,
-        setWords,       
+        setWords,
         currentPhrase: getPhrase(),
         addWord,
         deleteWord,

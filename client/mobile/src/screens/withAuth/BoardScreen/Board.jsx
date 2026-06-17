@@ -1,16 +1,17 @@
-import React, { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
+import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import { View, FlatList, StyleSheet, Text } from "react-native";
 
-import { useCell } from "../../contexts/CellContext";
-import { useBoard } from "../../contexts/BoardContext";
-import { useDevice } from "../../hooks/useDevice";
+import { useBoard } from "../../../contexts/boardContext";
+import { useSidebar } from "../../../contexts/sideBarContext"
+import { useDevice } from "../../../hooks/useDevice";
 
-import Cell from "../Cell";
-import CellPreview from "../CellPreview";
+import Cell from "../../../components/cell/Cell";
+import CellPreview from "../../../components/cell/CellPreview";
 
 const Board = forwardRef((props, ref) => {
-  const { board, fetchCategorizedBoards } = useBoard();
-  const { isTablet, width } = useDevice();
+  const { board } = useBoard();
+  const { isTablet, isLandscape, width } = useDevice();
+  const { isSidebarOpen } = useSidebar();
 
   const cellRefs = useRef([]);
 
@@ -20,10 +21,6 @@ const Board = forwardRef((props, ref) => {
     },
   }));
 
-  useEffect(() => {
-    fetchCategorizedBoards();
-  }, []);
-
   if (!board || !board.dimensions) {
     return (
       <View style={styles.center}>
@@ -32,32 +29,56 @@ const Board = forwardRef((props, ref) => {
     );
   }
 
-  const numColumns = isTablet ? board.dimensions[1] : 2;
+  let numColumns;
+  let horizontalPadding;
+  if (isTablet && isLandscape) {
+    numColumns = 5;
+    horizontalPadding = 17;
+  } else if (isTablet && !isLandscape) {
+    numColumns = 4;
+    horizontalPadding = 20;
+  } else {
+    numColumns = 2;
+    horizontalPadding = 15;
+  }
 
-  const horizontalPadding = 20;
-  const gap = 10;
+  const gap = 10; 
 
-  const cellSize =
-    (width - horizontalPadding - gap * (numColumns - 1)) / numColumns;
+  const totalGap = gap * (numColumns - 1);
+  const availableWidth = width - horizontalPadding;
+
+  const cellSize = ((availableWidth - totalGap) / numColumns) - horizontalPadding;
 
   return (
     <FlatList
+      key={numColumns} 
+      style={{ flex: 1 }} 
       data={Array.from({ length: board.numCells })}
       keyExtractor={(_, index) => index.toString()}
       numColumns={numColumns}
-      contentContainerStyle={styles.container}
-      columnWrapperStyle={{ gap }}
+      showsVerticalScrollIndicator={true}
+      contentContainerStyle={styles.listContent}
       renderItem={({ index }) => {
         const cellData = board.cells?.[index];
 
+        const isLastColumn = (index + 1) % numColumns === 0;
+
         return (
-          <View style={{ width: cellSize, height: cellSize }}>
+          <View
+            style={{
+              width: cellSize,
+              height: cellSize,
+              marginLeft: isTablet ? 0 : gap,
+              marginRight: isTablet && isLastColumn ? 0 : gap,
+              marginBottom: gap,
+            }}
+          >
             {cellData ? (
               <Cell
                 ref={(el) => (cellRefs.current[index] = el)}
                 index={index}
                 cell={cellData}
-                size={cellSize} 
+                size={cellSize}
               />
             ) : (
               <CellPreview index={index} size={cellSize} />
@@ -72,9 +93,10 @@ const Board = forwardRef((props, ref) => {
 export default Board;
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 10,
-    gap: 10,
+  listContent: {
+    paddingHorizontal: 10,
+    paddingTop: 10,
+    paddingBottom: 20,
   },
 
   center: {

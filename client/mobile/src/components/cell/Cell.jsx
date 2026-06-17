@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from "react";
 import { Pressable, StyleSheet, Animated } from 'react-native';
 
 import CellText from "./CellText";
-import Symbol from "../Symbol";
+import Symbol from "../symbol";
 
 import { useCell } from "../../contexts/cellContext";
 import { usePhrase } from "../../contexts/phraseContext";

@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LibraryScreen from '../screens/withAuth/LibraryScreen';
 import AboutScreen from '../screens/noAuth/AboutScreen';
+import BoardScreen from '../screens/withAuth/BoardScreen'
 import AppLayout from "./AppNavigationLayout"
 const Stack = createNativeStackNavigator();
 
@@ -11,6 +12,13 @@ export default function WithAuthNavigator(){
               {() => (
                 <AppLayout>
                   <LibraryScreen />
+                </AppLayout>
+              )}
+            </Stack.Screen>
+            <Stack.Screen name='Board'>
+              {() => (
+                <AppLayout>
+                  <BoardScreen />
                 </AppLayout>
               )}
             </Stack.Screen>

@@ -1,6 +1,8 @@
-import { TouchableOpacity, View, StyleSheet } from "react-native";
+import { Pressable, View, StyleSheet } from "react-native";
 import { useUser } from '../../contexts/userContext'
+import { useBoard } from '../../contexts/boardContext'
 import { useDevice } from '../../hooks/useDevice'
+import { useNavigation } from '@react-navigation/native'
 
 import CellText from "../cell/CellText";
 import Symbol from "../symbol";
@@ -8,6 +10,8 @@ import Symbol from "../symbol";
 export default function BoardPreview({ board, width, height }){
     const { updateCurrentBoard } = useUser();
     const { isTablet } = useDevice();
+    const { fetchBoardById } = useBoard();
+    const navigation = useNavigation();
     console.log("IMG PREVIEW:", board?.imgPreview);
     if(!board || !board.cells){
         return <View style={[styles.container, { width, height }]}></View>
@@ -15,17 +19,24 @@ export default function BoardPreview({ board, width, height }){
 
     const hasContent = board.cells.length > 0
 
+    function handlePress() {
+        updateCurrentBoard(board);
+        fetchBoardById(board._id); 
+        navigation.navigate("Board");
+    }
+
     return(
-        <TouchableOpacity
-        style={[
-            styles.container,
-            {
-            width: width || (isTablet ? 160 : 140),
-            height: height || (isTablet ? 140 : 125),
-            },
-        ]}
-        activeOpacity={0.8}
-        onPress={() => updateCurrentBoard(board)}
+        <Pressable
+            style={({ pressed }) => [
+                styles.container,
+                {
+                width: width || (isTablet ? 160 : 140),
+                height: height || (isTablet ? 140 : 125),
+                },
+                pressed && {transform: [{ scale: 0.97 }]}
+            ]}
+            activeOpacity={0.8}
+            onPress={handlePress}
         >
         <View style={styles.content}>
             <Symbol source={hasContent ? board.imgPreview : null} />
@@ -35,7 +46,7 @@ export default function BoardPreview({ board, width, height }){
             fontSize={isTablet ? 16 : 14}
             />
         </View>
-        </TouchableOpacity>
+        </Pressable>
     );
 }
 

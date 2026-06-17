@@ -103,6 +103,7 @@ export function BoardContextProvider({ children }) {
       setConfigBoard,
       categorizedBoards,
       fetchCategorizedBoards,
+      fetchBoardById,
       isLoadingUserBoard, 
       userBoardError,     
       isLoadingCategorized, 
