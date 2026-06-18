@@ -8,17 +8,16 @@ import {
 import { useBoard } from '../../../contexts/BoardContext';
 
 function BoardLibrary() {
-  const {categorizedBoards, fetchCategorizedBoards, isLoading, error} = useBoard();
+  const {
+    categorizedBoards,
+    fetchCategorizedBoards,
+    isLoadingCategorized,
+    categorizedError
+  } = useBoard();  
   const libraryRef = useRef(null);
   const [hasShadow, setHasShadow] = useState(false);
 
-  const categoriesToDisplay = [
-    { key: 'core', title: 'Core words' },
-    { key: 'animal', title: 'Animais' },
-    { key: 'feeling', title: 'Sentimentos' },
-    { key: 'default', title: 'Padrão' },
-    { key: 'starter', title: 'Inicial' },
-  ]
+ 
 
   useEffect(() => {
       fetchCategorizedBoards();
@@ -44,39 +43,35 @@ function BoardLibrary() {
   }, []);
 
   const renderContent = () => {
-    if (isLoading) {
+
+    if (isLoadingCategorized) {
       console.log("Renderizando: Estado de Carregamento");
       return <p>Carregando...</p>; // Certifique-se que está retornando aqui!
     }
 
-    if (error) {
+    if (categorizedError) {
       console.log("Renderizando: Estado de Erro");
       // return <ErrorMessage>Erro: {error}</ErrorMessage>; // Use seu componente
       return <p style={{ color: 'red' }}>Erro ao carregar: {error}</p>;
     }
 
     // Mapeia a lista definida 'categoriesToDisplay'
-    const carousels = categoriesToDisplay.map(({ key, title }) => {
-      // Pega os boards para a chave atual (ex: 'animal') do objeto vindo do contexto
-      const boardsForCategory = categorizedBoards[key];
+    const carousels = Object.entries(categorizedBoards)
+    .map(([key, boards]) => {
+      if (!boards || boards.length === 0) return null;
 
-      // Renderiza o Carousel APENAS se a categoria existir nos dados
-      // E se tiver pelo menos um board nela
-      if (boardsForCategory && boardsForCategory.length > 0) {
-        return (
-          <Carousel
-            key={key}                  // Chave única (pode usar 'key' ou 'title')
-            title={title}              // O título que definimos para exibição
-            boards={boardsForCategory} // O array de boards para esta categoria
-          />
-        );
-      }
-      // Se a categoria não existir nos dados ou estiver vazia, não renderiza nada para ela
-      return null;
+      return (
+        <Carousel
+          key={key}
+          title={key}
+          boards={boards}
+        />
+      );
     })
+    
     .filter(Boolean); // Remove os 'null' da lista de carrosséis
+    console.log("breakpoint", carousels.length);
 
-    // Verifica se algum carrossel foi renderizado
     if (carousels.length === 0) {
         return <p>Nenhuma prancha encontrada nas categorias selecionadas.</p>;
     }
