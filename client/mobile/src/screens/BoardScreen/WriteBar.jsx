@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Draggable, Droppable } from "react-native-reanimated-dnd";
 import { usePhrase } from "../../contexts/phraseContext";
+import { useDevice } from "../../hooks/useDevice"
 
 export default function WriteBar() {
+  const { isTablet } = useDevice();
   const { words, setWords } = usePhrase();
   const [isDragging, setIsDragging] = useState(false);
 
@@ -35,9 +37,6 @@ export default function WriteBar() {
         ) : (
           <View style={styles.wordsContainer}>
             {words.map((word, index) => {
-              // A chave precisa ser única e atrelada à palavra para o DND não se perder.
-              // Se houver palavras repetidas, o ideal é mudar seu context para usar objetos com IDs gerados (ex: { id: '123', text: 'eu' }).
-              // Como estamos usando strings, mesclar a palavra com o índice força o React a recriar o nó corretamente no reordenamento.
               const uniqueId = `word-${word}-${index}`;
 
               return (
@@ -65,7 +64,7 @@ export default function WriteBar() {
                     onDragEnd={() => setIsDragging(false)}
                   >
                     <View style={styles.word}>
-                      <Text style={styles.text}>{word}</Text>
+                      <Text style={isTablet ? styles.textTablet : styles.text}>{word}</Text>
                     </View>
                   </Draggable>
                 </Droppable>
@@ -95,7 +94,7 @@ export default function WriteBar() {
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 70,
+    minHeight: 50,
     backgroundColor: "#fff",
     borderRadius: 12,
     padding: 10,
@@ -128,6 +127,10 @@ const styles = StyleSheet.create({
   },
 
   text: {
+    fontSize: 14,
+    color: "#000",
+  },
+  textTablet: {
     fontSize: 16,
     color: "#000",
   },

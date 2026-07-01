@@ -1,39 +1,35 @@
 import UIKit
+import AVFoundation
 import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-  var window: UIWindow?
+class AppDelegate: RCTAppDelegate {
 
-  var reactNativeDelegate: ReactNativeDelegate?
-  var reactNativeFactory: RCTReactNativeFactory?
-
-  func application(
+  override func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
-    let delegate = ReactNativeDelegate()
-    let factory = RCTReactNativeFactory(delegate: delegate)
-    delegate.dependencyProvider = RCTAppDependencyProvider()
 
-    reactNativeDelegate = delegate
-    reactNativeFactory = factory
+    do {
+      try AVAudioSession.sharedInstance().setCategory(
+        .playback,
+        mode: .spokenAudio,
+        options: [.duckOthers]
+      )
+      try AVAudioSession.sharedInstance().setActive(true)
+    } catch {
+      print("Erro ao configurar áudio:", error)
+    }
 
-    window = UIWindow(frame: UIScreen.main.bounds)
+    self.moduleName = "MobileApp"
+    self.dependencyProvider = RCTAppDependencyProvider()
+    self.initialProps = [:]
 
-    factory.startReactNative(
-      withModuleName: "MobileApp",
-      in: window,
-      launchOptions: launchOptions
-    )
-
-    return true
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
-}
 
-class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {
   override func sourceURL(for bridge: RCTBridge) -> URL? {
     self.bundleURL()
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import { usePhrase } from "../../contexts/phraseContext";
@@ -6,8 +6,9 @@ import { useCell } from "../../contexts/cellContext";
 import { useBoard } from "../../contexts/boardContext";
 import { useDevice } from "../../hooks/useDevice";
 
-import Button from "./Button";
+import Button from "../../components/Button";
 import WriteBar from "./WriteBar";
+import BoardRowSelector from "./BoardRowSelector";
 
 import ChangeIcon from "../../svg/featureBar/change";
 import CleanIcon from "../../svg/featureBar/clean";
@@ -23,6 +24,7 @@ export default function FeatureBar() {
   const { editing, setEditing } = useCell();
   const { board, setBoard, boardStack, setBoardStack } = useBoard();
   const { isTablet, isLandscape } = useDevice();
+  const [showSelector, setShowSelector] = useState(false);
 
   function handleEditToggle() {
     setEditing(prev => !prev);
@@ -50,19 +52,28 @@ export default function FeatureBar() {
           </View>
 
           <View style={styles.mobileContent}>
-            <WriteBar />
+            <View style={styles.writeRowMobile}>
+              <View style={{ flex: 1 }}>
+                <WriteBar />
+              </View>
+              <Button text="Falar" onPress={speech} icon={SpeakIcon} />
+            </View>
+
+            {showSelector && (
+              <BoardRowSelector onClose={() => setShowSelector(false)} />
+            )}
 
             <View style={styles.actionsContainer}>
               <View style={styles.row}>
-                <Button text="Falar" onPress={speech} icon={SpeakIcon} />
                 <Button text="Apagar célula" onPress={deleteWord} icon={RemoveIcon} />
                 <Button text="Limpar" onPress={clearPhrase} icon={CleanIcon} />
+                <Button text="Varredura" onPress={() => {}} icon={ScanIcon} />
               </View>
 
               <View style={styles.row}>
-                <Button text="Varredura" onPress={() => {}} icon={ScanIcon} />
-                <Button text="Editar" onPress={handleEditToggle} icon={editing ? SaveIcon : EditIcon} />
-                <Button onPress={boardBack} icon={ReturnIcon} round />
+                <Button text={editing ? "Salvar" : "Editar"} onPress={handleEditToggle} icon={editing ? SaveIcon : EditIcon} />
+                <Button text="Voltar" onPress={boardBack} icon={ReturnIcon}/>
+                <Button text="Trocar prancha" onPress={() => setShowSelector(true)} icon={ChangeIcon} />
               </View>
             </View>
           </View>
@@ -82,9 +93,15 @@ export default function FeatureBar() {
               <Button text="Limpar" onPress={clearPhrase} icon={CleanIcon} />
               <Button text="Varredura" onPress={() => {}} icon={ScanIcon} />
               <Button text="Editar" onPress={handleEditToggle} icon={editing ? SaveIcon : EditIcon} />
-              <Button text="Trocar prancha" onPress={() => {}} icon={ChangeIcon}/>
+              <Button text="Trocar prancha" onPress={() => setShowSelector(true)} icon={ChangeIcon}/>
             </View>
           </View>
+
+          {showSelector && (
+            <View style={{ paddingHorizontal: 20, marginBottom: 15 }}>
+              <BoardRowSelector onClose={() => setShowSelector(false)} />
+            </View>
+          )}
 
           <View style={styles.writeRow}>
             <View style={{ flex: 1 }}>
@@ -103,8 +120,6 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     paddingBottom: 10,
   },
-
-  // --- Mobile ---
   header: {
     backgroundColor: "#0b5c74",
     paddingTop: 30, 
@@ -122,6 +137,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginTop: 15,
   },
+  writeRowMobile: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    width: "100%",
+  },
   actionsContainer: {
     backgroundColor: "#FFFFFF",
     marginTop: 15,
@@ -134,14 +155,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: 5,
   },
-
-  // --- Tablet ---
   tabletContainer: {
     paddingBottom: 20, 
     zIndex: 1, 
     position: "relative", 
   },
-  
   tabletTitleBackground: {
     position: "absolute",
     top: 0,
@@ -161,7 +179,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
   },
-
   topRow: {
     flexDirection: "row",
     alignItems: "center",

@@ -10,9 +10,9 @@ export default function BottomBar() {
 
   const MENU_ITEMS = [
     { icon: HomeIcon, route: "Library" },
-    { icon: BoardIcon, route: "Boards" },
+    { icon: BoardIcon, route: "Board" },
     { icon: PersonIcon, route: "Login" },
-    { icon: SettingsIcon, route: "SignUp" },
+    { icon: SettingsIcon, route: "Settings" },
     { icon: AboutIcon, route: "About" },
   ];
 

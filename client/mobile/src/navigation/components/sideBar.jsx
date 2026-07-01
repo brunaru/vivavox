@@ -13,7 +13,7 @@ export default function SideBar(){
         { icon: BoardIcon, label: 'Pranchas', route: 'Board' },
         { icon: AboutIcon, label: 'Sobre', route: 'About' },
         { icon: PersonIcon, label: 'Perfil', route: 'Login' },
-        { icon: SettingsIcon, label: 'Configurações', route: 'SignUp' },
+        { icon: SettingsIcon, label: 'Configurações', route: 'Settings' },
     ];
 
     return(

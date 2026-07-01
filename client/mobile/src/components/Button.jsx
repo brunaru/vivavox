@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
-import { useDevice } from "../../hooks/useDevice";
+import { useDevice } from "../hooks/useDevice";
 
 export default function Button({ text, onPress, icon: Icon, round, style }) {
   const { isTablet } = useDevice();
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: "500",
     color: "#000",
   },

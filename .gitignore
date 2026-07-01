@@ -7,3 +7,39 @@
 # Pastas de build
 **/dist
 **/.vite
+
+# Node & Gerenciadores de Pacotes
+**/node_modules/
+.expo/
+npm-debug.log*
+.pnpm-debug.log*
+
+# Sistema Operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs e Editores de Código
+.vscode/
+
+
+# Android Nativo 
+**/client/mobile/android/.gradle/
+**/client/mobile/android/build/
+**/client/mobile/android/app/build/
+**/client/mobile/android/local.properties
+**/client/mobile/*.iml
+**/client/mobile/.idea/workspace.xml
+
+# iOS Nativo 
+**/client/mobile/ios/Pods/
+**/client/mobile/ios/Podfile.lock
+**/client/mobile/ios/build/
+**/client/mobile/ios/DerivedData/
+**/client/mobile/*.moved-aside
+**/client/mobile/*.xcuserstate
+**/client/mobile/ios/.xcode.env.local

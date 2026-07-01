@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useCallback, useEffect } from "react";
-import  api  from "../services/api.js";
+import api from "../services/api.js";
 import { useUser } from "./userContext.jsx";
 
 const BoardContext = createContext();
@@ -13,6 +13,7 @@ export function BoardContextProvider({ children }) {
   const [userBoardError, setUserBoardError] = useState(null);
   const [configBoard, setConfigBoard] = useState(false);
   const [boardStack, setBoardStack] = useState([]);
+  const [hasInitialLoaded, setHasInitialLoaded] = useState(false);
   const { user, isAuthenticated } = useUser();
 
   const currentUserBoardId = user?.currentBoard;
@@ -32,7 +33,6 @@ export function BoardContextProvider({ children }) {
     try {
       const response = await api.get('/board/getTagBoards');
       setCategorizedBoards(response.data || {});
-      console.log(response.data);
     } catch(err) {
       console.error("BoardContext: Error fetching categorized boards:", err);
       setCategorizedError(getErrorMessage(err));
@@ -50,11 +50,9 @@ export function BoardContextProvider({ children }) {
       return; 
     }
 
-    
     setIsLoadingUserBoard(true);
     setUserBoardError(null);
     try {
-      // console.log(`BoardContext: Fetching board with ID: ${boardId}`); 
       const response = await api.get(`/board/getById/${boardId}`);
 
       if (response.data) {
@@ -68,7 +66,6 @@ export function BoardContextProvider({ children }) {
           imgPreview: response.data.imgPreview,
         });
       } else {
-        console.warn(`BoardContext: Board with ID ${boardId} not found or returned no data.`);
         setBoard(null);
         setUserBoardError(`Board with ID ${boardId} not found.`); 
       }
@@ -82,18 +79,33 @@ export function BoardContextProvider({ children }) {
     }
   }, []);
 
-
-  //Effect to automatically fetch the user's current board
-  useEffect(() => {
-    if (isAuthenticated && currentUserBoardId) {
-      fetchBoardById(currentUserBoardId);
-    } else {
-      // If user logs out or has no currentBoard set, clear the board state
-      setBoard(null);
-      setUserBoardError(null);     
-      setIsLoadingUserBoard(false);
+  const navigateBack = useCallback(() => {
+    if (boardStack && boardStack.length > 0) {
+      setBoardStack((prevStack) => {
+        const nextStack = [...prevStack];
+        const previousBoard = nextStack.pop();
+        if (previousBoard) {
+          setBoard(previousBoard);
+        }
+        return nextStack;
+      });
     }
-  }, [isAuthenticated, currentUserBoardId, fetchBoardById]);
+  }, [boardStack]);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setHasInitialLoaded(false);
+      setBoard(null);
+      setBoardStack([]);
+    }
+  }, [isAuthenticated]);
+
+  useEffect(() => {
+    if (isAuthenticated && currentUserBoardId && !hasInitialLoaded) {
+      fetchBoardById(currentUserBoardId);
+      setHasInitialLoaded(true);
+    }
+  }, [isAuthenticated, currentUserBoardId, fetchBoardById, hasInitialLoaded]);
 
   return(
     <BoardContext.Provider value={{
@@ -109,7 +121,8 @@ export function BoardContextProvider({ children }) {
       isLoadingCategorized, 
       categorizedError,      
       boardStack,
-      setBoardStack
+      setBoardStack,
+      navigateBack
     }}>
       {children}
     </BoardContext.Provider>
