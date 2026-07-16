@@ -1,12 +1,14 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView } from "react-native";
+import { View, StyleSheet } from "react-native";
+import { useDisplaySettings } from "../../contexts/displaySettingsContext";
 
 import FeatureBar from "./FeatureBar";
 import Board from "./Board";
 
 export default function BoardScreen() {
+  const { contrastTheme } = useDisplaySettings();
   return (
-      <View style={styles.container}>
+      <View style={[styles.container, {backgroundColor: contrastTheme.screenBackground}]}>
         <FeatureBar />
         <View style={styles.boardWrapper}>
           <Board />

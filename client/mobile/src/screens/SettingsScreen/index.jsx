@@ -6,12 +6,15 @@ import LinearGradient from 'react-native-linear-gradient';
 import { BubblesHalfPage, Turtle } from '../../assets/items';
 import { usePhrase } from '../../contexts/phraseContext';
 import { useDevice } from '../../hooks/useDevice';
+import { useDisplaySettings } from '../../contexts/displaySettingsContext';
 
 function useSettingsSections() {
   const { voices, selectedVoiceId, isTtsReady } = usePhrase();
+  const { contrast, contrastModes } = useDisplaySettings();
 
   return useMemo(() => {
     const selectedVoice = voices?.find(v => v.id === selectedVoiceId);
+    const selectedContrastMode = contrastModes[contrast];
 
     return [
       {
@@ -22,6 +25,13 @@ function useSettingsSections() {
           ? 'Carregando...'
           : selectedVoice?.name || selectedVoice?.id || 'Nenhuma voz selecionada',
         routeName: 'VoiceSettings',
+      },
+      {
+        id: 'display',
+        icon: '🖥️',
+        title: 'Visualização',
+        subtitle: selectedContrastMode?.label || 'Normal',
+        routeName: 'DisplaySettings',
       },
     ];
   }, [voices, selectedVoiceId, isTtsReady]);

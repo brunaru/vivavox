@@ -9,6 +9,7 @@ import { BoardContextProvider } from './src/contexts/boardContext';
 import { CellContextProvider } from './src/contexts/cellContext';
 import { PageContextProvider } from './src/contexts/pageContext';
 import { PhraseContextProvider } from './src/contexts/phraseContext';
+import { DisplaySettingsProvider } from './src/contexts/displaySettingsContext';
 import Routes from './src/navigation';
 
 export default function App() {
@@ -21,12 +22,14 @@ export default function App() {
           <CellContextProvider>
             <PhraseContextProvider>
               <PageContextProvider>
-                <GestureHandlerRootView style={{ flex: 1 }}>
-                  <DropProvider>
-                    <StatusBar barStyle={'light-content'} />
-                    <Routes />
-                  </DropProvider>
-                </GestureHandlerRootView>
+                <DisplaySettingsProvider>
+                  <GestureHandlerRootView style={{ flex: 1 }}>
+                    <DropProvider>
+                      <StatusBar barStyle={'light-content'} />
+                      <Routes />
+                    </DropProvider>
+                  </GestureHandlerRootView>
+                </DisplaySettingsProvider>
               </PageContextProvider>
             </PhraseContextProvider>
           </CellContextProvider>

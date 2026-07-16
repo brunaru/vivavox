@@ -4,6 +4,7 @@ import AboutScreen from '../screens/AboutScreen';
 import BoardScreen from '../screens/BoardScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import VoiceSettings from '../screens/SettingsScreen/VoiceSettings'
+import DisplaySettings from '../screens/SettingsScreen/DisplaySettings';
 import AppLayout from "./AppNavigationLayout";
 
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,7 @@ export default function WithAuthNavigator(){
             <Stack.Screen name='About' component={WrapLayout(AboutScreen)} />
             <Stack.Screen name='Settings' component={WrapLayout(SettingsScreen)} />
             <Stack.Screen name='VoiceSettings' component={WrapLayout(VoiceSettings)} />
+            <Stack.Screen name='DisplaySettings' component={WrapLayout(DisplaySettings)} />
         </Stack.Navigator>      
     );
 }
