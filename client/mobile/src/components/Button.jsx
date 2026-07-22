@@ -1,9 +1,11 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { useDevice } from "../hooks/useDevice";
+import { useDisplaySettings } from "../contexts/displaySettingsContext";
 
 export default function Button({ text, onPress, icon: Icon, round, style }) {
   const { isTablet } = useDevice();
+  const { contrastTheme } = useDisplaySettings();
 
   return (
     <TouchableOpacity 
@@ -11,13 +13,15 @@ export default function Button({ text, onPress, icon: Icon, round, style }) {
         styles.button, 
         isTablet && styles.buttonTablet,
         round && styles.buttonRound,
-        style
+        style,
+        { backgroundColor: contrastTheme.buttonBackground },
+        { borderColor: contrastTheme.buttonBorderColor }
       ]} 
       onPress={onPress}
       activeOpacity={0.7}
     >
       {Icon && <Icon width={isTablet ? 23 : 18} height={isTablet ? 23 : 18} />}
-      {text && <Text style={[styles.text, isTablet && styles.textTablet]}>{text}</Text>}
+      {text && <Text style={[styles.text, isTablet && styles.textTablet, { color: contrastTheme.text }]}>{text}</Text>}
     </TouchableOpacity>
   );
 }

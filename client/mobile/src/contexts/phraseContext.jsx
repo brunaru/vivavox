@@ -15,8 +15,7 @@ function createStorage() {
     };
   } catch (err) {
     console.warn(
-      '[phraseContext] MMKV falhou ao inicializar. ' +
-        'Usando fallback em memória. Rode "cd ios && pod install" e rebuilde o app.',
+      '[phraseContext] MMKV falhou ao inicializar. ',
       err
     );
     const memoryStore = new Map();

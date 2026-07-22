@@ -3,11 +3,13 @@ import { View, Text, StyleSheet } from "react-native";
 import { Draggable, Droppable } from "react-native-reanimated-dnd";
 import { usePhrase } from "../../contexts/phraseContext";
 import { useDevice } from "../../hooks/useDevice"
+import { useDisplaySettings } from "../../contexts/displaySettingsContext";
 
 export default function WriteBar() {
   const { isTablet } = useDevice();
   const { words, setWords } = usePhrase();
   const [isDragging, setIsDragging] = useState(false);
+  const { contrastTheme } = useDisplaySettings();
 
   const handleDropNewWord = (event) => {
     const label = event?.data?.label;
@@ -31,9 +33,9 @@ export default function WriteBar() {
 
   return (
     <Droppable droppableId="sentence-bar" onDrop={handleDropNewWord}>
-      <View style={styles.container}>
+      <View style={[styles.container, {backgroundColor: contrastTheme.writeBar}]}>
         {words.length === 0 ? (
-          <Text style={styles.placeholder}>Sua frase aparecerá aqui</Text>
+          <Text style={[styles.placeholder, {color: contrastTheme.text}]}>Sua frase aparecerá aqui</Text>
         ) : (
           <View style={styles.wordsContainer}>
             {words.map((word, index) => {
@@ -63,8 +65,8 @@ export default function WriteBar() {
                     onDragStart={() => setIsDragging(true)}
                     onDragEnd={() => setIsDragging(false)}
                   >
-                    <View style={styles.word}>
-                      <Text style={isTablet ? styles.textTablet : styles.text}>{word}</Text>
+                    <View style={[styles.word, {backgroundColor: contrastTheme.cellBackground}]}>
+                      <Text style={[isTablet ? styles.textTablet : styles.text, {color: contrastTheme.text}]}>{word}</Text>
                     </View>
                   </Draggable>
                 </Droppable>

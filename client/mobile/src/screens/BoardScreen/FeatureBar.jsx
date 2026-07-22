@@ -5,6 +5,7 @@ import { usePhrase } from "../../contexts/phraseContext";
 import { useCell } from "../../contexts/cellContext";
 import { useBoard } from "../../contexts/boardContext";
 import { useDevice } from "../../hooks/useDevice";
+import { useDisplaySettings } from "../../contexts/displaySettingsContext"
 
 import Button from "../../components/Button";
 import WriteBar from "./WriteBar";
@@ -25,6 +26,7 @@ export default function FeatureBar() {
   const { board, setBoard, boardStack, setBoardStack } = useBoard();
   const { isTablet, isLandscape } = useDevice();
   const [showSelector, setShowSelector] = useState(false);
+  const { contrastTheme } = useDisplaySettings();
 
   function handleEditToggle() {
     setEditing(prev => !prev);
@@ -45,9 +47,9 @@ export default function FeatureBar() {
     <View style={styles.container}>
       {!showTabletLayout ? (
         <>
-          <View style={styles.header}>
-            <Text style={styles.title}>
-              {board?.name || "Pessoas"}
+          <View style={[styles.header, {backgroundColor: contrastTheme.boardTitleBackground}]}>
+            <Text style={[styles.title, {color: contrastTheme.text}]}>
+              {board?.name || "Sem título"}
             </Text>
           </View>
 
@@ -63,7 +65,7 @@ export default function FeatureBar() {
               <BoardRowSelector onClose={() => setShowSelector(false)} />
             )}
 
-            <View style={styles.actionsContainer}>
+            <View style={[styles.actionsContainer, {backgroundColor: contrastTheme.featureBarBackground}]}>
               <View style={styles.row}>
                 <Button text="Apagar célula" onPress={deleteWord} icon={RemoveIcon} />
                 <Button text="Limpar" onPress={clearPhrase} icon={CleanIcon} />
@@ -80,13 +82,13 @@ export default function FeatureBar() {
         </>
       ) : (
         <View style={styles.tabletContainer}>
-          <View style={styles.tabletTitleBackground}>
-            <Text style={styles.titleTabletInline}>
+          <View style={[styles.tabletTitleBackground, {backgroundColor: contrastTheme.boardTitleBackground}]}>
+            <Text style={[styles.titleTabletInline, {color: contrastTheme.text}]}>
               {board?.name || "Sem Título"}
             </Text>
           </View>
 
-          <View style={styles.topRow}>
+          <View style={[styles.topRow, {backgroundColor: contrastTheme.featureBarBackground}]}>
             <View style={styles.topButtons}>
               <Button onPress={boardBack} icon={ReturnIcon} round/>
               <Button text="Apagar célula" onPress={deleteWord} icon={RemoveIcon} />
@@ -144,7 +146,6 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   actionsContainer: {
-    backgroundColor: "#FFFFFF",
     marginTop: 15,
     borderRadius: 12,
     padding: 12,

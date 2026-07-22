@@ -1,7 +1,9 @@
 import * as React from "react"
 import Svg, { G, Circle, Path, Text, TSpan, Rect } from "react-native-svg"
+import { useDisplaySettings } from "../../contexts/displaySettingsContext"
 
 export default function RemoveIcon(props) {
+  const { contrastTheme } = useDisplaySettings();
   return (
     <Svg
       width={props.width || 20}
@@ -15,7 +17,7 @@ export default function RemoveIcon(props) {
         transform="translate(52.54 -20.188) matrix(.28238 0 0 .2792 150.503 -6.043)"
         fill="#fff"
         fillOpacity={1}
-        stroke="#000"
+        stroke={contrastTheme.iconStroke}
         strokeWidth={2.42531}
         strokeDasharray="none"
         strokeOpacity={1}
@@ -26,7 +28,7 @@ export default function RemoveIcon(props) {
           r={8.284234}
           fill="#a34930"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.42531}
           strokeLinejoin="round"
           strokeDasharray="none"
@@ -36,7 +38,7 @@ export default function RemoveIcon(props) {
           d="M35.868 94.867c-9.393-.124-12.84 8.542-11.313 12.728.05.246.604.455 1.508.628 1.432-.02 19.196-.06 19.196-.06s1.807.088 1.953-.763c.913-5.322-2.783-12.42-11.344-12.533z"
           fill="#b332ee"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.42531}
           strokeLinejoin="round"
           strokeDasharray="none"
@@ -46,7 +48,7 @@ export default function RemoveIcon(props) {
           d="M50.484 78.56c1.45-1.671 3.914 1.372 4.445 4.252.68 3.684-2.124 8.858-4.3 7.158-1.426-1.115-.527-2.213.394-3.565.5-.734.612-1.672.636-2.566.073-2.686-2.989-3.187-1.175-5.278zM56.938 73.59c1.87-1.375 4.664 3.503 5.782 6.79.536 1.577.83 5.1-.347 8.69-1.189 3.628-4.164 7.262-5.74 5.556-1.706-1.85.79-2.635 2.156-5.659.613-1.356 1.273-3.515.812-6.76-.836-5.882-5.508-6.523-2.663-8.616z"
           fill="#fff"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.42531}
           strokeLinejoin="round"
           strokeDasharray="none"
@@ -56,7 +58,7 @@ export default function RemoveIcon(props) {
           d="M64.508 66.078c1.95-1.318 6.78 5.951 8.54 12.57.806 3.03.743 7.742-.058 11.356-.755 3.41-5.774 13.876-8.491 12.231-3.977-2.409 2.75-3.653 4.502-10.932.058-.24 2.736-7.551-.253-15.116-2.907-7.356-7.437-7.947-4.24-10.109z"
           fill="#fff"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.42531}
           strokeLinejoin="round"
           strokeDasharray="none"
@@ -70,7 +72,7 @@ export default function RemoveIcon(props) {
           r={7.3153419}
           fill="#a34930"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.14165}
           strokeLinejoin="round"
           strokeDasharray="none"
@@ -80,105 +82,15 @@ export default function RemoveIcon(props) {
           d="M-38.036 179.204c-8.294-.11-11.338 7.543-9.99 11.24.045.217.534.402 1.333.554 1.263-.018 16.95-.053 16.95-.053s1.596.078 1.724-.673c.807-4.7-2.457-10.968-10.017-11.068z"
           fill="#b332ee"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.14165}
           strokeLinejoin="round"
           strokeDasharray="none"
           strokeOpacity={1}
         />
-        <Path
-          d="M-25.128 164.805c1.28-1.476 3.455 1.21 3.925 3.754.6 3.254-1.876 7.822-3.797 6.32-1.26-.984-.466-1.953.347-3.147.441-.648.54-1.477.562-2.266.064-2.372-2.64-2.814-1.037-4.661zM-19.43 160.416c1.652-1.215 4.119 3.093 5.106 5.996.473 1.392.732 4.504-.306 7.673-1.05 3.204-3.677 6.413-5.068 4.906-1.508-1.633.697-2.326 1.903-4.997.541-1.197 1.124-3.104.717-5.97-.738-5.193-4.864-5.76-2.352-7.608z"
-          fill="#fff"
-          fillOpacity={1}
-          stroke="#000"
-          strokeWidth={2.14165}
-          strokeLinejoin="round"
-          strokeDasharray="none"
-          strokeOpacity={1}
-        />
-        <Path
-          d="M-12.745 153.783c1.722-1.165 5.988 5.254 7.542 11.1.711 2.675.655 6.836-.052 10.027-.667 3.01-5.1 12.253-7.498 10.8-3.512-2.126 2.428-3.225 3.976-9.653.05-.212 2.415-6.668-.224-13.348-2.567-6.496-6.567-7.018-3.744-8.926z"
-          fill="#fff"
-          fillOpacity={1}
-          stroke="#000"
-          strokeWidth={2.14165}
-          strokeLinejoin="round"
-          strokeDasharray="none"
-          strokeOpacity={1}
-        />
+
       </G>
-      <Text
-        xmlSpace="preserve"
-        style={{
-          lineHeight: 1.2,
-          InkscapeFontSpecification: "'Roboto Thin'",
-          textAlign: "start",
-          whiteSpace: "pre",
-          inlineSize: 24.7186
-        }}
-        x={61.164959}
-        y={38.646515}
-        transform="translate(52.54 -20.188) translate(113.322 -17.765)"
-        fontWeight={100}
-        fontSize="7.05556px"
-        fontFamily="Roboto"
-        letterSpacing=".362479px"
-        wordSpacing=".0185208px"
-        writingMode="lr-tb"
-        direction="ltr"
-        textAnchor="start"
-        display="inline"
-        fill="#000"
-        fillOpacity={1}
-        stroke="#000"
-        strokeWidth={0.681}
-        strokeLinejoin="round"
-        strokeDasharray="none"
-        strokeDashoffset={0}
-        strokeOpacity={1}
-      >
-        <TSpan x={61.164959} y={38.646515}>
-          <TSpan wordSpacing=".505354px">{"Fala"}</TSpan>
-          {"r"}
-        </TSpan>
-      </Text>
       <G>
-        <Text
-          xmlSpace="preserve"
-          style={{
-            lineHeight: 1.2,
-            InkscapeFontSpecification: "'Roboto Thin'",
-            textAlign: "start",
-            whiteSpace: "pre",
-            inlineSize: 53.4585
-          }}
-          x={61.164959}
-          y={38.646515}
-          transform="translate(53.424 -19.183) translate(98.755 4.903)"
-          fontWeight={100}
-          fontSize="7.05556px"
-          fontFamily="Roboto"
-          letterSpacing=".362479px"
-          wordSpacing=".0185208px"
-          writingMode="lr-tb"
-          direction="ltr"
-          textAnchor="start"
-          display="inline"
-          fill="#000"
-          fillOpacity={1}
-          stroke="#000"
-          strokeWidth={0.681}
-          strokeLinejoin="round"
-          strokeDasharray="none"
-          strokeDashoffset={0}
-          strokeOpacity={1}
-        >
-          <TSpan x={61.164959} y={38.646515}>
-            <TSpan dx="0 0 0 0 0 0 -0.018519638 0.018520683">
-              {"Apagar c\xE9lula"}
-            </TSpan>
-          </TSpan>
-        </Text>
         <G transform="translate(53.424 -19.183) translate(111.516 -44.706)">
           <Path
             d="M36.768 86.517l3.607 3.363-2.147 1.727-3.608-2.825z"
@@ -220,7 +132,7 @@ export default function RemoveIcon(props) {
             d="M42.02 81.178c-.372 0-.743.15-1.04.45l-5.934 5.982c-.593.598-.643 1.424-.052 2.024l1.528 1.55c.308.312 2.862.254 3.12-.004l5.477-5.486c.595-.597.624-1.389.028-1.985l-2.085-2.085a1.466 1.466 0 00-1.042-.446zm-.061.637c.243.008.514.174.89.547l1.772 1.759c.53.525.16 1.08-.196 1.434l-5.23 5.202c-.036.036-2.03.026-2.055.004l-1.434-1.37c-.818-.782-.285-1.294.37-1.955l5.162-5.21c.263-.265.478-.417.72-.41z"
             fill="#000"
             fillOpacity={1}
-            stroke="#000"
+            stroke={contrastTheme.iconStroke}
             strokeWidth={0.126}
             strokeLinejoin="round"
             strokeDasharray="none"
@@ -269,7 +181,7 @@ export default function RemoveIcon(props) {
             x={-163.35228}
             y={76.398865}
             ry={0.33424819}
-            fill="#000"
+            fill={contrastTheme.iconStroke}
             fillOpacity={1}
             stroke="none"
             strokeWidth={0.37443}
@@ -280,9 +192,9 @@ export default function RemoveIcon(props) {
           />
           <Path
             d="M-155.072 66.68c-.372.001-.744.151-1.04.45l-5.934 5.983c-.594.598-.644 1.424-.052 2.024l1.527 1.55c.308.312 2.863.254 3.12-.004l5.477-5.486c.596-.597.624-1.389.028-1.985l-2.084-2.085a1.466 1.466 0 00-1.042-.446zm-.062.639c.243.007.515.173.89.546l1.773 1.759c.53.526.16 1.08-.197 1.434l-5.23 5.202c-.036.036-2.03.026-2.054.004l-1.434-1.37c-.819-.782-.286-1.294.37-1.955l5.161-5.21c.263-.265.478-.417.721-.41z"
-            fill="#000"
+            fill={contrastTheme.iconStroke}
             fillOpacity={1}
-            stroke="#000"
+            stroke={contrastTheme.iconStroke}
             strokeWidth={0.126}
             strokeLinejoin="round"
             strokeDasharray="none"

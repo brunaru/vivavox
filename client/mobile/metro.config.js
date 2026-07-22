@@ -1,3 +1,11 @@
-const { getDefaultConfig } = require('@react-native/metro-config');
+const exclusionList = require('metro-config/src/defaults/exclusionList');
 
-module.exports = getDefaultConfig(__dirname);
+module.exports = {
+  resolver: {
+    blockList: exclusionList([
+      /android\/app\/build\/intermediates\/cxx\/.*/,
+      /android\/\.cxx\/.*/,
+      /node_modules\/react-native-reanimated\/android\/\.cxx\/.*/,
+    ]),
+  },
+};

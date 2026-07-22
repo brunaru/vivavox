@@ -33,6 +33,12 @@ export const CONTRAST_MODES = {
     previewBorder: "#0b5c74",
     text: "#1C1C1E",
     textBold: false,
+    featureBarBackground: "#FFFFFF",
+    boardTitleBackground: "#0b5c74",
+    writeBar: "#FFFFFF",
+    buttonBackground: "#D1E3EE", 
+    buttonBorderColor: "#0b5c74",
+    iconStroke: "#000000"
   },
   alto: {
     id: "alto",
@@ -47,6 +53,12 @@ export const CONTRAST_MODES = {
     previewBorder: "#000000",
     text: "#000000",
     textBold: true,
+    featureBarBackground: "#FFFFFF",
+    boardTitleBackground: "#0b5c74",
+    writeBar: "#FFFFFF",
+    buttonBackground: "#D1E3EE", 
+    buttonBorderColor: "#0b5c74",
+    iconStroke: "#000000"
   },
   invertido: {
     id: "invertido",
@@ -61,6 +73,12 @@ export const CONTRAST_MODES = {
     previewBorder: "#FFFFFF",
     text: "#FFFFFF",
     textBold: true,
+    featureBarBackground: "#084059",
+    boardTitleBackground: "#032545",
+    writeBar: "#032545",
+    buttonBackground: "#000000", 
+    buttonBorderColor: "#ffffffff",
+    iconStroke: "#ffffffff"
   },
   amareloPreto: {
     id: "amareloPreto",
@@ -75,6 +93,12 @@ export const CONTRAST_MODES = {
     previewBorder: "#FFFF00",
     text: "#FFFF00",
     textBold: true,
+    featureBarBackground: "#084059",
+    boardTitleBackground: "#032545",
+    writeBar: "#032545",
+    buttonBackground: "#000000", 
+    buttonBorderColor: "#FFFF00",
+    iconStroke: "#ffffffff"
   },
 };
 

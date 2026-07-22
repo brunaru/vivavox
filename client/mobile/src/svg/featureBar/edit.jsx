@@ -9,7 +9,10 @@ import Svg, {
   Ellipse
 } from "react-native-svg"
 
+import { useDisplaySettings } from "../../contexts/displaySettingsContext"
+
 export default function EditIcon(props) {
+  const { contrastTheme } = useDisplaySettings();
   return (
     <Svg
       width={props.width || 20}
@@ -23,7 +26,7 @@ export default function EditIcon(props) {
         transform="translate(52.54 -20.188) matrix(.28238 0 0 .2792 150.503 -6.043)"
         fill="#fff"
         fillOpacity={1}
-        stroke="#000"
+        stroke={contrastTheme.iconStroke}
         strokeWidth={2.42531}
         strokeDasharray="none"
         strokeOpacity={1}
@@ -54,7 +57,7 @@ export default function EditIcon(props) {
           d="M50.484 78.56c1.45-1.671 3.914 1.372 4.445 4.252.68 3.684-2.124 8.858-4.3 7.158-1.426-1.115-.527-2.213.394-3.565.5-.734.612-1.672.636-2.566.073-2.686-2.989-3.187-1.175-5.278zM56.938 73.59c1.87-1.375 4.664 3.503 5.782 6.79.536 1.577.83 5.1-.347 8.69-1.189 3.628-4.164 7.262-5.74 5.556-1.706-1.85.79-2.635 2.156-5.659.613-1.356 1.273-3.515.812-6.76-.836-5.882-5.508-6.523-2.663-8.616z"
           fill="#fff"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.42531}
           strokeLinejoin="round"
           strokeDasharray="none"
@@ -78,7 +81,7 @@ export default function EditIcon(props) {
           r={7.3153419}
           fill="#a34930"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.14165}
           strokeLinejoin="round"
           strokeDasharray="none"
@@ -88,7 +91,7 @@ export default function EditIcon(props) {
           d="M-38.036 179.204c-8.294-.11-11.338 7.543-9.99 11.24.045.217.534.402 1.333.554 1.263-.018 16.95-.053 16.95-.053s1.596.078 1.724-.673c.807-4.7-2.457-10.968-10.017-11.068z"
           fill="#b332ee"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.14165}
           strokeLinejoin="round"
           strokeDasharray="none"
@@ -98,7 +101,7 @@ export default function EditIcon(props) {
           d="M-25.128 164.805c1.28-1.476 3.455 1.21 3.925 3.754.6 3.254-1.876 7.822-3.797 6.32-1.26-.984-.466-1.953.347-3.147.441-.648.54-1.477.562-2.266.064-2.372-2.64-2.814-1.037-4.661zM-19.43 160.416c1.652-1.215 4.119 3.093 5.106 5.996.473 1.392.732 4.504-.306 7.673-1.05 3.204-3.677 6.413-5.068 4.906-1.508-1.633.697-2.326 1.903-4.997.541-1.197 1.124-3.104.717-5.97-.738-5.193-4.864-5.76-2.352-7.608z"
           fill="#fff"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.14165}
           strokeLinejoin="round"
           strokeDasharray="none"
@@ -108,85 +111,14 @@ export default function EditIcon(props) {
           d="M-12.745 153.783c1.722-1.165 5.988 5.254 7.542 11.1.711 2.675.655 6.836-.052 10.027-.667 3.01-5.1 12.253-7.498 10.8-3.512-2.126 2.428-3.225 3.976-9.653.05-.212 2.415-6.668-.224-13.348-2.567-6.496-6.567-7.018-3.744-8.926z"
           fill="#fff"
           fillOpacity={1}
-          stroke="#000"
+          stroke={contrastTheme.iconStroke}
           strokeWidth={2.14165}
           strokeLinejoin="round"
           strokeDasharray="none"
           strokeOpacity={1}
         />
       </G>
-      <Text
-        xmlSpace="preserve"
-        style={{
-          lineHeight: 1.2,
-          InkscapeFontSpecification: "'Roboto Thin'",
-          textAlign: "start",
-          whiteSpace: "pre",
-          inlineSize: 24.7186
-        }}
-        x={61.164959}
-        y={38.646515}
-        transform="translate(52.54 -20.188) translate(113.322 -17.765)"
-        fontWeight={100}
-        fontSize="7.05556px"
-        fontFamily="Roboto"
-        letterSpacing=".362479px"
-        wordSpacing=".0185208px"
-        writingMode="lr-tb"
-        direction="ltr"
-        textAnchor="start"
-        display="inline"
-        fill="#000"
-        fillOpacity={1}
-        stroke="#000"
-        strokeWidth={0.681}
-        strokeLinejoin="round"
-        strokeDasharray="none"
-        strokeDashoffset={0}
-        strokeOpacity={1}
-      >
-        <TSpan x={61.164959} y={38.646515}>
-          <TSpan wordSpacing=".505354px">{"Fala"}</TSpan>
-          {"r"}
-        </TSpan>
-      </Text>
       <G>
-        <Text
-          xmlSpace="preserve"
-          style={{
-            lineHeight: 1.2,
-            InkscapeFontSpecification: "'Roboto Thin'",
-            textAlign: "start",
-            whiteSpace: "pre",
-            inlineSize: 54.2361
-          }}
-          x={61.164959}
-          y={38.646515}
-          transform="translate(54.076 -20.432) translate(96.032 156.425)"
-          fontWeight={100}
-          fontSize="7.05556px"
-          fontFamily="Roboto"
-          letterSpacing=".362479px"
-          wordSpacing=".0185208px"
-          writingMode="lr-tb"
-          direction="ltr"
-          textAnchor="start"
-          display="inline"
-          fill="#000"
-          fillOpacity={1}
-          stroke="#000"
-          strokeWidth={0.681}
-          strokeLinejoin="round"
-          strokeDasharray="none"
-          strokeDashoffset={0}
-          strokeOpacity={1}
-        >
-          <TSpan x={61.164959} y={38.646515}>
-            <TSpan dx="0 0 0 0 0 0 -0.018521545 0.01852259">
-              {"Editar prancha"}
-            </TSpan>
-          </TSpan>
-        </Text>
         <G transform="translate(54.076 -20.432) matrix(.43414 0 0 .43414 114.303 73.468)">
           <Rect
             width={21.340229}
@@ -196,7 +128,7 @@ export default function EditIcon(props) {
             ry={1.214088}
             fill="#fff"
             fillOpacity={1}
-            stroke="#000"
+            stroke={contrastTheme.iconStroke}
             strokeWidth={1}
             strokeDasharray="none"
             strokeOpacity={1}
@@ -286,18 +218,7 @@ export default function EditIcon(props) {
               strokeDasharray="none"
               strokeOpacity={1}
             />
-            <Rect
-              width={102.78785}
-              height={6.5162587}
-              x={401.6922}
-              y={1064.1646}
-              ry={3.2581294}
-              fill="#000"
-              stroke="none"
-              strokeWidth={9.40888}
-              strokeDasharray="none"
-              strokeOpacity={1}
-            />
+            
           </G>
           <Ellipse
             cx={69.937607}
@@ -460,7 +381,7 @@ export default function EditIcon(props) {
               ry={2.3510463}
               fill="#126be4"
               fillOpacity={1}
-              stroke="#000"
+              stroke={contrastTheme.iconStroke}
               strokeWidth={0.802365}
               strokeDasharray="none"
               strokeOpacity={1}
@@ -472,7 +393,7 @@ export default function EditIcon(props) {
               ry={2.3510463}
               fill="#126be4"
               fillOpacity={1}
-              stroke="#000"
+              stroke={contrastTheme.iconStroke}
               strokeWidth={0.802365}
               strokeDasharray="none"
               strokeOpacity={1}
@@ -484,7 +405,7 @@ export default function EditIcon(props) {
               ry={2.3510463}
               fill="#126be4"
               fillOpacity={1}
-              stroke="#000"
+              stroke={contrastTheme.iconStroke}
               strokeWidth={0.802365}
               strokeDasharray="none"
               strokeOpacity={1}
@@ -496,7 +417,7 @@ export default function EditIcon(props) {
               ry={2.3510463}
               fill="#126be4"
               fillOpacity={1}
-              stroke="#000"
+              stroke={contrastTheme.iconStroke}
               strokeWidth={0.802365}
               strokeDasharray="none"
               strokeOpacity={1}

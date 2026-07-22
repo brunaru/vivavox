@@ -1,7 +1,10 @@
 import * as React from "react"
 import Svg, { Path, Defs, Pattern, Use, Image } from "react-native-svg"
+import { useDisplaySettings } from "../../contexts/displaySettingsContext"
 
 export default function ChangeIcon(props) {
+  const { contrastTheme } = useDisplaySettings();
+
   return (
     <Svg
       width={props.width || 20}
@@ -15,7 +18,7 @@ export default function ChangeIcon(props) {
       <Path
         d="M13.875.832H2.392c-.719 0-1.301.582-1.301 1.3v10.86c0 .72.582 1.302 1.3 1.302h11.484a1.3 1.3 0 001.301-1.301V2.133a1.3 1.3 0 00-1.3-1.301z"
         fill="#fff"
-        stroke="#000"
+        stroke={contrastTheme.iconStroke}
         strokeWidth={1.66399}
         strokeMiterlimit={3.5}
       />
@@ -48,7 +51,7 @@ export default function ChangeIcon(props) {
       <Path
         d="M20.942 8.964H9.459c-.719 0-1.301.583-1.301 1.301v10.86c0 .718.582 1.3 1.3 1.3h11.484a1.3 1.3 0 001.3-1.3v-10.86a1.3 1.3 0 00-1.3-1.3z"
         fill="#fff"
-        stroke="#000"
+        stroke={contrastTheme.iconStroke}
         strokeWidth={1.66399}
         strokeMiterlimit={3.5}
       />
