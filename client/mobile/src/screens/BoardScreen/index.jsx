@@ -4,6 +4,8 @@ import { useDisplaySettings } from "../../contexts/displaySettingsContext";
 
 import FeatureBar from "./FeatureBar";
 import Board from "./Board";
+import ConfigCellMenu from "../../components/configCell/ConfigCellMenu";
+import ConfigBoardMenu from "../../components/configBoard/configBoardMenu";
 
 export default function BoardScreen() {
   const { contrastTheme } = useDisplaySettings();
@@ -13,6 +15,8 @@ export default function BoardScreen() {
         <View style={styles.boardWrapper}>
           <Board />
         </View>
+        <ConfigCellMenu/>
+        <ConfigBoardMenu/>
       </View>
   );
 }

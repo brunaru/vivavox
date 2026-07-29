@@ -38,7 +38,8 @@ export const CONTRAST_MODES = {
     writeBar: "#FFFFFF",
     buttonBackground: "#D1E3EE", 
     buttonBorderColor: "#0b5c74",
-    iconStroke: "#000000"
+    iconStroke: "#000000",
+    title: "#FFFFFF",
   },
   alto: {
     id: "alto",
@@ -58,7 +59,8 @@ export const CONTRAST_MODES = {
     writeBar: "#FFFFFF",
     buttonBackground: "#D1E3EE", 
     buttonBorderColor: "#0b5c74",
-    iconStroke: "#000000"
+    iconStroke: "#000000",
+    title: "#FFFFFF",
   },
   invertido: {
     id: "invertido",
@@ -78,7 +80,8 @@ export const CONTRAST_MODES = {
     writeBar: "#032545",
     buttonBackground: "#000000", 
     buttonBorderColor: "#ffffffff",
-    iconStroke: "#ffffffff"
+    iconStroke: "#ffffffff",
+    title: "#FFFFFF",
   },
   amareloPreto: {
     id: "amareloPreto",
@@ -98,7 +101,8 @@ export const CONTRAST_MODES = {
     writeBar: "#032545",
     buttonBackground: "#000000", 
     buttonBorderColor: "#FFFF00",
-    iconStroke: "#ffffffff"
+    iconStroke: "#ffffffff",
+    title: "#FFFF00",
   },
 };
 

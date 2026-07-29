@@ -9,7 +9,7 @@ import { useDisplaySettings } from "../../contexts/displaySettingsContext";
 import api from "../../services/api";
 
 export default function Cell({ index, cell, size }) {
-  const { editing, setActiveCell, configCell, setConfigCell } = useCell();
+  const { editing, editTarget, setActiveCell, configCell, setConfigCell } = useCell();
   const { addWord } = usePhrase();
   const { board, setBoard, categorizedBoards, setBoardStack } = useBoard();
   const { fontScale, borderWidth, imageScale, contrastTheme } = useDisplaySettings();
@@ -58,6 +58,7 @@ export default function Cell({ index, cell, size }) {
   const borderColor = contrastTheme.cellBorder || cell?.color || contrastTheme.cellBorderFallback;
   const backgroundColor = contrastTheme.cellBackground;
   const symbolSize = Math.min(size * 0.55 * imageScale, size - 20);
+  const isEditingThisCell = editing && editTarget === "cell";
 
   return (
     <Pressable
@@ -75,11 +76,11 @@ export default function Cell({ index, cell, size }) {
             borderColor,
             backgroundColor,
             borderWidth,
+            borderStyle: isEditingThisCell ? "dashed" : "solid",
             width: size,
             height: size,
             transform: [{ scale: scaleAnim }],
           },
-          editing && styles.editing,
         ]}
       >
         <Symbol source={cell?.img} size={symbolSize} />
@@ -100,8 +101,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     elevation: 4,
-  },
-  editing: {
-    borderStyle: "dashed",
   },
 });

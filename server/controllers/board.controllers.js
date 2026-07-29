@@ -1,6 +1,7 @@
 import Board from "../models/board.models.js";
 import Cell from "../models/cell.models.js";
 import UserCell from "../models/userCell.models.js";
+import { populateBoardCells } from "../services/boardPopulate.js";
 
 export async function postBoard(req, res) {
   try {
@@ -234,31 +235,28 @@ export async function getCategorizedBoards(req, res) {
 export async function updateBoardById(req, res) {
   try {
     const boardId = req.params.id;
-    const modifications = req.body;
-    
-    const dbCells = modifications.cells.map((cell) => (
-      {
-        cellId: cell._id,
-        cellType: cell.cellType
-      }
-    ));
+    const modifications = { ...req.body };
 
-    const dbBoard = {
-      ...modifications,
-      cells: dbCells
+    if (Array.isArray(modifications.cells)) {
+      modifications.cells = modifications.cells.map((cell) => ({
+        cellId: cell._id,
+        cellType: cell.cellType,
+      }));
     }
 
-    const modifiedBoard = await Board.findByIdAndUpdate(boardId, dbBoard);
+    const modifiedBoard = await Board.findByIdAndUpdate(boardId, modifications, {
+      new: true,
+      runValidators: true,
+    });
 
-    if(!modifiedBoard) {
+    if (!modifiedBoard) {
       return res.status(404).send({ message: "Board not found" });
     }
 
-    res.status(200);
-    res.send("Board successfully modified");
-  } catch(error) {
-    res.status(500);
-    res.send(error.message);
+    const populatedBoard = await populateBoardCells(modifiedBoard);
+    res.status(200).send(populatedBoard);
+  } catch (error) {
+    res.status(500).send(error.message);
   }
 }
 

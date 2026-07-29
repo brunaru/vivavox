@@ -18,18 +18,35 @@ import EditIcon from "../../svg/featureBar/edit";
 import ReturnIcon from "../../svg/featureBar/return";
 import SaveIcon from "../../svg/featureBar/save";
 import SpeakIcon from "../../svg/featureBar/speak";
-import ScanIcon from "../../svg/featureBar/scan"; 
+import ScanIcon from "../../svg/featureBar/scan";
+import CellIcon from "../../svg/featureBar/cells";
+import BoardIcon from "../../svg/featureBar/board";
 
 export default function FeatureBar() {
   const { clearPhrase, deleteWord, speech } = usePhrase();
-  const { editing, setEditing } = useCell();
-  const { board, setBoard, boardStack, setBoardStack } = useBoard();
+  const { editing, editTarget, enterEditMode, exitEditMode, setEditTarget } = useCell();
+  const { board, setBoard, boardStack, setBoardStack, setConfigBoard } = useBoard();
   const { isTablet, isLandscape } = useDevice();
   const [showSelector, setShowSelector] = useState(false);
   const { contrastTheme } = useDisplaySettings();
 
   function handleEditToggle() {
-    setEditing(prev => !prev);
+    if (editing) {
+      exitEditMode();
+      setConfigBoard(false);
+    } else {
+      enterEditMode("cell");
+    }
+  }
+
+  function handleSelectCell() {
+    setEditTarget("cell");
+    setConfigBoard(false);
+  }
+
+  function handleSelectBoard() {
+    setEditTarget("board");
+    setConfigBoard(true);
   }
 
   function boardBack() {
@@ -40,41 +57,66 @@ export default function FeatureBar() {
       setBoard(newBoard);
     }
   }
-  
+
   const showTabletLayout = isTablet && isLandscape;
+
+  const editModeButtons = (
+    <>
+      <Button
+        text="Célula"
+        onPress={handleSelectCell}
+        icon={CellIcon}
+        style={editTarget === "cell" && styles.activeButton}
+      />
+      <Button
+        text="Prancha"
+        onPress={handleSelectBoard}
+        icon={BoardIcon}
+        style={editTarget === "board" && styles.activeButton}
+      />
+    </>
+  );
 
   return (
     <View style={styles.container}>
       {!showTabletLayout ? (
         <>
-          <View style={[styles.header, {backgroundColor: contrastTheme.boardTitleBackground}]}>
-            <Text style={[styles.title, {color: contrastTheme.text}]}>
+          <View style={[styles.header, { backgroundColor: contrastTheme.boardTitleBackground }]}>
+            <Text style={[styles.title, { color: contrastTheme.title }]}>
               {board?.name || "Sem título"}
             </Text>
           </View>
 
           <View style={styles.mobileContent}>
-            <View style={styles.writeRowMobile}>
-              <View style={{ flex: 1 }}>
-                <WriteBar />
+            {!editing && (
+              <View style={styles.writeRowMobile}>
+                <View style={{ flex: 1 }}>
+                  <WriteBar />
+                </View>
+                <Button text="Falar" onPress={speech} icon={SpeakIcon} />
               </View>
-              <Button text="Falar" onPress={speech} icon={SpeakIcon} />
-            </View>
+            )}
 
             {showSelector && (
               <BoardRowSelector onClose={() => setShowSelector(false)} />
             )}
 
-            <View style={[styles.actionsContainer, {backgroundColor: contrastTheme.featureBarBackground}]}>
+            <View style={[styles.actionsContainer, { backgroundColor: contrastTheme.featureBarBackground }]}>
               <View style={styles.row}>
-                <Button text="Apagar célula" onPress={deleteWord} icon={RemoveIcon} />
-                <Button text="Limpar" onPress={clearPhrase} icon={CleanIcon} />
-                <Button text="Varredura" onPress={() => {}} icon={ScanIcon} />
+                {editing ? (
+                  editModeButtons
+                ) : (
+                  <>
+                    <Button text="Apagar célula" onPress={deleteWord} icon={RemoveIcon} />
+                    <Button text="Limpar" onPress={clearPhrase} icon={CleanIcon} />
+                    <Button text="Varredura" onPress={() => {}} icon={ScanIcon} />
+                  </>
+                )}
               </View>
 
               <View style={styles.row}>
                 <Button text={editing ? "Salvar" : "Editar"} onPress={handleEditToggle} icon={editing ? SaveIcon : EditIcon} />
-                <Button text="Voltar" onPress={boardBack} icon={ReturnIcon}/>
+                {!editing && <Button text="Voltar" onPress={boardBack} icon={ReturnIcon} />}
                 <Button text="Trocar prancha" onPress={() => setShowSelector(true)} icon={ChangeIcon} />
               </View>
             </View>
@@ -82,20 +124,26 @@ export default function FeatureBar() {
         </>
       ) : (
         <View style={styles.tabletContainer}>
-          <View style={[styles.tabletTitleBackground, {backgroundColor: contrastTheme.boardTitleBackground}]}>
-            <Text style={[styles.titleTabletInline, {color: contrastTheme.text}]}>
+          <View style={[styles.tabletTitleBackground, { backgroundColor: contrastTheme.boardTitleBackground }]}>
+            <Text style={[styles.titleTabletInline, { color: contrastTheme.title }]}>
               {board?.name || "Sem Título"}
             </Text>
           </View>
 
-          <View style={[styles.topRow, {backgroundColor: contrastTheme.featureBarBackground}]}>
+          <View style={[styles.topRow, { backgroundColor: contrastTheme.featureBarBackground }]}>
             <View style={styles.topButtons}>
-              <Button onPress={boardBack} icon={ReturnIcon} round/>
-              <Button text="Apagar célula" onPress={deleteWord} icon={RemoveIcon} />
-              <Button text="Limpar" onPress={clearPhrase} icon={CleanIcon} />
-              <Button text="Varredura" onPress={() => {}} icon={ScanIcon} />
-              <Button text="Editar" onPress={handleEditToggle} icon={editing ? SaveIcon : EditIcon} />
-              <Button text="Trocar prancha" onPress={() => setShowSelector(true)} icon={ChangeIcon}/>
+              {editing ? (
+                editModeButtons
+              ) : (
+                <>
+                  <Button onPress={boardBack} icon={ReturnIcon} round />
+                  <Button text="Apagar célula" onPress={deleteWord} icon={RemoveIcon} />
+                  <Button text="Limpar" onPress={clearPhrase} icon={CleanIcon} />
+                  <Button text="Varredura" onPress={() => {}} icon={ScanIcon} />
+                </>
+              )}
+              <Button text={editing ? "Salvar" : "Editar"} onPress={handleEditToggle} icon={editing ? SaveIcon : EditIcon} />
+              <Button text="Trocar prancha" onPress={() => setShowSelector(true)} icon={ChangeIcon} />
             </View>
           </View>
 
@@ -105,12 +153,14 @@ export default function FeatureBar() {
             </View>
           )}
 
-          <View style={styles.writeRow}>
-            <View style={{ flex: 1 }}>
-              <WriteBar />
+          {!editing && (
+            <View style={styles.writeRow}>
+              <View style={{ flex: 1 }}>
+                <WriteBar />
+              </View>
+              <Button text="Falar" onPress={speech} icon={SpeakIcon} style={{ backgroundColor: "#fff" }} />
             </View>
-            <Button text="Falar" onPress={speech} icon={SpeakIcon} style={{ backgroundColor: "#fff"}}/>
-          </View>
+          )}
         </View>
       )}
     </View>
@@ -155,6 +205,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     gap: 5,
+  },
+  activeButton: {
+    backgroundColor: "rgba(11, 92, 116, 0.15)",
   },
   tabletContainer: {
     paddingBottom: 20, 

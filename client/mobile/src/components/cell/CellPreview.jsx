@@ -5,11 +5,13 @@ import { useDisplaySettings } from "../../contexts/displaySettingsContext";
 import Symbol from "../symbol";
 
 export default function CellPreview({ index, size }) {
-  const { editing, configCell, setConfigCell } = useCell();
+  const { editing, editTarget, configCell, setConfigCell } = useCell();
   const { borderWidth, imageScale, contrastTheme } = useDisplaySettings();
 
+  const isCellEditMode = editing && editTarget === "cell";
+
   function openConfigMenu() {
-    if (editing && !configCell) {
+    if (isCellEditMode && !configCell) {
       setConfigCell({ indexOnBoard: index, cellType: "cell" });
     }
   }
@@ -25,10 +27,10 @@ export default function CellPreview({ index, size }) {
             borderColor: contrastTheme.previewBorder,
             backgroundColor: contrastTheme.cellBackground,
           },
-          editing && [styles.editing, { borderWidth }],
+          isCellEditMode && [styles.editing, { borderWidth }],
         ]}
       >
-        {editing && (
+        {isCellEditMode && (
           <Symbol
             source="https://static.arasaac.org/pictograms/3220/3220_300.png"
             size={Math.min(size * 0.5 * imageScale, size - 20)}
