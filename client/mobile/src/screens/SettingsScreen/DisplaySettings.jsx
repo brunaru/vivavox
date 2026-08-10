@@ -1,3 +1,4 @@
+// DisplaySettings.js
 import React from "react";
 import { View, Text, StyleSheet, Pressable, ScrollView } from "react-native";
 
@@ -5,38 +6,53 @@ import { useDisplaySettings } from "../../contexts/displaySettingsContext";
 import { useDevice } from "../../hooks/useDevice";
 import SettingsHeader from "./SettingsHeader";
 
-function StepperRow({ label, value, unit, onIncrement, onDecrement, disabledMin, disabledMax }) {
+function StepperRow({ label, value, unit, onIncrement, onDecrement, disabledMin, disabledMax, contrastTheme }) {
   return (
     <View style={styles.row}>
-      <Text style={styles.rowLabel}>{label}</Text>
+      <Text style={[styles.rowLabel, { color: contrastTheme.text, fontWeight: contrastTheme.textBold ? '800' : '600' }]}>
+        {label}
+      </Text>
       <View style={styles.stepper}>
         <Pressable
           onPress={onDecrement}
           disabled={disabledMin}
-          style={[styles.stepButton, disabledMin && styles.stepButtonDisabled]}
+          style={[
+            styles.stepButton,
+            { backgroundColor: contrastTheme.buttonBackground, borderColor: contrastTheme.buttonBorderColor, borderWidth: 1.5 },
+            disabledMin && styles.stepButtonDisabled,
+          ]}
         >
-          <Text style={styles.stepButtonText}>−</Text>
+          <Text style={[styles.stepButtonText, { color: contrastTheme.iconStroke }]}>−</Text>
         </Pressable>
-        <Text style={styles.stepValue}>{value}{unit || ""}</Text>
+        <Text style={[styles.stepValue, { color: contrastTheme.text, fontWeight: contrastTheme.textBold ? '800' : '700' }]}>
+          {value}{unit || ""}
+        </Text>
         <Pressable
           onPress={onIncrement}
           disabled={disabledMax}
-          style={[styles.stepButton, disabledMax && styles.stepButtonDisabled]}
+          style={[
+            styles.stepButton,
+            { backgroundColor: contrastTheme.buttonBackground, borderColor: contrastTheme.buttonBorderColor, borderWidth: 1.5 },
+            disabledMax && styles.stepButtonDisabled,
+          ]}
         >
-          <Text style={styles.stepButtonText}>+</Text>
+          <Text style={[styles.stepButtonText, { color: contrastTheme.iconStroke }]}>+</Text>
         </Pressable>
       </View>
     </View>
   );
 }
 
-function ContrastOption({ mode, selected, onPress }) {
+function ContrastOption({ mode, selected, onPress, contrastTheme }) {
   return (
     <Pressable
       onPress={onPress}
       accessibilityRole="radio"
       accessibilityState={{ selected }}
-      style={[styles.contrastOption, selected && styles.contrastOptionSelected]}
+      style={[
+        styles.contrastOption,
+        selected && { backgroundColor: contrastTheme.buttonBackground },
+      ]}
     >
       <View
         style={[
@@ -47,11 +63,15 @@ function ContrastOption({ mode, selected, onPress }) {
         <Text style={[styles.swatchLetter, { color: mode.swatch.fg }]}>Aa</Text>
       </View>
       <View style={styles.contrastTextWrap}>
-        <Text style={styles.contrastLabel}>{mode.label}</Text>
-        <Text style={styles.contrastDescription}>{mode.description}</Text>
+        <Text style={[styles.contrastLabel, { color: contrastTheme.text, fontWeight: contrastTheme.textBold ? '800' : '700' }]}>
+          {mode.label}
+        </Text>
+        <Text style={[styles.contrastDescription, { color: contrastTheme.text, opacity: 0.75 }]}>
+          {mode.description}
+        </Text>
       </View>
-      <View style={[styles.radioOuter, selected && styles.radioOuterSelected]}>
-        {selected && <View style={styles.radioInner} />}
+      <View style={[styles.radioOuter, { borderColor: contrastTheme.buttonBorderColor }]}>
+        {selected && <View style={[styles.radioInner, { backgroundColor: contrastTheme.buttonBorderColor }]} />}
       </View>
     </Pressable>
   );
@@ -66,6 +86,7 @@ export default function DisplaySettings({ navigation }) {
     columns,
     limits,
     contrastModes,
+    contrastTheme,
     setContrast,
     setFontScale,
     setBorderWidth,
@@ -78,7 +99,10 @@ export default function DisplaySettings({ navigation }) {
   const BASE_FONT_SIZE = 14;
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <ScrollView
+      style={[styles.container, { backgroundColor: contrastTheme.screenBackground }]}
+      contentContainerStyle={styles.content}
+    >
       <SettingsHeader
         title="Visualização"
         subtitle="Ajuste o app ao seu jeito de ver"
@@ -86,20 +110,31 @@ export default function DisplaySettings({ navigation }) {
         isTablet={isTablet}
       />
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Contraste</Text>
+      <View style={[
+        styles.section,
+        { backgroundColor: contrastTheme.sectionBackground, borderColor: contrastTheme.cellBorder || contrastTheme.cellBorderFallback }
+      ]}>
+        <Text style={[styles.sectionTitle, { color: contrastTheme.text, fontWeight: contrastTheme.textBold ? '800' : '700' }]}>
+          Contraste
+        </Text>
         {Object.values(contrastModes).map((mode) => (
           <ContrastOption
             key={mode.id}
             mode={mode}
             selected={contrast === mode.id}
             onPress={() => setContrast(mode.id)}
+            contrastTheme={contrastTheme}
           />
         ))}
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Visualização das Células</Text>
+      <View style={[
+        styles.section,
+        { backgroundColor: contrastTheme.sectionBackground, borderColor: contrastTheme.cellBorder || contrastTheme.cellBorderFallback }
+      ]}>
+        <Text style={[styles.sectionTitle, { color: contrastTheme.text, fontWeight: contrastTheme.textBold ? '800' : '700' }]}>
+          Visualização das Células
+        </Text>
         <StepperRow
           label="Tamanho do texto"
           value={Math.round(fontScale * BASE_FONT_SIZE)}
@@ -108,6 +143,7 @@ export default function DisplaySettings({ navigation }) {
           onDecrement={() => setFontScale(fontScale - limits.font.step)}
           disabledMin={fontScale <= limits.font.min}
           disabledMax={fontScale >= limits.font.max}
+          contrastTheme={contrastTheme}
         />
         <StepperRow
           label="Espessura da borda"
@@ -117,6 +153,7 @@ export default function DisplaySettings({ navigation }) {
           onDecrement={() => setBorderWidth(borderWidth - limits.border.step)}
           disabledMin={borderWidth <= limits.border.min}
           disabledMax={borderWidth >= limits.border.max}
+          contrastTheme={contrastTheme}
         />
         <StepperRow
           label="Tamanho da imagem"
@@ -126,11 +163,17 @@ export default function DisplaySettings({ navigation }) {
           onDecrement={() => setImageScale(imageScale - limits.image.step)}
           disabledMin={imageScale <= limits.image.min}
           disabledMax={imageScale >= limits.image.max}
+          contrastTheme={contrastTheme}
         />
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Células por linha</Text>
+      <View style={[
+        styles.section,
+        { backgroundColor: contrastTheme.sectionBackground, borderColor: contrastTheme.cellBorder || contrastTheme.cellBorderFallback }
+      ]}>
+        <Text style={[styles.sectionTitle, { color: contrastTheme.text, fontWeight: contrastTheme.textBold ? '800' : '700' }]}>
+          Células por linha
+        </Text>
 
         <StepperRow
           label="Celular"
@@ -139,6 +182,7 @@ export default function DisplaySettings({ navigation }) {
           onDecrement={() => setColumnsForDevice("phone", columns.phone - 1)}
           disabledMin={columns.phone <= limits.columns.phone.min}
           disabledMax={columns.phone >= limits.columns.phone.max}
+          contrastTheme={contrastTheme}
         />
         <StepperRow
           label="Tablet na vertical"
@@ -147,6 +191,7 @@ export default function DisplaySettings({ navigation }) {
           onDecrement={() => setColumnsForDevice("tabletPortrait", columns.tabletPortrait - 1)}
           disabledMin={columns.tabletPortrait <= limits.columns.tabletPortrait.min}
           disabledMax={columns.tabletPortrait >= limits.columns.tabletPortrait.max}
+          contrastTheme={contrastTheme}
         />
         <StepperRow
           label="Tablet na horizontal"
@@ -155,6 +200,7 @@ export default function DisplaySettings({ navigation }) {
           onDecrement={() => setColumnsForDevice("tabletLandscape", columns.tabletLandscape - 1)}
           disabledMin={columns.tabletLandscape <= limits.columns.tabletLandscape.min}
           disabledMax={columns.tabletLandscape >= limits.columns.tabletLandscape.max}
+          contrastTheme={contrastTheme}
         />
       </View>
 
@@ -168,14 +214,11 @@ export default function DisplaySettings({ navigation }) {
 const styles = StyleSheet.create({
     container: { 
         flex: 1, 
-        backgroundColor: "#AFC0CB" 
     },
     content: { 
         paddingBottom: 40 
     },
     section: {
-        backgroundColor: "#ebf1f8",
-        borderColor: "#0b5c74",
         borderWidth: 2,
         borderRadius: 14,
         marginHorizontal: 16,
@@ -184,8 +227,6 @@ const styles = StyleSheet.create({
     },
     sectionTitle: { 
         fontSize: 16, 
-        fontWeight: "700", 
-        color: "#1C1C1E", 
         marginBottom: 8 
     },
     row: { 
@@ -196,8 +237,6 @@ const styles = StyleSheet.create({
     },
     rowLabel: { 
         fontSize: 14, 
-        color: "#1C1C1E", 
-        fontWeight: "600" 
     },
     stepper: { 
         flexDirection: "row", 
@@ -208,28 +247,23 @@ const styles = StyleSheet.create({
         width: 32, 
         height: 32, 
         borderRadius: 8, 
-        backgroundColor: "#0b5c74",
         justifyContent: "center", 
         alignItems: "center",
     },
     stepButtonDisabled: { 
-        backgroundColor: "#9fb4bb" 
+        opacity: 0.5,
     },
     stepButtonText: { 
-        color: "#fff", 
         fontSize: 18, 
         fontWeight: "700" 
     },
     stepValue: { 
         fontSize: 14, 
-        fontWeight: "700", 
-        color: "#15579e", 
         minWidth: 46, 
         textAlign: "center" 
     },
     hint: { 
         fontSize: 12, 
-        color: "#15579e", 
         marginTop: 8 
     },
     resetButton: {
@@ -256,9 +290,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginBottom: 6,
     },
-    contrastOptionSelected: {
-        backgroundColor: "#dbe9f3",
-    },
     swatch: {
         width: 44,
         height: 44,
@@ -277,12 +308,9 @@ const styles = StyleSheet.create({
     },
     contrastLabel: { 
         fontSize: 14, 
-        fontWeight: "700", 
-        color: "#1C1C1E" 
     },
     contrastDescription: { 
         fontSize: 12, 
-        color: "#3a3a3a", 
         marginTop: 2 
     },
     radioOuter: {
@@ -290,18 +318,13 @@ const styles = StyleSheet.create({
         height: 22, 
         borderRadius: 11, 
         borderWidth: 2, 
-        borderColor: "#0b5c74",
         justifyContent: "center", 
         alignItems: "center", 
         marginLeft: 8,
-    },
-    radioOuterSelected: { 
-        borderColor: "#15579e" 
     },
     radioInner: { 
         width: 12, 
         height: 12, 
         borderRadius: 6, 
-        backgroundColor: "#15579e" 
     },
 });

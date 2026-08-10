@@ -3,6 +3,7 @@ import { useUser } from '../../contexts/userContext'
 import { useBoard } from '../../contexts/boardContext'
 import { useDevice } from '../../hooks/useDevice'
 import { useNavigation } from '@react-navigation/native'
+import { useDisplaySettings } from "../../contexts/displaySettingsContext"
 
 import CellText from "../cell/CellText";
 import Symbol from "../symbol";
@@ -12,6 +13,7 @@ export default function BoardPreview({ board, width, height }){
     const { isTablet } = useDevice();
     const { fetchBoardById } = useBoard();
     const navigation = useNavigation();
+    const { contrastTheme } = useDisplaySettings();
     console.log("IMG PREVIEW:", board?.imgPreview);
     if(!board || !board.cells){
         return <View style={[styles.container, { width, height }]}></View>
@@ -29,6 +31,8 @@ export default function BoardPreview({ board, width, height }){
         <Pressable
             style={({ pressed }) => [
                 styles.container,
+                {backgroundColor: contrastTheme.cellBackground},
+                {borderColor: contrastTheme.cellBorder},
                 {
                 width: width || (isTablet ? 160 : 140),
                 height: height || (isTablet ? 140 : 125),
@@ -53,6 +57,7 @@ export default function BoardPreview({ board, width, height }){
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
+    borderWidth: 2,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',

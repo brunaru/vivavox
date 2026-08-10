@@ -3,6 +3,7 @@ import { View, Text, FlatList, StyleSheet, TouchableOpacity } from "react-native
 import { Picker } from "@react-native-picker/picker";
 import { useBoard } from "../../contexts/boardContext";
 import { useDevice } from "../../hooks/useDevice";
+import { useDisplaySettings } from "../../contexts/displaySettingsContext"
 import BoardPreview from "../../components/board/BoardPreview";
 
 function capitalize(text) {
@@ -13,6 +14,7 @@ export default function BoardRowSelector({ onClose }) {
   const { categorizedBoards, fetchCategorizedBoards, board, navigateToBoard } = useBoard();
   const { isTablet, isIOS } = useDevice();
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const { contrastTheme } = useDisplaySettings();
 
   useEffect(() => {
     fetchCategorizedBoards();
@@ -44,33 +46,36 @@ export default function BoardRowSelector({ onClose }) {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[
+      styles.container, 
+      {backgroundColor: contrastTheme.writeBar}
+      ]}>
       <View style={styles.filterRow}>
         <View style={styles.filterContainer}>
-          <Text style={isTablet ? styles.labelTablet : styles.label}>Categorias:</Text>
+          <Text style={[isTablet ? styles.labelTablet : styles.label, {color: contrastTheme.text}]}>Categorias:</Text>
 
           {isIOS ? (
-            <View style={styles.iosPickerWrapper}>
+            <View style={[styles.iosPickerWrapper, {backgroundColor: contrastTheme.cellBackground, borderColor: contrastTheme.cellBorder}]}>
               <Picker
                 selectedValue={selectedCategory}
                 onValueChange={(itemValue) => setSelectedCategory(itemValue)}
                 style={styles.iosPicker}
-                itemStyle={{ fontSize: 14, fontWeight: '500', height: 40 }}
+                itemStyle={{ fontSize: 14, fontWeight: '500', height: 40, color: contrastTheme.text}}
               >
                 <Picker.Item label="Todas" value="all" />
                 {categories.map((cat) => (
                   <Picker.Item key={cat} label={capitalize(cat)} value={cat} />
                 ))}
               </Picker>
-              <Text style={styles.iosArrow}>⇅</Text>
+              <Text style={[styles.iosArrow, {color: contrastTheme.text}]}>⇅</Text>
             </View>
           ) : (
-            <View style={styles.dropdownBox}>
-              <Text style={styles.dropdownText} numberOfLines={1}>
+            <View style={[styles.dropdownBox, {backgroundColor: contrastTheme.cellBackground, borderColor: contrastTheme.cellBorder}]}>
+              <Text style={styles.dropdownText, {color: contrastTheme.text}} numberOfLines={1}>
                 {selectedCategory === 'all' ? 'Todas' : capitalize(selectedCategory)}
               </Text>
 
-              <Text style={styles.arrow}>⌄</Text>
+              <Text style={[styles.arrow, {color: contrastTheme.text}]}>⌄</Text>
 
               <Picker
                 selectedValue={selectedCategory}
@@ -114,7 +119,6 @@ export default function BoardRowSelector({ onClose }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
     borderWidth: 2,
     borderColor: "#0b5c74",
     paddingVertical: 15,

@@ -41,6 +41,7 @@ export default function SettingsScreen() {
   const sections = useSettingsSections();
   const { isTablet, isLandscape } = useDevice();
   const navigation = useNavigation();
+  const { contrastTheme } = useDisplaySettings();
 
   const numColumns = isTablet ? (isLandscape ? 3 : 2) : 1;
 
@@ -49,21 +50,26 @@ export default function SettingsScreen() {
       onPress={() => navigation.navigate(item.routeName)}
       style={({ pressed }) => [
         styles.card,
+        { backgroundColor: contrastTheme.sectionBackground, borderColor: contrastTheme.cellBorder || contrastTheme.cellBorderFallback },
         numColumns > 1 && styles.cardGrid,
         pressed && styles.cardPressed,
       ]}
     >
       <Text style={styles.icon}>{item.icon}</Text>
       <View style={styles.cardContent}>
-        <Text style={styles.cardTitle}>{item.title}</Text>
-        <Text style={styles.cardSubtitle}>{item.subtitle}</Text>
+        <Text style={[styles.cardTitle, { color: contrastTheme.text, fontWeight: contrastTheme.textBold ? '800' : '600' }]}>
+          {item.title}
+        </Text>
+        <Text style={[styles.cardSubtitle, { color: contrastTheme.text, opacity: 0.75 }]}>
+          {item.subtitle}
+        </Text>
       </View>
-      <Text style={styles.chevron}>›</Text>
+      <Text style={[styles.chevron, { color: contrastTheme.text, opacity: 0.5 }]}>›</Text>
     </Pressable>
   );
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: contrastTheme.screenBackground }]}>
        <View>
           <LinearGradient 
             colors={['#031B45', '#003466', '#0a4780', '#026783', '#0388C2']} 
@@ -75,8 +81,10 @@ export default function SettingsScreen() {
             />
               <View style={[styles.topHeaderContent, isTablet && styles.topHeaderContentTablet]}>
                   <View>
-                    <Text style={styles.title}>Configurações</Text>
-                    <Text style={styles.subtitle}>Personalize o app do seu jeito!</Text>
+                    <Text style={[styles.title, { color: contrastTheme.title }]}>Configurações</Text>
+                    <Text style={[styles.subtitle, { color: contrastTheme.title, opacity: 0.85 }]}>
+                      Personalize o app do seu jeito!
+                    </Text>
                   </View>
                   <View>
                     <Image
@@ -104,8 +112,6 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    backgroundColor: '#ebf1f8',
-    borderColor: "#0b5c74", 
     borderRadius: 14,
     borderWidth: 2,
     flex: 1,
@@ -126,17 +132,13 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   cardSubtitle: {
-    color: '#15579e',
     fontSize: 13,
     marginTop: 2,
   },
   cardTitle: {
-    color: '#1C1C1E',
     fontSize: 16,
-    fontWeight: '600',
   },
   chevron: {
-    color: '#C7C7CC',
     fontSize: 22,
     fontWeight: '400',
   },
@@ -144,7 +146,6 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   container: {
-    backgroundColor: '#AFC0CB',
     flex: 1,
   },
   topHeader: {
@@ -185,7 +186,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   title: {
-    color: '#FFFFFF',
     fontSize: 28,
     fontWeight: 'bold',
   },
@@ -199,7 +199,6 @@ const styles = StyleSheet.create({
     paddingTop: 12,
   },
   subtitle: {
-    color: '#b6e9ff',
     fontSize: 14,
     fontWeight: '500',
     marginTop: 4,

@@ -23,7 +23,7 @@ export function UserContextProvider({ children }) {
             const currentTime = Date.now() / 1000;
             if (decodedUser.exp && decodedUser.exp < currentTime) {
               console.log("Token expired");
-              storage.delete('authToken');
+              storage.remove('authToken');
               setToken(null);
               setUser(null);
             } else {
@@ -42,7 +42,7 @@ export function UserContextProvider({ children }) {
               }
         } catch (error) {
             console.error("Error decoding token from storage:", error);
-           storage.delete('authToken'); // Remove invalid token
+           storage.remove('authToken'); // Remove invalid token
             setToken(null);
             setUser(null);
         }
@@ -120,7 +120,7 @@ export function UserContextProvider({ children }) {
       }
 
     } catch (error) {      // Clear any potentially stale auth state
-     storage.delete('authToken');
+     storage.remove('authToken');
       setToken(null);
       setUser(null);
       delete api.defaults.headers.common['Authorization'];
@@ -131,7 +131,7 @@ export function UserContextProvider({ children }) {
   // Logout function
   const signOutUser = () => {
     console.log("Signing out");
-     storage.delete('authToken'); 
+     storage.remove('authToken'); 
     setToken(null);
     setUser(null);
     // Remove default header

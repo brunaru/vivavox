@@ -1,7 +1,7 @@
 import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 import { Picker } from '@react-native-picker/picker'
 import LinearGradient from 'react-native-linear-gradient'
-
+import { useDisplaySettings } from "../../contexts/displaySettingsContext"
 import { useBoard } from '../../contexts/boardContext' 
 import { useDevice } from '../../hooks/useDevice'
 import BoardPreview from '../../components/board/BoardPreview'
@@ -24,6 +24,10 @@ export default function LibraryHeader({
     const { board, categorizedBoards } = useBoard();
     const { isTablet, isIOS } = useDevice();
     const categories = Object.keys(categorizedBoards || {});
+    const { contrastTheme } = useDisplaySettings();
+
+    const cellBorderColor = contrastTheme.cellBorder || contrastTheme.cellBorderFallback;
+    const textWeight = contrastTheme.textBold ? 'bold' : '500';
 
     const handleSearch = () => {
       setSearch(searchInput);
@@ -33,6 +37,7 @@ export default function LibraryHeader({
         <View
             style={[
                 styles.container,
+                { backgroundColor: contrastTheme.screenBackground1 },
                 hasShadow && styles.shadow,
                 isTablet && styles.containerTablet
             ]}
@@ -48,7 +53,7 @@ export default function LibraryHeader({
                 />
                 <View style={[styles.topHeaderContent, isTablet && styles.topHeaderContentTablet]}>
                   <View>
-                    <Text style={styles.title}>Biblioteca</Text>
+                    <Text style={[styles.title, { color: contrastTheme.title }]}>Biblioteca</Text>
                   </View>
                   <View>
                     <Image
@@ -61,34 +66,43 @@ export default function LibraryHeader({
             </View>
 
             <View style={styles.searchContainer}>
-              <View style={styles.searchLeft}>
+              <View style={[
+                styles.searchLeft,
+                { backgroundColor: contrastTheme.cellBackground, borderColor: cellBorderColor, borderWidth: contrastTheme.cellBorder ? 1 : 0 }
+              ]}>
                 <TextInput
                     placeholder='Procurar prancha'
-                    placeholderTextColor={'#868686'}
-                    style={styles.input}
+                    placeholderTextColor={contrastTheme.text}
+                    style={[styles.input, { backgroundColor: contrastTheme.cellBackground, color: contrastTheme.text }]}
                     value={searchInput}
                     onChangeText={setSearchInput}
                 />
               </View>
-              <View style={styles.searchRight}>
+              <View style={[
+                styles.searchRight,
+                { backgroundColor: contrastTheme.cellBackground, borderColor: cellBorderColor, borderWidth: contrastTheme.cellBorder ? 1 : 0 }
+              ]}>
                 <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
-                    <SearchIcon/>
+                    <SearchIcon color={contrastTheme.iconStroke} />
                 </TouchableOpacity>
               </View>
             </View>
 
             <View style={styles.filterContainer}>
-              <Text style={styles.label}>
+              <Text style={[styles.label, { color: contrastTheme.text, fontWeight: textWeight }]}>
                 Selecionar categorias:
               </Text>
 
               {isIOS ? (
-                <View style={styles.iosPickerWrapper}>
+                <View style={[
+                  styles.iosPickerWrapper,
+                  { backgroundColor: contrastTheme.cellBackground, borderColor: cellBorderColor }
+                ]}>
                   <Picker
                     selectedValue={selectedCategory}
                     onValueChange={(itemValue) => setSelectedCategory(itemValue)}
                     style={styles.iosPicker}
-                    itemStyle={{ fontSize: 16, fontWeight: '500' }}
+                    itemStyle={{ fontSize: 16, fontWeight: '500', color: contrastTheme.text }}
                   >
                     <Picker.Item label="Todas" value="all" />
                     {categories.map((cat) => (
@@ -99,17 +113,20 @@ export default function LibraryHeader({
                       />
                     ))}
                   </Picker>
-                  <Text style={styles.iosArrow}>⇅</Text>
+                  <Text style={[styles.iosArrow, { color: contrastTheme.text }]}>⇅</Text>
                 </View>
               ) : (
-                <View style={styles.dropdownBox}>
-                  <Text style={styles.dropdownText}>
+                <View style={[
+                  styles.dropdownBox,
+                  { backgroundColor: contrastTheme.cellBackground, borderColor: cellBorderColor }
+                ]}>
+                  <Text style={[styles.dropdownText, { color: contrastTheme.text, fontWeight: textWeight }]}>
                     {selectedCategory === 'all'
                       ? 'Todas'
                       : capitalize(selectedCategory)}
                   </Text>
 
-                  <Text style={styles.arrow}>⌄</Text>
+                  <Text style={[styles.arrow, { color: contrastTheme.text }]}>⌄</Text>
 
                   <Picker
                     selectedValue={selectedCategory}
@@ -130,7 +147,7 @@ export default function LibraryHeader({
             </View>
 
             <View style={styles.currentBoardContainer}>
-                <Text style={styles.sectionTitle}>Prancha atual:</Text>
+                <Text style={[styles.sectionTitle, { color: contrastTheme.text }]}>Prancha atual:</Text>
                 <BoardPreview board={board} />
             </View>
         </View>
@@ -139,7 +156,6 @@ export default function LibraryHeader({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#AFC0CB',
     paddingBottom: 20,
   },
   containerTablet: {
@@ -186,7 +202,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   title: {
-    color: '#FFF',
     fontSize: 28,
     fontWeight: 'bold',
   },
@@ -198,14 +213,12 @@ const styles = StyleSheet.create({
   searchLeft:{
     marginTop: -25,
     marginLeft: 15,
-    backgroundColor: '#E5E5E5',
     borderRadius: 20,
     paddingHorizontal: 10,
     width: '80%'
   },
   searchRight:{
     marginTop: -25,
-    backgroundColor: '#E5E5E5',
     borderRadius: 20,
     paddingHorizontal: 10,
     width: 40,
@@ -224,10 +237,8 @@ const styles = StyleSheet.create({
   },
   dropdownBox: {
     marginTop: 5,
-    backgroundColor: '#E5E5E5',
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: '#999',
     paddingHorizontal: 10,
     height: 30,
     justifyContent: 'center',
@@ -252,10 +263,8 @@ const styles = StyleSheet.create({
   },
   iosPickerWrapper: {
     flex: 1,
-    backgroundColor: '#E5E5E5',
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: '#999',
     height: 40,
     justifyContent: 'center',
     overflow: 'hidden',
@@ -269,7 +278,6 @@ const styles = StyleSheet.create({
     
   label: {
     fontSize: 15,
-    fontWeight: '500',
   },
   currentBoardContainer: {
     marginTop: 20,

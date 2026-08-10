@@ -1,6 +1,7 @@
 import { View, ScrollView, StyleSheet } from 'react-native'
 import { useState } from 'react'
 import { useDevice } from '../../hooks/useDevice'
+import { useDisplaySettings } from "../../contexts/displaySettingsContext"
 
 import LibraryHeader from './LibraryHeader'
 import BoardLibrary from './BoardLibrary'
@@ -10,12 +11,12 @@ export default function LibraryScreen(){
 
     const[searchInput, setSearchInput] = useState('')
     const[search, setSearch] = useState('')
-
+    const { contrastTheme } = useDisplaySettings();
     const [selectedCategory, setSelectedCategory] = useState('all')
     const [hasShadow, setHasShadow] = useState(false)
 
     return(
-        <View style={styles.container}>
+        <View style={[styles.container, {backgroundColor: contrastTheme.screenBackground1}]}>
             <LibraryHeader
                 hasShadow={hasShadow}
                 searchInput={searchInput}
@@ -55,7 +56,6 @@ export default function LibraryScreen(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#AFC0CB',
   },
   scroll: {
     flex: 1,

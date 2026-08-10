@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { usePhrase } from '../../contexts/phraseContext';
 import { useDevice } from '../../hooks/useDevice';
+import { useDisplaySettings } from '../../contexts/displaySettingsContext';
 import { getLocaleInfo, sortLocaleEntries } from '../../utils/localeInfo';
 import SettingsHeader from './SettingsHeader';
 
@@ -34,6 +35,7 @@ export default function VoiceSettings() {
   const { voices, selectedVoiceId, changeVoice, isTtsReady } = usePhrase();
   const { isTablet, isLandscape } = useDevice();
   const navigation = useNavigation();
+  const { contrastTheme } = useDisplaySettings();
 
   const [selectedLocale, setSelectedLocale] = useState(null);
 
@@ -54,19 +56,26 @@ export default function VoiceSettings() {
         onPress={() => changeVoice(voice.id)}
         style={({ pressed }) => [
           styles.card,
+          { backgroundColor: contrastTheme.sectionBackground, borderColor: contrastTheme.cellBorder || contrastTheme.cellBorderFallback },
           numColumns > 1 && styles.cardGrid,
-          isSelected && styles.cardSelected,
+          isSelected && { backgroundColor: contrastTheme.buttonBackground, borderColor: contrastTheme.buttonBorderColor },
           pressed && styles.cardPressed,
         ]}
       >
         <View style={styles.cardContent}>
-          <Text style={[styles.cardTitle, isSelected && styles.cardTitleSelected]}>
+          <Text style={[
+            styles.cardTitle,
+            { color: contrastTheme.text, fontWeight: contrastTheme.textBold ? '800' : '600' },
+            isSelected && { color: contrastTheme.iconStroke },
+          ]}>
             {voice.name || voice.id}
           </Text>
-          <Text style={styles.cardSubtitle}>{voice.quality || voice.language}</Text>
+          <Text style={[styles.cardSubtitle, { color: contrastTheme.text, opacity: 0.75 }]}>
+            {voice.quality || voice.language}
+          </Text>
         </View>
-        <View style={[styles.radio, isSelected && styles.radioSelected]}>
-          {isSelected && <View style={styles.radioDot} />}
+        <View style={[styles.radio, { borderColor: contrastTheme.buttonBorderColor }]}>
+          {isSelected && <View style={[styles.radioDot, { backgroundColor: contrastTheme.buttonBorderColor }]} />}
         </View>
       </Pressable>
     );
@@ -80,28 +89,33 @@ export default function VoiceSettings() {
         onPress={() => setSelectedLocale(country.locale)}
         style={({ pressed }) => [
           styles.card,
+          { backgroundColor: contrastTheme.sectionBackground, borderColor: contrastTheme.cellBorder || contrastTheme.cellBorderFallback },
           numColumns > 1 && styles.cardGrid,
-          hasSelectedVoice && styles.cardSelected,
+          hasSelectedVoice && { backgroundColor: contrastTheme.buttonBackground, borderColor: contrastTheme.buttonBorderColor },
           pressed && styles.cardPressed,
         ]}
       >
         <Text style={styles.flag}>{country.flag}</Text>
         <View style={styles.cardContent}>
-          <Text style={[styles.cardTitle, hasSelectedVoice && styles.cardTitleSelected]}>
+          <Text style={[
+            styles.cardTitle,
+            { color: contrastTheme.text, fontWeight: contrastTheme.textBold ? '800' : '600' },
+            hasSelectedVoice && { color: contrastTheme.iconStroke },
+          ]}>
             {country.country}
           </Text>
-          <Text style={styles.cardSubtitle}>
+          <Text style={[styles.cardSubtitle, { color: contrastTheme.text, opacity: 0.75 }]}>
             {country.voices.length} {country.voices.length === 1 ? 'voz' : 'vozes'}
           </Text>
         </View>
-        <Text style={styles.chevron}>›</Text>
+        <Text style={[styles.chevron, { color: contrastTheme.text, opacity: 0.5 }]}>›</Text>
       </Pressable>
     );
   };
 
   if (!isTtsReady) {
     return (
-      <View style={styles.containerRow}>
+      <View style={[styles.containerRow, { backgroundColor: contrastTheme.screenBackground }]}>
         <SettingsHeader 
           title="Configurações de voz"
           subtitle="Carregando vozes disponíveis..."
@@ -114,7 +128,7 @@ export default function VoiceSettings() {
 
   if (!voices || voices.length === 0) {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { backgroundColor: contrastTheme.screenBackground }]}>
         <SettingsHeader 
           title="Configurações de voz"
           subtitle="Nenhuma voz disponível neste dispositivo."
@@ -126,7 +140,7 @@ export default function VoiceSettings() {
 
   if (currentCountry) {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { backgroundColor: contrastTheme.screenBackground }]}>
         <SettingsHeader 
           title={`${currentCountry.flag} ${currentCountry.country}`}
           subtitle="Toque em uma voz para selecioná-la."
@@ -148,7 +162,7 @@ export default function VoiceSettings() {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: contrastTheme.screenBackground }]}>
       <SettingsHeader 
         title="Configurações de voz"
         subtitle="Escolha o país para ver as vozes disponíveis."
@@ -171,12 +185,10 @@ export default function VoiceSettings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#AFC0CB',
   },
   containerRow: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#AFC0CB',
   },
   listContent: {
     paddingHorizontal: 16,
@@ -191,8 +203,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#ebf1f8',
-    borderColor: "#0b5c74", 
     borderRadius: 14,
     paddingVertical: 14,
     paddingHorizontal: 16,
@@ -201,10 +211,6 @@ const styles = StyleSheet.create({
   },
   cardGrid: {
     marginHorizontal: 6,
-  },
-  cardSelected: {
-    borderColor: "#3078b0", 
-    backgroundColor: '#beddf4',
   },
   cardPressed: {
     opacity: 0.7,
@@ -215,15 +221,9 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 16,
-    fontWeight: '600',
-    color: '#1C1C1E',
-  },
-  cardTitleSelected: {
-    color: '#3078b0',
   },
   cardSubtitle: {
     fontSize: 13,
-    color: '#15579e',
     marginTop: 2,
   },
   flag: {
@@ -232,24 +232,18 @@ const styles = StyleSheet.create({
   },
   chevron: {
     fontSize: 22,
-    color: '#C7C7CC',
   },
   radio: {
     width: 22,
     height: 22,
     borderRadius: 11,
     borderWidth: 2,
-    borderColor: '#C7C7CC',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  radioSelected: {
-    borderColor: '#007AFF',
   },
   radioDot: {
     width: 12,
     height: 12,
     borderRadius: 6,
-    backgroundColor: '#007AFF',
   },
 });

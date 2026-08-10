@@ -1,6 +1,8 @@
+// SettingsHeader.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Button from "../../components/Button";
+import { useDisplaySettings } from "../../contexts/displaySettingsContext";
 
 export default function SettingsHeader({ 
   title, 
@@ -9,8 +11,13 @@ export default function SettingsHeader({
   backText,
   isTablet 
 }) {
+  const { contrastTheme } = useDisplaySettings();
+
   return (
-    <View style={isTablet ? styles.headerTablet : styles.header}>
+    <View style={[
+      isTablet ? styles.headerTablet : styles.header,
+      { backgroundColor: contrastTheme.boardTitleBackground }
+    ]}>
       <View style={styles.headerRow}>
         {onBack && (
           <View style={styles.backButtonContainer}>
@@ -31,8 +38,12 @@ export default function SettingsHeader({
         )}
         
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{title}</Text>
-          {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
+          <Text style={[styles.title, { color: contrastTheme.title }]}>{title}</Text>
+          {subtitle && (
+            <Text style={[styles.subtitle, { color: contrastTheme.title, opacity: 0.85 }]}>
+              {subtitle}
+            </Text>
+          )}
         </View>
       </View>
     </View>
@@ -41,7 +52,6 @@ export default function SettingsHeader({
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#0b5c74',
     paddingTop: 40,
     paddingBottom: 24,
     paddingHorizontal: 20,
@@ -52,7 +62,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   headerTablet: {
-    backgroundColor: '#0b5c74',
     paddingTop: 40,
     paddingBottom: 24,
     paddingHorizontal: 20,
@@ -82,12 +91,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#ffffff',
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 14,
-    color: '#b6e9ff',
     marginTop: 4,
     textAlign: 'center',
   },

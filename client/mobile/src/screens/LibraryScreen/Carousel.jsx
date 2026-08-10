@@ -1,6 +1,7 @@
 import { View, Text, Dimensions, FlatList } from 'react-native';
 import { useDevice } from '../../hooks/useDevice';
 import BoardPreview from '../../components/board/BoardPreview';
+import { useDisplaySettings } from "../../contexts/displaySettingsContext"
 
 function capitalize(text) {
   return text.charAt(0).toUpperCase() + text.slice(1);
@@ -8,7 +9,7 @@ function capitalize(text) {
 
 export default function LibraryCarousel({ title, boards = [] }) {
   const { isTablet, width, height, isLandscape } = useDevice();
-
+  const { contrastTheme } = useDisplaySettings();
   const ITEM_WIDTH = isTablet
     ? isLandscape
       ? width * 0.15   
@@ -23,12 +24,14 @@ export default function LibraryCarousel({ title, boards = [] }) {
   return (
     <View style={{ marginBottom: 24 }}>
       <Text
-        style={{
+        style={[{
           fontSize: isTablet ? 18 : 16,
           fontWeight: 'bold',
           marginBottom: 12,
           marginLeft: 20,
-        }}
+        },
+        {color: contrastTheme.text}
+      ]}
       >
         {capitalize(title)}
       </Text>
