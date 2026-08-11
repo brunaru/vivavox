@@ -157,8 +157,8 @@ export default function ConfigBoardMenu() {
             {loading && <ActivityIndicator style={{ marginVertical: 10 }} />}
 
             <View style={styles.actionsRow}>
-              <Button text={loading ? "Salvando..." : "Confirmar"} onPress={handleConfirm} />
               <Button text="Cancelar" onPress={close} />
+              <Button text={loading ? "Salvando..." : "Confirmar"} onPress={handleConfirm} />
             </View>
           </ScrollView>
         </View>

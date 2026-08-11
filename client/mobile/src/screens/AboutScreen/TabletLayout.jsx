@@ -12,6 +12,7 @@ import {
   Seaweed,
   Turtle,
 } from '../../assets/items';
+import { useDisplaySettings } from "../../contexts/displaySettingsContext";
 import { useNavigation } from '@react-navigation/native';
 
 import AboutText from './components/AboutText';
@@ -20,9 +21,10 @@ import RelatedArticles from './components/RelatedArticles';
 
 export default function ContentTablet() {
   const navigation = useNavigation();
+  const { contrastTheme } = useDisplaySettings();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {backgroundColor: contrastTheme.screenBackground1}]}>
       <LinearGradient
         colors={['#031B45', '#003466', '#0a4780', '#026783', '#0388C2']}
         style={styles.bg}
@@ -43,7 +45,7 @@ export default function ContentTablet() {
 
             <View style={styles.bottom}>
               <TurtleText />
-              <Text style={styles.subtitle}>Artigos relacionados:</Text>
+              <Text style={[styles.subtitle, {color: contrastTheme.text}]}>Artigos relacionados:</Text>
               <RelatedArticles />
             </View>
         </View>
@@ -59,22 +61,22 @@ export default function ContentTablet() {
           <AboutText style={{ marginBottom: 10}}/>
 
           <View style={styles.buttonsSection}>
-            <Text style={styles.subtitle}>
+            <Text style={[styles.subtitle, {color: contrastTheme.text}]}>
               Gostou da nossa proposta?
             </Text>
 
             <View style={styles.buttons}>
               <Pressable
-                style={styles.buttonOutline}
+                style={[styles.buttonOutline, {borderColor: contrastTheme.subtitle}]}
                 onPress={() => navigation.navigate('Login')}
               >
-                <Text style={styles.buttonOutlineText}>
+                <Text style={[styles.buttonOutlineText, {color: contrastTheme.subtitle}]}>
                   Entrar
                 </Text>
               </Pressable>
 
               <Pressable
-                style={styles.buttonFilled}
+                style={[styles.buttonFilled, {backgroundColor: contrastTheme.buttonBackground1}, {borderColor: contrastTheme.buttonText}]}
                 onPress={() => navigation.navigate('SignUp')}
               >
                 <Text style={styles.buttonFilledText}>
@@ -210,6 +212,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 28,
     borderRadius: 30,
+    borderWidth: 2,
   },
 
   buttonFilledText: {

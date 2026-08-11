@@ -49,8 +49,12 @@ const Board = forwardRef((props, ref) => {
   const gap = 10;
   let numColumns = columns[deviceType];
 
-  const sidebarWidth = isSidebarOpen ? SIDEBAR_WIDTH_OPEN : SIDEBAR_WIDTH_COLLAPSED;
-  const availableWidth = width - sidebarWidth - horizontalPadding * 2;
+  const sidebarAffectsLayout = isTablet; 
+  const sidebarWidth = sidebarAffectsLayout
+    ? (isSidebarOpen ? SIDEBAR_WIDTH_OPEN : SIDEBAR_WIDTH_COLLAPSED)
+    : 0;
+
+  const availableWidth = Math.max(width - sidebarWidth - horizontalPadding * 2, MIN_CELL_SIZE);
 
   let cellSize;
   do {
@@ -62,6 +66,8 @@ const Board = forwardRef((props, ref) => {
       break;
     }
   } while (numColumns > 1);
+
+  cellSize = Math.max(cellSize, MIN_CELL_SIZE);
 
   return (
     <FlatList

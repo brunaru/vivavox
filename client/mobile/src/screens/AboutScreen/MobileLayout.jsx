@@ -3,6 +3,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { View, Text, Image, StyleSheet, ScrollView, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDevice } from '../../hooks/useDevice';
+import { useDisplaySettings } from "../../contexts/displaySettingsContext";
 
 import { AboutTurtle, Seaweed, BubblesHalfPage } from "../../assets/items";
 
@@ -13,9 +14,10 @@ import RelatedArticles from "./components/RelatedArticles";
 export default function ContentMobile(){
     const navigation = useNavigation();
     const { isTablet, isLandscape } = useDevice();
+    const { contrastTheme } = useDisplaySettings();
 
     return(
-        <ScrollView style={styles.container}>
+        <ScrollView style={[styles.container, {backgroundColor: contrastTheme.screenBackground1}]}>
             <LinearGradient
                 colors={['#031B45', '#003466', '#0a4780', '#026783', '#0388C2']}
                 style={styles.bg}
@@ -36,7 +38,7 @@ export default function ContentMobile(){
                 <View style={styles.turtleSection}>
                     <Image
                         source={AboutTurtle}
-                        style={styles.turtle}
+                        style={[styles.turtle, {borderColor: contrastTheme.buttonText}]}
                     />
                 </View>
                 <TurtleText/>
@@ -45,15 +47,15 @@ export default function ContentMobile(){
                     isTablet && !isLandscape && { paddingHorizontal: 24 }
                 ]}
                 >
-                    <Text style={styles.subtitle}>Gostou da nossa proposta?</Text>
+                    <Text style={[styles.subtitle, {color: contrastTheme.text}]}>Gostou da nossa proposta?</Text>
                     <Pressable
-                        style={styles.button}
+                        style={[styles.button, {backgroundColor: contrastTheme.buttonBackground1}, {borderColor: contrastTheme.buttonText}]}
                         onPress={() => navigation.navigate('Login')}
                     >
-                        <Text style={styles.buttonText}>Entrar</Text>
+                        <Text style={[styles.buttonText, {color: contrastTheme.buttonText}]}>Entrar</Text>
                     </Pressable>
                     <View style={styles.linkContainer}>
-                        <Text style={styles.normalText}>
+                        <Text style={[styles.normalText, {color: contrastTheme.text}]}>
                             Ainda não tem uma conta?
                         </Text>
 
@@ -61,10 +63,10 @@ export default function ContentMobile(){
                             android_ripple={{ color: '#ccc' }}
                             onPress={() => navigation.navigate('SignUp')}
                         >
-                            <Text style={styles.link}>Criar uma conta</Text>
+                            <Text style={[styles.link, {color: contrastTheme.subtitle}]}>Criar uma conta</Text>
                         </Pressable>
                     </View>
-                    <Text style={styles.subtitle}>Artigos relacionados:</Text>
+                    <Text style={[styles.subtitle, {color: contrastTheme.text}]}>Artigos relacionados:</Text>
                     <RelatedArticles/>
                 </View>
             </View>
@@ -75,7 +77,6 @@ export default function ContentMobile(){
 const styles = StyleSheet.create({
      container:{
         paddingBottom: 40,
-        backgroundColor: '#D1E3EE',
     },
     bg:{
         flex: 0.40,
@@ -117,6 +118,9 @@ const styles = StyleSheet.create({
         width: 160,
         height: 160,
         resizeMode: 'contain',
+        borderWidth: 1,
+        borderColor: '#D1E3EE',
+        borderRadius: 100
     },
     subtitle:{
         marginTop: 20,
@@ -130,6 +134,8 @@ const styles = StyleSheet.create({
         padding: 14,
         borderRadius: 30,
         alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#D1E3EE',
     },
 
     buttonText:{

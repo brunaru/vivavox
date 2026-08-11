@@ -174,8 +174,8 @@ export default function ConfigCellMenu() {
 
             <View style={styles.actionsRow}>
               {!isNewCell && <Button text="Remover célula" onPress={handleRemove} />}
-              <Button text={loading ? "Salvando..." : "Confirmar"} onPress={handleConfirm} />
               <Button text="Cancelar" onPress={close} />
+              <Button text={loading ? "Salvando..." : "Confirmar"} onPress={handleConfirm} />
             </View>
           </ScrollView>
         </View>
